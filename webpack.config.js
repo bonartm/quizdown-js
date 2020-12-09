@@ -15,11 +15,11 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(),
   ],
-  entry: path.resolve(__dirname, 'src/quizzy.js'),
+  entry: path.resolve(__dirname, 'src/quizdown.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'quizzy.js',
-    library: 'quizzy',
+    filename: 'quizdown.js',
+    library: 'quizdown',
     libraryTarget: 'umd',
     libraryExport: 'default',
     globalObject: 'this'
