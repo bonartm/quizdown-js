@@ -51,8 +51,6 @@ Combining all steps should lead to something like this:
         - [ ] Paris
         - [ ] Cologne
 
-        ---
-
         ### Please bring the following into order!
 
         1. 1
@@ -61,9 +59,9 @@ Combining all steps should lead to something like this:
         4. 4
         5. 5
 
-        --- 
-
         ### Please assign a word to each concept!
+
+
         banana -> fruit
         apple -> fruit
         tomato -> vegetable
@@ -76,13 +74,9 @@ Combining all steps should lead to something like this:
 
 ## Quiz types and syntax
 
-A quiz is initialized with a `<div class="quizzy"><div>` tag. Inside the `div` 
-you can write quizzes in a markdown-like syntax. 
-
-- Each quiz task is separated by `---`
+- A quiz is initialized with a `<div class="quizzy"><div>` tag. 
+- Inside the `div` you can write quizzes in a markdown-like syntax. 
 - Each quiz task begins with a description/ question: `### How are you?`
-- After the description one can choose one of the following quit types:
-
 
 ### Multiple choice
 
@@ -99,11 +93,11 @@ you can write quizzes in a markdown-like syntax.
 ```markdown
 ### Please bring the following into sequence!
 
-1. 1
-2. 2
-3. 3
-4. 4
-5. 5
+1. One
+2. Two
+3. Three
+4. Four
+5. Five
 ```
 
 ### Pairs
@@ -118,16 +112,8 @@ kiwi -> fruit
 
 ## Development
 
-compile the grammar files in the `src/garammers/` directory by running
-
-```bash
-npm run compile
-```
-
-build the library with 
+compile the grammar and build the library with 
 
 ```bash
 npm run build
 ```
-
-
