@@ -9,7 +9,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      hash: true,
+      hash: false,
       template: './src/index.html',
       title: 'Development',
     }),
