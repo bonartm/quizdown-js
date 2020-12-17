@@ -1,5 +1,7 @@
 # quizdown
 
+![Build and deploy](https://github.com/bonartm/quizdown-js/workflows/Build%20and%20deploy/badge.svg)
+
 Markdownish syntax for generating interactive quizzes. Inspired by the [mermaid library](https://mermaid-js.github.io/mermaid/#/) and the python package [quizdown](https://github.com/jjfiv/quizdown).
 
 ## Usage
