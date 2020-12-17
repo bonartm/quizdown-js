@@ -1,0 +1,42 @@
+name: Build and deploy
+
+on: [push, pull_request]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [12.x]
+        steps:
+            - uses: actions/checkout@v1
+
+            - name: Setup Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+
+            - name: Cache Node Modules
+              uses: actions/cache@v1
+              with:
+                  path: .cache
+                  key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+
+            - name: Install Packages
+              run: |
+                  npm install
+
+            - name: Run Build
+              run: npm run build
+
+            - name: Upload Build as Artifact
+              uses: actions/upload-artifact@v1
+              with:
+                  name: dist
+                  path: dist
+
+            - name: Deploy
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_branch: gh-pages
