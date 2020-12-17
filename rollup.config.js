@@ -43,30 +43,6 @@ export default {
         file: 'public/quizdown.js',
     },
     plugins: [
-        production &&
-            license({
-                sourcemap: true,
-
-                banner: {
-                    commentStyle: 'regular', // The default
-
-                    content: {
-                        file: path.join(__dirname, 'LICENSE'),
-                        encoding: 'utf-8', // Default is utf-8
-                    },
-                },
-
-                thirdParty: {
-                    output: {
-                        file: path.join(
-                            __dirname,
-                            'public',
-                            'dependencies.txt'
-                        ),
-                        encoding: 'utf-8', // Default is utf-8.
-                    },
-                },
-            }),
         svelte({
             compilerOptions: {
                 // enable run-time checks when not in production
@@ -100,6 +76,30 @@ export default {
         // If we're building for production (npm run build
         // instead of npm run dev), minify
         production && terser(),
+        production &&
+            license({
+                sourcemap: true,
+
+                banner: {
+                    commentStyle: 'regular', // The default
+
+                    content: {
+                        file: path.join(__dirname, 'LICENSE'),
+                        encoding: 'utf-8', // Default is utf-8
+                    },
+                },
+
+                thirdParty: {
+                    output: {
+                        file: path.join(
+                            __dirname,
+                            'public',
+                            'dependencies.txt'
+                        ),
+                        encoding: 'utf-8', // Default is utf-8.
+                    },
+                },
+            }),
     ],
     watch: {
         clearScreen: false,

@@ -1,3 +1,7 @@
+<%= pkg.name %>
+Generated: <%= moment().format('YYYY-MM-DD') %>
+Version: <%= pkg.version %>
+
 The MIT License
 
 Copyright (c) 2020 Malte Bonart https://maltebonart.de
