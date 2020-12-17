@@ -40,7 +40,7 @@ export default {
         sourcemap: true,
         format: 'iife',
         name: 'quizdown',
-        file: 'public/quizdown.js',
+        file: 'dist/quizdown.js',
     },
     plugins: [
         svelte({
@@ -69,9 +69,9 @@ export default {
         // the bundle has been generated
         !production && serve(),
 
-        // Watch the `public` directory and refresh the
+        // Watch the `dist` directory and refresh the
         // browser on changes when not in production
-        !production && livereload('public'),
+        !production && livereload('dist'),
 
         // If we're building for production (npm run build
         // instead of npm run dev), minify
@@ -91,11 +91,7 @@ export default {
 
                 thirdParty: {
                     output: {
-                        file: path.join(
-                            __dirname,
-                            'public',
-                            'dependencies.txt'
-                        ),
+                        file: path.join(__dirname, 'dist', 'dependencies.txt'),
                         encoding: 'utf-8', // Default is utf-8.
                     },
                 },
