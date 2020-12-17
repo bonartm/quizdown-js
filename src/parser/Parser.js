@@ -1,8 +1,6 @@
-const nearley = require("nearley");
-const grammar = require("./grammar.js");
-
-// Create a Parser object from our grammar.
-const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+const nearley = require('nearley');
+const grammar = require('./grammar.js');
+const { ParserRules } = require('./grammar.js');
 
 // var test_string = `
 
@@ -45,10 +43,11 @@ const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
 //     }
 // }
 
-function parse(txt){
+function parse(txt) {
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
     parser.feed(txt.trim());
+    parser.finish();
     return parser.results[0];
 }
-
 
 module.exports = parse;
