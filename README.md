@@ -15,6 +15,21 @@ Markdownish syntax for generating interactive quizzes. Inspired by the [mermaid 
 </head>
 ```
 
+You can also use `jsdelivr`:
+
+```html
+<head>
+    <link 
+        rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@v0.0.1-alpha.1/dist/quizdown.css"
+    />
+    <script 
+        defer 
+        src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@v0.0.1-alpha.1/dist/quizdown.js">
+    </script>
+</head>
+```
+
 2. Each quiz has to be embedded in a `<div class="quizdown">` tag:
 
 ```html
