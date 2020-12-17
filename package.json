@@ -6,8 +6,7 @@
     "scripts": {
         "prebuild": "bash compile.sh",
         "build": "rollup -c",
-        "dev": "rollup -c -w",
-        "start": "sirv public"
+        "dev": "rollup -c -w"
     },
     "keywords": [
         "quiz",
