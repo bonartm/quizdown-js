@@ -6,11 +6,21 @@ import {
     Sequence,
     Answer,
 } from './quiz.js';
-import hljs from 'highlight.js';
+import hljs from 'highlight.js/lib/core';
+import python from 'highlight.js/lib/languages/python';
+// import html from 'highlight.js/lib/languages/xml';
+// import javascript from 'highlight.js/lib/languages/javascript';
+// import css from 'highlight.js/lib/languages/css';
+// import bash from 'highlight.js/lib/languages/bash';
+// import markdown from 'highlight.js/lib/languages/markdown';
+// import sql from 'highlight.js/lib/languages/sql';
+// import docker from 'highlight.js/lib/languages/dockerfile';
 import App from './App.svelte';
 import { decode } from 'he';
 import DOMPurify from 'dompurify';
 import stripIndent from 'strip-indent';
+
+hljs.registerLanguage('python', python);
 
 marked.setOptions({
     highlight: function (code, language) {
