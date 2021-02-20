@@ -3,9 +3,9 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
+import sveltePreprocess from 'svelte-preprocess';
+import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
-import license from 'rollup-plugin-license';
-import path from 'path';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -35,21 +35,21 @@ function serve() {
 }
 
 export default {
-    input: 'src/quizdown.js',
+    input: 'src/quizdown.ts',
     output: {
         sourcemap: true,
         format: 'iife',
         name: 'quizdown',
-        file: 'dist/quizdown.js',
+        file: 'public/build/quizdown.js',
     },
     plugins: [
         svelte({
+            preprocess: sveltePreprocess({ sourceMap: !production }),
             compilerOptions: {
                 // enable run-time checks when not in production
                 dev: !production,
             },
         }),
-
         // we'll extract any component CSS out into
         // a separate file - better for performance
         css({ output: 'quizdown.css' }),
@@ -64,38 +64,26 @@ export default {
             dedupe: ['svelte'],
         }),
         commonjs(),
+        typescript({
+            sourceMap: !production,
+            inlineSources: !production,
+        }),
+        typescript({
+            sourceMap: !production,
+            inlineSources: !production,
+        }),
 
         // In dev mode, call `npm run start` once
         // the bundle has been generated
         !production && serve(),
 
-        // Watch the `dist` directory and refresh the
+        // Watch the `public` directory and refresh the
         // browser on changes when not in production
-        !production && livereload('dist'),
+        !production && livereload('public'),
 
         // If we're building for production (npm run build
         // instead of npm run dev), minify
         production && terser(),
-        production &&
-            license({
-                sourcemap: true,
-
-                banner: {
-                    commentStyle: 'regular', // The default
-
-                    content: {
-                        file: path.join(__dirname, 'LICENSE'),
-                        encoding: 'utf-8', // Default is utf-8
-                    },
-                },
-
-                thirdParty: {
-                    output: {
-                        file: path.join(__dirname, 'dist', 'dependencies.txt'),
-                        encoding: 'utf-8', // Default is utf-8.
-                    },
-                },
-            }),
     ],
     watch: {
         clearScreen: false,
