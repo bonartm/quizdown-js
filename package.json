@@ -21,7 +21,7 @@
         "@rollup/plugin-node-resolve": "^11.0.0",
         "@rollup/plugin-typescript": "^6.0.0",
         "@tsconfig/svelte": "^1.0.10",
-        "rollup": "^2.3.4",
+        "rollup": "^2.39.0",
         "rollup-plugin-css-only": "^3.1.0",
         "rollup-plugin-livereload": "^2.0.0",
         "rollup-plugin-svelte": "^7.0.0",
@@ -32,6 +32,7 @@
         "tslib": "^2.0.0",
         "typescript": "^3.9.3"
     },
+    "repository": "https://github.com/bonartm/quizdown-js",
     "main": "public/build/quizdown.js",
     "dependencies": {
         "auto-bind": "^4.0.0",
