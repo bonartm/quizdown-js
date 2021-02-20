@@ -21,6 +21,7 @@ const views = {
 	'Gaps': BlanksView,
 	'Pairs': PairsView
 }
+
 </script>
 
 <svelte:head>
@@ -38,14 +39,14 @@ const views = {
 	
 			<div class:disabled="{current.explanation === null || current.explanation === ''}" class="explanation">
 				{@html current.explanation}
-			</div>
-	
+			</div>	
+
 			<div class:disabled="{current.hint === null || current.hint === ''}" class='hint'>
 				<button on:click={() => show_hint=!show_hint}>?</button>
 				{#if show_hint}{@html current.hint}{/if}
 			</div>
 	
-			<svelte:component this={views[current.constructor.name]} quiz={quiz}/>
+			<svelte:component this={views[current.type]} quiz={quiz}/>
 		{:else}
 			<Result quiz={quiz}></Result>
 		{/if}
