@@ -57,43 +57,43 @@ Combining all steps should lead to something like this:
     </head>
     <body>
         <div class="quizdown">
-            	# What is the capital of Berlin?
+			# What is the capital of Berlin?
 
-				In this question you are asked a **very** difficult question.
+			In this question you are asked a **very** difficult question.
 
-				> Do some research!
+			> Do some research!
 
-				- [x] Berlin
-				- [ ] Stuttgart
-				- [ ] Cologne
-				- [ ] Düsseldorf
+			- [x] Berlin
+			- [ ] Stuttgart
+			- [ ] Cologne
+			- [ ] Düsseldorf
 
-				# Please bring the following into order!
+			# Please bring the following into order!
 
-				Below you find the steps of the machine learning workflow. Do you find the **correct order**?
+			Below you find the steps of the machine learning workflow. Do you find the **correct order**?
 
-				> The model selection happens before the `final model evaluaton`!
+			> The model selection happens before the `final model evaluaton`!
 
-				1. Get the data
-				2. Explore the data
-				3. Train test split with `train_test_split()`
-				4. Feature engineering
-				5. Model selection
-				6. Model evaluation
-				7. Deployment
+			1. Get the data
+			2. Explore the data
+			3. Train test split with `train_test_split()`
+			4. Feature engineering
+			5. Model selection
+			6. Model evaluation
+			7. Deployment
 
-				# What is the value of `y`?
+			# What is the value of `y`?
 
-				```python
-				x = 2+2
-				y = x+2
-				print(y)
-				```
+			```python
+			x = 2+2
+			y = x+2
+			print(y)
+			```
 
-				- [ ] `2`
-				- [x] `6`
-				- [ ] `None`
-				- [ ] `9`
+			- [ ] `2`
+			- [x] `6`
+			- [ ] `None`
+			- [ ] `9`
         </div>
     </body>
 </html>
@@ -103,8 +103,9 @@ Combining all steps should lead to something like this:
 
 - A quiz is initialized with a `<div class="quizdown"><div>` tag.
 - Inside the `div` you can write quizzes in a markdown-like syntax.
-- Each quiz task begins with a question: `### How are you?`
-- You can add hints as in a *blockquote* `>`
+- Each quiz task begins with a question: `### How are you?`.
+- You can add hints in a *blockquote* `>`
+- Quizdown supports syntax highlighting and text formatting!
 
 ### Multiple choice
 
