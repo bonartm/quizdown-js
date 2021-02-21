@@ -6,6 +6,12 @@ Markdownish syntax for generating interactive quizzes. Inspired by the [mermaid 
 
 ## Usage
 
+quizdown is best used in combination with existing static site generators like hugo or sphinx. Check out
+[hugo-quiz](https://github.com/bonartm/hugo-quiz) and [sphinxcontrib-quizdown](https://github.com/bonartm/sphinxcontrib-quizdown).
+
+
+## Getting Started
+
 1. Include the `quizdown.js` library and the corresponding `quizdown.css` in your page:
 
 ```html
@@ -143,10 +149,10 @@ Fruits and vegetables ...
 
 > kiwi is a fruit...
 
-banana -> fruit
-apple -> fruit
-tomato -> vegetable
-kiwi -> fruit
+- [banana](fruit)
+- [apple](fruit)
+- [tomato](vegetable)
+- [kiwi](fruit)
 ```
 
 ### Fill in the Blanks (WIP)
