@@ -6,21 +6,23 @@ import {
     Sequence,
     Answer,
 } from './quiz.js';
-import hljs from 'highlight.js/lib/core';
-import python from 'highlight.js/lib/languages/python';
-// import html from 'highlight.js/lib/languages/xml';
-// import javascript from 'highlight.js/lib/languages/javascript';
-// import css from 'highlight.js/lib/languages/css';
-// import bash from 'highlight.js/lib/languages/bash';
-// import markdown from 'highlight.js/lib/languages/markdown';
-// import sql from 'highlight.js/lib/languages/sql';
-// import docker from 'highlight.js/lib/languages/dockerfile';
 import App from './App.svelte';
-import { decode } from 'he';
 import DOMPurify from 'dompurify';
 import stripIndent from 'strip-indent';
+import hljs from 'highlight.js/lib/core';
+import python from 'highlight.js/lib/languages/python';
+import plaintext from 'highlight.js/lib/languages/plaintext';
 
 hljs.registerLanguage('python', python);
+hljs.registerLanguage('plaintext', plaintext);
+
+import 'highlight.js/styles/github.css';
+
+// this does not work....
+// ['javascript', 'python', 'bash'].forEach(async (langName) => {
+//     const langModule = await import(`highlight.js/lib/languages/${langName}`);
+//     hljs.registerLanguage(langName, langModule);
+// });
 
 marked.setOptions({
     highlight: function (code, language) {
@@ -53,6 +55,12 @@ marked.use({ renderer });
 
 function parse_tokens(tokens): string {
     return DOMPurify.sanitize(marked.parser(tokens));
+}
+
+function htmlDecode(input) {
+    // https://stackoverflow.com/questions/1912501/unescape-html-entities-in-javascript
+    var doc = new DOMParser().parseFromString(input, 'text/html');
+    return doc.documentElement.textContent;
 }
 
 function parse_quizdown(raw_quizdown: string): Quiz {
@@ -94,24 +102,28 @@ function parse_quizdown(raw_quizdown: string): Quiz {
     return new Quiz(questions);
 }
 
-const init = function () {
-    let nodes = document.querySelectorAll('.quizdown');
-    for (let node of nodes) {
-        let raw_quizdown = node.innerHTML;
-        node.innerHTML = '';
-        raw_quizdown = stripIndent(decode(raw_quizdown));
+export function create_app(raw_quizdown: string, node: Element) {
+    node.innerHTML = '';
+    raw_quizdown = htmlDecode(stripIndent(raw_quizdown));
+    try {
+        let quiz = parse_quizdown(raw_quizdown);
         new App({
             target: node,
             intro: false,
             props: {
-                quiz: parse_quizdown(raw_quizdown),
+                quiz: quiz,
             },
         });
+    } catch (e) {
+        node.innerHTML = `${e}. App could not render. Please check your quizdown syntax.`;
     }
-};
+}
+
+export function init() {
+    let nodes = document.querySelectorAll('.quizdown');
+    for (let node of nodes) {
+        create_app(node.innerHTML, node);
+    }
+}
 
 window.onload = init;
-
-const quizdown = {
-    init,
-};

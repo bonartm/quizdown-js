@@ -8,6 +8,7 @@ import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
 import analyze from 'rollup-plugin-analyzer';
 
+
 const production = !process.env.ROLLUP_WATCH;
 
 function serve() {
@@ -39,7 +40,7 @@ export default {
     input: 'src/quizdown.ts',
     output: {
         sourcemap: true,
-        format: 'iife',
+        format: 'umd',
         name: 'quizdown',
         file: 'public/build/quizdown.js',
     },
@@ -69,10 +70,6 @@ export default {
             sourceMap: !production,
             inlineSources: !production,
         }),
-        typescript({
-            sourceMap: !production,
-            inlineSources: !production,
-        }),
 
         // In dev mode, call `npm run start` once
         // the bundle has been generated
@@ -85,7 +82,7 @@ export default {
         // If we're building for production (npm run build
         // instead of npm run dev), minify
         production && terser(),
-        analyze(),
+        production && analyze(),
     ],
     watch: {
         clearScreen: false,

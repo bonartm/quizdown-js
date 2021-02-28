@@ -1,59 +1,52 @@
 <script lang="ts">
-    export let quiz;
+    import type { Quiz } from '../quiz';
+    import Button from './Button.svelte'
+    export let quiz: Quiz;
+    import SpeechBubble from '../slots/SpeechBubble.svelte'
+
     $: counter = quiz.counter
     $: finished = quiz.finished
+    $: current =  quiz.questions[$counter]
+    $: show_hint = false
+
 </script>
+
+<div class="button-row">
+
+
+    {#if !$finished}
+        <Button disabled={$counter === 0} buttonAction={quiz.previous}>Previous</Button>
+        <span>
+            <Button disabled={current.hint === null || current.hint === ''} buttonAction={() => show_hint=!show_hint}>Help me!</Button>
+            {#if show_hint}<SpeechBubble>{@html current.hint}</SpeechBubble>{/if}
+        </span>	
+        {#if $counter === counter.max-1}
+            <Button buttonAction={quiz.calc_points}>Evalution</Button>
+        {:else}
+            <Button buttonAction={quiz.next}>Next</Button>
+        {/if}
+ 
+    {:else}
+        <Button buttonAction={quiz.reset}>One more time!</Button>
+    {/if}
+    </div>
 
 <hr>
 
-<div class='button-row'>
-    {#if !$finished}	
-    <button disabled="{$counter === 0}" on:click={quiz.previous}>-</button>	
-        {#if $counter === counter.max-1}
-            <button on:click={quiz.calc_points}>Show Results</button>
-        {:else}
-            <button on:click={quiz.next}>+</button>
-        {/if}
-    {:else}
-        <button on:click={quiz.reset}>Start new</button>
-    {/if}
-
-</div>
-
+<div class="credits">This quiz was created with <a href="https://github.com/bonartm/quizdown-js">quizdown-js</a> </div> 
 
 
 <style>
-    .button-row{
-        width:100%;
-        text-align: center;
-        display:inline-flex;
+    .button-row {
+        margin-top:0.8em;
+        justify-content: center;
+        display: inline-flex;
     }
     
-    button:disabled {
-        background-color: white;
-    }
-
-    button {
-        margin:10px;
-        background-color: lightgray;
-        transition-duration: 0.1s;
-        width: 50%;
-        height: 3em;
-        box-shadow: 3px 3px orange, 2px 2px orange, 1px 1px orange;
-        border: 0px solid orange;
-        font-family: inherit;
-        font-size: 1em;
-    }
-
-    button:active:not(:disabled) {
-        background-color: #db9717;
-        transform: translate(3px, 3px);
-        box-shadow: none;
-    }
-
-    button:hover:not(:checked):not(:active):not(:disabled) {
-        background-color: #cfcfcf;
-    }
+    .credits {
+		font-size: small;
+		text-align:end;
+	}
 
     hr {
         margin-top: 1em;
@@ -62,5 +55,9 @@
         width: 80%;
     }
 </style>
+
+
+
+
 
 
