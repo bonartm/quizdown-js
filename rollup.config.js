@@ -8,6 +8,7 @@ import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
 import analyze from 'rollup-plugin-analyzer';
 
+
 const production = !process.env.ROLLUP_WATCH;
 
 function serve() {
@@ -39,7 +40,7 @@ export default {
     input: 'src/quizdown.ts',
     output: {
         sourcemap: true,
-        format: 'iife',
+        format: 'umd',
         name: 'quizdown',
         file: 'public/build/quizdown.js',
     },

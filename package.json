@@ -1,8 +1,9 @@
 {
     "name": "quizdown",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Markdownish syntax for generating interactive quizzes.",
     "private": false,
+    "type": "module",
     "scripts": {
         "build": "rollup -c",
         "dev": "rollup -c -w",
@@ -27,6 +28,7 @@
         "rollup-plugin-livereload": "^2.0.0",
         "rollup-plugin-svelte": "^7.0.0",
         "rollup-plugin-terser": "^7.0.0",
+        "sirv-cli": "^1.0.0",
         "svelte": "^3.0.0",
         "svelte-check": "^1.0.0",
         "svelte-preprocess": "^4.0.0",
@@ -38,10 +40,8 @@
     "dependencies": {
         "auto-bind": "^4.0.0",
         "dompurify": "^2.2.6",
-        "he": "^1.2.0",
         "highlight.js": "^10.6.0",
         "marked": "^2.0.0",
-        "sirv-cli": "^1.0.0",
         "strip-indent": "^3.0.0",
         "svelte-dragdroplist": "^1.1.1"
     }
