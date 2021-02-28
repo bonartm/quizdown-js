@@ -9,13 +9,14 @@ import {
 import App from './App.svelte';
 import DOMPurify from 'dompurify';
 import stripIndent from 'strip-indent';
-
 import hljs from 'highlight.js/lib/core';
 import python from 'highlight.js/lib/languages/python';
 import plaintext from 'highlight.js/lib/languages/plaintext';
 
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('plaintext', plaintext);
+
+import 'highlight.js/styles/github.css';
 
 // this does not work....
 // ['javascript', 'python', 'bash'].forEach(async (langName) => {
@@ -101,25 +102,28 @@ function parse_quizdown(raw_quizdown: string): Quiz {
     return new Quiz(questions);
 }
 
-const init = function () {
-    let nodes = document.querySelectorAll('.quizdown');
-    for (let node of nodes) {
-        let raw_quizdown = node.innerHTML;
-        node.innerHTML = '';
-        raw_quizdown = htmlDecode(stripIndent(raw_quizdown));
-        console.log(raw_quizdown);
+export function create_app(raw_quizdown: string, node: Element) {
+    node.innerHTML = '';
+    raw_quizdown = htmlDecode(stripIndent(raw_quizdown));
+    try {
+        let quiz = parse_quizdown(raw_quizdown);
         new App({
             target: node,
             intro: false,
             props: {
-                quiz: parse_quizdown(raw_quizdown),
+                quiz: quiz,
             },
         });
+    } catch (e) {
+        node.innerHTML = `${e}. App could not render. Please check your quizdown syntax.`;
     }
-};
+}
+
+export function init() {
+    let nodes = document.querySelectorAll('.quizdown');
+    for (let node of nodes) {
+        create_app(node.innerHTML, node);
+    }
+}
 
 window.onload = init;
-
-const quizdown = {
-    init,
-};
