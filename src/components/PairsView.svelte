@@ -1,12 +1,16 @@
-<script>
-    export let data;
+<script lang='ts'>
 
     import { draggable } from './dragdrop.js';
     import { crossfade } from 'svelte/transition';
     import { quintOut, elasticOut } from 'svelte/easing';
     import { flip } from 'svelte/animate';
+    import type { Quiz } from '../quiz.js';
 
-    const shelf = data['answers'][0].map((x, i) => ({ id: i, name: x }));
+    export let quiz: Quiz
+
+    let current = quiz.current()
+
+    const shelf = current.answers.map(answer => ({key: answer.id, name: answer.html }));
 
     function putInShelf(item, index) {
         const oldItem = shelf[index];
@@ -33,27 +37,20 @@
         },
     });
 
-    function check_solution(shelf, answers) {
-        console.log(shelf);
-        console.log(answers);
-        return true;
-    }
-
-    $: correct = check_solution(shelf, data['answers'][0]);
 </script>
 
 <div class="shelf">
     {#each shelf as item, index}
-        <span class="slot" on:dropped="{(e) => putInShelf(e.detail, index)}">
+        <span class="slot" on:drop="{(e) => putInShelf(e.detail, index)}">
             {#if item}
-                {#each [item] as item (item.id)}
+                {#each [item] as item (item.key)}
                     <span
                         class="item"
                         use:draggable="{{ data: item, targets: ['.slot', '.slot .item'] }}"
-                        in:receive="{item.id}"
-                        out:send="{item.id}"
+                        in:receive="{item}"
+                        out:send="{item}"
                         animate:flip
-                        on:dropped="{(e) => putInShelf(e.detail, index)}">
+                        on:drop="{(e) => putInShelf(e.detail, index)}">
                         {item.name}
                     </span>
                 {/each}
@@ -62,7 +59,6 @@
     {/each}
 </div>
 
-{#if correct}Yeah that's right!{:else}This is not correct :({/if}
 
 <style>
     .slot {
