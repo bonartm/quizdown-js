@@ -41,10 +41,14 @@ export abstract class BaseQuestion {
         answers: Array<Answer>,
         type: string
     ) {
+        if (answers.length === 0) {
+            throw 'no answers for question provided';
+        }
         this.text = text;
         this.explanation = explanation;
         this.hint = hint;
         this.solved = false;
+
         this.answers = BaseQuestion.shuffle(answers);
         this.selected = [];
         this.type = type;
@@ -164,6 +168,9 @@ export class Quiz {
     points: number;
 
     constructor(questions) {
+        if (questions.length == 0) {
+            throw 'No questions for quiz provided';
+        }
         this.questions = questions;
         this.counter = new Counter(this.questions.length);
         this.finished = writable(false);
