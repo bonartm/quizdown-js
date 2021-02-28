@@ -4,6 +4,10 @@
 
 Markdownish syntax for generating interactive quizzes. Inspired by the [mermaid library](https://mermaid-js.github.io/mermaid/#/) and the python package [quizdown](https://github.com/jjfiv/quizdown).
 
+
+### Try quizdown in the [**live editor**](https://bonartm.github.io/quizdown-live-editor/).
+
+
 ## Usage
 
 quizdown is best used in combination with existing static site generators like hugo or sphinx. Check out
