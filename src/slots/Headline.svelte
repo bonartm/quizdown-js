@@ -1,5 +1,5 @@
 <style>
-.headline {
+.quizdown-title {
     background-color: orange;
     border: 2px solid orange;
     transform: skew(5deg, 0deg);
@@ -11,6 +11,6 @@
 }
 </style>
 
-<div class="headline">
+<div class="quizdown-title">
 <slot></slot>
 </div>

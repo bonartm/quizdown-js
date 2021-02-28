@@ -5,7 +5,6 @@
     import BlanksView from './BlanksView.svelte'
     import PairsView from './PairsView.svelte'
     import Headline from '../slots/Headline.svelte'
-    import Button from './Button.svelte'
     
     export let quiz: Quiz;
     $: counter = quiz.counter
@@ -27,8 +26,6 @@
 
 <p>
     {@html current.explanation}
-
-
 </p>
 
 <svelte:component this={views[current.type]} quiz={quiz}/>

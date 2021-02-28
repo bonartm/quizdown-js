@@ -23,7 +23,7 @@
     $: progress_percent = String(($animated_current_block / (quiz.counter.max-0.5)) * 100) + '%';
 </script>
 
-<div class="progress" data-label="">
+<div class="quizdown-progress" data-label="">
     <span class="value" style="width: {progress_percent}">
         {#if !$finished}
             {$counter+1}/{counter.max} 
@@ -31,14 +31,14 @@
 </div>
 
 <style>
-    .progress {
+    .quizdown-progress {
         height: 1.5em;
         width: 100%;
         background-color: lightgray;
         position: relative;
     }
 
-    .progress:before {
+    .quizdown-progress:before {
         content: attr(data-label);
         font-size: 0.8em;
         position: absolute;
@@ -48,7 +48,7 @@
         right: 0;
     }
 
-    .progress .value {
+    .quizdown-progress .value {
         background-color: #db9717;
         display: block;
         text-align: left;
@@ -57,6 +57,5 @@
         height: 100%;
         box-shadow: 3px 3px orange, 2px 2px orange, 1px 1px orange;
         text-align:end;
-
     }
 </style>

@@ -17,7 +17,7 @@ let current = quiz.current()
 {/each}
 
 <style>
-	   label [type='checkbox'] {
+	label [type='checkbox'] {
         display: none;
     }
 
