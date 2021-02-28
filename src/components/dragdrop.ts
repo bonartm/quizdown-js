@@ -23,6 +23,7 @@ const [send, receive] = crossfade({
 });
 
 let dropTarget;
+
 function draggable(node, params) {
     let lastX;
     let lastY;

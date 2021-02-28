@@ -1,7 +1,8 @@
 <script lang="ts">
-import { current_component } from "svelte/internal";
 import type { Quiz } from "../quiz";
+
 export let quiz: Quiz;
+
 let current = quiz.current()
 </script>
 
@@ -23,11 +24,9 @@ let current = quiz.current()
     [type='checkbox'] + span {
         transition-duration: 0.1s;
         background-color: lightgray;
-
         box-shadow: 3px 3px orange, 2px 2px orange, 1px 1px orange;
-
         display: block;
-        padding: 1em;
+        padding: 0.7em;
         margin: 5px;
     }
 

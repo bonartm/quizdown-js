@@ -1,18 +1,23 @@
 <script lang="ts">
-import type { BaseQuestion, Quiz } from "../quiz";
-export let quiz:Quiz;
-$: counter = quiz.counter
+	import Headline from '../slots/Headline.svelte'
 
-let emojis = ["☹️", "😀"]
+	import type { BaseQuestion, Quiz } from "../quiz";
+	export let quiz:Quiz;
+	$: counter = quiz.counter
 
-function jump(i:number){
-	quiz.finished.set(false)
-	counter.jump(i)
-}
+	let emojis = ["☹️", "😀"]
+
+	function jump(i:number){
+		quiz.finished.set(false)
+		counter.jump(i)
+	}
 
 </script>
 
-<h1>Results</h1>
+<Headline>
+    <h2>Quiz Results</h2>
+</Headline>
+
 
 You have answered {quiz.points} out of {quiz.counter.max} questions correctly!
 

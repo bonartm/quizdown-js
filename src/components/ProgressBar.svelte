@@ -1,21 +1,33 @@
-<script>
+<script lang='ts'>
     import { tweened } from 'svelte/motion';
     import { cubicOut } from 'svelte/easing';
+    import type { Quiz } from '../quiz';
 
-    export let current;
-    export let max;
+    export let quiz: Quiz;
+    $: counter = quiz.counter
+    $: finished = quiz.finished
 
     const animated_current_block = tweened(0, {
         duration: 400,
         easing: cubicOut,
     });
 
-    $: animated_current_block.set(current + 0.1);
-    $: progress_percent = String(($animated_current_block / max) * 100) + '%';
+    $: {
+        if ($finished) {
+            animated_current_block.set(quiz.counter.max - 0.5)
+        } else {
+            animated_current_block.set($counter + 0.1)
+        }
+    }
+
+    $: progress_percent = String(($animated_current_block / (quiz.counter.max-0.5)) * 100) + '%';
 </script>
 
 <div class="progress" data-label="">
-    <span class="value" style="width: {progress_percent}"></span>
+    <span class="value" style="width: {progress_percent}">
+        {#if !$finished}
+            {$counter+1}/{counter.max} 
+        {/if}
 </div>
 
 <style>
@@ -40,7 +52,11 @@
         background-color: #db9717;
         display: block;
         text-align: left;
+        font-size: smaller;
+        font-weight: bolder;
         height: 100%;
         box-shadow: 3px 3px orange, 2px 2px orange, 1px 1px orange;
+        text-align:end;
+
     }
 </style>
