@@ -3,11 +3,12 @@ import type { Quiz } from "../quiz";
 
 export let quiz: Quiz;
 
-let current = quiz.current()
+$: counter = quiz.counter
+$: current = quiz.questions[$counter]
 </script>
 
 
-{#each quiz.current().answers as answer, i}
+{#each current.answers as answer, i}
 <label>
 	<input type="checkbox"
 		bind:group={current.selected} 

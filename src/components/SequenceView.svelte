@@ -3,7 +3,8 @@ import { current_component, get_current_component } from "svelte/internal";
 import DragDropList from "svelte-dragdroplist";
 import type { Quiz } from "../quiz";
 export let quiz: Quiz;
-let current = quiz.current()
+$: counter = quiz.counter
+$: current = quiz.questions[$counter]
 
 $: {
     current.selected = current.answers.map(answer => answer.id)
