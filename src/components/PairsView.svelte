@@ -8,7 +8,8 @@
 
     export let quiz: Quiz
 
-    let current = quiz.current()
+    $: counter = quiz.counter
+    $: current = quiz.questions[$counter]
 
     const shelf = current.answers.map(answer => ({key: answer.id, name: answer.html }));
 
