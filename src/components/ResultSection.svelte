@@ -15,7 +15,7 @@
 </script>
 
 <Headline>
-    <h2>Quiz Results</h2>
+    <h3>Quiz Results</h3>
 </Headline>
 
 
@@ -35,5 +35,6 @@ You have answered {quiz.points} out of {quiz.counter.max} questions correctly!
 		text-decoration: underline;
 		cursor: pointer;
 	}
+
 </style>
 
