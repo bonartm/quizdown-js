@@ -21,7 +21,7 @@
 </script>
 
 <Headline>
-    <h2>{@html current.text}</h2>
+    <h3>{@html current.text}</h3>
 </Headline>
 
 <p>
@@ -29,4 +29,5 @@
 </p>
 
 <svelte:component this={views[current.type]} quiz={quiz}/>
+
 
