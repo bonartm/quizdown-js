@@ -4,13 +4,14 @@ import QuizSection from './components/QuizSection.svelte';
 import Footer from './components/Footer.svelte';
 import type { Quiz } from './quiz';
 import ProgressBar from './components/ProgressBar.svelte'
+import 'picnic/picnic.css'
 
 export let quiz: Quiz;
 $: finished = quiz.finished
 </script>
 
 <div class='quizdown-content'>
-	<ProgressBar quiz={quiz}/>
+		<ProgressBar quiz={quiz}/>
 
 {#if !$finished}
 	<QuizSection quiz={quiz}></QuizSection>
@@ -20,12 +21,14 @@ $: finished = quiz.finished
 
 <Footer quiz={quiz}></Footer>
 
+	
+
 </div>
 
 <style>
-   :global(.quizdown-content) {
-        font-family: 'Lucida Console', 'Courier New', monospace;
-		width:100%;   
+   :global(.quizdown-content) {	
+		font-family: 'Lucida Console', 'Courier New', monospace;
+		width:100%;  	 
 		display:flex;
 		flex-direction: column;
 		justify-content: center; 
