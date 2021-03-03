@@ -57,5 +57,6 @@
         height: 100%;
         box-shadow: 3px 3px orange, 2px 2px orange, 1px 1px orange;
         text-align:end;
+        white-space: nowrap;
     }
 </style>
