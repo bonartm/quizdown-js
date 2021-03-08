@@ -31,14 +31,23 @@ You can also use `jsdelivr`:
 <head>
     <link 
         rel="stylesheet" 
-        href="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@v0.0.1/public/build/quizdown.css"
+        href="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.css"
     />
     <script 
         defer 
-        src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@v0.0.1/public/build/quizdown.js">
+        src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js">
     </script>
 </head>
 ```
+
+Quizdown uses `highlight.js` for syntax highlighting. Currently, only python code is highlighted. You may want to include a stylesheet:
+
+```html
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/github.min.css">
+</head>
+```
+
 
 2. Each quiz has to be embedded in a `<div class="quizdown">` tag:
 
