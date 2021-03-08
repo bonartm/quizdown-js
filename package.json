@@ -42,7 +42,6 @@
         "dompurify": "^2.2.6",
         "highlight.js": "^10.6.0",
         "marked": "^2.0.0",
-        "picnic": "^6.5.4",
         "strip-indent": "^3.0.0",
         "svelte-dragdroplist": "^1.1.1"
     }

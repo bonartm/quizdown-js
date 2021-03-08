@@ -16,8 +16,6 @@ import plaintext from 'highlight.js/lib/languages/plaintext';
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('plaintext', plaintext);
 
-import 'highlight.js/styles/github.css';
-
 // this does not work....
 // ['javascript', 'python', 'bash'].forEach(async (langName) => {
 //     const langModule = await import(`highlight.js/lib/languages/${langName}`);
