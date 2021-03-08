@@ -23,26 +23,26 @@ $: current = quiz.questions[$counter]
     }
 
     [type='checkbox'] + span {
-        transition-duration: 0.1s;
-        background-color: lightgray;
-        box-shadow: 3px 3px orange, 2px 2px orange, 1px 1px orange;
+        transition-duration: 0.2s;
+        background-color: var(--quizdown-color-secondary);
+        box-shadow: 3px 3px var(--quizdown-color-primary), 2px 2px var(--quizdown-color-primary), 1px 1px var(--quizdown-color-primary);
         display: block;
         padding: 0.7em;
         margin: 5px;
     }
 
     [type='checkbox']:active + span {
-        background-color: #db9717;
+        filter: brightness(1.1);
         transform: translate(3px, 3px);
         box-shadow: none;
     }
 
-    [type='checkbox']:hover:not(:checked):not(:active) + span {
-        background-color: #cfcfcf;
+    [type='checkbox']:hover:not(:active) + span {
+        filter: brightness(1.1);
     }
 
     [type='checkbox']:checked + span {
-        background-color: #db9717;
+        background-color: var(--quizdown-color-primary);
         transform: translate(3px, 3px);
         box-shadow: none;
     }

@@ -39,7 +39,7 @@
 
 <hr>
 
-<div class="quizdown-credits">This quiz was created with <a href="https://github.com/bonartm/quizdown-js">quizdown-js</a>.</div> 
+<div class="quizdown-credits">Made with <a href="https://github.com/bonartm/quizdown-js">quizdown-js</a>.</div> 
 
 
 <style>
@@ -51,6 +51,7 @@
 
     .quizdown-credits a {
         color: darkgray;
+        text-decoration: none;
     }
 
     .quizdown-credits a:hover {
@@ -64,6 +65,7 @@
 	}
 
     hr {
+        margin:auto;
         margin-top: 1em;
         margin-bottom: 1em;
         border-top: 1px solid lightgray;
