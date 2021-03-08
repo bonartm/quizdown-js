@@ -12,8 +12,7 @@
         easing: cubicOut,
     });
 
-    $: {
-        if ($finished) {
+    $: {if ($finished) {
             animated_current_block.set(quiz.counter.max - 0.5)
         } else {
             animated_current_block.set($counter + 0.1)
@@ -24,39 +23,39 @@
 </script>
 
 <div class="quizdown-progress" data-label="">
-    <span class="value" style="width: {progress_percent}">
+    <div class="progress-slider" style="width:{progress_percent}"></div>
+
+    <span class="progress-text">
         {#if !$finished}
             {$counter+1}/{counter.max} 
         {/if}
+    </span>    
 </div>
 
 <style>
     .quizdown-progress {
         height: 1.5em;
         width: 100%;
-        background-color: lightgray;
-        position: relative;
+        background-color: var(--quizdown-color-secondary);
+        position: relative;  
     }
 
-    .quizdown-progress:before {
-        content: attr(data-label);
-        font-size: 0.8em;
-        position: absolute;
-        text-align: center;
-        top: 5px;
-        left: 0;
-        right: 0;
-    }
-
-    .quizdown-progress .value {
-        background-color: #db9717;
-        display: block;
-        text-align: left;
-        font-size: smaller;
-        font-weight: bolder;
+    .quizdown-progress .progress-slider {
+        background-color: var(--quizdown-color-secondary);
         height: 100%;
-        box-shadow: 3px 3px orange, 2px 2px orange, 1px 1px orange;
-        text-align:end;
-        white-space: nowrap;
+        display:block;     
+        box-shadow: 3px 3px var(--quizdown-color-primary), 2px 2px var(--quizdown-color-primary), 1px 1px var(--quizdown-color-primary);
+        transform: translate(-3px, -3px);
     }
+
+    .quizdown-progress .progress-text {
+        white-space: nowrap;
+        font-size: 1em;
+        font-weight: bolder;
+        position: absolute;   
+        right: 0%;
+        top:25%;
+    }
+
+
 </style>
