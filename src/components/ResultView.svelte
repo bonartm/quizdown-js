@@ -1,31 +1,28 @@
 <script lang="ts">
-	import Headline from '../slots/Headline.svelte'
-
-	import type { BaseQuestion, Quiz } from "../quiz";
-	export let quiz:Quiz;
+	import type { Quiz } from "../quiz";
+	export let quiz: Quiz;
 	$: counter = quiz.counter
 
-	let emojis = ["☹️", "😀"]
+	let emojis = ["❌", "✅"]
 
 	function jump(i:number){
 		quiz.finished.set(false)
 		counter.jump(i)
 	}
-
 </script>
 
-<Headline>
-    <h3>Quiz Results</h3>
-</Headline>
+<p>
+	You have answered <b>{quiz.points} out of {quiz.counter.max}</b> questions correctly!
+	You can click on a question title to jump back.
 
-
-You have answered {quiz.points} out of {quiz.counter.max} questions correctly!
+</p>
 
 <ul>
 	{#each quiz.questions as question, i}
 		<li on:click={()=>jump(i)}>{emojis[+question.solved]} - {@html question.text}</li>
 	{/each}
 </ul> 
+
 
 <style>
 	li {
@@ -35,6 +32,5 @@ You have answered {quiz.points} out of {quiz.counter.max} questions correctly!
 		text-decoration: underline;
 		cursor: pointer;
 	}
-
 </style>
 
