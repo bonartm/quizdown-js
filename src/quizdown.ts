@@ -88,7 +88,8 @@ function parse_quizdown(raw_quizdown: string): Quiz {
                 answers.push(new Answer(i, text, item['checked']));
             });
             if (el['ordered']) {
-                if (el['items'][0]['checked']) {
+                console.log(el);
+                if (el['items'][0]['task']) {
                     // single choice list
                     questions.push(
                         new SingleChoice(text, explanation, hint, answers)
