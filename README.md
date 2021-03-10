@@ -72,7 +72,8 @@ Combining all steps should lead to something like this:
 <html>
     <head>
         <link rel="stylesheet" href="quizdown.css" />
-        <script defer src="quizdown.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/github.min.css">
+        <script defer src="quizdown.js"></script>			
     </head>
     <body>
         <div class="quizdown">
@@ -126,7 +127,7 @@ Combining all steps should lead to something like this:
 - You can add hints in a *blockquote* `>`
 - Quizdown supports syntax highlighting and text formatting!
 
-### Multiple choice
+### Multiple choice question
 
 ```markdown
 ### What's the capital of Germany?
@@ -137,6 +138,16 @@ Combining all steps should lead to something like this:
 -   [ ] Frankfurt
 -   [ ] Paris
 -   [ ] Cologne
+```
+
+### Single choice question
+
+```markdown
+### Select your superpower!
+
+1.   [ ] Enhanced Strength
+1.   [ ] Levitation
+1.   [x] Shapeshifting
 ```
 
 ### Sequence
@@ -170,7 +181,7 @@ Fruits and vegetables ...
 
 ### Fill in the Blanks (WIP)
 
-
+...
 
 ## Development
 
