@@ -6,7 +6,7 @@ export abstract class BaseQuestion {
     readonly text: string;
     readonly answers: Array<Answer>;
     readonly explanation: string;
-    selected: Array<number>;
+    selected: Array<number> | number;
     solved: boolean;
     readonly hint: string;
     readonly type: string;
@@ -50,7 +50,6 @@ export abstract class BaseQuestion {
         this.solved = false;
 
         this.answers = BaseQuestion.shuffle(answers);
-        this.selected = [];
         this.type = type;
         autoBind(this);
     }
@@ -77,6 +76,8 @@ class Pairs extends BaseQuestion {
 }
 
 export class Sequence extends BaseQuestion {
+    selected: Array<number>;
+
     constructor(
         text: string,
         explanation: string,
@@ -97,6 +98,8 @@ export class Sequence extends BaseQuestion {
 }
 
 export class MultipleChoice extends BaseQuestion {
+    selected: Array<number>;
+
     constructor(
         text: string,
         explanation: string,
@@ -104,6 +107,7 @@ export class MultipleChoice extends BaseQuestion {
         answers: Array<Answer>
     ) {
         super(text, explanation, hint, answers, 'MultipleChoice');
+        this.selected = [];
     }
 
     check() {
@@ -114,6 +118,33 @@ export class MultipleChoice extends BaseQuestion {
             true_answer_ids.sort(),
             this.selected.sort()
         );
+    }
+}
+
+export class SingleChoice extends BaseQuestion {
+    selected: number;
+    correct: number;
+
+    constructor(
+        text: string,
+        explanation: string,
+        hint: string,
+        answers: Array<Answer>
+    ) {
+        super(text, explanation, hint, answers, 'SingleChoice');
+        let self = this;
+        answers.forEach(function (answer, i) {
+            if (answer.correct) {
+                if (typeof self.correct !== 'undefined') {
+                    throw 'Single choice question can only have one answer';
+                }
+                self.correct = i;
+            }
+        });
+    }
+
+    check() {
+        this.solved = this.selected === this.correct;
     }
 }
 

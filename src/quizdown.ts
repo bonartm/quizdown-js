@@ -3,6 +3,7 @@ import {
     Quiz,
     BaseQuestion,
     MultipleChoice,
+    SingleChoice,
     Sequence,
     Answer,
 } from './quiz.js';
@@ -87,8 +88,17 @@ function parse_quizdown(raw_quizdown: string): Quiz {
                 answers.push(new Answer(i, text, item['checked']));
             });
             if (el['ordered']) {
-                // sequence list
-                questions.push(new Sequence(text, explanation, hint, answers));
+                if (el['items'][0]['checked']) {
+                    // single choice list
+                    questions.push(
+                        new SingleChoice(text, explanation, hint, answers)
+                    );
+                } else {
+                    // sequence list
+                    questions.push(
+                        new Sequence(text, explanation, hint, answers)
+                    );
+                }
             } else {
                 // multiple choice list
                 questions.push(
