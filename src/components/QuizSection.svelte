@@ -2,7 +2,7 @@
     import type { Quiz } from '../quiz';
 
     import SequenceView from './SequenceView.svelte';
-    import MultipleChoiceView from './MultipleChoiceView.svelte'
+    import ChoiceView from './ChoiceView.svelte'
     import BlanksView from './BlanksView.svelte'
     import PairsView from './PairsView.svelte'
     import Headline from '../slots/Headline.svelte'
@@ -15,7 +15,8 @@
     $: finished = quiz.finished
 
     const views = {
-        'MultipleChoice': MultipleChoiceView,
+        'MultipleChoice': ChoiceView,
+        'SingleChoice': ChoiceView,
         'Sequence': SequenceView,
         'Gaps': BlanksView,
         'Pairs': PairsView
