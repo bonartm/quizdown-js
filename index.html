@@ -6,15 +6,14 @@
 
 	<title>Quizdown Demo Page</title>
 
-	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic"> -->
 	<link rel="stylesheet" href="global.css">
-
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/github.min.css">
 	<link rel='stylesheet' href='build/quizdown.css'>
 	<script defer src='build/quizdown.js'></script>
 </head>
 
 <body>
-	<div class="container" style="margin: auto; width: 50%; max-width:900px;">
+	<div class="container" style="margin: auto; max-width:600px;">
 		  <h1>Quizdown Demo Page</h1>
 			<div class="quizdown">
 				# What is the capital of Berlin?
@@ -23,10 +22,10 @@
 
 				> Do some research!
 
-				- [x] Berlin
-				- [ ] Stuttgart
-				- [ ] Cologne
-				- [ ] Düsseldorf
+				1. [x] Berlin
+				1. [ ] Stuttgart
+				1. [ ] Cologne
+				1. [ ] Düsseldorf
 
 				# What day is today?				
 
@@ -59,9 +58,18 @@
 				6. Model evaluation
 				7. Deployment
 
+				# This question has no answer!
 
+				- [ ] `4`
+				- [ ] `6`
+				- [ ] `None`
+				- [ ] `9`
+				- [ ] `4`
+				- [ ] `6`
+				- [ ] `None`
+				- [ ] `9`
 
-				# What is the value of `y`?
+				# What is the value of `y` and `x`?
 
 				```python
 				x = 2+2
@@ -69,10 +77,10 @@
 				print(y)
 				```
 
-				- [ ] `2`
+				- [x] `4`
 				- [x] `6`
 				- [ ] `None`
-				- [ ] `9`
+
 			</div>
 	</div>
 </body>
