@@ -6,12 +6,18 @@ import python from 'highlight.js/lib/languages/python';
 import plaintext from 'highlight.js/lib/languages/plaintext';
 import {
     Quiz,
+    QuestionConfig,
     BaseQuestion,
     MultipleChoice,
     SingleChoice,
     Sequence,
     Answer,
 } from './quiz.js';
+
+export interface AppConfig {
+    primary_color?: string;
+    secondary_color?: string;
+}
 
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('plaintext', plaintext);
@@ -61,31 +67,55 @@ function html_decode(input) {
     return doc.documentElement.textContent;
 }
 
-function parse_quizdown(raw_quizdown: string): Quiz {
+function parse_options(str: string): AppConfig | QuestionConfig {
+    let lines = str.trim().split('\n');
+    let options = {};
+    lines.forEach((val, i) => {
+        let keyvalue = val.split(':');
+        options[keyvalue[0].trim()] = keyvalue[1].trim();
+    });
+    return options;
+}
+
+function parse_quizdown(
+    raw_quizdown: string
+): { quiz: Quiz; options: AppConfig } {
     let tokens = marked.lexer(html_decode(stripIndent(raw_quizdown)));
     let questions: Array<BaseQuestion> = [];
     let text: string = '';
     let explanation: string = '';
     let hint: string = '';
-
-    console.log(tokens);
-
-    // parse general options
-    if (tokens[0]['type'] == 'paragraph') {
-        console.log(tokens[0]);
-    }
+    let options: QuestionConfig = {};
+    let global_options: AppConfig = {};
+    let before_first: boolean = true;
 
     tokens.forEach(function (el, i) {
         if (el['type'] == 'heading') {
             // start a new question
+            before_first = false;
             explanation = '';
             hint = '';
+            options = {};
             text = parse_tokens([el]);
-            console.log(text);
         }
-        if (el['type'] == 'paragraph' || el['type'] == 'code') {
+        if (el['type'] == 'paragraph') {
             explanation += parse_tokens([el]);
         }
+
+        if (el['type'] == 'code') {
+            // check if options are provided for that question
+            if (el['lang'] == 'options') {
+                options = parse_options(el['text']) as QuestionConfig;
+                // check for global options that appear before the first headline
+                if (before_first) {
+                    global_options = options as AppConfig;
+                    before_first = false;
+                }
+            } else {
+                explanation += parse_tokens([el]);
+            }
+        }
+
         if (el['type'] == 'blockquote') {
             hint += parse_tokens([el]);
         }
@@ -99,23 +129,36 @@ function parse_quizdown(raw_quizdown: string): Quiz {
                 if (el['items'][0]['task']) {
                     // single choice list
                     questions.push(
-                        new SingleChoice(text, explanation, hint, answers)
+                        new SingleChoice(
+                            text,
+                            explanation,
+                            hint,
+                            answers,
+                            options
+                        )
                     );
                 } else {
                     // sequence list
                     questions.push(
-                        new Sequence(text, explanation, hint, answers)
+                        new Sequence(text, explanation, hint, answers, options)
                     );
                 }
             } else {
                 // multiple choice list
                 questions.push(
-                    new MultipleChoice(text, explanation, hint, answers)
+                    new MultipleChoice(
+                        text,
+                        explanation,
+                        hint,
+                        answers,
+                        options
+                    )
                 );
             }
         }
     });
-    return new Quiz(questions);
+    let quiz = new Quiz(questions);
+    return { quiz: quiz, options: global_options };
 }
 
 export default parse_quizdown;
