@@ -2,6 +2,10 @@ import { writable, get, Writable } from 'svelte/store';
 import autoBind from 'auto-bind';
 import type { SvelteComponent } from 'svelte';
 
+export interface QuestionConfig {
+    shuffle?: string;
+}
+
 export abstract class BaseQuestion {
     readonly text: string;
     readonly answers: Array<Answer>;
@@ -10,6 +14,7 @@ export abstract class BaseQuestion {
     solved: boolean;
     readonly hint: string;
     readonly type: string;
+    readonly options: QuestionConfig;
 
     static is_equal(a1: Array<number>, a2: Array<number>): boolean {
         return JSON.stringify(a1) === JSON.stringify(a2);
@@ -39,7 +44,8 @@ export abstract class BaseQuestion {
         explanation: string,
         hint: string,
         answers: Array<Answer>,
-        type: string
+        type: string,
+        options: QuestionConfig
     ) {
         if (answers.length === 0) {
             throw 'no answers for question provided';
@@ -48,8 +54,11 @@ export abstract class BaseQuestion {
         this.explanation = explanation;
         this.hint = hint;
         this.solved = false;
-
-        this.answers = BaseQuestion.shuffle(answers);
+        this.options = options;
+        this.answers = answers;
+        if (options['shuffle'] !== 'false') {
+            this.answers = BaseQuestion.shuffle(answers);
+        }
         this.type = type;
         autoBind(this);
     }
@@ -82,9 +91,10 @@ export class Sequence extends BaseQuestion {
         text: string,
         explanation: string,
         hint: string,
-        answers: Array<Answer>
+        answers: Array<Answer>,
+        options: QuestionConfig
     ) {
-        super(text, explanation, hint, answers, 'Sequence');
+        super(text, explanation, hint, answers, 'Sequence', options);
     }
 
     check() {
@@ -104,9 +114,10 @@ export class MultipleChoice extends BaseQuestion {
         text: string,
         explanation: string,
         hint: string,
-        answers: Array<Answer>
+        answers: Array<Answer>,
+        options: QuestionConfig
     ) {
-        super(text, explanation, hint, answers, 'MultipleChoice');
+        super(text, explanation, hint, answers, 'MultipleChoice', options);
         this.selected = [];
     }
 
@@ -129,9 +140,10 @@ export class SingleChoice extends BaseQuestion {
         text: string,
         explanation: string,
         hint: string,
-        answers: Array<Answer>
+        answers: Array<Answer>,
+        options: QuestionConfig
     ) {
-        super(text, explanation, hint, answers, 'SingleChoice');
+        super(text, explanation, hint, answers, 'SingleChoice', options);
         let self = this;
         answers.forEach(function (answer, i) {
             if (answer.correct) {
