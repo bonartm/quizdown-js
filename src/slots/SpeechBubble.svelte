@@ -10,6 +10,7 @@
         padding: 0.5em;
         font-size: 0.9em;
         box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
+        max-width: 300px;
     }
 
     .quizdown-bubble::before {
