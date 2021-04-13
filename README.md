@@ -183,6 +183,41 @@ Fruits and vegetables ...
 
 ...
 
+## Quiz options and color theme
+
+You can set global and question specific options inside the quizdown using code blocks. 
+Here is an example (here, backticks are escaped for readability):
+
+```markdown
+
+\`\`\`options
+primary_color: #FF851B
+secondary_color: #DDDDDD
+title_color: black			
+\`\`\`
+
+
+# What is the capital of Berlin?
+
+\`\`\`options				
+shuffle: false				
+\`\`\`
+
+In this question you are asked a **very** difficult question.
+
+> Do some research!
+
+- [x] Berlin
+- [ ] Stuttgart
+- [ ] Cologne
+- [ ] Düsseldorf
+
+```
+
+
+
+
+
 ## Development
 
 Install the packages with 
