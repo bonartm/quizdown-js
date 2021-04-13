@@ -1,3 +1,4 @@
+
 <style>
     .quizdown-headline {
         background-color: var(--quizdown-color-primary);
@@ -9,11 +10,11 @@
         margin-bottom: 1em;
         padding:1em;
         font-size: 1.5em;
-        font-weight: bold;  
-  
+        font-weight: bold;    
+        color: var(--quizdown-color-title);
     }
 </style>
 
 <div class="quizdown-headline">
-<slot></slot>
+        <slot></slot>
 </div>
