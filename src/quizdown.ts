@@ -1,16 +1,20 @@
 import App from './App.svelte';
 import parse_quizdown from './parser.js';
-export function create_app(raw_quizdown: string, node: Element, id: String) {
+import { Config } from './config.js';
+
+export function create_app(
+    raw_quizdown: string,
+    node: Element,
+    config: Config
+) {
     node.innerHTML = '';
     try {
-        let { quiz, options } = parse_quizdown(raw_quizdown);
+        let quiz = parse_quizdown(raw_quizdown, config);
         new App({
             target: node,
             intro: false,
             props: {
                 quiz: quiz,
-                id: id,
-                options: options,
             },
         });
     } catch (e) {
@@ -18,31 +22,20 @@ export function create_app(raw_quizdown: string, node: Element, id: String) {
     }
 }
 
-function guidGenerator(): String {
-    var S4 = function () {
-        return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
-    };
-    return (
-        S4() +
-        S4() +
-        '-' +
-        S4() +
-        '-' +
-        S4() +
-        '-' +
-        S4() +
-        '-' +
-        S4() +
-        S4() +
-        S4()
-    );
-}
-
-export function init() {
-    let nodes = document.querySelectorAll('.quizdown');
-    for (let node of nodes) {
-        create_app(node.innerHTML, node, guidGenerator());
+export function init(config = {}) {
+    let global_config = new Config(config);
+    if (global_config.start_on_load) {
+        if (typeof document !== 'undefined') {
+            window.addEventListener(
+                'load',
+                function () {
+                    let nodes = document.querySelectorAll('.quizdown');
+                    for (let node of nodes) {
+                        create_app(node.innerHTML, node, global_config);
+                    }
+                },
+                false
+            );
+        }
     }
 }
-
-window.onload = init;

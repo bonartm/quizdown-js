@@ -4,20 +4,16 @@ import stripIndent from 'strip-indent';
 import hljs from 'highlight.js/lib/core';
 import python from 'highlight.js/lib/languages/python';
 import plaintext from 'highlight.js/lib/languages/plaintext';
+import YAML from 'yaml';
 import {
     Quiz,
-    QuestionConfig,
     BaseQuestion,
     MultipleChoice,
     SingleChoice,
     Sequence,
     Answer,
 } from './quiz.js';
-
-export interface AppConfig {
-    primary_color?: string;
-    secondary_color?: string;
-}
+import { Config, merge_attributes } from './config.js';
 
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('plaintext', plaintext);
@@ -33,9 +29,28 @@ marked.setOptions({
         const validLanguage = hljs.getLanguage(language)
             ? language
             : 'plaintext';
-        return hljs.highlight(validLanguage, code).value;
+        return hljs.highlight(code, { language: validLanguage }).value;
     },
 });
+
+// customize tokenizer to include yaml like header blocks
+
+const tokenizer = {
+    hr(src) {
+        //adapted from https://github.com/markedjs/marked/blob/master/src/rules.js
+        const regex = RegExp(
+            /^ {0,3}(-{3,}(?=[^-\n]*\n)|~{3,})([^\n]*)\n(?:|([\s\S]*?)\n)(?: {0,3}\1[~-]* *(?:\n+|$)|$)/
+        );
+        const cap = regex.exec(src);
+        if (cap) {
+            return {
+                type: 'options',
+                raw: cap[0],
+                data: YAML.parse(cap[3], {}),
+            };
+        }
+    },
+};
 
 // customize renderer
 
@@ -55,7 +70,7 @@ const renderer = {
 };
 
 // @ts-ignore
-marked.use({ renderer });
+marked.use({ renderer, tokenizer });
 
 function parse_tokens(tokens): string {
     return DOMPurify.sanitize(marked.parser(tokens));
@@ -67,53 +82,40 @@ function html_decode(input) {
     return doc.documentElement.textContent;
 }
 
-function parse_options(str: string): AppConfig | QuestionConfig {
-    let lines = str.trim().split('\n');
-    let options = {};
-    lines.forEach((val, i) => {
-        let keyvalue = val.split(':');
-        options[keyvalue[0].trim()] = keyvalue[1].trim();
-    });
-    return options;
-}
-
-function parse_quizdown(
-    raw_quizdown: string
-): { quiz: Quiz; options: AppConfig } {
+function parse_quizdown(raw_quizdown: string, global_config: Config): Quiz {
     let tokens = marked.lexer(html_decode(stripIndent(raw_quizdown)));
     let questions: Array<BaseQuestion> = [];
     let text: string = '';
     let explanation: string = '';
     let hint: string = '';
-    let options: QuestionConfig = {};
-    let global_options: AppConfig = {};
     let before_first: boolean = true;
+    // global_config < quiz_config < question_config
+    let quiz_config = new Config(global_config);
+    let question_config: Config;
 
     tokens.forEach(function (el, i) {
         if (el['type'] == 'heading') {
             // start a new question
-            before_first = false;
             explanation = '';
             hint = '';
-            options = {};
             text = parse_tokens([el]);
-        }
-        if (el['type'] == 'paragraph') {
-            explanation += parse_tokens([el]);
+            question_config = new Config(quiz_config);
+            before_first = false;
         }
 
-        if (el['type'] == 'code') {
-            // check if options are provided for that question
-            if (el['lang'] == 'options') {
-                options = parse_options(el['text']) as QuestionConfig;
-                // check for global options that appear before the first headline
-                if (before_first) {
-                    global_options = options as AppConfig;
-                    before_first = false;
-                }
+        if (el['type'] == 'options') {
+            if (before_first) {
+                // comes before the first heading: quiz config
+                console.log(el['data']);
+                quiz_config = merge_attributes(quiz_config, el['data']);
             } else {
-                explanation += parse_tokens([el]);
+                // comes after a heading: question config
+                question_config = merge_attributes(quiz_config, el['data']);
             }
+        }
+
+        if (el['type'] == 'paragraph' || el['type'] == 'code') {
+            explanation += parse_tokens([el]);
         }
 
         if (el['type'] == 'blockquote') {
@@ -134,13 +136,19 @@ function parse_quizdown(
                             explanation,
                             hint,
                             answers,
-                            options
+                            question_config
                         )
                     );
                 } else {
                     // sequence list
                     questions.push(
-                        new Sequence(text, explanation, hint, answers, options)
+                        new Sequence(
+                            text,
+                            explanation,
+                            hint,
+                            answers,
+                            question_config
+                        )
                     );
                 }
             } else {
@@ -151,14 +159,13 @@ function parse_quizdown(
                         explanation,
                         hint,
                         answers,
-                        options
+                        question_config
                     )
                 );
             }
         }
     });
-    let quiz = new Quiz(questions);
-    return { quiz: quiz, options: global_options };
+    return new Quiz(questions, quiz_config);
 }
 
 export default parse_quizdown;

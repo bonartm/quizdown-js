@@ -1,10 +1,7 @@
 import { writable, get, Writable } from 'svelte/store';
 import autoBind from 'auto-bind';
 import type { SvelteComponent } from 'svelte';
-
-export interface QuestionConfig {
-    shuffle?: string;
-}
+import type { Config } from './config.js';
 
 export abstract class BaseQuestion {
     readonly text: string;
@@ -14,7 +11,7 @@ export abstract class BaseQuestion {
     solved: boolean;
     readonly hint: string;
     readonly type: string;
-    readonly options: QuestionConfig;
+    readonly options: Config;
 
     static is_equal(a1: Array<number>, a2: Array<number>): boolean {
         return JSON.stringify(a1) === JSON.stringify(a2);
@@ -45,7 +42,7 @@ export abstract class BaseQuestion {
         hint: string,
         answers: Array<Answer>,
         type: string,
-        options: QuestionConfig
+        options: Config
     ) {
         if (answers.length === 0) {
             throw 'no answers for question provided';
@@ -56,7 +53,7 @@ export abstract class BaseQuestion {
         this.solved = false;
         this.options = options;
         this.answers = answers;
-        if (options['shuffle'] !== 'false') {
+        if (options['shuffle_answers']) {
             this.answers = BaseQuestion.shuffle(answers);
         }
         this.type = type;
@@ -92,8 +89,10 @@ export class Sequence extends BaseQuestion {
         explanation: string,
         hint: string,
         answers: Array<Answer>,
-        options: QuestionConfig
+        options: Config
     ) {
+        // always enable shuffling for sequence questions
+        options['shuffle_answers'] = true;
         super(text, explanation, hint, answers, 'Sequence', options);
     }
 
@@ -115,7 +114,7 @@ export class MultipleChoice extends BaseQuestion {
         explanation: string,
         hint: string,
         answers: Array<Answer>,
-        options: QuestionConfig
+        options: Config
     ) {
         super(text, explanation, hint, answers, 'MultipleChoice', options);
         this.selected = [];
@@ -141,7 +140,7 @@ export class SingleChoice extends BaseQuestion {
         explanation: string,
         hint: string,
         answers: Array<Answer>,
-        options: QuestionConfig
+        options: Config
     ) {
         super(text, explanation, hint, answers, 'SingleChoice', options);
         let self = this;
@@ -209,8 +208,9 @@ export class Quiz {
     counter: Counter;
     finished: Writable<boolean>;
     points: number;
+    config: Config;
 
-    constructor(questions) {
+    constructor(questions, config) {
         if (questions.length == 0) {
             throw 'No questions for quiz provided';
         }
@@ -218,6 +218,11 @@ export class Quiz {
         this.counter = new Counter(this.questions.length);
         this.finished = writable(false);
         this.points = 0;
+        this.config = config;
+        if (config['shuffle_questions']) {
+            this.questions = BaseQuestion.shuffle(questions);
+        }
+
         autoBind(this);
     }
 
