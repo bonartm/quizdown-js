@@ -9,19 +9,14 @@
 	<link rel="stylesheet" href="global.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/github.min.css">
 	<link rel='stylesheet' href='build/quizdown.css'>
-	<script defer src='build/quizdown.js'></script>
+	<script src='build/quizdown.js'></script>
+	<script>quizdown.init();</script>
 </head>
 
 <body>
 	<div class="container" style="margin: auto; max-width:600px;">
 		  <h1>Quizdown Demo Page</h1>
-			<div class="quizdown">
-
-				```options
-				primary_color: #FF851B
-				secondary_color: #DDDDDD
-				title_color: black			
-				```
+			<div class="quizdown">		
 
 				# What is the capital of Berlin?
 
@@ -36,9 +31,10 @@
 
 				# What is the capital of Berlin?
 
-				```options				
-				shuffle: false				
-				```
+				---
+				shuffle_answers: false
+				---
+
 
 				In this question you are asked a **very** difficult question.
 				The questions are not shuffled.
@@ -51,8 +47,8 @@
 				1. [x] Berlin
 
 
-				# What day is today?				
-
+				# What day is today?	
+		
 				- [ ] monday
 				- [ ] tuesday
 				- [ ] saturday
