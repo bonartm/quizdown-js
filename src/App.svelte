@@ -2,22 +2,19 @@
 import QuizSection from './components/QuizSection.svelte';
 import Footer from './components/Footer.svelte';
 import type { Quiz } from './quiz';
-import type { AppConfig} from './parser';
 import ProgressBar from './components/ProgressBar.svelte'
 import { onMount } from 'svelte';
 
 export let quiz: Quiz;
-export let id: string;
-export let options: AppConfig;
 
+let node: HTMLElement;
 
 // set global options
 onMount(async () => {
-	let primary_color: string = options['primary_color'] || '#FF851B';
-	let secondary_color: string = options['secondary_color'] || '#DDDDDD';
-	let title_color: string = options['title_color'] || 'black';
+	let primary_color: string = quiz.config['primary_color'];
+	let secondary_color: string = quiz.config['secondary_color'];
+	let title_color: string = quiz.config['title_color'];
 
-	let node: HTMLElement = document.getElementById(id);
 	node.style.setProperty('--quizdown-color-primary', primary_color);
 	node.style.setProperty('--quizdown-color-secondary', secondary_color);
 	node.style.setProperty('--quizdown-color-title', title_color);
@@ -25,7 +22,7 @@ onMount(async () => {
 
 </script>
 
-<div class='quizdown-content' id='{id}'>
+<div class='quizdown-content' bind:this={node}>
 	<ProgressBar quiz={quiz}/>
 	<QuizSection quiz={quiz}></QuizSection>
 	<Footer quiz={quiz}></Footer>
