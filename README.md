@@ -21,7 +21,7 @@ quizdown is best used in combination with existing static site generators like h
 ```html
 <head>
     <link rel="stylesheet" href="quizdown.css" />
-    <script defer src="quizdown.js"></script>
+    <script src="quizdown.js"></script>
 </head>
 ```
 
@@ -34,7 +34,6 @@ You can also use `jsdelivr`:
         href="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.css"
     />
     <script 
-        defer 
         src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js">
     </script>
 </head>
@@ -46,6 +45,26 @@ Quizdown uses `highlight.js` for syntax highlighting. Currently, only python cod
 <head>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/github.min.css">
 </head>
+```
+
+2. Initialize the quizdown library:
+
+```html
+<script>quizdown.init();</script>
+```
+
+This will look for all `div`s with `class="quizdown"` and convert the quizdown into an interactive quiz app.
+You can pass some global options to the `init` call. Currently supported:
+
+```javascript
+quizdown.init({
+	start_on_load: true;			// detect and convert all divs with class quizdown
+    shuffle_answers: true;			// shuffle answers for each question
+    shuffle_questions: false;       // shuffle questsions for each quiz
+    primary_color: '#FF851B';       // primary CSS color
+    secondary_color: '#DDDDDD';     // secondary CSS color
+    title_color: 'black';           // text color of the title
+})
 ```
 
 
@@ -73,7 +92,9 @@ Combining all steps should lead to something like this:
     <head>
         <link rel="stylesheet" href="quizdown.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/github.min.css">
-        <script defer src="quizdown.js"></script>			
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/github.min.css">
+        <script src="quizdown.js"></script>
+		<script>quizdown.init();</script>
     </head>
     <body>
         <div class="quizdown">
@@ -121,7 +142,6 @@ Combining all steps should lead to something like this:
 
 ## Quiz types and syntax
 
-- A quiz is initialized with a `<div class="quizdown"><div>` tag.
 - Inside the `div` you can write quizzes in a markdown-like syntax.
 - Each quiz task begins with a question: `### How are you?`.
 - You can add hints in a *blockquote* `>`
@@ -151,6 +171,8 @@ Combining all steps should lead to something like this:
 ```
 
 ### Sequence
+
+Note that the answers for sequence questions are always shuffled.
 
 ```markdown
 ### Please bring the following into sequence!
@@ -185,23 +207,22 @@ Fruits and vegetables ...
 
 ## Quiz options and color theme
 
-You can set global and question specific options inside the quizdown using code blocks. 
-Here is an example (here, backticks are escaped for readability):
+You can set global options via the `init` call but also quiz and question specific options 
+inside the quizdown using YAML headers. Here is an example:
 
 ```markdown
 
-\`\`\`options
+---
 primary_color: #FF851B
 secondary_color: #DDDDDD
 title_color: black			
-\`\`\`
-
+---
 
 # What is the capital of Berlin?
 
-\`\`\`options				
-shuffle: false				
-\`\`\`
+---				
+shuffle_answers: false				
+---
 
 In this question you are asked a **very** difficult question.
 
@@ -214,7 +235,8 @@ In this question you are asked a **very** difficult question.
 
 ```
 
-
+Note that the color options only have an effect when set via the `init` call or via 
+a quiz wide YAML header. 
 
 
 
