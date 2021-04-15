@@ -27,7 +27,7 @@
         </span>	
         <!-- next or evaluation on last question -->
         {#if $counter === counter.max-1}
-            <Button buttonAction={quiz.calc_points}>Evalution</Button>
+            <Button buttonAction={quiz.calc_points}>Evaluate</Button>
         {:else}
             <Button buttonAction={quiz.next}>Next</Button>
         {/if} 
