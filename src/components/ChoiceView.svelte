@@ -47,8 +47,9 @@ $: current = quiz.questions[$counter]
         background-color: var(--quizdown-color-secondary);
         box-shadow: 3px 3px var(--quizdown-color-primary), 2px 2px var(--quizdown-color-primary), 1px 1px var(--quizdown-color-primary);
         display: block;
-        padding: 0.7em;
+        padding: 0.6rem;
         margin: 5px;
+        font-weight: normal;
     }
 
     [type='checkbox']:active + span,
