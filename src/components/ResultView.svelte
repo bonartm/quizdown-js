@@ -24,11 +24,11 @@
 				{#if question.selected instanceof Array}
 					{#each question.selected as selected, k}
 						{#if question.answers[selected].comment}
-							<li class="list-comment"><b>{@html question.answers[selected].html}</b>: {@html question.answers[selected].comment}</li>
+							<li class="list-comment"><b>{@html question.answers[selected].html}</b><br />{@html question.answers[selected].comment}</li>
 						{/if}
 					{/each}
-				{:else if (question.selected) && (question.answers[question.selected].comment)}
-					<li class="list-comment"><b>{@html question.answers[question.selected].html}</b>: {@html question.answers[question.selected].comment}</li>
+				{:else if (question.selected != null) && (question.answers[question.selected].comment)}
+					<li class="list-comment"><b>{@html question.answers[question.selected].html}</b><br />{@html question.answers[question.selected].comment}</li>
 				{/if}
 			</ol>
 		</li>
