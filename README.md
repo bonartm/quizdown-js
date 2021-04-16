@@ -146,6 +146,16 @@ Combining all steps should lead to something like this:
 - Each quiz task begins with a question: `### How are you?`.
 - You can add hints in a *blockquote* `>`
 - Quizdown supports syntax highlighting and text formatting!
+- You can add comments to the answer options that will be shown in the end. Just add `>` and write details with the new line. Example:
+
+```markdown
+1. [ ] Stuttgart
+1. [ ] Cologne >
+	Here is the explanations why not Cologne.
+1. [ ] Düsseldorf
+1. [x] Berlin >
+	Berlin is the best option here.
+```
 
 ### Multiple choice question
 

@@ -19,7 +19,19 @@
 
 <ul>
 	{#each quiz.questions as question, i}
-		<li on:click={()=>jump(i)}>{emojis[+question.solved]} - {@html question.text}</li>
+		<li on:click={()=>jump(i)}>{emojis[+question.solved]} {@html question.text}
+			<ol>
+				{#if question.selected instanceof Array}
+					{#each question.selected as selected, k}
+						{#if question.answers[selected].comment}
+							<li class="list-comment"><b>{@html question.answers[selected].html}</b>: {@html question.answers[selected].comment}</li>
+						{/if}
+					{/each}
+				{:else if (question.selected) && (question.answers[question.selected].comment)}
+					<li class="list-comment"><b>{@html question.answers[question.selected].html}</b>: {@html question.answers[question.selected].comment}</li>
+				{/if}
+			</ol>
+		</li>
 	{/each}
 </ul> 
 
@@ -31,6 +43,10 @@
 	li:hover {
 		text-decoration: underline;
 		cursor: pointer;
+	}
+
+	.list-comment {
+		margin-left: 2em;
 	}
 </style>
 

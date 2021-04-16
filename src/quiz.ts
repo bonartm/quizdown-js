@@ -163,11 +163,13 @@ export class Answer {
     html: string;
     correct: boolean;
     id: number;
+    comment: string;
 
-    constructor(id: number, html: string, correct: boolean) {
+    constructor(id: number, html: string, correct: boolean, comment: string) {
         this.html = html;
         this.correct = correct;
         this.id = id;
+        this.comment = comment;
         autoBind(this);
     }
 }

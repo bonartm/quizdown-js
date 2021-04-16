@@ -124,8 +124,11 @@ function parse_quizdown(raw_quizdown: string, global_config: Config): Quiz {
         if (el['type'] == 'list') {
             let answers: Array<Answer> = [];
             el['items'].forEach(function (item, i) {
-                let text: string = parse_tokens(item['tokens']);
-                answers.push(new Answer(i, text, item['checked']));
+                let textWithComment: string[] = parse_tokens(item['tokens']).split("&gt;\n");
+                let text: string = textWithComment[0].trim();
+                let comment: string = textWithComment.length > 1 ? textWithComment[1].trim() : null;
+
+                answers.push(new Answer(i, text, item['checked'], comment));
             });
             if (el['ordered']) {
                 if (el['items'][0]['task']) {
