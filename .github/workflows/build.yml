@@ -1,4 +1,4 @@
-name: Build and deploy
+name: Build
 
 on: [push, pull_request]
 
@@ -10,7 +10,6 @@ jobs:
                 node-version: [12.x]
         steps:
             - uses: actions/checkout@v1
-
             - name: Setup Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v1
               with:
@@ -22,20 +21,12 @@ jobs:
                   path: .cache
                   key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
 
-            - name: Install Packages
-              run: |
-                  npm install
+            - run: npm ci
+            - run: npm run validate
+            - run: npm run build
 
-            - name: Run Build
-              run: npm run build
-
-            - name: Upload Build as Artifact
-              uses: actions/upload-artifact@v1
-              with:
-                  name: build
-                  path: public/build
-
-            - name: Deploy
+            - name: Deploy on push
+              if: ${{ github.event_name == 'push' }}
               uses: peaceiris/actions-gh-pages@v3
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
