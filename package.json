@@ -1,6 +1,6 @@
 {
     "name": "@bonartm/quizdown",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "description": "Markdown for generating interactive quiz apps in the browser.",
     "private": false,
     "type": "module",
