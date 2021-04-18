@@ -45,7 +45,11 @@
 <hr />
 
 <div class="quizdown-credits">
-    Made with <a href="https://github.com/bonartm/quizdown-js">quizdown-js</a>.
+    <!-- inject the version number using rollup-plugin-version-injector -->
+    Made with
+    <a href="https://github.com/bonartm/quizdown-js"
+        >quizdown-js {'[VI]v{version}[/VI]'}</a
+    >.
 </div>
 
 <style>
