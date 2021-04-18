@@ -15,3 +15,4 @@
 .cache
 .eslintcache
 dist/*.map
+.env
