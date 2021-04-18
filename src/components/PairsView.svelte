@@ -1,17 +1,19 @@
-<script lang='ts'>
-
+<script lang="ts">
     import { draggable } from './dragdrop.js';
     import { crossfade } from 'svelte/transition';
     import { quintOut, elasticOut } from 'svelte/easing';
     import { flip } from 'svelte/animate';
     import type { Quiz } from '../quiz.js';
 
-    export let quiz: Quiz
+    export let quiz: Quiz;
 
-    $: counter = quiz.counter
-    $: current = quiz.questions[$counter]
+    $: counter = quiz.counter;
+    $: current = quiz.questions[$counter];
 
-    const shelf = current.answers.map(answer => ({key: answer.id, name: answer.html }));
+    const shelf = current.answers.map((answer) => ({
+        key: answer.id,
+        name: answer.html,
+    }));
 
     function putInShelf(item, index) {
         const oldItem = shelf[index];
@@ -37,7 +39,6 @@
             };
         },
     });
-
 </script>
 
 <div class="shelf">
@@ -47,11 +48,15 @@
                 {#each [item] as item (item.key)}
                     <span
                         class="item"
-                        use:draggable="{{ data: item, targets: ['.slot', '.slot .item'] }}"
+                        use:draggable="{{
+                            data: item,
+                            targets: ['.slot', '.slot .item'],
+                        }}"
                         in:receive="{item}"
                         out:send="{item}"
                         animate:flip
-                        on:drop="{(e) => putInShelf(e.detail, index)}">
+                        on:drop="{(e) => putInShelf(e.detail, index)}"
+                    >
                         {item.name}
                     </span>
                 {/each}
@@ -59,7 +64,6 @@
         </span>
     {/each}
 </div>
-
 
 <style>
     .slot {
