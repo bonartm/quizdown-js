@@ -14,5 +14,5 @@
 .vscode
 .cache
 .eslintcache
-package-lock.json
 dist/*.map
+.env

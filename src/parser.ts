@@ -106,7 +106,6 @@ function parse_quizdown(raw_quizdown: string, global_config: Config): Quiz {
         if (el['type'] == 'options') {
             if (before_first) {
                 // comes before the first heading: quiz config
-                console.log(el['data']);
                 quiz_config = merge_attributes(quiz_config, el['data']);
             } else {
                 // comes after a heading: question config
