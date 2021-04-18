@@ -1,17 +1,27 @@
 {
-    "name": "quizdown",
+    "name": "@bonartm/quizdown",
     "version": "0.1.2",
-    "description": "Markdownish syntax for generating interactive quizzes.",
+    "description": "Markdown for generating interactive quiz apps in the browser.",
     "private": false,
     "type": "module",
     "scripts": {
         "build": "rollup -c",
         "dev": "rollup -c -w",
         "start": "sirv public",
-        "validate": "svelte-check"
+        "validate": "svelte-check",
+        "release": "release-it"
+    },
+    "release-it": {
+        "npm": {
+            "publish": false
+        },
+        "github": {
+            "release": true
+        }
     },
     "keywords": [
         "quiz",
+        "multiple-choice",
         "svelte",
         "markdown"
     ],
@@ -22,6 +32,7 @@
         "@rollup/plugin-node-resolve": "^11.0.0",
         "@rollup/plugin-typescript": "^6.0.0",
         "@tsconfig/svelte": "^1.0.10",
+        "release-it": "^14.6.1",
         "rollup": "^2.39.0",
         "rollup-plugin-analyzer": "^4.0.0",
         "rollup-plugin-css-only": "^3.1.0",
