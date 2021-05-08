@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { current_component, get_current_component } from 'svelte/internal';
     import DragDropList from 'svelte-dragdroplist';
     import type { Quiz } from '../quiz';
     export let quiz: Quiz;
