@@ -1,6 +1,7 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json",
+    "extends": "@tsconfig/svelte/tsconfig.json",
+    "allowSyntheticDefaultImports": true,
 
-  "include": ["src/**/*"],
-  "exclude": ["node_modules/*", "__sapper__/*", "public/*"]
+    "include": ["src/**/*"],
+    "exclude": ["node_modules/*", "__sapper__/*", "public/*"]
 }
