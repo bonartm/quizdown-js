@@ -16,36 +16,24 @@ quizdown is best used in combination with existing static site generators like h
 
 ## Getting Started
 
-1. Include the `quizdown.js` library and the corresponding `quizdown.css` in your page:
+1. Include the `quizdown.js` library in your page:
 
 ```html
 <head>
-    <link rel="stylesheet" href="quizdown.css" />
     <script src="quizdown.js"></script>
 </head>
 ```
 
-You can also use `jsdelivr`:
+Or using a CDN: 
 
 ```html
 <head>
-    <link 
-        rel="stylesheet" 
-        href="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.css"
-    />
     <script 
         src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js">
     </script>
 </head>
 ```
 
-Quizdown uses `highlight.js` for syntax highlighting. Currently, only python code is highlighted. You may want to include a stylesheet:
-
-```html
-<head>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/github.min.css">
-</head>
-```
 
 2. Initialize the quizdown library:
 
@@ -63,7 +51,7 @@ quizdown.init({
     shuffle_questions: false;       // shuffle questsions for each quiz
     primary_color: '#FF851B';       // primary CSS color
     secondary_color: '#DDDDDD';     // secondary CSS color
-    title_color: 'black';           // text color of the title
+    text_color: 'black';            // text color of some elements
 })
 ```
 
@@ -85,14 +73,12 @@ quizdown.init({
 </body>
 ```
 
-Combining all steps should lead to something like this:
+Combining all steps leads to something like this:
 
 ```html
 <html>
     <head>
         <link rel="stylesheet" href="quizdown.css" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/github.min.css">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/github.min.css">
         <script src="quizdown.js"></script>
 		<script>quizdown.init();</script>
     </head>
@@ -144,18 +130,10 @@ Combining all steps should lead to something like this:
 
 - Inside the `div` you can write quizzes in a markdown-like syntax.
 - Each quiz task begins with a question: `### How are you?`.
-- You can add hints in a *blockquote* `>`
-- Quizdown supports syntax highlighting and text formatting!
-- You can add comments to the answer options that will be shown in the end. Just add `>` and write details with the new line. Example:
-
-```markdown
-1. [ ] Stuttgart
-1. [ ] Cologne >
-	Here is the explanations why not Cologne.
-1. [ ] Düsseldorf
-1. [x] Berlin >
-	Berlin is the best option here.
-```
+- You can add hints in a *blockquote* `>`.
+- You can format your text using markdown.
+- Quizdown uses `highlight.js` for syntax highlighting. Currently, only python code is highlighted.
+- You can add comments to the answer options that will be shown in the end. Just add `>` and write the details in the new line.
 
 ### Multiple choice question
 
@@ -225,7 +203,7 @@ inside the quizdown using YAML headers. Here is an example:
 ---
 primary_color: #FF851B
 secondary_color: #DDDDDD
-title_color: black			
+text_color: black			
 ---
 
 # What is the capital of Berlin?
