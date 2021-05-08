@@ -91,8 +91,10 @@ Combining all steps leads to something like this:
 			> Do some research!
 
 			- [x] Berlin
+				> This is the correct answer.
 			- [ ] Stuttgart
 			- [ ] Cologne
+				> Cologne is the fourth largest city.
 			- [ ] Düsseldorf
 
 			# Please bring the following into order!
@@ -133,19 +135,23 @@ Combining all steps leads to something like this:
 - You can add hints in a *blockquote* `>`.
 - You can format your text using markdown.
 - Quizdown uses `highlight.js` for syntax highlighting. Currently, only python code is highlighted.
-- You can add comments to the answer options that will be shown in the end. Just add `>` and write the details in the new line.
+
 
 ### Multiple choice question
+
+You can add a *blockquote* to the answer to make comments that will be shown in the end. The comment is shown if the answer was selected. 
 
 ```markdown
 ### What's the capital of Germany?
 
 > Hint: The *largest* city in Germany...
 
--   [x] Berlin
--   [ ] Frankfurt
--   [ ] Paris
--   [ ] Cologne
+- [x] Berlin
+	> this is the correct answer.
+- [ ] Frankfurt
+- [ ] Paris
+	> Paris is the capital of France.
+- [ ] Cologne
 ```
 
 ### Single choice question
@@ -153,9 +159,10 @@ Combining all steps leads to something like this:
 ```markdown
 ### Select your superpower!
 
-1.   [ ] Enhanced Strength
-1.   [ ] Levitation
-1.   [x] Shapeshifting
+1. [ ] Enhanced Strength
+1. [ ] Levitation
+1. [x] Shapeshifting
+	> the best superpower!
 ```
 
 ### Sequence

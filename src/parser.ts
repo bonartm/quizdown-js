@@ -123,10 +123,15 @@ function parse_quizdown(raw_quizdown: string, global_config: Config): Quiz {
         if (el['type'] == 'list') {
             let answers: Array<Answer> = [];
             el['items'].forEach(function (item, i) {
-                let textWithComment: string[] = parse_tokens(item['tokens']).split("&gt;\n");
-                let text: string = textWithComment[0].trim();
-                let comment: string = textWithComment.length > 1 ? textWithComment[1].trim() : null;
-
+                let text = '';
+                let comment = '';
+                item['tokens'].forEach(function (token, i) {
+                    if (token['type'] == 'blockquote') {
+                        comment += parse_tokens([token]);
+                    } else {
+                        text += parse_tokens([token]);
+                    }
+                });
                 answers.push(new Answer(i, text, item['checked'], comment));
             });
             if (el['ordered']) {
