@@ -7,7 +7,7 @@ export abstract class BaseQuestion {
     readonly text: string;
     readonly answers: Array<Answer>;
     readonly explanation: string;
-    selected: Array<number> | number;
+    selected: Array<number>;
     solved: boolean;
     readonly hint: string;
     readonly type: string;
@@ -56,6 +56,7 @@ export abstract class BaseQuestion {
         if (options['shuffle_answers']) {
             this.answers = BaseQuestion.shuffle(answers);
         }
+        this.selected = [];
         this.type = type;
         autoBind(this);
     }
@@ -66,18 +67,20 @@ export abstract class BaseQuestion {
         BaseQuestion.shuffle(this.answers);
     }
 
-    abstract check(): void;
+    abstract check(): boolean;
 }
 
 class Blanks extends BaseQuestion {
     check() {
         this.solved = false;
+        return this.solved;
     }
 }
 
 class Pairs extends BaseQuestion {
     check() {
         this.solved = false;
+        return this.solved;
     }
 }
 
@@ -103,6 +106,7 @@ export class Sequence extends BaseQuestion {
             true_answer_ids.sort(),
             this.selected
         );
+        return this.solved;
     }
 }
 
@@ -117,7 +121,6 @@ export class MultipleChoice extends BaseQuestion {
         options: Config
     ) {
         super(text, explanation, hint, answers, 'MultipleChoice', options);
-        this.selected = [];
     }
 
     check() {
@@ -128,11 +131,12 @@ export class MultipleChoice extends BaseQuestion {
             true_answer_ids.sort(),
             this.selected.sort()
         );
+        return this.solved;
     }
 }
 
 export class SingleChoice extends BaseQuestion {
-    selected: number;
+    selected: Array<number>;
     correct: number;
 
     constructor(
@@ -155,7 +159,8 @@ export class SingleChoice extends BaseQuestion {
     }
 
     check() {
-        this.solved = this.selected === this.correct;
+        this.solved = this.selected[0] === this.correct;
+        return this.solved;
     }
 }
 

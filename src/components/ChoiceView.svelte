@@ -1,6 +1,5 @@
 <script lang="ts">
     import type { Quiz } from '../quiz';
-
     export let quiz: Quiz;
 
     $: counter = quiz.counter;
@@ -21,7 +20,11 @@
 {:else}
     {#each current.answers as answer, i}
         <label>
-            <input type="radio" bind:group="{current.selected}" value="{i}" />
+            <input
+                type="radio"
+                bind:group="{current.selected[0]}"
+                value="{i}"
+            />
             <span>{@html answer.html}</span>
         </label>
     {/each}
