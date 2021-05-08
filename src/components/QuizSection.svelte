@@ -4,6 +4,7 @@
     import SequenceView from './SequenceView.svelte';
     import ChoiceView from './ChoiceView.svelte';
     import ResultView from './ResultView.svelte';
+    import { current_component } from 'svelte/internal';
 
     export let quiz: Quiz;
     $: counter = quiz.counter;
@@ -23,7 +24,7 @@
 {:else}
     <!-- Question  -->
     <!-- title -->
-    <h3>{@html current.text}</h3>
+    <h3>Q{$counter + 1}: {@html current.text}</h3>
     <!-- explanation text -->
     {#if current.explanation !== null && current.explanation !== ''}
         <p>{@html current.explanation}</p>

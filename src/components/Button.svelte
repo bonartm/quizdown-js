@@ -9,38 +9,28 @@
 
 <style>
     button:disabled {
-        background-color: white;
-        color: lightgray;
-        box-shadow: 3px 3px var(--quizdown-color-primary),
-            2px 2px var(--quizdown-color-primary),
-            1px 1px var(--quizdown-color-primary);
-        border: 0px solid var(--quizdown-color-primary);
+        background-color: rgb(231, 231, 231);
+        filter: grayscale(100%);
     }
 
     button {
-        margin: 10px;
         background-color: var(--quizdown-color-secondary);
-        transition-duration: 0.2s;
-        height: 2em;
-        box-shadow: 3px 3px var(--quizdown-color-primary),
-            2px 2px var(--quizdown-color-primary),
-            1px 1px var(--quizdown-color-primary);
-        border: 0px solid var(--quizdown-color-primary);
-        overflow: hidden;
-        padding: 0.8em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1em;
-    }
-
-    button:active:not(:disabled) {
-        filter: brightness(1.1);
-        transform: translate(3px, 3px);
-        box-shadow: none;
+        color: var(--quizdown-color-text);
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        font-size: var(--font-size);
+        line-height: 1;
+        text-align: center;
+        transition: opacity 0.2s ease;
+        text-decoration: none;
+        transform: scale(1);
+        display: inline-block;
+        cursor: pointer;
+        margin: 0.2rem;
     }
 
     button:hover:not(:checked):not(:active):not(:disabled) {
-        filter: brightness(1.1);
+        filter: brightness(0.9);
     }
 </style>

@@ -27,38 +27,18 @@
 
 <div class="quizdown-progress" data-label="">
     <div class="progress-slider" style="width:{progress_percent}"></div>
-
-    <span class="progress-text">
-        {#if !$finished}
-            {$counter + 1}/{counter.max}
-        {/if}
-    </span>
 </div>
 
 <style>
     .quizdown-progress {
-        height: 1.5em;
+        height: 0.4em;
         width: 100%;
-        background-color: var(--quizdown-color-secondary);
         position: relative;
     }
 
     .quizdown-progress .progress-slider {
-        background-color: var(--quizdown-color-secondary);
+        background-color: var(--quizdown-color-primary);
         height: 100%;
         display: block;
-        box-shadow: 3px 3px var(--quizdown-color-primary),
-            2px 2px var(--quizdown-color-primary),
-            1px 1px var(--quizdown-color-primary);
-        transform: translate(-3px, -3px);
-    }
-
-    .quizdown-progress .progress-text {
-        white-space: nowrap;
-        font-size: 1em;
-        font-weight: bolder;
-        position: absolute;
-        right: 0%;
-        top: 25%;
     }
 </style>
