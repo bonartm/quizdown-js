@@ -10,8 +10,10 @@ export function create_app(
     node.innerHTML = '';
     try {
         let quiz = parse_quizdown(raw_quizdown, config);
+        // https://github.com/sveltejs/svelte/pull/5870
+        let root = node.attachShadow({ mode: 'open' });
         new App({
-            target: node,
+            target: root,
             intro: false,
             props: {
                 quiz: quiz,
