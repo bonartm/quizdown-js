@@ -8,17 +8,26 @@ export function create_app(
     config: Config
 ) {
     node.innerHTML = '';
+    let root: ShadowRoot;
+    if (!!node.shadowRoot) {
+        //clear root if it allready exists
+        root = node.shadowRoot;
+        root.innerHTML = '';
+    } else {
+        root = node.attachShadow({ mode: 'open' });
+    }
     try {
         let quiz = parse_quizdown(raw_quizdown, config);
         new App({
-            target: node,
+            // https://github.com/sveltejs/svelte/pull/5870
+            target: root,
             intro: false,
             props: {
                 quiz: quiz,
             },
         });
     } catch (e) {
-        node.innerHTML = `${e}. App could not render. Please check your quizdown syntax.`;
+        root.innerHTML = `${e}. App could not render. Please check your quizdown syntax.`;
     }
 }
 

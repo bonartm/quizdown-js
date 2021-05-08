@@ -8,15 +8,15 @@ export class Config {
     shuffle_questions: boolean;
     primary_color: string;
     secondary_color: string;
-    title_color: string;
+    text_color: string;
 
     constructor(options) {
         this.start_on_load = get(options.start_on_load, true);
         this.shuffle_answers = get(options.shuffle_answers, true);
         this.shuffle_questions = get(options.shuffle_questions, false);
-        this.primary_color = get(options.primary_color, '#FF851B');
-        this.secondary_color = get(options.secondary_color, '#DDDDDD');
-        this.title_color = get(options.title_color, 'black');
+        this.primary_color = get(options.primary_color, 'steelblue');
+        this.secondary_color = get(options.secondary_color, '#f2f2f2');
+        this.text_color = get(options.text_color, 'black');
     }
 }
 

@@ -1,12 +1,13 @@
 <script lang="ts">
     import type { Quiz } from '../quiz';
     import Button from './Button.svelte';
+
     export let quiz: Quiz;
-    import SpeechBubble from '../slots/SpeechBubble.svelte';
 
     $: counter = quiz.counter;
     $: finished = quiz.finished;
     $: current = quiz.questions[$counter];
+
     let show_hint = false;
     // disable hint on new question
     $: {
@@ -15,52 +16,47 @@
     }
 </script>
 
-<div class="quizdown-button-row">
-    {#if !$finished}
-        <!-- previous, disabled on first question -->
-        <Button disabled="{$counter === 0}" buttonAction="{quiz.previous}"
-            >Previous</Button
+<div class="button-row">
+    {#if $counter === counter.max}
+        <!-- start quiz again on result page -->
+        <Button buttonAction="{quiz.reset}">One more time!</Button>
+    {:else}
+        <!-- show hint on every question page -->
+        <Button
+            disabled="{current.hint === null || current.hint === ''}"
+            buttonAction="{() => (show_hint = !show_hint)}">💡 Show hint</Button
         >
-        <!-- help, disabled if no hint is available -->
-        <span>
-            <Button
-                disabled="{current.hint === null || current.hint === ''}"
-                buttonAction="{() => (show_hint = !show_hint)}">Help me!</Button
-            >
-            {#if show_hint}<SpeechBubble>{@html current.hint}</SpeechBubble
-                >{/if}
-        </span>
-        <!-- next or evaluation on last question -->
-        {#if $counter === counter.max - 1}
-            <Button buttonAction="{quiz.calc_points}">Evaluate</Button>
+        {#if $finished}
+            <!-- jump back to result page when finished -->
+            <Button buttonAction="{quiz.evaluate}">Evaluate</Button>
+        {:else if $counter === counter.max - 1}
+            <!-- evaluation on last question -->
+            <Button buttonAction="{quiz.evaluate}">Evaluate</Button>
         {:else}
             <Button buttonAction="{quiz.next}">Next</Button>
         {/if}
-    {:else}
-        <!-- start quiz again on result page -->
-        <Button buttonAction="{quiz.reset}">One more time!</Button>
     {/if}
 </div>
 
-<hr />
+{#if show_hint}
+    <p class="quizdown-hint">{@html current.hint}</p>
+{/if}
 
 <div class="quizdown-credits">
     <!-- inject the version number using rollup-plugin-version-injector -->
-    Made with
     <a href="https://github.com/bonartm/quizdown-js"
         >quizdown-js {'[VI]v{version}[/VI]'}</a
-    >.
+    >
 </div>
 
 <style>
-    .quizdown-button-row {
-        margin-top: 0.8em;
-        justify-content: center;
-        display: inline-flex;
+    .button-row {
+        margin-top: 1em;
+        display: flex;
+        justify-content: left;
     }
-
     .quizdown-credits a {
-        color: darkgray;
+        color: gray;
         text-decoration: none;
     }
 
@@ -69,16 +65,14 @@
     }
 
     .quizdown-credits {
+        margin-top: 1rem;
+
         font-size: small;
         text-align: end;
-        color: gray;
+        color: lightgray;
     }
 
-    hr {
-        margin: auto;
-        margin-top: 1em;
-        margin-bottom: 1em;
-        border-top: 1px solid lightgray;
-        width: 80%;
+    .quizdown-hint {
+        font-size: smaller;
     }
 </style>
