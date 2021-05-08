@@ -133,7 +133,7 @@ Combining all steps leads to something like this:
 - You can add hints in a *blockquote* `>`.
 - You can format your text using markdown.
 - Quizdown uses `highlight.js` for syntax highlighting. Currently, only python code is highlighted.
-
+- You can add comments to the answer options that will be shown in the end. Just add `>` and write the details in the new line.
 
 ### Multiple choice question
 
