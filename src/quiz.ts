@@ -239,13 +239,17 @@ export class Quiz {
         this.counter.previous();
     }
 
+    jump(i: number) {
+        this.counter.jump(i);
+    }
+
     reset() {
         this.counter.reset();
         this.questions.forEach((q) => q.reset());
         this.finished.set(false);
     }
 
-    calc_points() {
+    evaluate() {
         this.finished.set(true);
         var points = 0;
         for (var q of this.questions) {
@@ -253,5 +257,6 @@ export class Quiz {
             if (q.solved) points++;
         }
         this.points = points;
+        this.jump(this.counter.max);
     }
 }
