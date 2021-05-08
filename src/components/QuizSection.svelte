@@ -4,13 +4,12 @@
     import SequenceView from './SequenceView.svelte';
     import ChoiceView from './ChoiceView.svelte';
     import ResultView from './ResultView.svelte';
-    import { current_component } from 'svelte/internal';
 
     export let quiz: Quiz;
     $: counter = quiz.counter;
     $: current = quiz.questions[$counter];
 
-    const views = {
+    let views = {
         MultipleChoice: ChoiceView,
         SingleChoice: ChoiceView,
         Sequence: SequenceView,
