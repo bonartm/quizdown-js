@@ -28,44 +28,32 @@
 {/if}
 
 <style>
-    label [type='radio'] + span {
-        border-radius: 0.4em;
+    [type='checkbox'],
+    [type='radio'] {
+        display: none;
     }
 
-    label [type='checkbox'],
-    label [type='radio'] {
-        display: none;
+    [type='radio'] + span {
+        border-radius: 0.4em;
     }
 
     [type='checkbox'] + span,
     [type='radio'] + span {
-        transition-duration: 0.2s;
+        transition-duration: 0.3s;
         background-color: var(--quizdown-color-secondary);
-        box-shadow: 3px 3px var(--quizdown-color-primary),
-            2px 2px var(--quizdown-color-primary),
-            1px 1px var(--quizdown-color-primary);
         display: block;
-        padding: 0.6rem;
+        padding: 0.5rem;
         margin: 5px;
-        font-weight: normal;
+        border: 3px solid transparent;
     }
 
-    [type='checkbox']:active + span,
-    [type='radio']:active + span {
-        filter: brightness(1.1);
-        transform: translate(3px, 3px);
-        box-shadow: none;
-    }
-
-    [type='checkbox']:hover:not(:active) + span,
-    [type='radio']:hover:not(:active) + span {
-        filter: brightness(1.1);
+    [type='checkbox']:hover + span,
+    [type='radio']:hover + span {
+        filter: brightness(0.9);
     }
 
     [type='checkbox']:checked + span,
     [type='radio']:checked + span {
-        background-color: var(--quizdown-color-primary);
-        transform: translate(3px, 3px);
-        box-shadow: none;
+        border: 3px solid var(--quizdown-color-primary);
     }
 </style>

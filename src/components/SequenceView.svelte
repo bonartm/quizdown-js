@@ -21,13 +21,16 @@
         padding: 0;
         width: unset;
         background-color: var(--quizdown-color-secondary);
-        box-shadow: 3px 3px var(--quizdown-color-primary),
-            2px 2px var(--quizdown-color-primary),
-            1px 1px var(--quizdown-color-primary);
+        border: 3px solid transparent;
     }
 
     :global(.dragdroplist div.content) {
         padding: 0;
         margin: auto auto auto 0 !important;
+    }
+
+    :global(.dragdroplist #ghost) {
+        border: 3px solid var(--quizdown-color-primary);
+        background-color: var(--quizdown-color-secondary);
     }
 </style>
