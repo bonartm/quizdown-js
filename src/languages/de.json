@@ -1,0 +1,9 @@
+{
+    "next": "Weiter",
+    "previous": "Zurück",
+    "evaluate": "Zum Ergebnis",
+    "reset": "Noch einmal!",
+    "hint": "💡 Tipp anzeigen",
+    "results_title": "Ihr Ergebnis",
+    "results_text": "Sie haben {points} von {total} Fragen richtig beantwortet!"
+}
