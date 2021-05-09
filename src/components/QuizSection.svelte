@@ -4,6 +4,7 @@
     import SequenceView from './SequenceView.svelte';
     import ChoiceView from './ChoiceView.svelte';
     import ResultView from './ResultView.svelte';
+    import { _ } from 'svelte-i18n';
 
     export let quiz: Quiz;
     $: counter = quiz.counter;
@@ -18,7 +19,7 @@
 
 {#if $counter === counter.max}
     <!-- Results -->
-    <h3>Your quiz results</h3>
+    <h3>{$_('results_title')}</h3>
     <ResultView quiz="{quiz}" />
 {:else}
     <!-- Question  -->

@@ -32,6 +32,7 @@
     "license": "MIT",
     "devDependencies": {
         "@rollup/plugin-commonjs": "^17.0.0",
+        "@rollup/plugin-json": "^4.1.0",
         "@rollup/plugin-node-resolve": "^11.0.0",
         "@rollup/plugin-typescript": "^6.0.0",
         "@tsconfig/svelte": "^1.0.10",
@@ -62,6 +63,7 @@
         "marked": "^2.0.0",
         "strip-indent": "^3.0.0",
         "svelte-dragdroplist": "^1.1.1",
+        "svelte-i18n": "^3.3.9",
         "yaml": "^1.10.2"
     }
 }

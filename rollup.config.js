@@ -7,6 +7,7 @@ import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import analyze from 'rollup-plugin-analyzer';
 import versionInjector from 'rollup-plugin-version-injector';
+import json from '@rollup/plugin-json';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -54,6 +55,7 @@ export default {
                 dev: !production,
             },
         }),
+        json({ compact: true }),
         // we'll extract any component CSS out into
         // a separate file - better for performance
         versionInjector(),

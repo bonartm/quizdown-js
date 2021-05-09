@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { Quiz } from '../quiz';
     import Button from './Button.svelte';
+    import { _ } from 'svelte-i18n';
 
     export let quiz: Quiz;
 
@@ -19,21 +20,21 @@
 <div class="button-row">
     {#if $counter === counter.max}
         <!-- start quiz again on result page -->
-        <Button buttonAction="{quiz.reset}">One more time!</Button>
+        <Button buttonAction="{quiz.reset}">{$_('reset')}</Button>
     {:else}
         <!-- show hint on every question page -->
         <Button
             disabled="{current.hint === null || current.hint === ''}"
-            buttonAction="{() => (show_hint = !show_hint)}">💡 Show hint</Button
+            buttonAction="{() => (show_hint = !show_hint)}">{$_('hint')}</Button
         >
         {#if $finished}
             <!-- jump back to result page when finished -->
-            <Button buttonAction="{quiz.evaluate}">Evaluate</Button>
+            <Button buttonAction="{quiz.evaluate}">{$_('evaluate')}</Button>
         {:else if $counter === counter.max - 1}
             <!-- evaluation on last question -->
-            <Button buttonAction="{quiz.evaluate}">Evaluate</Button>
+            <Button buttonAction="{quiz.evaluate}">{$_('evaluate')}</Button>
         {:else}
-            <Button buttonAction="{quiz.next}">Next</Button>
+            <Button buttonAction="{quiz.next}">{$_('next')}</Button>
         {/if}
     {/if}
 </div>

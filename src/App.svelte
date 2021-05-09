@@ -4,8 +4,11 @@
     import type { Quiz } from './quiz';
     import ProgressBar from './components/ProgressBar.svelte';
     import { onMount } from 'svelte';
+    import register_languages from './languages/i18n';
 
     export let quiz: Quiz;
+
+    register_languages();
 
     let node: HTMLElement;
 
