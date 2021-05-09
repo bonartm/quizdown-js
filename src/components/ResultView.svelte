@@ -2,11 +2,16 @@
     import type { Quiz } from '../quiz';
     export let quiz: Quiz;
     let emojis = ['❌', '✅'];
+    import { _ } from 'svelte-i18n';
 </script>
 
 <p>
-    You have answered <em>{quiz.points} out of {quiz.counter.max}</em> questions
-    correctly!
+    {@html $_('results_text', {
+        values: {
+            points: `<i>${quiz.points}</i>`,
+            total: `<i>${quiz.counter.max}</i>`,
+        },
+    })}
 </p>
 
 <ol>
