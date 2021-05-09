@@ -1,0 +1,9 @@
+{
+    "next": "Next",
+    "previous": "Previous",
+    "evaluate": "Evaluate",
+    "reset": "One more time!",
+    "hint": "💡 Show hint",
+    "results_title": "Your quiz results",
+    "results_text": "You have answered {points} out of {total} questions correctly!"
+}
