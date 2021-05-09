@@ -8,7 +8,7 @@
 
     export let quiz: Quiz;
 
-    register_languages();
+    register_languages(quiz.config.locale);
 
     let node: HTMLElement;
 
