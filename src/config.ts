@@ -9,6 +9,7 @@ export class Config {
     primary_color: string;
     secondary_color: string;
     text_color: string;
+    locale: 'de' | 'en' | null;
 
     constructor(options) {
         this.start_on_load = get(options.start_on_load, true);
@@ -17,6 +18,7 @@ export class Config {
         this.primary_color = get(options.primary_color, 'steelblue');
         this.secondary_color = get(options.secondary_color, '#f2f2f2');
         this.text_color = get(options.text_color, 'black');
+        this.locale = get(options.locale, null);
     }
 }
 
