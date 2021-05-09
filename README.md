@@ -208,9 +208,10 @@ inside the quizdown using YAML headers. Here is an example:
 ```markdown
 
 ---
-primary_color: #FF851B
-secondary_color: #DDDDDD
-text_color: black			
+primary_color: '#FF851B'
+secondary_color: '#DDDDDD'
+text_color: black	
+locale: de		
 ---
 
 # What is the capital of Berlin?
