@@ -24,7 +24,9 @@
     {:else}
         <!-- show hint on every question page -->
         <Button
-            disabled="{current.hint === null || current.hint === ''}"
+            disabled="{current.hint === null ||
+                current.hint === '' ||
+                show_hint}"
             buttonAction="{() => (show_hint = !show_hint)}">{$_('hint')}</Button
         >
         {#if $finished}
@@ -40,7 +42,7 @@
 </div>
 
 {#if show_hint}
-    <p class="quizdown-hint">{@html current.hint}</p>
+    <p class="quizdown-hint">💡 {@html current.hint}</p>
 {/if}
 
 <div class="quizdown-credits">
@@ -67,7 +69,6 @@
 
     .quizdown-credits {
         margin-top: 1rem;
-
         font-size: small;
         text-align: end;
         color: lightgray;
