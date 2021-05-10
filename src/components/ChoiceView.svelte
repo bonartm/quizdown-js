@@ -37,7 +37,11 @@
     }
 
     [type='radio'] + span {
-        border-radius: 0.4em;
+        border-radius: 0.5em;
+    }
+
+    [type='checkbox'] + span {
+        border-radius: 2px;
     }
 
     [type='checkbox'] + span,
@@ -48,6 +52,7 @@
         padding: 0.5rem;
         margin: 5px;
         border: 3px solid transparent;
+        cursor: pointer;
     }
 
     [type='checkbox']:hover + span,

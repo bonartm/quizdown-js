@@ -39,20 +39,18 @@
 
     :global(code, kbd) {
         padding: 0 0.4rem;
-        font-size: 90%;
+        font-size: 85%;
         white-space: pre-wrap;
         border-radius: 4px;
         padding: 0.2em 0.4em;
-        background-color: rgb(248, 255, 206);
-        font-family: monaco, 'Consolas', 'Lucida Console', monospace;
+        background-color: rgb(255, 255, 235);
+        font-family: monospace, monospace;
     }
 
     :global(pre) {
-        background-color: rgb(248, 255, 206);
-        font-size: 1em;
+        background-color: rgb(255, 255, 235);
         padding: 0.4rem;
         overflow-x: auto;
-        font-family: monaco, 'Consolas', 'Lucida Console', monospace;
     }
 
     :global(pre code) {
@@ -65,11 +63,9 @@
     }
 
     .quizdown-content {
-        line-height: 1.2;
-        font-size: 1.1em;
-        font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
         padding: 1rem;
-        max-width: 700px;
+        max-width: 800px;
+        width: 100%;
         margin: auto;
     }
 

@@ -11,6 +11,8 @@
     button:disabled {
         background-color: rgb(231, 231, 231);
         filter: grayscale(100%);
+        color: gray;
+        cursor: initial;
     }
 
     button {
@@ -19,7 +21,6 @@
         padding: 0.5rem 1rem;
         border-radius: 4px;
         border: 1px solid transparent;
-        font-size: var(--font-size);
         line-height: 1;
         text-align: center;
         transition: opacity 0.2s ease;
@@ -28,6 +29,7 @@
         display: inline-block;
         cursor: pointer;
         margin: 0.2rem;
+        font-size: 1em;
     }
 
     button:hover:not(:checked):not(:active):not(:disabled) {
