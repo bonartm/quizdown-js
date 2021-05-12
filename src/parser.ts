@@ -1,10 +1,5 @@
-import marked from 'marked';
 import DOMPurify from 'dompurify';
 import stripIndent from 'strip-indent';
-import hljs from 'highlight.js/lib/core';
-import python from 'highlight.js/lib/languages/python';
-import plaintext from 'highlight.js/lib/languages/plaintext';
-import YAML from 'yaml';
 import {
     Quiz,
     BaseQuestion,
@@ -14,78 +9,36 @@ import {
     Answer,
 } from './quiz.js';
 import { Config, merge_attributes } from './config.js';
-
-hljs.registerLanguage('python', python);
-hljs.registerLanguage('plaintext', plaintext);
-
-// this does not work....
-// ['javascript', 'python', 'bash'].forEach(async (langName) => {
-//     const langModule = await import(`highlight.js/lib/languages/${langName}`);
-//     hljs.registerLanguage(langName, langModule);
-// });
-
-marked.setOptions({
-    highlight: function (code, language) {
-        const validLanguage = hljs.getLanguage(language)
-            ? language
-            : 'plaintext';
-        return hljs.highlight(code, { language: validLanguage }).value;
-    },
-});
-
-// customize tokenizer to include yaml like header blocks
-
-const tokenizer = {
-    hr(src) {
-        //adapted from https://github.com/markedjs/marked/blob/master/src/rules.js
-        const regex = RegExp(
-            /^ {0,3}(-{3,}(?=[^-\n]*\n)|~{3,})([^\n]*)\n(?:|([\s\S]*?)\n)(?: {0,3}\1[~-]* *(?:\n+|$)|$)/
-        );
-        const cap = regex.exec(src);
-        if (cap) {
-            return {
-                type: 'options',
-                raw: cap[0],
-                data: YAML.parse(cap[3], {}),
-            };
-        }
-    },
-};
-
-// customize renderer
-
-const renderer = {
-    // disable paragraph
-    paragraph(text) {
-        return text;
-    },
-    //disable blockquote
-    blockquote(text) {
-        return text;
-    },
-    //disable heading
-    heading(text) {
-        return text;
-    },
-};
-
-// @ts-ignore
-marked.use({ renderer, tokenizer });
+import marked from './customized_marked.js';
 
 function parse_tokens(tokens): string {
     return DOMPurify.sanitize(marked.parser(tokens));
 }
 
 function html_decode(input) {
-    // https://stackoverflow.com/questions/1912501/unescape-html-entities-in-javascript
-    var doc = new DOMParser().parseFromString(input, 'text/html');
-    return doc.documentElement.textContent;
+    return input
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&amp;/g, '&');
+}
+
+function parse_answer(item) {
+    let text = '';
+    let comment = '';
+    item['tokens'].forEach(function (token, i) {
+        if (token['type'] == 'blockquote') {
+            comment += parse_tokens([token]);
+        } else {
+            text += parse_tokens([token]);
+        }
+    });
+    return { text: text, comment: comment };
 }
 
 function parse_quizdown(raw_quizdown: string, global_config: Config): Quiz {
     let tokens = marked.lexer(html_decode(stripIndent(raw_quizdown)));
     let questions: Array<BaseQuestion> = [];
-    let text: string = '';
+    let header: string = '';
     let explanation: string = '';
     let hint: string = '';
     let before_first: boolean = true;
@@ -98,7 +51,7 @@ function parse_quizdown(raw_quizdown: string, global_config: Config): Quiz {
             // start a new question
             explanation = '';
             hint = '';
-            text = parse_tokens([el]);
+            header = parse_tokens([el]);
             question_config = new Config(quiz_config);
             before_first = false;
         }
@@ -120,26 +73,26 @@ function parse_quizdown(raw_quizdown: string, global_config: Config): Quiz {
         if (el['type'] == 'blockquote') {
             hint += parse_tokens([el]);
         }
+
         if (el['type'] == 'list') {
             let answers: Array<Answer> = [];
             el['items'].forEach(function (item, i) {
-                let text = '';
-                let comment = '';
-                item['tokens'].forEach(function (token, i) {
-                    if (token['type'] == 'blockquote') {
-                        comment += parse_tokens([token]);
-                    } else {
-                        text += parse_tokens([token]);
-                    }
-                });
-                answers.push(new Answer(i, text, item['checked'], comment));
+                let answer = parse_answer(item);
+                answers.push(
+                    new Answer(
+                        i,
+                        answer['text'],
+                        item['checked'],
+                        answer['comment']
+                    )
+                );
             });
             if (el['ordered']) {
                 if (el['items'][0]['task']) {
                     // single choice list
                     questions.push(
                         new SingleChoice(
-                            text,
+                            header,
                             explanation,
                             hint,
                             answers,
@@ -150,7 +103,7 @@ function parse_quizdown(raw_quizdown: string, global_config: Config): Quiz {
                     // sequence list
                     questions.push(
                         new Sequence(
-                            text,
+                            header,
                             explanation,
                             hint,
                             answers,
@@ -162,7 +115,7 @@ function parse_quizdown(raw_quizdown: string, global_config: Config): Quiz {
                 // multiple choice list
                 questions.push(
                     new MultipleChoice(
-                        text,
+                        header,
                         explanation,
                         hint,
                         answers,
