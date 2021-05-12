@@ -37,6 +37,13 @@
 <style>
     @import 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/github.min.css';
 
+    :global(img) {
+        max-height: 400px;
+        border-radius: 4px;
+        max-width: 100%;
+        height: auto;
+    }
+
     :global(code, kbd) {
         padding: 0 0.4rem;
         font-size: 85%;
