@@ -7,7 +7,7 @@
 
 ### 🚀 Try the [**quizdown live editor**](https://bonartm.github.io/quizdown-live-editor/)
 
-- supports markdown text formatting and syntax highlighting.
+- supports markdown text formatting, images and syntax highlighting.
 - different quiz-types: single-choice, multiple-choice, sequence.
 - support for hints and explanations.
 - options for color theme, question shuffling, localization.
