@@ -5,13 +5,13 @@
 
 > Markdownish syntax to instantly create simple interactive quiz apps for your static website.
 
-### 🚀 Try the [**quizdown live editor**](https://bonartm.github.io/quizdown-live-editor/).
+### 🚀 Try the [**quizdown live editor**](https://bonartm.github.io/quizdown-live-editor/)
 
-- supports markdown text formatting and syntax highlighting
-- different quiz-types: single-choice, multiple-choice, sequence
-- support for hints and explanations
-- options for color theme, question shuffling, localization
-- can be easily included in any website, static site generator or other *svelte* projects
+- supports markdown text formatting and syntax highlighting.
+- different quiz-types: single-choice, multiple-choice, sequence.
+- support for hints and explanations.
+- options for color theme, question shuffling, localization.
+- can be easily included in any website, static site generator or other *svelte* projects.
 
 ## Usage
 
