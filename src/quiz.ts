@@ -5,7 +5,7 @@ import type { Config } from './config.js';
 
 export abstract class BaseQuestion {
     readonly text: string;
-    readonly answers: Array<Answer>;
+    answers: Array<Answer>;
     readonly explanation: string;
     selected: Array<number>;
     solved: boolean;
@@ -53,20 +53,18 @@ export abstract class BaseQuestion {
         this.solved = false;
         this.options = options;
         this.answers = answers;
-        if (options['shuffle_answers']) {
-            this.answers = BaseQuestion.shuffle(answers);
-        }
-        this.selected = [];
         this.type = type;
         autoBind(this);
+        this.reset();
     }
 
     reset() {
         this.selected = [];
         this.solved = false;
-        BaseQuestion.shuffle(this.answers);
+        if (this.options['shuffle_answers']) {
+            this.answers = BaseQuestion.shuffle(this.answers);
+        }
     }
-
     abstract check(): boolean;
 }
 
@@ -85,8 +83,6 @@ class Pairs extends BaseQuestion {
 }
 
 export class Sequence extends BaseQuestion {
-    selected: Array<number>;
-
     constructor(
         text: string,
         explanation: string,
@@ -110,9 +106,21 @@ export class Sequence extends BaseQuestion {
     }
 }
 
-export class MultipleChoice extends BaseQuestion {
-    selected: Array<number>;
+class Choice extends BaseQuestion {
+    check() {
+        let true_answer_ids = this.answers
+            .filter((answer) => answer.correct)
+            .map((answer) => answer.id);
+        let selected_answer_ids = this.selected.map((i) => this.answers[i].id);
+        this.solved = BaseQuestion.is_equal(
+            true_answer_ids.sort(),
+            selected_answer_ids.sort()
+        );
+        return this.solved;
+    }
+}
 
+export class MultipleChoice extends Choice {
     constructor(
         text: string,
         explanation: string,
@@ -122,23 +130,9 @@ export class MultipleChoice extends BaseQuestion {
     ) {
         super(text, explanation, hint, answers, 'MultipleChoice', options);
     }
-
-    check() {
-        let true_answer_ids = this.answers
-            .map((answer, i) => i)
-            .filter((i) => this.answers[i].correct);
-        this.solved = BaseQuestion.is_equal(
-            true_answer_ids.sort(),
-            this.selected.sort()
-        );
-        return this.solved;
-    }
 }
 
-export class SingleChoice extends BaseQuestion {
-    selected: Array<number>;
-    correct: number;
-
+export class SingleChoice extends Choice {
     constructor(
         text: string,
         explanation: string,
@@ -147,20 +141,10 @@ export class SingleChoice extends BaseQuestion {
         options: Config
     ) {
         super(text, explanation, hint, answers, 'SingleChoice', options);
-        let self = this;
-        answers.forEach(function (answer, i) {
-            if (answer.correct) {
-                if (typeof self.correct !== 'undefined') {
-                    throw 'Single choice question can only have one answer';
-                }
-                self.correct = i;
-            }
-        });
-    }
-
-    check() {
-        this.solved = this.selected[0] === this.correct;
-        return this.solved;
+        let n_correct = this.answers.filter((answer) => answer.correct).length;
+        if (n_correct > 1) {
+            throw 'Single Choice questions can not have more than one correct answer.';
+        }
     }
 }
 
