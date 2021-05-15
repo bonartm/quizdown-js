@@ -32,7 +32,7 @@ Otherwise locale can be set to `locale: 'en'` or `locale: 'de'`.
 - The answers for sequence questions are always shuffled.
 
 
-Here is an example:
+Here is an example ([🚀 editor](https://bonartm.github.io/quizdown-live-editor/?code=---%0Aprimary_color%3A%20%27%23FF851B%27%0Asecondary_color%3A%20%27%23DDDDDD%27%0Atext_color%3A%20black%0Alocale%3A%20de%0A---%0A%0A%23%20What%20is%20the%20capital%20of%20Berlin%3F%0A%0A---%0Ashuffle_answers%3A%20false%0A---%0A%0AIn%20this%20question%20you%20are%20asked%20a%20**very**%20difficult%20question.%0A%0A%3E%20Do%20some%20research!%0A%0A-%20%5Bx%5D%20Berlin%0A-%20%5B%20%5D%20Stuttgart%0A-%20%5B%20%5D%20Cologne%0A-%20%5B%20%5D%20D%C3%BCsseldorf)):
 
 ```markdown
 ---
@@ -52,8 +52,8 @@ In this question you are asked a **very** difficult question.
 
 > Do some research!
 
--   [x] Berlin
--   [ ] Stuttgart
--   [ ] Cologne
--   [ ] Düsseldorf
+- [x] Berlin
+- [ ] Stuttgart
+- [ ] Cologne
+- [ ] Düsseldorf
 ```
