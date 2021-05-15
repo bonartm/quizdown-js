@@ -66,7 +66,7 @@ export default {
         // consult the documentation for details:
         // https://github.com/rollup/plugins/tree/master/packages/commonjs
         resolve({
-            browser: true,
+            browser: false,
             dedupe: ['svelte'],
         }),
         commonjs(),
@@ -86,7 +86,7 @@ export default {
         // If we're building for production (npm run build
         // instead of npm run dev), minify
         production && terser(),
-        production && analyze(),
+        production && analyze({ summaryOnly: true }),
     ],
     watch: {
         clearScreen: false,
