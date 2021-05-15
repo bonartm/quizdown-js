@@ -1,24 +1,22 @@
-# quizdown [![GitHub version](https://badge.fury.io/gh/bonartm%2Fquizdown-js.svg)](https://badge.fury.io/gh/bonartm%2Fquizdown-js) [![Build](https://github.com/bonartm/quizdown-js/actions/workflows/build.yml/badge.svg)](https://github.com/bonartm/quizdown-js/actions/workflows/build.yml)
-
-
-
+# quizdown [![npm version](https://badge.fury.io/js/quizdown.svg)](https://badge.fury.io/js/quizdown) [![Build](https://github.com/bonartm/quizdown-js/actions/workflows/build.yml/badge.svg)](https://github.com/bonartm/quizdown-js/actions/workflows/build.yml)
 
 > Markdownish syntax to instantly create simple interactive quiz apps for your static website.
 
-### 🚀 Try the [**quizdown live editor**](https://bonartm.github.io/quizdown-live-editor/)
+### 🚀 Try the [quizdown live editor](https://bonartm.github.io/quizdown-live-editor/)
 
 - supports markdown text formatting, images and syntax highlighting.
 - different quiz-types: single-choice, multiple-choice, sequence.
 - support for hints and explanations.
 - options for color theme, question shuffling, localization.
 - can be easily included in any website, static site generator or other *svelte* projects.
+- mobile friendly with touch support for all question types.
 
 ## Usage
 
 quizdown is easy to setup and best used in combination with existing static site generators like *Jekyll*, *Hugo* or *Sphinx*. Check out the extensions
 [hugo-quiz](https://github.com/bonartm/hugo-quiz) and [sphinxcontrib-quizdown](https://github.com/bonartm/sphinxcontrib-quizdown).
 
-### 📚 [Documentation](./docs/getting_started.md)
+### 📚 [Documentation](./docs/README.md)
 
 
 
@@ -73,7 +71,9 @@ Write questions within a `quizdown` class:
 
 Pull requests and feature requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Install the packages with 
+I'm working on this project to learn more about modern web development and languages. I'm happy for any feedback on how to improve the code base. 
+
+After cloning, install the packages with 
 
 ```bash
 npm install

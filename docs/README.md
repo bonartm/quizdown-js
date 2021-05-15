@@ -1,4 +1,4 @@
-## Getting Started
+# Getting Started
 
 1. Include the `quizdown.js` library in your page:
 
@@ -25,18 +25,8 @@ Or using a CDN:
 ```
 
 This will look for all `div`s with `class="quizdown"` and convert the quizdown into an interactive quiz app.
-You can pass some global options to the `init` call. Currently supported:
+You can also pass [global options](./options.md) to the `init` call.
 
-```javascript
-quizdown.init({
-	start_on_load: true;			// detect and convert all divs with class quizdown
-    shuffle_answers: true;			// shuffle answers for each question
-    shuffle_questions: false;       // shuffle questsions for each quiz
-    primary_color: '#FF851B';       // primary CSS color
-    secondary_color: '#DDDDDD';     // secondary CSS color
-    text_color: 'black';            // text color of some elements
-})
-```
 
 2. Each quiz has to be embedded in a `<div class="quizdown">` tag:
 
@@ -110,3 +100,11 @@ Combining all steps leads to something like this:
     </body>
 </html>
 ````
+
+## How to continue
+
+- checkout and read about the [quizdown syntax](./syntax.md).
+- tryout the [quizdown live editor](https://bonartm.github.io/quizdown-live-editor/).
+- read about the supported [configuration and options](options.md).
+- learn about how to [`import` quizdown](./module_import.md) and use it programmatically to have full control on how and when to create quizdown app in your project. 
+
