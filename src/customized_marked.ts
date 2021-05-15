@@ -1,6 +1,6 @@
 import marked from 'marked';
 import highlight from './highlight.js';
-import YAML from 'yaml';
+import { parse as parse_yaml } from 'yaml';
 
 marked.setOptions({ highlight: highlight });
 
@@ -17,7 +17,7 @@ const tokenizer = {
             return {
                 type: 'options',
                 raw: cap[0],
-                data: YAML.parse(cap[3], {}),
+                data: parse_yaml(cap[3], {}),
             };
         }
     },
