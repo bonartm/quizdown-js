@@ -5,10 +5,10 @@
 ### 🚀 Try the [quizdown live editor](https://bonartm.github.io/quizdown-live-editor/)
 
 - supports markdown text formatting, images and syntax highlighting.
-- different quiz-types: single-choice, multiple-choice, sequence.
-- support for hints and explanations.
-- options for color theme, question shuffling, localization.
-- can be easily included in any website, static site generator or other *svelte* projects.
+- different [quiz-types](./docs/syntax.md): single-choice, multiple-choice, sequence.
+- support for [hints and explanations](./docs/syntax.md#hints-and-comments).
+- [options](./docs/options.md) for color theme, question shuffling, localization.
+- can be easily included in any website, static site generator or [other web projects](./docs/module_import.md).
 - mobile friendly with touch support for all question types.
 
 ## Usage
