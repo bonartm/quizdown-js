@@ -245,6 +245,7 @@
         padding: 0;
         background-color: var(--quizdown-color-secondary);
         border: 3px solid transparent;
+        color: var(--quizdown-color-text);
     }
 
     .item:last-child {
