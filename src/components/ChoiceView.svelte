@@ -48,6 +48,7 @@
     [type='radio'] + span {
         transition-duration: 0.3s;
         background-color: var(--quizdown-color-secondary);
+        color: var(--quizdown-color-text);
         display: block;
         padding: 0.5rem;
         margin: 5px;

@@ -47,6 +47,7 @@
     :global(code, kbd) {
         padding: 0 0.4rem;
         font-size: 85%;
+        color: black;
         white-space: pre-wrap;
         border-radius: 4px;
         padding: 0.2em 0.4em;
@@ -71,8 +72,7 @@
 
     .quizdown-content {
         padding: 1rem;
-        max-width: 800px;
-        width: 100%;
+        max-width: 900px;
         margin: auto;
     }
 
