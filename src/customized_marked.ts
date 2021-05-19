@@ -1,6 +1,7 @@
 import marked from 'marked';
 import highlight from './highlight.js';
 import { parse as parse_yaml } from 'yaml';
+import katex from 'katex';
 
 marked.setOptions({ highlight: highlight });
 
@@ -25,6 +26,18 @@ const tokenizer = {
 
 // customize renderer
 
+// match math formulas and render w katex
+function maths_expression(expr: string, display_mode: boolean) {
+    // $...$ or &&...&& but not $...$$
+    const regex = RegExp(/^(\${1,2})((?:\\.|[\s\S])*)\1$/);
+    const cap = regex.exec(expr);
+    if (cap) {
+        return katex.renderToString(cap[2], {
+            displayMode: display_mode,
+        });
+    }
+}
+
 const renderer = {
     // disable paragraph
     paragraph(text) {
@@ -37,6 +50,27 @@ const renderer = {
     //disable heading, we only use h3 headings
     heading(text) {
         return text;
+    },
+    // math rendering inside code blocks
+    code(code, lang, escaped) {
+        if (!lang) {
+            const math = maths_expression(code, true);
+            if (math) {
+                return math;
+            }
+        }
+        // use default renderer
+        return false;
+    },
+
+    // math rendering inside inline code
+    codespan(text) {
+        const math = maths_expression(text, false);
+        if (math) {
+            return math;
+        }
+        // use default renderer
+        return false;
     },
 };
 
