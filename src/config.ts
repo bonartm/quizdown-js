@@ -9,7 +9,7 @@ export class Config {
     primary_color: string;
     secondary_color: string;
     text_color: string;
-    locale: 'de' | 'en' | null;
+    locale: 'de' | 'en' | 'es' | 'fr' | null;
 
     constructor(options) {
         this.start_on_load = get(options.start_on_load, true);

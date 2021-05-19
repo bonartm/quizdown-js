@@ -1,0 +1,9 @@
+{
+    "next": "Suivant",
+    "previous": "Précédent",
+    "evaluate": "Réponse",
+    "reset": "Recommencer!",
+    "hint": "💡 Indice",
+    "results_title": "Vos résultats",
+    "results_text": "Vous avez répondu correctement à {points} questions sur {total}!"
+}
