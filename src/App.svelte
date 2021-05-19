@@ -36,6 +36,7 @@
 
 <style>
     @import 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/github.min.css';
+    @import 'https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.css';
 
     :global(img) {
         max-height: 400px;

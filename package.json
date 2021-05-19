@@ -60,6 +60,7 @@
         "auto-bind": "^4.0.0",
         "dompurify": "^2.2.6",
         "highlight.js": "^10.7.0",
+        "katex": "^0.13.11",
         "marked": "^2.0.0",
         "strip-indent": "^3.0.0",
         "svelte-i18n": "^3.3.9",
