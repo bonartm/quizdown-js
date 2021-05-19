@@ -14,7 +14,7 @@ let config = {
     primary_color: 'steelblue',  // primary CSS color
     secondary_color: '#f2f2f2',  // secondary CSS color
     text_color: 'black',         // text color of some elements
-    locale: null                 // language of the user interface ('en' and 'de' supported)
+    locale: null                 // language of the user interface (auto-detect per default)
 };
 
 quizdown.init(config);
@@ -22,8 +22,8 @@ quizdown.init(config);
 
 ## Language settings
 
-Currently german and english is supported. If `locale: null` the language is fetched from the browser settings.
-Otherwise locale can be set to `locale: 'en'` or `locale: 'de'`. 
+If `locale: null` the language is fetched from the browser's settings.
+Otherwise locale can be set globally to `en`, `fr`, `es` or `de`. 
 
 ## Setting quiz and question specific options
 

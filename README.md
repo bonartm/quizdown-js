@@ -16,7 +16,7 @@
 quizdown is easy to setup and best used in combination with existing static site generators like *Jekyll*, *Hugo* or *Sphinx*. Check out the extensions
 [hugo-quiz](https://github.com/bonartm/hugo-quiz) and [sphinxcontrib-quizdown](https://github.com/bonartm/sphinxcontrib-quizdown).
 
-### 📚 [Documentation](./docs/README.md)
+### 📚 [Documentation](./docs/)
 
 
 
