@@ -9,6 +9,9 @@ export class Config {
     primary_color: string;
     secondary_color: string;
     text_color: string;
+    video_id: string;
+    start_seconds: number;
+    end_seconds: number;
     locale: 'de' | 'en' | 'es' | 'fr' | null;
 
     constructor(options) {
@@ -19,6 +22,9 @@ export class Config {
         this.secondary_color = get(options.secondary_color, '#f2f2f2');
         this.text_color = get(options.text_color, 'black');
         this.locale = get(options.locale, null);
+        this.video_id = get(options.video_id, null);
+        this.start_seconds = get(options.start_seconds, null);
+        this.end_seconds = get(options.end_seconds, null);
     }
 }
 
