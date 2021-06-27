@@ -2,7 +2,8 @@
     "extends": "@tsconfig/svelte/tsconfig.json",
     "allowSyntheticDefaultImports": true,
     "compilerOptions": {
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "types": ["youtube"]
     },
 
     "include": ["src/**/*"],
