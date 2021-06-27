@@ -6,8 +6,12 @@
 
 	<title>Quizdown Demo Page</title>
 
-	<script src='build/quizdown.js'></script>
-	<script>quizdown.init();</script>
+	<script src="./build/quizdown.js"></script>
+	<script src="./build/extensions/quizdownKatex.js"></script>
+	<script src="./build/extensions/quizdownHighlight.js"></script>
+	<script>
+		quizdown.register(quizdownKatex).register(quizdownHighlight).init();
+	</script>
 </head>
 
 <style>
@@ -33,19 +37,30 @@
 				shuffle_questions: false
 				---
 
-				#### What's the value of `$x$`?
+				#### What's the value of $x$?
 
+				This is what i mean:	
+				$$
+				x=\sqrt{\frac{9}{16}}
+				$$
 				
+				1. [x] Try out: $x=0.75$
+				1. [ ] $x=0.5$ could also *be correct*!
+				1. [ ] perhaps $x=1$?
+				1. [ ] $x=1.5$
+
+				#### What's the value of `x[3]`?
+
+				```python
+				# a python list
+				x = [1, 2, 3, 4]
 				```
-				$$x=\sqrt{\frac{9}{16}}$$
-				```
+
+				1. [ ] 1
+				1. [ ] 2
+				1. [ ] 3
+				1. [x] 4
 				
-				1. [x] `$x=0.75$`
-				1. [ ] `$x=0.5$`
-				1. [ ] `$x=1$`
-				1. [ ] `$x=1.5$`
-
-
 				#### Who is the person in the picture?
 
 				![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Sir_Tim_Berners-Lee.jpg/330px-Sir_Tim_Berners-Lee.jpg)
