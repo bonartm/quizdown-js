@@ -32,8 +32,8 @@ jobs:
             - run: npm run validate
             - run: npm run build
 
-            - name: Deploy on push
-              if: ${{ github.event_name == 'push' }}
+            - name: Deploy on push to main branch
+              if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
               uses: peaceiris/actions-gh-pages@v3
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
