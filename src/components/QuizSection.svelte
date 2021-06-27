@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { Quiz } from '../quiz';
+    import VideoView from './VideoView.svelte';
 
     import SequenceView from './SequenceView.svelte';
     import ChoiceView from './ChoiceView.svelte';
@@ -18,16 +19,20 @@
 </script>
 
 {#if $counter === counter.max}
-    <!-- Results -->
+    <!-- results -->
     <h3>{$_('results_title')}</h3>
     <ResultView quiz="{quiz}" />
 {:else}
-    <!-- Question  -->
-    <!-- title -->
+    <!-- question title  -->
     <h3>Q{$counter + 1}: {@html current.text}</h3>
     <!-- explanation text -->
     {#if current.explanation !== null && current.explanation !== ''}
         <p>{@html current.explanation}</p>
     {/if}
+    <!-- video -->
+    {#if quiz.config.video_id !== null}
+        <VideoView quiz="{quiz}" />
+    {/if}
+    <!-- answers -->
     <svelte:component this="{views[current.type]}" quiz="{quiz}" />
 {/if}
