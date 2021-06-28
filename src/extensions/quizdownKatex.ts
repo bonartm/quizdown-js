@@ -2,7 +2,7 @@ import katex from 'katex';
 
 const rule = RegExp(/^(\$+)([^\$]|[^\$][\s\S]*?[^\$])\1(?!\$)/);
 
-export default {
+let extension = {
     name: 'katex',
     level: 'inline',
     start(src) {
@@ -23,6 +23,14 @@ export default {
     renderer(token) {
         return katex.renderToString(token.formula, {
             displayMode: token.displayMode,
+        });
+    },
+};
+
+export default {
+    setup: function (quizdown) {
+        quizdown.marked.use({
+            extensions: [extension],
         });
     },
 };

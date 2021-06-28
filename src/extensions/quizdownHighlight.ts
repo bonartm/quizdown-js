@@ -13,7 +13,13 @@ hljs.registerLanguage('python', python);
 hljs.registerLanguage('html', xml);
 hljs.registerLanguage('plaintext', plaintext);
 
-export default function (code, language) {
+function highlighter(code, language) {
     const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
     return hljs.highlight(code, { language: validLanguage }).value;
 }
+
+export default {
+    setup: function (quizdown) {
+        quizdown.marked.setOptions({ highlight: highlighter });
+    },
+};
