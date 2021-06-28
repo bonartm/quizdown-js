@@ -1,12 +1,14 @@
 import App from './App.svelte';
 import parse_quizdown from './parser.js';
 import { Config } from './config.js';
+import marked from './customized_marked.js';
 
-export function create_app(
-    raw_quizdown: string,
-    node: Element,
-    config: Config
-) {
+function register(extension) {
+    extension.setup(this);
+    return this;
+}
+
+function create_app(raw_quizdown: string, node: Element, config: Config) {
     node.innerHTML = '';
     let root: ShadowRoot;
     if (!!node.shadowRoot) {
@@ -31,7 +33,7 @@ export function create_app(
     }
 }
 
-export function init(config = {}) {
+function init(config = {}) {
     let global_config = new Config(config);
     if (global_config.start_on_load) {
         if (typeof document !== 'undefined') {
@@ -48,3 +50,10 @@ export function init(config = {}) {
         }
     }
 }
+
+export default {
+    init,
+    register,
+    create_app,
+    marked,
+};
