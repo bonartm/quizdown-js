@@ -1,9 +1,7 @@
 import marked from 'marked';
-import highlight from './highlight.js';
 import { parse as parse_yaml } from 'yaml';
-import katex_extension from './katex_extension.js';
 
-marked.setOptions({ highlight: highlight });
+// marked.setOptions({ highlight: highlight });
 
 // customize tokenizer to include yaml like header blocks
 export const tokenizer = {
@@ -45,7 +43,6 @@ export const renderer = {
 marked.use({
     renderer: renderer,
     tokenizer: tokenizer,
-    extensions: [katex_extension],
 });
 
 export default marked;
