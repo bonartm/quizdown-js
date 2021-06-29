@@ -55,7 +55,8 @@ function parse_quizdown(raw_quizdown: string, global_config: Config): Quiz {
             question_config = new Config(quiz_config);
             before_first = false;
         }
-
+        // type definition does not allow custom token types
+        // @ts-ignore
         if (el['type'] == 'options') {
             if (before_first) {
                 // comes before the first heading: quiz config

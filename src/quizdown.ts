@@ -19,7 +19,7 @@ function register(extension: QuizdownExtension) {
     return this;
 }
 
-function create_app(raw_quizdown: string, node: Element, config: Config) {
+function create_app(raw_quizdown: string, node: Element, config: Config): void {
     node.innerHTML = '';
     let root: ShadowRoot;
     if (!!node.shadowRoot) {
@@ -44,7 +44,7 @@ function create_app(raw_quizdown: string, node: Element, config: Config) {
     }
 }
 
-function init(config = {}) {
+function init(config: object = {}): void {
     let global_config = new Config(config);
     if (global_config.start_on_load) {
         if (typeof document !== 'undefined') {
@@ -72,3 +72,5 @@ let quizdown: Quizdown = {
     create_app,
     get_marked_parser,
 };
+
+export default quizdown;
