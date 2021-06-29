@@ -19,8 +19,10 @@ function highlighter(code, language) {
     return hljs.highlight(code, { language: validLanguage }).value;
 }
 
-export default {
+let quizdownHighlight: QuizdownExtension = {
     setup: function (quizdown) {
         quizdown.get_marked_parser().setOptions({ highlight: highlighter });
     },
 };
+
+export default quizdownHighlight;
