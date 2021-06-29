@@ -6,8 +6,9 @@ import katex_extension from './katex_extension.js';
 marked.setOptions({ highlight: highlight });
 
 // customize tokenizer to include yaml like header blocks
-
-const tokenizer = {
+export const tokenizer = {
+    // type definition does no allow custom token type
+    // @ts-ignore
     hr(src) {
         //adapted from https://github.com/markedjs/marked/blob/master/src/rules.js
         const regex = RegExp(
@@ -25,8 +26,7 @@ const tokenizer = {
 };
 
 // customize renderer
-
-const renderer = {
+export const renderer = {
     // disable paragraph
     paragraph(text) {
         return text;
