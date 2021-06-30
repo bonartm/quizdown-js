@@ -2,10 +2,10 @@ import katex from 'katex';
 import type { QuizdownExtension } from '../quizdown.js';
 
 interface KatexToken {
-    type: 'katex',
-    raw: string,
-    formula: string,
-    displayMode: boolean
+    type: 'katex';
+    raw: string;
+    formula: string;
+    displayMode: boolean;
 }
 
 const rule = RegExp(/^(\$+)([^\$]|[^\$][\s\S]*?[^\$])\1(?!\$)/);
@@ -39,11 +39,7 @@ let quizdownKatex: QuizdownExtension = {
     setup: function (quizdown) {
         // type definition seems outdated, because this is the correct usage
         // @ts-ignore
-<<<<<<< HEAD
         quizdown.get_marked_parser().use({ extensions: [markedExtension] });
-=======
-        marked.use({ extensions: [markedExtension] });
->>>>>>> 824810a... setup type definitions
     },
 };
 
