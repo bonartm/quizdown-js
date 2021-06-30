@@ -4,7 +4,7 @@ import { parse as parse_yaml } from 'yaml';
 // marked.setOptions({ highlight: highlight });
 
 // customize tokenizer to include yaml like header blocks
-export const tokenizer = {
+const tokenizer: marked.TokenizerObject = {
     // type definition does no allow custom token type
     // @ts-ignore
     hr(src) {
@@ -24,7 +24,7 @@ export const tokenizer = {
 };
 
 // customize renderer
-export const renderer = {
+const renderer: marked.RendererObject = {
     // disable paragraph
     paragraph(text) {
         return text;
@@ -39,9 +39,10 @@ export const renderer = {
     },
 };
 
-// @ts-ignore
 marked.use({
     renderer: renderer,
+    // type definition does not allow custom token type
+    // @ts-ignore
     tokenizer: tokenizer,
 });
 

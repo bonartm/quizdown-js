@@ -1,9 +1,20 @@
 import App from './App.svelte';
 import parse_quizdown from './parser.js';
 import { Config } from './config.js';
-import marked from './customized_marked.js';
+import marked from './customizedMarked.js';
 
-function register(extension) {
+export interface Quizdown {
+    register(extension: QuizdownExtension): void;
+    create_app(raw_quizdown: string, node: Element, config: Config): void;
+    init(config: object): void;
+    get_marked_parser(): typeof marked;
+}
+
+export interface QuizdownExtension {
+    setup(quizdown: Quizdown): void;
+}
+
+function register(extension: QuizdownExtension) {
     extension.setup(this);
     return this;
 }
@@ -51,9 +62,13 @@ function init(config = {}) {
     }
 }
 
-export default {
+function get_marked_parser(): typeof marked {
+    return marked;
+}
+
+let quizdown: Quizdown = {
     init,
     register,
     create_app,
-    marked,
+    get_marked_parser,
 };

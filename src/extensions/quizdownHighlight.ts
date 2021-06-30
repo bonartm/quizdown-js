@@ -2,6 +2,7 @@ import hljs from 'highlight.js/lib/core';
 import python from 'highlight.js/lib/languages/python';
 import xml from 'highlight.js/lib/languages/xml';
 import plaintext from 'highlight.js/lib/languages/plaintext';
+import type { QuizdownExtension } from '../quizdown.js';
 
 // this does not work....
 // ['javascript', 'python', 'bash'].forEach(async (langName) => {
@@ -20,6 +21,6 @@ function highlighter(code, language) {
 
 export default {
     setup: function (quizdown) {
-        quizdown.marked.setOptions({ highlight: highlighter });
+        quizdown.get_marked_parser().setOptions({ highlight: highlighter });
     },
 };
