@@ -45,7 +45,7 @@
         height: auto;
     }
 
-    :global(code, kbd) {
+    :global(code) {
         padding: 0 0.4rem;
         font-size: 85%;
         color: black;
