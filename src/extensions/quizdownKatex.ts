@@ -1,4 +1,5 @@
 import katex from 'katex';
+import type { QuizdownExtension } from '../quizdown.js';
 
 const rule = RegExp(/^(\$+)([^\$]|[^\$][\s\S]*?[^\$])\1(?!\$)/);
 
@@ -29,8 +30,8 @@ let extension = {
 
 export default {
     setup: function (quizdown) {
-        quizdown.marked.use({
-            extensions: [extension],
-        });
+        // type definition seems outdated, because this is the correct usage
+        // @ts-ignore
+        quizdown.get_marked_parser().use({ extensions: [markedExtension] });
     },
 };

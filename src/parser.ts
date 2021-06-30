@@ -9,7 +9,7 @@ import {
     Answer,
 } from './quiz.js';
 import { Config, merge_attributes } from './config.js';
-import marked from './customized_marked.js';
+import marked from './customizedMarked.js';
 
 function parse_tokens(tokens): string {
     return DOMPurify.sanitize(marked.parser(tokens));
