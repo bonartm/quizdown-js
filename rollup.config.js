@@ -36,35 +36,8 @@ function serve() {
     };
 }
 
-export default {
-    input: 'src/quizdown.ts',
-    output: {
-        sourcemap: true,
-        format: 'umd',
-        name: 'quizdown',
-        file: 'public/build/quizdown.js',
-    },
-    plugins: [
-        svelte({
-            preprocess: sveltePreprocess({
-                sourceMap: !production,
-            }),
-            emitCss: false,
-            compilerOptions: {
-                // enable run-time checks when not in production
-                dev: !production,
-            },
-        }),
-        json({ compact: true }),
-        // we'll extract any component CSS out into
-        // a separate file - better for performance
-        versionInjector(),
-
-        // If you have external dependencies installed from
-        // npm, you'll most likely need these plugins. In
-        // some cases you'll need additional configuration -
-        // consult the documentation for details:
-        // https://github.com/rollup/plugins/tree/master/packages/commonjs
+function make_config(input, output, name, extra_plugins) {
+    let default_plugins = [
         resolve({
             browser: false,
             dedupe: ['svelte'],
@@ -74,21 +47,55 @@ export default {
             sourceMap: !production,
             inlineSources: !production,
         }),
-
-        // In dev mode, call `npm run start` once
-        // the bundle has been generated
-        !production && serve(),
-
-        // Watch the `public` directory and refresh the
-        // browser on changes when not in production
-        !production && livereload('public'),
-
-        // If we're building for production (npm run build
-        // instead of npm run dev), minify
+        //minifying and bundle analysis in production mode
         production && terser(),
         production && analyze({ summaryOnly: true }),
-    ],
-    watch: {
-        clearScreen: false,
-    },
-};
+    ];
+    return {
+        input: input,
+        output: {
+            sourcemap: !production,
+            format: 'umd',
+            name: name,
+            dir: output,
+        },
+        plugins: extra_plugins.concat(default_plugins),
+        watch: {
+            clearScreen: false,
+        },
+    };
+}
+
+let svelte_plugins = [
+    svelte({
+        preprocess: sveltePreprocess({
+            sourceMap: !production,
+        }),
+        emitCss: false,
+        compilerOptions: {
+            // enable run-time checks when not in production
+            dev: !production,
+        },
+    }),
+    json({ compact: true }),
+    versionInjector(),
+    //live preview in dev mode
+    !production && serve(),
+    !production && livereload('public'),
+];
+
+export default [
+    make_config(
+        'src/extensions/quizdownHighlight.ts',
+        'public/build/extensions/',
+        'quizdownHighlight',
+        []
+    ),
+    make_config(
+        'src/extensions/quizdownKatex.ts',
+        'public/build/extensions/',
+        'quizdownKatex',
+        []
+    ),
+    make_config('src/quizdown.ts', 'public/build/', 'quizdown', svelte_plugins),
+];
