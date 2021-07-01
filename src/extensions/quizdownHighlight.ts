@@ -21,7 +21,9 @@ function highlighter(code, language) {
 
 let quizdownHighlight: QuizdownExtension = {
     setup: function (quizdown) {
-        quizdown.get_marked_parser().setOptions({ highlight: highlighter });
+        quizdown
+            .get_marked_parser()
+            .setOptions({ highlight: highlighter, langPrefix: 'hljs lang-' });
     },
 };
 

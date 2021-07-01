@@ -35,6 +35,7 @@
 </div>
 
 <style>
+    /* I don't know no other way of including the stylesheets */
     @import 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/github.min.css';
     @import 'https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.css';
 
@@ -48,23 +49,12 @@
     :global(code) {
         padding: 0 0.4rem;
         font-size: 85%;
-        color: black;
+        color: #333;
         white-space: pre-wrap;
         border-radius: 4px;
         padding: 0.2em 0.4em;
-        background-color: rgb(255, 255, 235);
-        font-family: monospace, monospace;
-    }
-
-    :global(pre) {
-        background-color: rgb(255, 255, 235);
-        padding: 0.4rem;
-        overflow-x: auto;
-    }
-
-    :global(pre code) {
-        background: none;
-        padding: 0;
+        background-color: #f8f8f8;
+        font-family: Consolas, Monaco, monospace;
     }
 
     :global(a) {
