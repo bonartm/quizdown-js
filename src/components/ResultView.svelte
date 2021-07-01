@@ -5,8 +5,10 @@
     import { _ } from 'svelte-i18n';
 </script>
 
+<h3>{$_('resultsTitle')}</h3>
+
 <p>
-    {@html $_('results_text', {
+    {@html $_('resultsText', {
         values: {
             points: `<i>${quiz.points}</i>`,
             total: `<i>${quiz.counter.max}</i>`,

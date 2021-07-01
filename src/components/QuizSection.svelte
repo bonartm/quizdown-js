@@ -19,7 +19,6 @@
 
 {#if $counter === counter.max}
     <!-- Results -->
-    <h3>{$_('results_title')}</h3>
     <ResultView quiz="{quiz}" />
 {:else}
     <!-- Question  -->

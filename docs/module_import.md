@@ -10,17 +10,17 @@ And use it in your code to create a quiz app:
 
 
 ```typescript
-import { create_app } from 'quizdown'
+import { createApp } from 'quizdown'
 
 
 let node = document.querySelector('.quizdown');
                    
 let config = {
     'locale': 'de',
-    'shuffle_answers': false
+    'shuffleAnswers': false
 }
 
-let raw_quizdown = `
+let rawQuizdown = `
 
 # This is awesome!
 
@@ -28,6 +28,6 @@ let raw_quizdown = `
 - [ ] False
 `
 
-create_app(raw_quizdown, node, config)
+createApp(rawQuizdown, node, config)
 ```
 
