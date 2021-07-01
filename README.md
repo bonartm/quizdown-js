@@ -4,7 +4,7 @@
 
 ### 🚀 Try the [quizdown live editor](https://bonartm.github.io/quizdown-live-editor/)
 
-- supports markdown text formatting, images and syntax highlighting.
+- supports markdown text formatting, images, syntax highlighting and math rendering.
 - different [quiz-types](./docs/syntax.md): single-choice, multiple-choice, sequence.
 - support for [hints and explanations](./docs/syntax.md#hints-and-comments).
 - [options](./docs/options.md) for color theme, question shuffling, localization.
@@ -31,6 +31,21 @@ Add the library to your website and initialize with default options:
 	src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js">
 	</script>
 	<script>quizdown.init();</script>
+	...
+</head>
+```
+
+To keep the bundle size low, syntax highlighting and math rendering are implemented in separate extensions that can be loaded and registered manually if needed: 
+
+```html
+<head>
+	...
+    <script src="./build/quizdown.js"></script>
+	<script src="./build/extensions/quizdownKatex.js"></script>
+	<script src="./build/extensions/quizdownHighlight.js"></script>
+	<script>
+		quizdown.register(quizdownKatex).register(quizdownHighlight).init();
+	</script>
 	...
 </head>
 ```
