@@ -1,12 +1,12 @@
 import marked from 'marked';
-import highlight from './highlight.js';
 import { parse as parse_yaml } from 'yaml';
 
-marked.setOptions({ highlight: highlight });
+// marked.setOptions({ highlight: highlight });
 
 // customize tokenizer to include yaml like header blocks
-
-const tokenizer = {
+const tokenizer: marked.TokenizerObject = {
+    // type definition does no allow custom token type
+    // @ts-ignore
     hr(src) {
         //adapted from https://github.com/markedjs/marked/blob/master/src/rules.js
         const regex = RegExp(
@@ -24,8 +24,7 @@ const tokenizer = {
 };
 
 // customize renderer
-
-const renderer = {
+const renderer: marked.RendererObject = {
     // disable paragraph
     paragraph(text) {
         return text;
@@ -40,7 +39,11 @@ const renderer = {
     },
 };
 
-// @ts-ignore
-marked.use({ renderer, tokenizer });
+marked.use({
+    renderer: renderer,
+    // type definition does not allow custom token type
+    // @ts-ignore
+    tokenizer: tokenizer,
+});
 
 export default marked;

@@ -31,11 +31,12 @@
     "author": "Malte Bonart",
     "license": "MIT",
     "devDependencies": {
-        "@rollup/plugin-commonjs": "^17.0.0",
+        "@rollup/plugin-commonjs": "^19.0.0",
         "@rollup/plugin-json": "^4.1.0",
         "@rollup/plugin-node-resolve": "^11.0.0",
         "@rollup/plugin-typescript": "^6.0.0",
         "@tsconfig/svelte": "^1.0.10",
+        "@types/marked": "^2.0.3",
         "acorn": "^8.2.4",
         "css-tree": "^1.1.3",
         "dotenv-cli": "^4.0.0",
@@ -60,7 +61,8 @@
         "auto-bind": "^4.0.0",
         "dompurify": "^2.2.6",
         "highlight.js": "^10.7.0",
-        "marked": "^2.0.0",
+        "katex": "^0.13.11",
+        "marked": "^2.1.3",
         "strip-indent": "^3.0.0",
         "svelte-i18n": "^3.3.9",
         "yaml": "2.0.0-5"
