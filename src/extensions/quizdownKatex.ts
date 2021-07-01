@@ -39,7 +39,7 @@ let quizdownKatex: QuizdownExtension = {
     setup: function (quizdown) {
         // type definition seems outdated, because this is the correct usage
         // @ts-ignore
-        quizdown.get_marked_parser().use({ extensions: [markedExtension] });
+        quizdown.getMarkedParser().use({ extensions: [markedExtension] });
     },
 };
 

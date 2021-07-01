@@ -1,13 +1,13 @@
 import App from './App.svelte';
-import parse_quizdown from './parser.js';
+import parseQuizdown from './parser.js';
 import { Config } from './config.js';
 import marked from './customizedMarked.js';
 
 export interface Quizdown {
     register(extension: QuizdownExtension): void;
-    create_app(raw_quizdown: string, node: Element, config: Config): void;
+    createApp(rawQuizdown: string, node: Element, config: Config): void;
     init(config: object): void;
-    get_marked_parser(): typeof marked;
+    getMarkedParser(): typeof marked;
 }
 
 export interface QuizdownExtension {
@@ -19,7 +19,7 @@ function register(extension: QuizdownExtension) {
     return this;
 }
 
-function create_app(raw_quizdown: string, node: Element, config: Config): void {
+function createApp(rawQuizdown: string, node: Element, config: Config): void {
     node.innerHTML = '';
     let root: ShadowRoot;
     if (!!node.shadowRoot) {
@@ -30,7 +30,7 @@ function create_app(raw_quizdown: string, node: Element, config: Config): void {
         root = node.attachShadow({ mode: 'open' });
     }
     try {
-        let quiz = parse_quizdown(raw_quizdown, config);
+        let quiz = parseQuizdown(rawQuizdown, config);
         new App({
             // https://github.com/sveltejs/svelte/pull/5870
             target: root,
@@ -45,15 +45,15 @@ function create_app(raw_quizdown: string, node: Element, config: Config): void {
 }
 
 function init(config: object = {}): void {
-    let global_config = new Config(config);
-    if (global_config.start_on_load) {
+    let globalConfig = new Config(config);
+    if (globalConfig.startOnLoad) {
         if (typeof document !== 'undefined') {
             window.addEventListener(
                 'load',
                 function () {
                     let nodes = document.querySelectorAll('.quizdown');
                     for (let node of nodes) {
-                        create_app(node.innerHTML, node, global_config);
+                        createApp(node.innerHTML, node, globalConfig);
                     }
                 },
                 false
@@ -62,15 +62,15 @@ function init(config: object = {}): void {
     }
 }
 
-function get_marked_parser(): typeof marked {
+function getMarkedParser(): typeof marked {
     return marked;
 }
 
 let quizdown: Quizdown = {
     init,
     register,
-    create_app,
-    get_marked_parser,
+    createApp,
+    getMarkedParser,
 };
 
 export default quizdown;

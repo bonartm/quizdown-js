@@ -4,6 +4,6 @@
     "evaluate": "Réponse",
     "reset": "Recommencer!",
     "hint": "💡 Indice",
-    "results_title": "Vos résultats",
-    "results_text": "Vous avez répondu correctement à {points} questions sur {total}!"
+    "resultsTitle": "Vos résultats",
+    "resultsText": "Vous avez répondu correctement à {points} questions sur {total}!"
 }

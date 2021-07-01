@@ -2,35 +2,51 @@ function get(attr, def) {
     return typeof attr != 'undefined' ? attr : def;
 }
 
-export class Config {
-    start_on_load: boolean;
-    shuffle_answers: boolean;
-    shuffle_questions: boolean;
-    primary_color: string;
-    secondary_color: string;
-    text_color: string;
-    locale: 'de' | 'en' | 'es' | 'fr' | null;
-
-    constructor(options) {
-        this.start_on_load = get(options.start_on_load, true);
-        this.shuffle_answers = get(options.shuffle_answers, true);
-        this.shuffle_questions = get(options.shuffle_questions, false);
-        this.primary_color = get(options.primary_color, 'steelblue');
-        this.secondary_color = get(options.secondary_color, '#f2f2f2');
-        this.text_color = get(options.text_color, 'black');
-        this.locale = get(options.locale, null);
+function renameProp(oldprop: string, newprop: string, obj: object) {
+    if (oldprop in obj) {
+        obj[newprop] = obj[oldprop];
     }
 }
 
-export function merge_attributes(
-    base_config: Config,
-    new_config: Config
-): Config {
-    //new_config overwrites entries in config1
-    let config = new Config(base_config);
-    for (let attrname in new_config) {
-        if (Object.prototype.hasOwnProperty.call(new_config, attrname)) {
-            config[attrname] = new_config[attrname];
+const toRename = {
+    start_on_load: 'startOnLoad',
+    shuffle_answers: 'shuffleAnswers',
+    shuffle_questions: 'shuffleQuestions',
+    primary_color: 'primaryColor',
+    secondary_color: 'secondaryColor',
+    text_color: 'textColor',
+};
+
+export class Config {
+    startOnLoad: boolean;
+    shuffleAnswers: boolean;
+    shuffleQuestions: boolean;
+    primaryColor: string;
+    secondaryColor: string;
+    textColor: string;
+    locale: 'de' | 'en' | 'es' | 'fr' | null;
+
+    constructor(options: Config | object) {
+        // handle <=v0.3.0 snake_case options for backwards compatibility
+        for (const oldName in toRename) {
+            renameProp(oldName, toRename[oldName], options);
+        }
+        this.startOnLoad = get(options['startOnLoad'], true);
+        this.shuffleAnswers = get(options['shuffleAnswers'], true);
+        this.shuffleQuestions = get(options['shuffleQuestions'], false);
+        this.primaryColor = get(options['primaryColor'], 'steelblue');
+        this.secondaryColor = get(options['secondaryColor'], '#f2f2f2');
+        this.textColor = get(options['textColor'], 'black');
+        this.locale = get(options['locale'], null);
+    }
+}
+
+export function mergeAttributes(baseConfig: Config, newConfig: Config): Config {
+    //newConfig overwrites entries in baseConfig
+    let config = new Config(baseConfig);
+    for (let attrname in newConfig) {
+        if (Object.prototype.hasOwnProperty.call(newConfig, attrname)) {
+            config[attrname] = newConfig[attrname];
         }
     }
     return config;

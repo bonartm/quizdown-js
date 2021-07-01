@@ -9,11 +9,11 @@
     $: finished = quiz.finished;
     $: current = quiz.questions[$counter];
 
-    let show_hint = false;
+    let showHint = false;
     // disable hint on new question
     $: {
         $counter;
-        show_hint = false;
+        showHint = false;
     }
 </script>
 
@@ -26,8 +26,8 @@
         <Button
             disabled="{current.hint === null ||
                 current.hint === '' ||
-                show_hint}"
-            buttonAction="{() => (show_hint = !show_hint)}">{$_('hint')}</Button
+                showHint}"
+            buttonAction="{() => (showHint = !showHint)}">{$_('hint')}</Button
         >
         {#if $finished}
             <!-- jump back to result page when finished -->
@@ -41,14 +41,14 @@
     {/if}
 </div>
 
-{#if show_hint}
+{#if showHint}
     <p class="quizdown-hint">💡 {@html current.hint}</p>
 {/if}
 
 <div class="quizdown-credits">
     <!-- inject the version number using rollup-plugin-version-injector -->
     <a href="https://github.com/bonartm/quizdown-js"
-        >quizdown-js {'[VI]v{version}[/VI]'}</a
+        >quizdown {'[VI]v{version}[/VI]'}</a
     >
 </div>
 

@@ -4,23 +4,23 @@
     import type { Quiz } from './quiz';
     import ProgressBar from './components/ProgressBar.svelte';
     import { onMount } from 'svelte';
-    import register_languages from './languages/i18n';
+    import registerLanguages from './languages/i18n';
 
     export let quiz: Quiz;
 
-    register_languages(quiz.config.locale);
+    registerLanguages(quiz.config.locale);
 
     let node: HTMLElement;
 
     // set global options
     onMount(async () => {
-        let primary_color: string = quiz.config['primary_color'];
-        let secondary_color: string = quiz.config['secondary_color'];
-        let text_color: string = quiz.config['text_color'];
+        let primaryColor: string = quiz.config.primaryColor;
+        let secondaryColor: string = quiz.config.secondaryColor;
+        let textColor: string = quiz.config.textColor;
 
-        node.style.setProperty('--quizdown-color-primary', primary_color);
-        node.style.setProperty('--quizdown-color-secondary', secondary_color);
-        node.style.setProperty('--quizdown-color-text', text_color);
+        node.style.setProperty('--quizdown-color-primary', primaryColor);
+        node.style.setProperty('--quizdown-color-secondary', secondaryColor);
+        node.style.setProperty('--quizdown-color-text', textColor);
     });
 </script>
 

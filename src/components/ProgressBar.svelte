@@ -7,26 +7,25 @@
     $: counter = quiz.counter;
     $: finished = quiz.finished;
 
-    const animated_current_block = tweened(0, {
+    const animatedCurrentBlock = tweened(0, {
         duration: 400,
         easing: cubicOut,
     });
 
     $: {
         if ($finished) {
-            animated_current_block.set(quiz.counter.max - 0.5);
+            animatedCurrentBlock.set(quiz.counter.max - 0.5);
         } else {
-            animated_current_block.set($counter + 0.1);
+            animatedCurrentBlock.set($counter + 0.1);
         }
     }
 
-    $: progress_percent =
-        String(($animated_current_block / (quiz.counter.max - 0.5)) * 100) +
-        '%';
+    $: progressPercent =
+        String(($animatedCurrentBlock / (quiz.counter.max - 0.5)) * 100) + '%';
 </script>
 
 <div class="quizdown-progress" data-label="">
-    <div class="progress-slider" style="width:{progress_percent}"></div>
+    <div class="progress-slider" style="width:{progressPercent}"></div>
 </div>
 
 <style>

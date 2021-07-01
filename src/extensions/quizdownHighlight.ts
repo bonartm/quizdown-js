@@ -22,7 +22,7 @@ function highlighter(code, language) {
 let quizdownHighlight: QuizdownExtension = {
     setup: function (quizdown) {
         quizdown
-            .get_marked_parser()
+            .getMarkedParser()
             .setOptions({ highlight: highlighter, langPrefix: 'hljs lang-' });
     },
 };

@@ -4,6 +4,6 @@
     "evaluate": "Respuesta",
     "reset": "Otra vez!",
     "hint": "💡 Pista",
-    "results_title": "Resultados",
-    "results_text": "Ha acertado a {points} preguntas de {total}!"
+    "resultsTitle": "Resultados",
+    "resultsText": "Ha acertado a {points} preguntas de {total}!"
 }

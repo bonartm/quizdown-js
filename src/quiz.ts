@@ -13,7 +13,7 @@ export abstract class BaseQuestion {
     readonly type: string;
     readonly options: Config;
 
-    static is_equal(a1: Array<number>, a2: Array<number>): boolean {
+    static isEqual(a1: Array<number>, a2: Array<number>): boolean {
         return JSON.stringify(a1) === JSON.stringify(a2);
     }
 
@@ -61,7 +61,7 @@ export abstract class BaseQuestion {
     reset() {
         this.selected = [];
         this.solved = false;
-        if (this.options['shuffle_answers']) {
+        if (this.options.shuffleAnswers) {
             this.answers = BaseQuestion.shuffle(this.answers);
         }
     }
@@ -91,30 +91,27 @@ export class Sequence extends BaseQuestion {
         options: Config
     ) {
         // always enable shuffling for sequence questions
-        options['shuffle_answers'] = true;
+        options.shuffleAnswers = true;
         super(text, explanation, hint, answers, 'Sequence', options);
     }
 
     check() {
         // extract answer ids from answers
-        let true_answer_ids = this.answers.map((answer) => answer.id);
-        this.solved = BaseQuestion.is_equal(
-            true_answer_ids.sort(),
-            this.selected
-        );
+        let trueAnswerIds = this.answers.map((answer) => answer.id);
+        this.solved = BaseQuestion.isEqual(trueAnswerIds.sort(), this.selected);
         return this.solved;
     }
 }
 
 class Choice extends BaseQuestion {
     check() {
-        let true_answer_ids = this.answers
+        let trueAnswerIds = this.answers
             .filter((answer) => answer.correct)
             .map((answer) => answer.id);
-        let selected_answer_ids = this.selected.map((i) => this.answers[i].id);
-        this.solved = BaseQuestion.is_equal(
-            true_answer_ids.sort(),
-            selected_answer_ids.sort()
+        let selectedAnswerIds = this.selected.map((i) => this.answers[i].id);
+        this.solved = BaseQuestion.isEqual(
+            trueAnswerIds.sort(),
+            selectedAnswerIds.sort()
         );
         return this.solved;
     }
@@ -141,8 +138,8 @@ export class SingleChoice extends Choice {
         options: Config
     ) {
         super(text, explanation, hint, answers, 'SingleChoice', options);
-        let n_correct = this.answers.filter((answer) => answer.correct).length;
-        if (n_correct > 1) {
+        let nCorrect = this.answers.filter((answer) => answer.correct).length;
+        if (nCorrect > 1) {
             throw 'Single Choice questions can not have more than one correct answer.';
         }
     }
@@ -201,7 +198,7 @@ export class Quiz {
     points: number;
     config: Config;
 
-    constructor(questions, config) {
+    constructor(questions, config: Config) {
         if (questions.length == 0) {
             throw 'No questions for quiz provided';
         }
@@ -210,7 +207,7 @@ export class Quiz {
         this.finished = writable(false);
         this.points = 0;
         this.config = config;
-        if (config['shuffle_questions']) {
+        if (config.shuffleQuestions) {
             this.questions = BaseQuestion.shuffle(questions);
         }
 
