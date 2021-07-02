@@ -1,28 +1,25 @@
 <script lang="ts">
-    import type { Quiz } from '../quiz';
-    export let quiz: Quiz;
-
-    $: counter = quiz.counter;
-    $: current = quiz.questions[$counter];
+    import type { BaseQuestion } from '../quiz';
+    export let question: BaseQuestion;
 </script>
 
-{#if current.type === 'MultipleChoice'}
-    {#each current.answers as answer, i}
+{#if question.quizType === 'MultipleChoice'}
+    {#each question.answers as answer, i}
         <label>
             <input
                 type="checkbox"
-                bind:group="{current.selected}"
+                bind:group="{question.selected}"
                 value="{i}"
             />
             <span>{@html answer.html}</span>
         </label>
     {/each}
 {:else}
-    {#each current.answers as answer, i}
+    {#each question.answers as answer, i}
         <label>
             <input
                 type="radio"
-                bind:group="{current.selected[0]}"
+                bind:group="{question.selected[0]}"
                 value="{i}"
             />
             <span>{@html answer.html}</span>
