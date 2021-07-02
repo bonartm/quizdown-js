@@ -3,6 +3,10 @@
     export let quiz: Quiz;
     let emojis = ['❌', '✅'];
     import { _ } from 'svelte-i18n';
+    import Buttons from './Buttons.svelte';
+    import Button from './Button.svelte';
+
+    let points = quiz.evaluate();
 </script>
 
 <h3>{$_('resultsTitle')}</h3>
@@ -10,8 +14,8 @@
 <p>
     {@html $_('resultsText', {
         values: {
-            points: `<i>${quiz.points}</i>`,
-            total: `<i>${quiz.counter.max}</i>`,
+            points: `<i>${points}</i>`,
+            total: `<i>${quiz.questions.length}</i>`,
         },
     })}
 </p>
@@ -37,6 +41,11 @@
         </li>
     {/each}
 </ol>
+
+<!-- start quiz again on result page -->
+<Buttons>
+    <Button buttonAction="{quiz.reset}">{$_('reset')}</Button>
+</Buttons>
 
 <style>
     .top-list-item {
