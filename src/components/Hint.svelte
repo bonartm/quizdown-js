@@ -1,14 +1,11 @@
 <script lang="ts">
+    import { fade } from 'svelte/transition';
     export let show: Boolean;
     export let hint: string;
 </script>
 
 {#if show}
-    <p class="hint">💡 {@html hint}</p>
+    <p in:fade|local="{{ duration: 600 }}" class="hint">
+        💡 {@html hint}
+    </p>
 {/if}
-
-<style>
-    .hint {
-        font-size: smaller;
-    }
-</style>
