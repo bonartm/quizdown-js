@@ -1,12 +1,25 @@
 <script lang="ts">
-    import QuizSection from './components/QuizSection.svelte';
-    import Footer from './components/Footer.svelte';
     import type { Quiz } from './quiz';
     import ProgressBar from './components/ProgressBar.svelte';
     import { onMount } from 'svelte';
     import registerLanguages from './languages/i18n';
+    import Card from './components/Card.svelte';
+    import Credits from './components/Credits.svelte';
+    import Container from './components/Container.svelte';
+    import QuestionView from './components/QuestionView.svelte';
+    import Buttons from './components/Buttons.svelte';
+    import Button from './components/Button.svelte';
+    import { _ } from 'svelte-i18n';
+    import ResultsView from './components/ResultsView.svelte';
 
     export let quiz: Quiz;
+    // https://github.com/sveltejs/svelte/issues/4079
+    $: question = quiz.active;
+    $: index = quiz.index;
+    $: onLast = quiz.onLast;
+    $: onResults = quiz.onResults;
+    $: showHint = $question.showHint;
+    $: allVisited = quiz.allVisited;
 
     registerLanguages(quiz.config.locale);
 
@@ -25,17 +38,40 @@
 </script>
 
 <div class="quizdown-content" bind:this="{node}">
-    <div class="quizdown-card">
-        <ProgressBar quiz="{quiz}" />
-        <div class="quizdown-container">
-            <QuizSection quiz="{quiz}" />
-            <Footer quiz="{quiz}" />
-        </div>
-    </div>
+    <Card>
+        <ProgressBar value="{$index}" max="{quiz.questions.length}" />
+        <Container>
+            {#if $onResults}
+                <ResultsView quiz="{quiz}" />
+            {:else}
+                <QuestionView question="{$question}" n="{$index + 1}" />
+                <Buttons>
+                    <Button
+                        disabled="{!$question.hint || $showHint}"
+                        buttonAction="{$question.toggleHint}"
+                        >{$_('hint')}</Button
+                    >
+                    {#if $onLast || $allVisited}
+                        <Button
+                            buttonAction="{() =>
+                                quiz.jump(quiz.questions.length)}"
+                        >
+                            {$_('evaluate')}
+                        </Button>
+                    {:else}
+                        <Button buttonAction="{quiz.next}">
+                            {$_('next')}
+                        </Button>
+                    {/if}
+                </Buttons>
+            {/if}
+            <Credits />
+        </Container>
+    </Card>
 </div>
 
 <style>
-    /* I don't know no other way of including the stylesheets */
+    /* Is there another way of including the stylesheets? */
     @import 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/github.min.css';
     @import 'https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.css';
 
@@ -65,14 +101,5 @@
         padding: 1rem;
         max-width: 900px;
         margin: auto;
-    }
-
-    .quizdown-card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        border-radius: 0 0 4px 4px;
-    }
-
-    .quizdown-container {
-        padding: 2px 16px;
     }
 </style>
