@@ -1,7 +1,32 @@
 import { writable, get, Writable } from 'svelte/store';
 import autoBind from 'auto-bind';
-import type { SvelteComponent } from 'svelte';
 import type { Config } from './config.js';
+
+function isEqual(a1: Array<number>, a2: Array<number>): boolean {
+    return JSON.stringify(a1) === JSON.stringify(a2);
+}
+
+function shuffle(array: Array<any>): Array<any> {
+    // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+    let currentIndex = array.length,
+        temporaryValue,
+        randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+    return array;
+}
+
+// we need to reference the classes in the svelte app despite minifaction of class names
+export type QuizType = 'MultipleChoice' | 'SingleChoice' | 'Sequence';
 
 export abstract class BaseQuestion {
     readonly text: string;
@@ -10,38 +35,17 @@ export abstract class BaseQuestion {
     selected: Array<number>;
     solved: boolean;
     readonly hint: string;
-    readonly type: string;
+    readonly quizType: QuizType;
     readonly options: Config;
-
-    static isEqual(a1: Array<number>, a2: Array<number>): boolean {
-        return JSON.stringify(a1) === JSON.stringify(a2);
-    }
-
-    static shuffle(array: Array<any>): Array<any> {
-        // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-        let currentIndex = array.length,
-            temporaryValue,
-            randomIndex;
-
-        // While there remain elements to shuffle...
-        while (0 !== currentIndex) {
-            // Pick a remaining element...
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
-            // And swap it with the current element.
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
-        }
-        return array;
-    }
+    showHint: Writable<boolean>;
+    visited: boolean;
 
     constructor(
         text: string,
         explanation: string,
         hint: string,
         answers: Array<Answer>,
-        type: string,
+        quizType: QuizType,
         options: Config
     ) {
         if (answers.length === 0) {
@@ -51,32 +55,40 @@ export abstract class BaseQuestion {
         this.explanation = explanation;
         this.hint = hint;
         this.solved = false;
+        this.showHint = writable(false);
         this.options = options;
         this.answers = answers;
-        this.type = type;
+        this.quizType = quizType;
+        this.visited = false;
         autoBind(this);
         this.reset();
+    }
+
+    enableHint() {
+        this.showHint.update((val) => true);
     }
 
     reset() {
         this.selected = [];
         this.solved = false;
+        this.visited = false;
+        this.showHint.set(false);
         if (this.options.shuffleAnswers) {
-            this.answers = BaseQuestion.shuffle(this.answers);
+            this.answers = shuffle(this.answers);
         }
     }
-    abstract check(): boolean;
+    abstract isCorrect(): boolean;
 }
 
 class Blanks extends BaseQuestion {
-    check() {
+    isCorrect() {
         this.solved = false;
         return this.solved;
     }
 }
 
 class Pairs extends BaseQuestion {
-    check() {
+    isCorrect() {
         this.solved = false;
         return this.solved;
     }
@@ -95,24 +107,21 @@ export class Sequence extends BaseQuestion {
         super(text, explanation, hint, answers, 'Sequence', options);
     }
 
-    check() {
+    isCorrect() {
         // extract answer ids from answers
         let trueAnswerIds = this.answers.map((answer) => answer.id);
-        this.solved = BaseQuestion.isEqual(trueAnswerIds.sort(), this.selected);
+        this.solved = isEqual(trueAnswerIds.sort(), this.selected);
         return this.solved;
     }
 }
 
 class Choice extends BaseQuestion {
-    check() {
+    isCorrect() {
         let trueAnswerIds = this.answers
             .filter((answer) => answer.correct)
             .map((answer) => answer.id);
         let selectedAnswerIds = this.selected.map((i) => this.answers[i].id);
-        this.solved = BaseQuestion.isEqual(
-            trueAnswerIds.sort(),
-            selectedAnswerIds.sort()
-        );
+        this.solved = isEqual(trueAnswerIds.sort(), selectedAnswerIds.sort());
         return this.solved;
     }
 }
@@ -160,91 +169,101 @@ export class Answer {
     }
 }
 
-class Counter {
-    val: Writable<number>;
-    max: number;
-    subscribe;
-
-    constructor(max: number) {
-        this.val = writable(0);
-        this.max = max;
-        this.subscribe = this.val.subscribe;
-        autoBind(this);
-    }
-
-    jump(i: number) {
-        this.val.set(i);
-    }
-
-    next() {
-        this.val.update((val) => (val < this.max - 1 ? val + 1 : val));
-    }
-
-    previous() {
-        this.val.update((val) => (val > 0 ? val - 1 : val));
-    }
-
-    reset() {
-        // trigger a change
-        if (get(this.val) == 0) this.val.set(1);
-        this.val.set(0);
-    }
-}
-
 export class Quiz {
     questions: Array<BaseQuestion>;
-    counter: Counter;
-    finished: Writable<boolean>;
-    points: number;
+    active: Writable<BaseQuestion>;
+    index: Writable<number>;
     config: Config;
+    onLast: Writable<boolean>;
+    onResults: Writable<boolean>;
+    onFirst: Writable<boolean>;
+    isEvaluated: Writable<boolean>;
+    allVisited: Writable<boolean>;
 
     constructor(questions, config: Config) {
         if (questions.length == 0) {
             throw 'No questions for quiz provided';
         }
+        this.index = writable(0);
         this.questions = questions;
-        this.counter = new Counter(this.questions.length);
-        this.finished = writable(false);
-        this.points = 0;
         this.config = config;
         if (config.shuffleQuestions) {
-            this.questions = BaseQuestion.shuffle(questions);
+            this.questions = shuffle(questions);
         }
-
+        // setup first question
+        this.active = writable(questions[0]);
+        questions[0].visited = true;
+        this.onLast = writable(questions.length == 1);
+        this.onResults = writable(false);
+        this.onFirst = writable(true);
+        this.allVisited = writable(questions.length == 1);
+        this.isEvaluated = writable(false);
         autoBind(this);
     }
 
-    current(): BaseQuestion {
-        let n: number = get(this.counter);
-        return this.questions[n];
+    private setActive() {
+        let idx = get(this.index);
+        this.active.update((act) => this.questions[idx]);
+        this.questions[idx].visited = true;
     }
 
-    next() {
-        this.counter.next();
+    private checkAllVisited(): boolean {
+        for (let question of this.questions) {
+            if (!question.visited) {
+                return false;
+            }
+        }
+        return true;
     }
 
-    previous() {
-        this.counter.previous();
+    jump(index: number): boolean {
+        if (index <= this.questions.length - 1 && index >= 0) {
+            // on a question
+            this.index.set(index);
+            this.setActive();
+            this.allVisited.set(this.checkAllVisited());
+            this.onResults.set(false);
+            this.onLast.set(index == this.questions.length - 1);
+            this.onFirst.set(index == 0);
+            return true;
+        } else if (index == this.questions.length) {
+            // on results page
+            this.onResults.set(true);
+            this.onLast.set(false);
+            this.index.set(index);
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    jump(i: number) {
-        this.counter.jump(i);
+    next(): boolean {
+        return this.jump(get(this.index) + 1);
     }
 
-    reset() {
-        this.counter.reset();
+    previous(): boolean {
+        return this.jump(get(this.index) - 1);
+    }
+
+    reset(): Boolean {
+        this.onLast.set(false);
+        this.onResults.set(false);
+        this.allVisited.set(false);
+        this.isEvaluated.set(false);
+
         this.questions.forEach((q) => q.reset());
-        this.finished.set(false);
+        return this.jump(0);
     }
 
-    evaluate() {
-        this.finished.set(true);
+    evaluate(): number {
         var points = 0;
         for (var q of this.questions) {
-            q.check();
-            if (q.solved) points++;
+            if (q.isCorrect()) {
+                points += 1;
+            }
         }
-        this.points = points;
-        this.jump(this.counter.max);
+        console.log('hi');
+        this.isEvaluated.set(true);
+        return points;
     }
 }
