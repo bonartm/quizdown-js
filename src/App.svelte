@@ -5,25 +5,36 @@
     import registerLanguages from './languages/i18n';
     import Card from './components/Card.svelte';
     import Credits from './components/Credits.svelte';
-    import Container from './components/Container.svelte';
+    import SmoothContainer from './components/SmoothContainer.svelte';
     import QuestionView from './components/QuestionView.svelte';
     import Buttons from './components/Buttons.svelte';
     import Button from './components/Button.svelte';
     import { _ } from 'svelte-i18n';
     import ResultsView from './components/ResultsView.svelte';
+    import { Linear, CheckFirst } from './progressModes.js';
+    import Animated from './components/Animated.svelte';
+    import registerIcons from './registerIcons.js';
+    import Icon from './components/Icon.svelte';
+    import { flip } from 'svelte/animate';
 
     export let quiz: Quiz;
     // https://github.com/sveltejs/svelte/issues/4079
     $: question = quiz.active;
     $: index = quiz.index;
     $: onLast = quiz.onLast;
+    $: onFirst = quiz.onFirst;
     $: onResults = quiz.onResults;
     $: showHint = $question.showHint;
+    $: isEvaluated = quiz.isEvaluated;
     $: allVisited = quiz.allVisited;
 
+    let game = new Linear(quiz);
+
     registerLanguages(quiz.config.locale);
+    registerIcons();
 
     let node: HTMLElement;
+    import { fly } from 'svelte/transition';
 
     // set global options
     onMount(async () => {
@@ -39,34 +50,58 @@
 
 <div class="quizdown-content" bind:this="{node}">
     <Card>
-        <ProgressBar value="{$index}" max="{quiz.questions.length}" />
-        <Container>
-            {#if $onResults}
-                <ResultsView quiz="{quiz}" />
-            {:else}
-                <QuestionView question="{$question}" n="{$index + 1}" />
-                <Buttons>
+        <ProgressBar value="{$index}" max="{quiz.questions.length - 1}" />
+
+        <Buttons>
+            <Button title="{$_('reset')}" buttonAction="{quiz.reset}"
+                ><Icon name="redo" /></Button
+            >
+            <Button
+                title="{$_('previous')}"
+                disabled="{$onFirst ||
+                    !game.hasPrevious ||
+                    $onResults ||
+                    $isEvaluated}"
+                buttonAction="{game.previous}"
+                ><Icon name="arrow-left" /></Button
+            >
+            <Button
+                disabled="{$onLast || $onResults || $isEvaluated}"
+                buttonAction="{game.next}"
+                title="{$_('next')}"><Icon name="arrow-right" /></Button
+            >
+            {#if $question.hint && !$showHint && !$onResults}
+                <div transition:fly="{{ x: 200, duration: 500 }}">
                     <Button
-                        disabled="{!$question.hint || $showHint}"
-                        buttonAction="{$question.toggleHint}"
-                        >{$_('hint')}</Button
+                        title="{$_('hint')}"
+                        disabled="{!$question.hint || $showHint || $onResults}"
+                        buttonAction="{$question.enableHint}"
+                        ><Icon name="lightbulb" /></Button
                     >
-                    {#if $onLast || $allVisited}
-                        <Button
-                            buttonAction="{() =>
-                                quiz.jump(quiz.questions.length)}"
-                        >
-                            {$_('evaluate')}
-                        </Button>
-                    {:else}
-                        <Button buttonAction="{quiz.next}">
-                            {$_('next')}
-                        </Button>
-                    {/if}
-                </Buttons>
+                </div>
             {/if}
-            <Credits />
-        </Container>
+            {#if $onLast || $allVisited}
+                <div transition:fly="{{ x: 200, duration: 500 }}">
+                    <Button
+                        disabled="{!($onLast || $allVisited)}"
+                        title="{$_('evaluate')}"
+                        buttonAction="{() => game.jump(quiz.questions.length)}"
+                        ><Icon name="check-double" /></Button
+                    >
+                </div>
+            {/if}
+        </Buttons>
+
+        <SmoothContainer>
+            <Animated update="{$index}">
+                {#if $onResults}
+                    <ResultsView quiz="{quiz}" />
+                {:else}
+                    <QuestionView question="{$question}" n="{$index + 1}" />
+                {/if}
+                <Credits />
+            </Animated>
+        </SmoothContainer>
     </Card>
 </div>
 

@@ -42,11 +42,6 @@
     {/each}
 </ol>
 
-<!-- start quiz again on result page -->
-<Buttons>
-    <Button buttonAction="{quiz.reset}">{$_('reset')}</Button>
-</Buttons>
-
 <style>
     .top-list-item {
         margin-bottom: 0.2rem;
