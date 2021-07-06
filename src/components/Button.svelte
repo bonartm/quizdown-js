@@ -1,22 +1,24 @@
 <script lang="ts">
     export let buttonAction = () => alert('Life has never Svelte better');
     export let disabled = false;
+    export let title = '';
 </script>
 
-<button disabled="{disabled}" on:click="{buttonAction}">
-    <slot>Hello World</slot>
+<button title="{title}" disabled="{disabled}" on:click="{buttonAction}">
+    <slot />
 </button>
 
 <style>
     button:disabled {
-        background-color: rgb(231, 231, 231);
+        background-color: white;
+
         filter: grayscale(100%);
         color: gray;
         cursor: initial;
     }
 
     button {
-        background-color: var(--quizdown-color-secondary);
+        background-color: white;
         color: var(--quizdown-color-text);
         padding: 0.5rem 1rem;
         border-radius: 4px;
@@ -25,7 +27,6 @@
         text-align: center;
         transition: opacity 0.2s ease;
         text-decoration: none;
-        transform: scale(1);
         display: inline-block;
         cursor: pointer;
         margin: 0.2rem;
