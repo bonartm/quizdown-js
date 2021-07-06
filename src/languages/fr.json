@@ -3,7 +3,7 @@
     "previous": "Précédent",
     "evaluate": "Réponse",
     "reset": "Recommencer!",
-    "hint": "💡 Indice",
+    "hint": "Indice",
     "resultsTitle": "Vos résultats",
     "resultsText": "Vous avez répondu correctement à {points} questions sur {total}!"
 }
