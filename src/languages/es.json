@@ -3,7 +3,7 @@
     "previous": "Anterior",
     "evaluate": "Respuesta",
     "reset": "Otra vez!",
-    "hint": "💡 Pista",
+    "hint": "Pista",
     "resultsTitle": "Resultados",
     "resultsText": "Ha acertado a {points} preguntas de {total}!"
 }
