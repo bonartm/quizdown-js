@@ -105,19 +105,19 @@
     </Card>
 </div>
 
-<style>
-    /* Is there another way of including the stylesheets? */
-    @import 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/github.min.css';
-    @import 'https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.css';
+<style type="text/scss" global>
+    @import 'highlight.js/styles/github';
+    @import 'katex/dist/katex';
+    @import '@fortawesome/fontawesome-svg-core/styles';
 
-    :global(img) {
+    img {
         max-height: 400px;
         border-radius: 4px;
         max-width: 100%;
         height: auto;
     }
 
-    :global(code) {
+    code {
         padding: 0 0.4rem;
         font-size: 85%;
         color: #333;
@@ -128,7 +128,7 @@
         font-family: Consolas, Monaco, monospace;
     }
 
-    :global(a) {
+    a {
         color: var(--quizdown-color-primary);
     }
 
