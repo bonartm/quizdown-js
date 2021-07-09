@@ -1,10 +1,11 @@
 <script lang="ts">
-    import { onMount, beforeUpdate } from 'svelte';
+    import { onMount, beforeUpdate, afterUpdate } from 'svelte';
     import {
         parse,
         icon,
         findIconDefinition,
     } from '@fortawesome/fontawesome-svg-core';
+    //https://stackoverflow.com/questions/56334381/why-my-font-awesome-icons-are-being-displayed-big-at-first-and-then-updated-to-t
 
     import type {
         IconName,
@@ -20,14 +21,11 @@
     };
 
     let html = '';
-    let iconObj = { prefix: 'fas', iconName: name } as IconLookup;
-    const result = icon(iconObj, params);
-    html = result.html[0];
+    beforeUpdate(() => {
+        let iconObj = { prefix: 'fas', iconName: name } as IconLookup;
+        const result = icon(iconObj, params);
+        html = result.html[0];
+    });
 </script>
 
 {@html html}
-
-<style>
-    /* i have to load the styles manually, maybe due to the shadow dom? */
-    @import 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-svg-core/styles.css';
-</style>
