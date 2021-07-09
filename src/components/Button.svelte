@@ -11,10 +11,10 @@
 <style>
     button:disabled {
         background-color: white;
-
         filter: grayscale(100%);
         color: gray;
         cursor: initial;
+        opacity: 50%;
     }
 
     button {
