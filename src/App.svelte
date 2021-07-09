@@ -11,7 +11,7 @@
     import Button from './components/Button.svelte';
     import { _ } from 'svelte-i18n';
     import ResultsView from './components/ResultsView.svelte';
-    import { Linear, CheckFirst } from './progressModes.js';
+    // import { Linear, CheckFirst } from './progressModes.js';
     import Animated from './components/Animated.svelte';
     import registerIcons from './registerIcons.js';
     import Icon from './components/Icon.svelte';
@@ -30,7 +30,7 @@
     $: isEvaluated = quiz.isEvaluated;
     $: allVisited = quiz.allVisited;
 
-    let game = new Linear(quiz);
+    //let game = new Linear(quiz);
 
     registerLanguages(quiz.config.locale);
     registerIcons();
@@ -70,11 +70,8 @@
             <Buttons>
                 <Button
                     title="{$_('previous')}"
-                    disabled="{$onFirst ||
-                        !game.hasPrevious ||
-                        $onResults ||
-                        $isEvaluated}"
-                    buttonAction="{game.previous}"
+                    disabled="{$onFirst || $onResults || $isEvaluated}"
+                    buttonAction="{quiz.previous}"
                     ><Icon name="arrow-left" size="lg" /></Button
                 >
                 <Button title="{$_('reset')}" buttonAction="{quiz.reset}"
@@ -82,7 +79,7 @@
                 >
                 <Button
                     disabled="{$onLast || $onResults || $isEvaluated}"
-                    buttonAction="{game.next}"
+                    buttonAction="{quiz.next}"
                     title="{$_('next')}"
                     ><Icon name="arrow-right" size="lg" /></Button
                 >
@@ -93,7 +90,7 @@
                             disabled="{!($onLast || $allVisited) || $onResults}"
                             title="{$_('evaluate')}"
                             buttonAction="{() =>
-                                game.jump(quiz.questions.length)}"
+                                quiz.jump(quiz.questions.length)}"
                             ><Icon name="check-double" size="lg" /></Button
                         >
                     </div>
