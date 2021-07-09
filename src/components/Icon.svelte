@@ -14,10 +14,14 @@
     } from '@fortawesome/fontawesome-svg-core';
 
     export let size = undefined;
+    export let spin = false;
     export let name: IconName;
 
     let params: IconParams = {
-        classes: size ? `fa-${size}` : undefined,
+        classes: [
+            size ? `fa-${size}` : undefined,
+            spin ? 'fa-spin' : undefined,
+        ],
     };
 
     let html = '';
