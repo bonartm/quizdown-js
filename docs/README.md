@@ -12,7 +12,7 @@ Or using a CDN:
 
 ```html
 <head>
-    <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quizdown@latest/public/build/quizdown.js"></script>
 </head>
 ```
 
