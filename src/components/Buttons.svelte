@@ -4,8 +4,8 @@
 
 <style>
     .button-row {
-        margin-top: 1em;
+        padding-top: 2em;
         display: flex;
-        justify-content: left;
+        justify-content: center;
     }
 </style>
