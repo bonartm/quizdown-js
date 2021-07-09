@@ -5,8 +5,7 @@
 
     let innerHeight: number;
     const height = tweened(innerHeight, {
-        duration: 700,
-        easing: cubicOut,
+        duration: 100,
     });
     let mounted = false;
     onMount(() => (mounted = true));
@@ -17,17 +16,8 @@
     }
 </script>
 
-<div class="container" style="height:{$height}px;">
-    <div class="inner" bind:clientHeight="{innerHeight}">
+<div style="height:{$height}px;">
+    <div bind:clientHeight="{innerHeight}">
         <slot />
     </div>
 </div>
-
-<style>
-    .container {
-        padding: 2px 16px;
-        display: grid;
-        align-items: start;
-        overflow: hidden;
-    }
-</style>
