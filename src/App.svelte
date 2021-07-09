@@ -18,7 +18,7 @@
     import { flip } from 'svelte/animate';
     import { fly } from 'svelte/transition';
     import Container from './components/Container.svelte';
-    import Modal from './components/Modal.svelte';
+    // import Modal from './components/Modal.svelte';
 
     export let quiz: Quiz;
     // https://github.com/sveltejs/svelte/issues/4079
@@ -36,7 +36,7 @@
     registerIcons();
 
     let node: HTMLElement;
-    let showModal = false;
+    // let showModal = false;
 
     // set global options
     onMount(async () => {
