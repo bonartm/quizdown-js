@@ -3,6 +3,8 @@
     import { cubicOut } from 'svelte/easing';
     import { onMount } from 'svelte';
 
+    export let minHeight = 0;
+
     let innerHeight: number;
     const height = tweened(innerHeight, {
         duration: 100,
@@ -11,7 +13,7 @@
     onMount(() => (mounted = true));
     $: {
         if (mounted) {
-            height.set(innerHeight);
+            height.set(Math.max(minHeight, innerHeight));
         }
     }
 </script>
