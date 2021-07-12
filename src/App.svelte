@@ -7,7 +7,7 @@
     import Credits from './components/Credits.svelte';
     import SmoothResize from './components/SmoothResize.svelte';
     import QuestionView from './components/QuestionView.svelte';
-    import Buttons from './components/Buttons.svelte';
+    import Row from './components/Row.svelte';
     import Button from './components/Button.svelte';
     import { _ } from 'svelte-i18n';
     import ResultsView from './components/ResultsView.svelte';
@@ -15,14 +15,16 @@
     import Animated from './components/Animated.svelte';
     import registerIcons from './registerIcons.js';
     import Icon from './components/Icon.svelte';
-    import { flip } from 'svelte/animate';
+    import Hint from './components/Hint.svelte';
     import { fly } from 'svelte/transition';
     import Container from './components/Container.svelte';
+    import Loading from './components/Loading.svelte';
     // import Modal from './components/Modal.svelte';
 
     export let quiz: Quiz;
     // https://github.com/sveltejs/svelte/issues/4079
     $: question = quiz.active;
+    $: showHint = $question.showHint;
     $: index = quiz.index;
     $: onLast = quiz.onLast;
     $: onFirst = quiz.onFirst;
@@ -36,6 +38,8 @@
     registerIcons();
 
     let node: HTMLElement;
+    let minHeight = 150;
+    let reloaded = false;
     // let showModal = false;
 
     // set global options
@@ -47,61 +51,88 @@
         node.style.setProperty('--quizdown-color-primary', primaryColor);
         node.style.setProperty('--quizdown-color-secondary', secondaryColor);
         node.style.setProperty('--quizdown-color-text', textColor);
+        node.style.minHeight = `${minHeight}px`;
     });
 </script>
 
 <div class="quizdown-content" bind:this="{node}">
     <Card>
         <ProgressBar value="{$index}" max="{quiz.questions.length - 1}" />
+        <Loading update="{reloaded}" ms="{800}" minHeight="{minHeight}">
+            <Container>
+                <SmoothResize minHeight="{minHeight}">
+                    <Animated update="{$index}">
+                        {#if $onResults}
+                            <ResultsView quiz="{quiz}" />
+                        {:else}
+                            <QuestionView
+                                question="{$question}"
+                                n="{$index + 1}"
+                            />
+                            <Hint hint="{$question.hint}" show="{$showHint}" />
+                        {/if}
+                    </Animated>
+                </SmoothResize>
 
-        <Container>
-            <SmoothResize>
-                <Animated update="{$index}">
-                    {#if $onResults}
-                        <ResultsView quiz="{quiz}" />
-                    {:else}
-                        <QuestionView question="{$question}" n="{$index + 1}" />
-                    {/if}
-                </Animated>
-            </SmoothResize>
+                <!-- <Modal show="{showModal}">Are you sure?</Modal> -->
 
-            <!-- <Modal show="{showModal}">Are you sure?</Modal> -->
-
-            <Buttons>
-                <Button
-                    title="{$_('previous')}"
-                    disabled="{$onFirst || $onResults || $isEvaluated}"
-                    buttonAction="{quiz.previous}"
-                    ><Icon name="arrow-left" size="lg" /></Button
-                >
-                <Button title="{$_('reset')}" buttonAction="{quiz.reset}"
-                    ><Icon name="redo" size="sm" /></Button
-                >
-                <Button
-                    disabled="{$onLast || $onResults || $isEvaluated}"
-                    buttonAction="{quiz.next}"
-                    title="{$_('next')}"
-                    ><Icon name="arrow-right" size="lg" /></Button
-                >
-
-                {#if $onLast || $allVisited}
-                    <div in:fly="{{ x: 200, duration: 500 }}">
+                <Row>
+                    <Button
+                        slot="left"
+                        title="{$_('hint')}"
+                        disabled="{!$question.hint || $showHint || $onResults}"
+                        buttonAction="{$question.enableHint}"
+                        ><Icon name="lightbulb" solid="{false}" /></Button
+                    >
+                    <svelte:fragment slot="center">
                         <Button
-                            disabled="{!($onLast || $allVisited) || $onResults}"
-                            title="{$_('evaluate')}"
-                            buttonAction="{() =>
-                                quiz.jump(quiz.questions.length)}"
-                            ><Icon name="check-double" size="lg" /></Button
+                            title="{$_('previous')}"
+                            disabled="{$onFirst || $onResults || $isEvaluated}"
+                            buttonAction="{quiz.previous}"
+                            ><Icon name="arrow-left" size="lg" /></Button
                         >
-                    </div>
-                {/if}
-            </Buttons>
 
-            <Credits />
-        </Container>
+                        <Button
+                            disabled="{$onLast || $onResults || $isEvaluated}"
+                            buttonAction="{quiz.next}"
+                            title="{$_('next')}"
+                            ><Icon name="arrow-right" size="lg" /></Button
+                        >
+
+                        {#if $onLast || $allVisited}
+                            <div in:fly="{{ x: 200, duration: 500 }}">
+                                <Button
+                                    disabled="{!($onLast || $allVisited) ||
+                                        $onResults}"
+                                    title="{$_('evaluate')}"
+                                    buttonAction="{() =>
+                                        quiz.jump(quiz.questions.length)}"
+                                    ><Icon
+                                        name="check-double"
+                                        size="lg"
+                                    /></Button
+                                >
+                            </div>
+                        {/if}
+                    </svelte:fragment>
+
+                    <Button
+                        slot="right"
+                        title="{$_('reset')}"
+                        buttonAction="{() => {
+                            reloaded = !reloaded;
+                            quiz.reset();
+                        }}"><Icon name="redo" /></Button
+                    >
+                </Row>
+
+                <Credits />
+            </Container>
+        </Loading>
     </Card>
 </div>
 
+<!-- global styles applied to all elements in the app -->
 <style type="text/scss" global>
     @import 'highlight.js/styles/github';
     @import 'katex/dist/katex';
