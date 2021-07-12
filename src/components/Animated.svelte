@@ -14,7 +14,7 @@
 </script>
 
 {#key update}
-    <div class="animated" in:fade="{{ duration: 600 }}">
+    <div class="animated" in:fade="{{ duration: 400 }}">
         <slot />
     </div>
 {/key}
