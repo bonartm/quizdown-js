@@ -78,7 +78,6 @@ Write questions within a `quizdown` class (edit in the [🚀quizdown editor](htt
 </div>
 ...
 ```
-![quizdown1](./docs/quizdown1.png)
 
 
 
