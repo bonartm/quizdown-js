@@ -31,6 +31,7 @@
     "author": "Malte Bonart",
     "license": "MIT",
     "devDependencies": {
+        "@fortawesome/free-regular-svg-icons": "^5.15.3",
         "@rollup/plugin-commonjs": "^19.0.0",
         "@rollup/plugin-json": "^4.1.0",
         "@rollup/plugin-node-resolve": "^11.0.0",
