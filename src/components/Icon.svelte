@@ -16,6 +16,9 @@
     export let size = undefined;
     export let spin = false;
     export let name: IconName;
+    export let solid = true;
+
+    let prefix = solid ? 'fas' : 'far';
 
     let params: IconParams = {
         classes: [
@@ -26,7 +29,7 @@
 
     let html = '';
     beforeUpdate(() => {
-        let iconObj = { prefix: 'fas', iconName: name } as IconLookup;
+        let iconObj = { prefix: prefix, iconName: name } as IconLookup;
         const result = icon(iconObj, params);
         html = result.html[0];
     });
