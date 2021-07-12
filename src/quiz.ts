@@ -262,7 +262,6 @@ export class Quiz {
                 points += 1;
             }
         }
-        console.log('hi');
         this.isEvaluated.set(true);
         return points;
     }
