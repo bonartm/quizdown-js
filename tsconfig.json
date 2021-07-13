@@ -3,7 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "compilerOptions": {
         "resolveJsonModule": true,
-        "types": ["marked"]
+        "types": ["marked", "svelte"]
     },
 
     "include": ["src/**/*"],
