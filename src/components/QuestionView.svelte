@@ -1,9 +1,6 @@
 <script lang="ts">
-    import type { QuizType, BaseQuestion } from '../quiz';
+    import type { QuestionType, BaseQuestion } from '../quiz';
     import type { SvelteComponent } from 'svelte';
-
-    import Button from './Button.svelte';
-    import Icon from './Icon.svelte';
 
     import SequenceView from './SequenceView.svelte';
     import ChoiceView from './ChoiceView.svelte';
@@ -12,10 +9,9 @@
     export let question: BaseQuestion;
 
     export let n: number;
-    $: showHint = question.showHint;
 
     // a mapping from quiz types to svelte components
-    let componentMap: Record<QuizType, typeof SvelteComponent> = {
+    let componentMap: Record<QuestionType, typeof SvelteComponent> = {
         Sequence: SequenceView,
         MultipleChoice: ChoiceView,
         SingleChoice: ChoiceView,
@@ -31,6 +27,6 @@
 {/if}
 
 <svelte:component
-    this="{componentMap[question.quizType]}"
+    this="{componentMap[question.questionType]}"
     question="{question}"
 />
