@@ -26,7 +26,7 @@ function shuffle(array: Array<any>): Array<any> {
 }
 
 // we need to reference the classes in the svelte app despite minifaction of class names
-export type QuizType = 'MultipleChoice' | 'SingleChoice' | 'Sequence';
+export type QuestionType = 'MultipleChoice' | 'SingleChoice' | 'Sequence';
 
 export abstract class BaseQuestion {
     readonly text: string;
@@ -35,7 +35,7 @@ export abstract class BaseQuestion {
     selected: Array<number>;
     solved: boolean;
     readonly hint: string;
-    readonly quizType: QuizType;
+    readonly questionType: QuestionType;
     readonly options: Config;
     showHint: Writable<boolean>;
     visited: boolean;
@@ -45,7 +45,7 @@ export abstract class BaseQuestion {
         explanation: string,
         hint: string,
         answers: Array<Answer>,
-        quizType: QuizType,
+        questionType: QuestionType,
         options: Config
     ) {
         if (answers.length === 0) {
@@ -58,7 +58,7 @@ export abstract class BaseQuestion {
         this.showHint = writable(false);
         this.options = options;
         this.answers = answers;
-        this.quizType = quizType;
+        this.questionType = questionType;
         this.visited = false;
         autoBind(this);
         this.reset();
@@ -180,7 +180,7 @@ export class Quiz {
     isEvaluated: Writable<boolean>;
     allVisited: Writable<boolean>;
 
-    constructor(questions, config: Config) {
+    constructor(questions: Array<BaseQuestion>, config: Config) {
         if (questions.length == 0) {
             throw 'No questions for quiz provided';
         }
