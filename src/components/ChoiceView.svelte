@@ -3,34 +3,41 @@
     export let question: BaseQuestion;
 </script>
 
-{#if question.quizType === 'MultipleChoice'}
-    {#each question.answers as answer, i}
-        <label>
-            <input
-                type="checkbox"
-                bind:group="{question.selected}"
-                value="{i}"
-            />
-            <span>{@html answer.html}</span>
-        </label>
-    {/each}
-{:else}
-    {#each question.answers as answer, i}
-        <label>
-            <input
-                type="radio"
-                bind:group="{question.selected[0]}"
-                value="{i}"
-            />
-            <span>{@html answer.html}</span>
-        </label>
-    {/each}
-{/if}
+<fieldset>
+    {#if question.questionType === 'MultipleChoice'}
+        {#each question.answers as answer, i}
+            <label>
+                <input
+                    type="checkbox"
+                    bind:group="{question.selected}"
+                    value="{i}"
+                />
+                <span>{@html answer.html}</span>
+            </label>
+        {/each}
+    {:else}
+        {#each question.answers as answer, i}
+            <label>
+                <input
+                    type="radio"
+                    bind:group="{question.selected[0]}"
+                    value="{i}"
+                />
+                <span>{@html answer.html}</span>
+            </label>
+        {/each}
+    {/if}
+</fieldset>
 
 <style>
+    fieldset {
+        border: 0;
+    }
+
     [type='checkbox'],
     [type='radio'] {
-        display: none;
+        position: absolute;
+        opacity: 0;
     }
 
     [type='radio'] + span {
@@ -54,7 +61,9 @@
     }
 
     [type='checkbox']:hover + span,
-    [type='radio']:hover + span {
+    [type='checkbox']:focus + span,
+    [type='radio']:hover + span,
+    [type='radio']:focus + span {
         filter: brightness(0.9);
     }
 
