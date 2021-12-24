@@ -6,7 +6,7 @@ function isEqual(a1: Array<number>, a2: Array<number>): boolean {
     return JSON.stringify(a1) === JSON.stringify(a2);
 }
 
-function shuffle(array: Array<any>): Array<any> {
+function shuffle(array: Array<any>, n: number | undefined): Array<any> {
     // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
     let currentIndex = array.length,
         temporaryValue,
@@ -22,7 +22,7 @@ function shuffle(array: Array<any>): Array<any> {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-    return array;
+    return array.slice(0, n);
 }
 
 // we need to reference the classes in the svelte app despite minifaction of class names
@@ -74,7 +74,7 @@ export abstract class BaseQuestion {
         this.visited = false;
         this.showHint.set(false);
         if (this.options.shuffleAnswers) {
-            this.answers = shuffle(this.answers);
+            this.answers = shuffle(this.answers, this.answers.length);
         }
     }
     abstract isCorrect(): boolean;
@@ -181,22 +181,22 @@ export class Quiz {
     allVisited: Writable<boolean>;
 
     constructor(questions: Array<BaseQuestion>, config: Config) {
-        if (questions.length == 0) {
-            throw 'No questions for quiz provided';
-        }
         this.index = writable(0);
         this.questions = questions;
         this.config = config;
-        if (config.shuffleQuestions) {
-            this.questions = shuffle(questions);
+        if (this.config.shuffleQuestions) {
+            this.questions = shuffle(this.questions, this.config.nQuestions);
+        }
+        if (this.questions.length == 0) {
+            throw 'No questions for quiz provided';
         }
         // setup first question
-        this.active = writable(questions[0]);
-        questions[0].visited = true;
-        this.onLast = writable(questions.length == 1);
+        this.active = writable(this.questions[0]);
+        this.questions[0].visited = true;
+        this.onLast = writable(this.questions.length == 1);
         this.onResults = writable(false);
         this.onFirst = writable(true);
-        this.allVisited = writable(questions.length == 1);
+        this.allVisited = writable(this.questions.length == 1);
         this.isEvaluated = writable(false);
         autoBind(this);
     }
