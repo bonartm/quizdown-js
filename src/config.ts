@@ -21,6 +21,7 @@ export class Config {
     startOnLoad: boolean;
     shuffleAnswers: boolean;
     shuffleQuestions: boolean;
+    nQuestions: number | undefined;
     primaryColor: string;
     secondaryColor: string;
     textColor: string;
@@ -34,6 +35,7 @@ export class Config {
         this.startOnLoad = get(options['startOnLoad'], true);
         this.shuffleAnswers = get(options['shuffleAnswers'], true);
         this.shuffleQuestions = get(options['shuffleQuestions'], false);
+        this.nQuestions = get(options['nQuestions'], undefined);
         this.primaryColor = get(options['primaryColor'], 'steelblue');
         this.secondaryColor = get(options['secondaryColor'], '#f2f2f2');
         this.textColor = get(options['textColor'], 'black');
