@@ -9,7 +9,9 @@
         "dev": "rollup -c -w",
         "start": "sirv public",
         "validate": "svelte-check",
-        "release": "dotenv release-it"
+        "release": "dotenv release-it",
+        "test": "jest src",
+        "test:watch": "npm run test -- --watch"
     },
     "release-it": {
         "hooks": {
@@ -31,16 +33,21 @@
     "author": "Malte Bonart",
     "license": "MIT",
     "devDependencies": {
+        "@babel/preset-typescript": "^7.16.7",
         "@fortawesome/free-regular-svg-icons": "^5.15.3",
         "@rollup/plugin-commonjs": "^19.0.0",
         "@rollup/plugin-json": "^4.1.0",
         "@rollup/plugin-node-resolve": "^11.0.0",
         "@rollup/plugin-typescript": "^6.0.0",
+        "@testing-library/jest-dom": "^5.16.1",
+        "@testing-library/svelte": "^3.0.3",
         "@tsconfig/svelte": "^1.0.10",
         "@types/marked": "^2.0.3",
         "acorn": "^8.2.4",
+        "babel-jest": "^27.4.6",
         "css-tree": "^1.1.3",
         "dotenv-cli": "^4.0.0",
+        "jest": "^27.4.7",
         "postcss": "^8.3.5",
         "release-it": "^14.6.1",
         "rollup": "^2.39.0",
@@ -53,6 +60,7 @@
         "sirv-cli": "^1.0.0",
         "svelte": "^3.43.2",
         "svelte-check": "^1.0.0",
+        "svelte-jester": "^2.1.5",
         "svelte-preprocess": "^4.0.0",
         "tslib": "^2.0.0",
         "typescript": "^3.9.3"
@@ -60,6 +68,7 @@
     "repository": "https://github.com/bonartm/quizdown-js",
     "main": "public/build/quizdown.js",
     "dependencies": {
+        "@babel/preset-env": "^7.16.8",
         "@fortawesome/fontawesome-svg-core": "^1.2.35",
         "@fortawesome/free-solid-svg-icons": "^5.15.3",
         "auto-bind": "^4.0.0",
@@ -70,5 +79,18 @@
         "strip-indent": "^3.0.0",
         "svelte-i18n": "^3.3.9",
         "yaml": "2.0.0-5"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.js$": "babel-jest",
+            "^.+\\.svelte$": "svelte-jester"
+        },
+        "moduleFileExtensions": [
+            "js",
+            "svelte"
+        ],
+        "setupFilesAfterEnv": [
+            "@testing-library/jest-dom/extend-expect"
+        ]
     }
 }
