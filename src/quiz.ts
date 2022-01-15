@@ -256,13 +256,25 @@ export class Quiz {
     }
 
     evaluate(): number {
-        var points = 0;
-        for (var q of this.questions) {
-            if (q.isCorrect()) {
-                points += 1;
-            }
-        }
-        this.isEvaluated.set(true);
-        return points;
-    }
+           var points = 0;
+           for (var q of this.questions) {
+               if (q.isCorrect()) {
+                   points += 1;
+               }
+           }
+           this.isEvaluated.set(true);
+           this.storeScoreInBrowser( points, this.getQuizName() );
+           return points;
+       }
+
+       getQuizName(): string {
+           return window.document.getElementsByTagName("h1")[0].textContent;
+       }
+
+       storeScoreInBrowser(points: number, quizName: string) {
+           window.localStorage.setItem( quizName, points.toString() )
+           console.log("points: ", points.toString())
+           console.log("quizName: ", quizName)
+           console.log("local: ", window.localStorage.getItem(quizName))
+       }
 }
