@@ -284,7 +284,7 @@ export class Quiz {
         }
 
         storeScoreInBrowser(quizScore: QuizScore) {
-            let quizScores: any[];
+            let quizScores = [];
             console.log('1. quizScores: ', quizScores)
             console.log('a: ', typeof localStorage.quizScores !== "undefined")
             if (typeof localStorage.quizScores !== "undefined") {
@@ -293,7 +293,7 @@ export class Quiz {
                 console.log('3. quizScores: ', quizScores)
             }
             console.log('b: ', typeof localStorage.quizScores !== "undefined")
-//             console.log('quizScore is instance of QuizScore ', quizScore instanceof QuizScore)
+            // console.log('quizScore is instance of QuizScore ', quizScore instanceof QuizScore)
             console.log('quizScore: ', quizScore)
             quizScores.push(quizScore);
             console.log('4. quizScores: ', quizScores);
