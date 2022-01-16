@@ -1,6 +1,13 @@
 import { writable, get, Writable } from 'svelte/store';
 import autoBind from 'auto-bind';
 import type { Config } from './config.js';
+// import type { QuizScore } from './models/quizScore.model';
+
+interface QuizScore {
+    name: string;
+    score: number;
+    maxScore: number;
+    };
 
 function isEqual(a1: Array<number>, a2: Array<number>): boolean {
     return JSON.stringify(a1) === JSON.stringify(a2);
@@ -263,18 +270,33 @@ export class Quiz {
                }
            }
            this.isEvaluated.set(true);
-           this.storeScoreInBrowser( points, this.getQuizName() );
+           const quizScore: QuizScore = {
+                name: this.getQuizName(),
+                score: points,
+                maxScore: this.questions.length
+           }
+           this.storeScoreInBrowser( quizScore );
            return points;
-       }
+        }
 
-       getQuizName(): string {
+        getQuizName(): string {
            return window.document.getElementsByTagName("h1")[0].textContent;
-       }
+        }
 
-       storeScoreInBrowser(points: number, quizName: string) {
-           window.localStorage.setItem( quizName, points.toString() )
-           console.log("points: ", points.toString())
-           console.log("quizName: ", quizName)
-           console.log("local: ", window.localStorage.getItem(quizName))
-       }
+        storeScoreInBrowser(quizScore: QuizScore) {
+            let quizScores: any[];
+            console.log('1. quizScores: ', quizScores)
+            console.log('a: ', typeof localStorage.quizScores !== "undefined")
+            if (typeof localStorage.quizScores !== "undefined") {
+                console.log('2. quizScores: ', quizScores)
+                quizScores = localStorage.quizScores;
+                console.log('3. quizScores: ', quizScores)
+            }
+            console.log('b: ', typeof localStorage.quizScores !== "undefined")
+//             console.log('quizScore is instance of QuizScore ', quizScore instanceof QuizScore)
+            console.log('quizScore: ', quizScore)
+            quizScores.push(quizScore);
+            console.log('4. quizScores: ', quizScores);
+            window.localStorage.setItem( 'quizScores', quizScores.toString() );
+        }
 }
