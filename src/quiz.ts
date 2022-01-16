@@ -1,13 +1,7 @@
 import { writable, get, Writable } from 'svelte/store';
 import autoBind from 'auto-bind';
 import type { Config } from './config.js';
-// import type { QuizScore } from './models/quizScore.model';
-
-interface QuizScore {
-    name: string;
-    score: number;
-    maxScore: number;
-    };
+import type { QuizScore } from './models/quizScore.model';
 
 function isEqual(a1: Array<number>, a2: Array<number>): boolean {
     return JSON.stringify(a1) === JSON.stringify(a2);
@@ -284,19 +278,7 @@ export class Quiz {
         }
 
         storeScoreInBrowser(quizScore: QuizScore) {
-            let quizScores = [];
-            console.log('1. quizScores: ', quizScores)
-            console.log('a: ', typeof localStorage.quizScores !== "undefined")
-            if (typeof localStorage.quizScores !== "undefined") {
-                console.log('2. quizScores: ', quizScores)
-                quizScores = localStorage.quizScores;
-                console.log('3. quizScores: ', quizScores)
-            }
-            console.log('b: ', typeof localStorage.quizScores !== "undefined")
-            // console.log('quizScore is instance of QuizScore ', quizScore instanceof QuizScore)
-            console.log('quizScore: ', quizScore)
-            quizScores.push(quizScore);
-            console.log('4. quizScores: ', quizScores);
-            window.localStorage.setItem( 'quizScores', quizScores.toString() );
+            window.localStorage.setItem( quizScore.name + ' score', quizScore.score.toString() );
+            window.localStorage.setItem( quizScore.name + ' maxScore', quizScore.maxScore.toString() );
         }
 }

@@ -1,4 +1,4 @@
-export type QuizScore = {
+export interface QuizScore {
     name: string;
     score: number;
     maxScore: number;
