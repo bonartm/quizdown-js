@@ -133,7 +133,7 @@
             </Container>
         </Loading>
     </Card>
-
+    
     <Card>
         <ProgressBar value="{$index}" max="{quiz.questions.length - 1}" />
         <Loading update="{reloaded}" ms="{800}" minHeight="{minHeight}">
