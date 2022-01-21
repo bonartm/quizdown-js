@@ -273,12 +273,13 @@ export class Quiz {
            return points;
         }
 
-        getQuizName(): string {
-           return window.document.getElementsByTagName("h1")[0].textContent;
-        }
+    getQuizName(): string {
+        return window.document.getElementsByTagName("h1")[0].textContent;
+    }
 
-        storeScoreInBrowser(quizScore: QuizScore) {
-            window.localStorage.setItem( quizScore.name + ' score', quizScore.score.toString() );
-            window.localStorage.setItem( quizScore.name + ' maxScore', quizScore.maxScore.toString() );
-        }
+    private storeScoreInBrowser(quizScore: QuizScore) {
+        window.localStorage.setItem( quizScore.name + '.score', quizScore.score.toString() );
+        window.localStorage.setItem( quizScore.name + '.maxScore', quizScore.maxScore.toString() );
+    }
+
 }

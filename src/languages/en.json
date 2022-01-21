@@ -5,5 +5,7 @@
     "reset": "One more time!",
     "hint": "Show hint",
     "resultsTitle": "Your quiz results",
-    "resultsText": "You have answered {points} out of {total} questions correctly!"
+    "resultsText": "You have answered {points} out of {total} questions correctly!",
+    "overviewTitle": "Your results overview",
+    "overviewText": "Across all quizzes you have answered {overallPoints} out of {overallMaxPoints} questions correctly!"
 }

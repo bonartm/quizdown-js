@@ -1,22 +1,32 @@
 <script lang="ts">
-    import type { Quiz } from '../quiz';
+    import { ResultsOverview } from '../resultsOverview';
     import { beforeUpdate } from 'svelte';
-
-    export let quiz: Quiz;
+    import type { Quiz } from '../quiz';
     let emojis = ['❌', '✅'];
     import { _ } from 'svelte-i18n';
     import { fade } from 'svelte/transition';
     import Icon from './Icon.svelte';
     import Loading from './Loading.svelte';
-    import { get } from 'svelte/store';
+    import { onMount } from 'svelte';
+    import registerIcons from '../registerIcons';
+
+    registerIcons();
+
+    let node: HTMLElement;
+    let minHeight = 150;
+    let reloaded = false;
+    let resultsOverview = new ResultsOverview();
+    // let showModal = false;
 
     let waitTime = 800;
-    if (get(quiz.isEvaluated)) {
-        // only wait longer for the first time
-        waitTime = 300;
-    }
-    let points = 0;
-    beforeUpdate(() => (points = quiz.evaluate()));
+    
+    let overallPoints = 0;
+    beforeUpdate(() => (overallPoints = resultsOverview.getOverallPoints()));
+    console.log('overallPoints: ', overallPoints);
+
+    let overallMaxPoints = 0;
+    beforeUpdate(() => (overallMaxPoints = resultsOverview.getOverallMaxPoints()));
+    console.log('overallMaxPoints: ', overallMaxPoints);
 
     function format(n: number) {
         return n.toLocaleString('en-US', {
@@ -25,35 +35,23 @@
     }
 </script>
 
-<h3>{$_('resultsTitle')}</h3>
+<h3>{$_('overviewTitle')}</h3>
 <Loading ms="{waitTime}" minHeight="{150}">
     <div in:fade="{{ duration: 1000 }}">
         <h1>
             <Icon name="check-double" />
-            {format(points)}/{format(quiz.questions.length)}
+            {format(overallPoints)}/{format(overallMaxPoints)}
         </h1>
 
         <ol>
-            {#each quiz.questions as question, i}
-                <li class="top-list-item" on:click="{() => quiz.jump(i)}">
-                    <span class="list-question">
-                        {emojis[+question.solved]}
-                        {@html question.text}
+            {#each resultsOverview.getQuizesNames() as quizName, i}
+                <li class="top-list-item">
+                    <span class="list-quiz">
+                        {quizName}
                     </span>
-                    <ol>
-                        <!-- answer comments when selected and available -->
-                        {#each question.selected as selected}
-                            {#if question.answers[selected].comment !== ''}
-                                <li class="list-comment">
-                                    <i
-                                        >{@html question.answers[selected]
-                                            .html}</i
-                                    >:
-                                    {@html question.answers[selected].comment}
-                                </li>
-                            {/if}
-                        {/each}
-                    </ol>
+                    <p>
+                        {localStorage.getItem(quizName + '.score')}/{localStorage.getItem(quizName + '.maxScore')}
+                    </p>
                 </li>
             {/each}
         </ol>

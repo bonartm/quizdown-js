@@ -19,6 +19,9 @@
     import { fly } from 'svelte/transition';
     import Container from './components/Container.svelte';
     import Loading from './components/Loading.svelte';
+    import ResultsOverview from './components/ResultsOverview.svelte';
+    import {ResultsOverview as ResultsOverviewClass} from './resultsOverview';
+    import { config } from '@fortawesome/fontawesome-svg-core';
     // import Modal from './components/Modal.svelte';
 
     export let quiz: Quiz;
@@ -53,6 +56,7 @@
         node.style.setProperty('--quizdown-color-text', textColor);
         node.style.minHeight = `${minHeight}px`;
     });
+    let resultsOverview = new ResultsOverviewClass;
 </script>
 
 <div class="quizdown-content" bind:this="{node}">
@@ -125,8 +129,20 @@
                         }}"><Icon name="redo" /></Button
                     >
                 </Row>
-
                 <Credits />
+            </Container>
+        </Loading>
+    </Card>
+
+    <Card>
+        <ProgressBar value="{$index}" max="{quiz.questions.length - 1}" />
+        <Loading update="{reloaded}" ms="{800}" minHeight="{minHeight}">
+            <Container>
+                <SmoothResize minHeight="{minHeight}">
+                    <Animated update="{$index}">
+                        <ResultsOverview />
+                    </Animated>
+                </SmoothResize>
             </Container>
         </Loading>
     </Card>
