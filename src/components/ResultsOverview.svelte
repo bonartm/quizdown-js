@@ -1,20 +1,11 @@
 <script lang="ts">
     import { ResultsOverview } from '../resultsOverview';
     import { beforeUpdate } from 'svelte';
-    import type { Quiz } from '../quiz';
-    let emojis = ['❌', '✅'];
     import { _ } from 'svelte-i18n';
     import { fade } from 'svelte/transition';
     import Icon from './Icon.svelte';
     import Loading from './Loading.svelte';
-    import { onMount } from 'svelte';
-    import registerIcons from '../registerIcons';
 
-    registerIcons();
-
-    let node: HTMLElement;
-    let minHeight = 150;
-    let reloaded = false;
     let resultsOverview = new ResultsOverview();
     // let showModal = false;
 

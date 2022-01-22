@@ -21,7 +21,6 @@
     import Loading from './components/Loading.svelte';
     import ResultsOverview from './components/ResultsOverview.svelte';
     import {ResultsOverview as ResultsOverviewClass} from './resultsOverview';
-    import { config } from '@fortawesome/fontawesome-svg-core';
     // import Modal from './components/Modal.svelte';
 
     export let quiz: Quiz;
@@ -134,7 +133,7 @@
             </Container>
         </Loading>
     </Card>
-    {#if (localStorageHasResults)}
+    {#if (localStorageHasResults && quiz.config.overview)}
     <Card>
         <ProgressBar value="{$index}" max="{quiz.questions.length - 1}" />
         <Loading update="{reloaded}" ms="{800}" minHeight="{minHeight}">
@@ -183,5 +182,6 @@
         max-width: 900px;
         margin: auto;
     }
+
 
 </style>
