@@ -46,12 +46,20 @@
         <ol>
             {#each resultsOverview.getQuizesNames() as quizName, i}
                 <li class="top-list-item">
-                    <span class="list-quiz">
-                        {quizName}
-                    </span>
-                    <p>
-                        {localStorage.getItem(quizName + '.score')}/{localStorage.getItem(quizName + '.maxScore')}
-                    </p>
+                    {#if (parseInt(localStorage.getItem(quizName + '.score'))/parseInt(localStorage.getItem(quizName + '.maxScore')) == 1)} 
+                        <span class="list-quiz all-answers-correct">
+                            {quizName}: {localStorage.getItem(quizName + '.score')}/{localStorage.getItem(quizName + '.maxScore')}
+                        </span>
+                    {:else if (parseInt(localStorage.getItem(quizName + '.score')) == 0 )}
+                        <span class="list-quiz no-answer-correct">
+                            {quizName}: {localStorage.getItem(quizName + '.score')}/{localStorage.getItem(quizName + '.maxScore')}
+                        </span>
+                    {:else}
+                        <span class="list-quiz some-answers-correct">
+                            {quizName}: {localStorage.getItem(quizName + '.score')}/{localStorage.getItem(quizName + '.maxScore')}
+                        </span>
+                    {/if}
+                        
                 </li>
             {/each}
         </ol>
@@ -62,6 +70,7 @@
     ol {
         padding-left: 0;
         display: inline-block;
+        margin-bottom: 1rem;
     }
 
     .top-list-item {
@@ -75,12 +84,16 @@
         background-color: var(--quizdown-color-secondary);
     }
 
-    .top-list-item:hover .list-question {
-        text-decoration: underline;
+    .all-answers-correct {
+        color: green;
+        font-weight: bold;
     }
 
-    .list-comment {
-        margin-left: 2em;
-        list-style-type: initial;
+    .some-answers-correct {
+        color: darkgoldenrod;
+    }
+
+    .no-answer-correct {
+        color: darkred;
     }
 </style>

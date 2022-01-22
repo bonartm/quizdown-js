@@ -22,7 +22,7 @@ export class ResultsOverview {
     }
 
     public getQuizesNames(): string[] {
-        let quizesNames = [];
+        let quizesNames: string[] = [];
         
         for (let key of Object.keys(localStorage)) {
             if (key.endsWith('.score')) {

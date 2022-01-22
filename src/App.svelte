@@ -57,6 +57,7 @@
         node.style.minHeight = `${minHeight}px`;
     });
     let resultsOverview = new ResultsOverviewClass;
+    $: localStorageHasResults = (resultsOverview.getQuizesNames().length > 0)
 </script>
 
 <div class="quizdown-content" bind:this="{node}">
@@ -133,7 +134,7 @@
             </Container>
         </Loading>
     </Card>
-    
+    {#if (localStorageHasResults)}
     <Card>
         <ProgressBar value="{$index}" max="{quiz.questions.length - 1}" />
         <Loading update="{reloaded}" ms="{800}" minHeight="{minHeight}">
@@ -146,6 +147,7 @@
             </Container>
         </Loading>
     </Card>
+    {/if} 
 </div>
 
 <!-- global styles applied to all elements in the app -->
@@ -181,4 +183,5 @@
         max-width: 900px;
         margin: auto;
     }
+
 </style>
