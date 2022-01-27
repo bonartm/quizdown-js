@@ -33,6 +33,7 @@
     $: onResults = quiz.onResults;
     $: isEvaluated = quiz.isEvaluated;
     $: allVisited = quiz.allVisited;
+    $: showOverview = quiz.config.showOverview;
 
     //let game = new Linear(quiz);
 
@@ -56,7 +57,6 @@
         node.style.minHeight = `${minHeight}px`;
     });
     let resultsOverview = new ResultsOverviewClass;
-    $: localStorageHasResults = (resultsOverview.getQuizesNames().length > 0)
 </script>
 
 <div class="quizdown-content" bind:this="{node}">
@@ -129,13 +129,14 @@
                         }}"><Icon name="redo" /></Button
                     >
                 </Row>
-                <Credits />
+                {#if (!showOverview)}
+                    <Credits />
+                {/if}
             </Container>
         </Loading>
     </Card>
-    {#if (localStorageHasResults && quiz.config.overview)}
+    {#if (showOverview)}
     <Card>
-        <ProgressBar value="{$index}" max="{quiz.questions.length - 1}" />
         <Loading update="{reloaded}" ms="{800}" minHeight="{minHeight}">
             <Container>
                 <SmoothResize minHeight="{minHeight}">
@@ -143,6 +144,7 @@
                         <ResultsOverview />
                     </Animated>
                 </SmoothResize>
+                <Credits />
             </Container>
         </Loading>
     </Card>

@@ -7,5 +7,5 @@
     "resultsTitle": "Your quiz results",
     "resultsText": "You have answered {points} out of {total} questions correctly!",
     "overviewTitle": "Your Overall Results",
-    "overviewText": "Across all quizzes you have answered {overallPoints} out of {overallMaxPoints} questions correctly!"
+    "noResultsYet": "There are no results yet."
 }

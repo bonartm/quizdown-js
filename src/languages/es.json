@@ -5,5 +5,8 @@
     "reset": "Otra vez!",
     "hint": "Pista",
     "resultsTitle": "Resultados",
-    "resultsText": "Ha acertado a {points} preguntas de {total}!"
+    "resultsText": "Ha acertado a {points} preguntas de {total}!",
+    "overviewTitle": "Resumen de Resultados",
+    "noResultsYet": "Aún no hay resultados."
+
 }

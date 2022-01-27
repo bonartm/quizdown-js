@@ -26,7 +26,7 @@ export class Config {
     secondaryColor: string;
     textColor: string;
     locale: 'de' | 'en' | 'es' | 'fr' | null;
-    overview: boolean;
+    showOverview: boolean;
 
     constructor(options: Config | object) {
         // handle <=v0.3.0 snake_case options for backwards compatibility

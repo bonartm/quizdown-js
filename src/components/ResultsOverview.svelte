@@ -7,17 +7,14 @@
     import Loading from './Loading.svelte';
 
     let resultsOverview = new ResultsOverview();
-    // let showModal = false;
-
     let waitTime = 800;
-    
     let overallPoints = 0;
-    beforeUpdate(() => (overallPoints = resultsOverview.getOverallPoints()));
-    console.log('overallPoints: ', overallPoints);
-
     let overallMaxPoints = 0;
+
+    $: localStorageHasResults = (resultsOverview.getQuizesNames().length > 0)
+
+    beforeUpdate(() => (overallPoints = resultsOverview.getOverallPoints()));
     beforeUpdate(() => (overallMaxPoints = resultsOverview.getOverallMaxPoints()));
-    console.log('overallMaxPoints: ', overallMaxPoints);
 
     function format(n: number) {
         return n.toLocaleString('en-US', {
@@ -34,6 +31,7 @@
             {format(overallPoints)}/{format(overallMaxPoints)}
         </h1>
 
+        {#if (localStorageHasResults)}
         <ol>
             {#each resultsOverview.getQuizesNames() as quizName, i}
                 <li class="top-list-item">
@@ -50,10 +48,12 @@
                             {quizName}: {localStorage.getItem(quizName + '.score')}/{localStorage.getItem(quizName + '.maxScore')}
                         </span>
                     {/if}
-                        
                 </li>
             {/each}
         </ol>
+        {:else}
+        <p>{$_('noResultsYet')}</p>
+        {/if}
     </div>
 </Loading>
 
