@@ -28,7 +28,7 @@ Add the library to your website and initialize with default options:
 <head>
 	...
     <script 
-	src="https://cdn.jsdelivr.net/gh/kheitkamp/quizdown-js@v0.5.0.1/public/build/quizdown.min.js">
+	src="https://cdn.jsdelivr.net/gh/kheitkamp/quizdown-js@v0.5.0.2/public/build/quizdown.min.js">
 	</script>
 	<script>quizdown.init();</script>
 	...
