@@ -5,5 +5,7 @@
     "reset": "Recommencer!",
     "hint": "Indice",
     "resultsTitle": "Vos résultats",
-    "resultsText": "Vous avez répondu correctement à {points} questions sur {total}!"
+    "resultsText": "Vous avez répondu correctement à {points} questions sur {total}!",
+    "overviewTitle": "Résumé des résultats",
+    "noResultsYet": "Il n'y a pas encore de résultats."
 }

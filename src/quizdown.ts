@@ -25,7 +25,7 @@ function createApp(rawQuizdown: string, node: Element, config: Config): App {
     node.innerHTML = '';
     let root: ShadowRoot;
     if (!!node.shadowRoot) {
-        //clear root if it allready exists
+        //clear root if it already exists
         root = node.shadowRoot;
         root.innerHTML = '';
     } else {

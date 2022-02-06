@@ -19,6 +19,8 @@
     import { fly } from 'svelte/transition';
     import Container from './components/Container.svelte';
     import Loading from './components/Loading.svelte';
+    import ResultsOverview from './components/ResultsOverview.svelte';
+    import {ResultsOverview as ResultsOverviewClass} from './resultsOverview';
     // import Modal from './components/Modal.svelte';
 
     export let quiz: Quiz;
@@ -31,6 +33,7 @@
     $: onResults = quiz.onResults;
     $: isEvaluated = quiz.isEvaluated;
     $: allVisited = quiz.allVisited;
+    $: showOverview = quiz.config.showOverview;
 
     //let game = new Linear(quiz);
 
@@ -53,6 +56,7 @@
         node.style.setProperty('--quizdown-color-text', textColor);
         node.style.minHeight = `${minHeight}px`;
     });
+    let resultsOverview = new ResultsOverviewClass;
 </script>
 
 <div class="quizdown-content" bind:this="{node}">
@@ -125,11 +129,26 @@
                         }}"><Icon name="redo" /></Button
                     >
                 </Row>
-
+                {#if (!showOverview)}
+                    <Credits />
+                {/if}
+            </Container>
+        </Loading>
+    </Card>
+    {#if (showOverview)}
+    <Card>
+        <Loading update="{reloaded}" ms="{800}" minHeight="{minHeight}">
+            <Container>
+                <SmoothResize minHeight="{minHeight}">
+                    <Animated update="{$index}">
+                        <ResultsOverview />
+                    </Animated>
+                </SmoothResize>
                 <Credits />
             </Container>
         </Loading>
     </Card>
+    {/if} 
 </div>
 
 <!-- global styles applied to all elements in the app -->
@@ -165,4 +184,6 @@
         max-width: 900px;
         margin: auto;
     }
+
+
 </style>

@@ -17,3 +17,4 @@
 .eslintcache
 dist/*.map
 .env
+report.*

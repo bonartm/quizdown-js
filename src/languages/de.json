@@ -5,5 +5,7 @@
     "reset": "Noch einmal!",
     "hint": "Tipp anzeigen",
     "resultsTitle": "Ihr Ergebnis",
-    "resultsText": "Sie haben {points} von {total} Fragen richtig beantwortet!"
+    "resultsText": "Sie haben {points} von {total} Fragen richtig beantwortet!",
+    "overviewTitle": "Zusammenfassung der Ergebnisse",
+    "noResultsYet": "Es liegen bisher keine Ergebnisse vor."
 }

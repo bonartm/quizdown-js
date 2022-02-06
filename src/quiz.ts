@@ -1,6 +1,7 @@
 import { writable, get, Writable } from 'svelte/store';
 import autoBind from 'auto-bind';
 import type { Config } from './config.js';
+import type { QuizScore } from './models/quizScore.model';
 
 function isEqual(a1: Array<number>, a2: Array<number>): boolean {
     return JSON.stringify(a1) === JSON.stringify(a2);
@@ -256,13 +257,29 @@ export class Quiz {
     }
 
     evaluate(): number {
-        var points = 0;
-        for (var q of this.questions) {
-            if (q.isCorrect()) {
-                points += 1;
-            }
+           var points = 0;
+           for (var q of this.questions) {
+               if (q.isCorrect()) {
+                   points += 1;
+               }
+           }
+           this.isEvaluated.set(true);
+           const quizScore: QuizScore = {
+                name: this.getQuizName(),
+                score: points,
+                maxScore: this.questions.length
+           }
+           this.storeScoreInBrowser( quizScore );
+           return points;
         }
-        this.isEvaluated.set(true);
-        return points;
+
+    getQuizName(): string {
+        return window.document.getElementsByTagName("h1")[0].textContent;
     }
+
+    private storeScoreInBrowser(quizScore: QuizScore) {
+        window.localStorage.setItem( quizScore.name + '.score', quizScore.score.toString() );
+        window.localStorage.setItem( quizScore.name + '.maxScore', quizScore.maxScore.toString() );
+    }
+
 }

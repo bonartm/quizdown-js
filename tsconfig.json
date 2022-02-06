@@ -6,6 +6,13 @@
         "types": ["marked", "svelte"]
     },
 
-    "include": ["src/**/*"],
-    "exclude": ["node_modules/*", "__sapper__/*", "public/*", "docs/*"]
+    "include": [
+        "src/**/*",
+        "./jest-setup.module.ts"
+    ],
+    "exclude": [
+        "node_modules/*",
+        "__sapper__/*",
+        "public/*", "docs/*"
+    ]
 }
