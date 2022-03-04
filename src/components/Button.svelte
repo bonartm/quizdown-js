@@ -4,7 +4,7 @@
     export let title = '';
 </script>
 
-<button data-testid="testButton" title="{title}" disabled="{disabled}" on:click="{buttonAction}">
+<button title="{title}" disabled="{disabled}" on:click="{buttonAction}">
     <slot />
 </button>
 

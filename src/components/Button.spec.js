@@ -18,8 +18,8 @@ describe("Button component", () => {
     });
 
     test('show alert when the button gets clicked', async () => {
-        const { getByTestId, findByRole } = render(Button, {title: 'testButton'});
-        const button = getByTestId('testButton');
+        const { getByRole, findByRole } = render(Button, {title: 'testButton'});
+        const button = getByRole('button');
 
         // Using await when firing events is unique to the svelte testing library because
         // we have to wait for the next `tick` so that Svelte flushes all pending state changes.
