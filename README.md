@@ -87,6 +87,15 @@ Write questions within a `quizdown` class (edit in the [🚀quizdown editor](htt
 
 Pull requests and feature requests are welcome. For major changes, please open an issue first to discuss what you would like to change. I'm happy for any feedback on how to improve the code base. 
 
+### Wish List
+
+- support for videos via youtube api (https://github.com/bonartm/quizdown-js/issues/10)
+- customizable reward page at the end of the quiz (https://github.com/bonartm/quizdown-js/issues/14)
+- fill in the blanks quiz (https://github.com/bonartm/quizdown-js/issues/17)
+- link quizzes on different pages together via a results summary page (https://github.com/bonartm/quizdown-js/issues/18)
+
+### How To
+
 After cloning, install the packages with 
 
 ```bash
@@ -104,12 +113,6 @@ You can also preview a live version with
 ```bash
 npm run dev
 ```
-
-## Wish List
-
-- support for videos via youtube api (https://github.com/bonartm/quizdown-js/issues/10)
-- customizable reward page at the end of the quiz (https://github.com/bonartm/quizdown-js/issues/14)
-- fill in the blanks quiz (https://github.com/bonartm/quizdown-js/issues/17)
 
 
 ## Credits
