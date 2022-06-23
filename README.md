@@ -2,6 +2,8 @@
 
 > Markdownish syntax to instantly create simple interactive quiz apps for your static website.
 
+I'm working on this project in my free time to learn more about modern web development and languages. This is a toy project and should not be used in serious projects for now. 
+
 ### 🚀 Try the [quizdown live editor](https://bonartm.github.io/quizdown-live-editor/)
 
 - supports markdown text formatting, images, syntax highlighting and math rendering.
@@ -83,9 +85,7 @@ Write questions within a `quizdown` class (edit in the [🚀quizdown editor](htt
 
 ## Contributing
 
-Pull requests and feature requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-I'm working on this project to learn more about modern web development and languages. I'm happy for any feedback on how to improve the code base. 
+Pull requests and feature requests are welcome. For major changes, please open an issue first to discuss what you would like to change. I'm happy for any feedback on how to improve the code base. 
 
 After cloning, install the packages with 
 
@@ -104,6 +104,10 @@ You can also preview a live version with
 ```bash
 npm run dev
 ```
+
+## Wish List
+
+- support for videos via youtube api (#10)
 
 ## Credits
 
