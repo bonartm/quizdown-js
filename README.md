@@ -107,7 +107,10 @@ npm run dev
 
 ## Wish List
 
-- support for videos via youtube api (#10)
+- support for videos via youtube api (https://github.com/bonartm/quizdown-js/issues/10)
+- customizable reward page at the end of the quiz (https://github.com/bonartm/quizdown-js/issues/14)
+
+
 
 ## Credits
 
