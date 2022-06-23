@@ -109,7 +109,7 @@ npm run dev
 
 - support for videos via youtube api (https://github.com/bonartm/quizdown-js/issues/10)
 - customizable reward page at the end of the quiz (https://github.com/bonartm/quizdown-js/issues/14)
-
+- fill in the blanks quiz (https://github.com/bonartm/quizdown-js/issues/17)
 
 
 ## Credits
