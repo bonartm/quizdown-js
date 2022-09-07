@@ -6,7 +6,7 @@ can therefore be easily inspected in common markdown editors like GitHub, Typora
 
 - Each quiz question begins with a header: `### How are you?`. The level of the headline has no influence on the appearance. 
 - You can add images, code, bold text, links using markdown formatting. 
-- Quizdown uses `highlight.js` for syntax highlighting. Currently, only python and html code is highlighted.
+- Quizdown uses `highlight.js` for syntax highlighting.
 - *Blockquotes* are used for rendering (hidden) hints and comments. 
 
 Here is an example that shows many features (edit in the [🚀quizdown editor](https://bonartm.github.io/quizdown-live-editor/?code=%23%23%23%23%20Who%20is%20the%20person%20in%20the%20picture%3F%0A%0A!%5B%5D(https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F9%2F9d%2FSir_Tim_Berners-Lee.jpg%2F330px-Sir_Tim_Berners-Lee.jpg)%0A%0A%3E%20In%201990%2C%20he%20published%20the%20%5Bworlds%20first%20website%5D(http%3A%2F%2Finfo.cern.ch%2Fhypertext%2FWWW%2FTheProject.html).%0A%0A1.%20%5Bx%5D%20Tim%20Berners-Lee%0A%20%20%20%20%3E%20This%20is%20the%20correct%20answer!%0A1.%20%5B%20%5D%20Alan%20Turing%0A1.%20%5B%20%5D%20Barbara%20Liskov%0A1.%20%5B%20%5D%20Larry%20Page%0A%20%20%20%20%3E%20This%20is%20not%20Larry%20Page%20%3B)):
