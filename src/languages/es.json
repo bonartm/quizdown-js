@@ -6,5 +6,5 @@
     "hint": "Mostrar pista",
     "resultsTitle": "Tus resultados",
     "resultsText": "¡Respondiste correctamente {points} de {total} preguntas!",
-    "questionLetter": "P"
+    "questionLetter": "P."
 }
