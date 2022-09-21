@@ -19,7 +19,7 @@
 </script>
 
 <h3>
-    Q{n}: {@html question.text}
+    {$_('questionLetter')}{n}: {@html question.text}
 </h3>
 
 {#if question.explanation}
