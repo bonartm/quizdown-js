@@ -2,8 +2,8 @@
     "next": "Siguiente",
     "previous": "Anterior",
     "evaluate": "Respuesta",
-    "reset": "Otra vez!",
-    "hint": "Pista",
-    "resultsTitle": "Resultados",
-    "resultsText": "Ha acertado a {points} preguntas de {total}!"
+    "reset": "¡Otra vez!",
+    "hint": "Mostrar pista",
+    "resultsTitle": "Tus resultados",
+    "resultsText": "¡Respondiste correctamente {points} de {total} preguntas!"
 }
