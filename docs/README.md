@@ -76,7 +76,7 @@ Combining all steps leads to something like this (edit in the [🚀quizdown edit
             Below you find the steps of the machine learning workflow. 
             Do you find the **correct order**? 
             
-            > The model selection happens before the `final model evaluaton`! 
+            > The model selection happens before the `final model evaluation`!
             
             1. Get the data 
             2. Explore the data 
@@ -107,4 +107,3 @@ Combining all steps leads to something like this (edit in the [🚀quizdown edit
 - tryout the [quizdown live editor](https://bonartm.github.io/quizdown-live-editor/).
 - read about the supported [configuration and options](options.md).
 - learn about how to [`import` quizdown](./module_import.md) and use it programmatically to have full control on how and when to create quizdown app in your project. 
-

@@ -5,5 +5,6 @@
     "reset": "One more time!",
     "hint": "Show hint",
     "resultsTitle": "Your quiz results",
-    "resultsText": "You have answered {points} out of {total} questions correctly!"
+    "resultsText": "You have answered {points} out of {total} questions correctly!",
+    "questionLetter": "Q"
 }
