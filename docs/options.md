@@ -8,10 +8,10 @@ Currently, the following options are supported. Shown are the default settings:
 
 ```typescript
 let config = {
-	startOnLoad: true,		    // detect and convert all divs with class quizdown
-    shuffleAnswers: true,		// shuffle answers for each question
-    shuffleQuestions: false,    // shuffle questsions for each quiz
-    nQuestions: undefined       // dsiplay n questions at random, if shuffleQuestions is true
+    startOnLoad: true,          // detect and convert all div html elements with class quizdown
+    shuffleAnswers: true,       // shuffle answers for each question
+    shuffleQuestions: false,    // shuffle questions for each quiz
+    nQuestions: undefined       // display n questions at random, if shuffleQuestions is true
     primaryColor: 'steelblue',  // primary CSS color
     secondaryColor: '#f2f2f2',  // secondary CSS color
     textColor: 'black',         // text color of some elements
@@ -94,7 +94,7 @@ x = [1, 2, 3, 4]
 1. [ ] Larry Page
 
 
-#### Which console appeared first, wich last?
+#### Which console appeared first, witch last?
 
 1. Atari 2600
 2. NES

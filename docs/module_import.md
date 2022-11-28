@@ -30,4 +30,3 @@ let rawQuizdown = `
 
 createApp(rawQuizdown, node, config)
 ```
-
