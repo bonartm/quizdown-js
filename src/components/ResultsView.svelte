@@ -3,7 +3,6 @@
     import { beforeUpdate } from 'svelte';
 
     export let quiz: Quiz;
-    export let config: Config;
     let emojis = ['❌', '✅'];
     import { _ } from 'svelte-i18n';
     import { fade } from 'svelte/transition';
