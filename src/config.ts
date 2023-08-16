@@ -15,6 +15,7 @@ const toRename = {
     primary_color: 'primaryColor',
     secondary_color: 'secondaryColor',
     text_color: 'textColor',
+    enable_retry: 'enableRetry'
 };
 
 export class Config {
@@ -26,6 +27,7 @@ export class Config {
     secondaryColor: string;
     textColor: string;
     locale: 'de' | 'en' | 'es' | 'fr' | null;
+    enableRetry: boolean;
 
     constructor(options: Config | object) {
         // handle <=v0.3.0 snake_case options for backwards compatibility
@@ -40,6 +42,7 @@ export class Config {
         this.secondaryColor = get(options['secondaryColor'], '#f2f2f2');
         this.textColor = get(options['textColor'], 'black');
         this.locale = get(options['locale'], null);
+        this.enableRetry = get(options['enableRetry'],true);
     }
 }
 

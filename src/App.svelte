@@ -33,7 +33,9 @@
     $: allVisited = quiz.allVisited;
 
     //let game = new Linear(quiz);
-
+    
+    let enableRetry = quiz.config.enableRetry;
+    
     registerLanguages(quiz.config.locale);
     registerIcons();
 
@@ -115,15 +117,18 @@
                             </div>
                         {/if}
                     </svelte:fragment>
-
-                    <Button
-                        slot="right"
-                        title="{$_('reset')}"
-                        buttonAction="{() => {
-                            reloaded = !reloaded;
-                            quiz.reset();
-                        }}"><Icon name="redo" /></Button
-                    >
+                    <svelte:fragment slot="right">
+                        {#if enableRetry}
+                            <Button
+                                slot="right"
+                                title="{$_('reset')}"
+                                buttonAction="{() => {
+                                    reloaded = !reloaded;
+                                    quiz.reset();
+                                }}"><Icon name="redo" /></Button
+                            >
+                        {/if}
+                    </svelte:fragment>
                 </Row>
 
                 <Credits />
