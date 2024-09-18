@@ -6,9 +6,10 @@
 	let emojis = ['❌', '✅'];
 	import { _ } from 'svelte-i18n';
 	import { fade } from 'svelte/transition';
-	import Icon from './Icon.svelte';
 	import Loading from './Loading.svelte';
 	import { get } from 'svelte/store';
+	import Fa from 'svelte-fa';
+	import { faCheckDouble } from '@fortawesome/free-solid-svg-icons';
 
 	let waitTime = 800;
 	if (get(quiz.isEvaluated)) {
@@ -29,7 +30,7 @@
 <Loading ms={waitTime} minHeight={150}>
 	<div in:fade|global={{ duration: 1000 }}>
 		<h1>
-			<Icon name="check-double" />
+			<Fa icon={faCheckDouble} />
 			{format(points)}/{format(quiz.questions.length)}
 		</h1>
 

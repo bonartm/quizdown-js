@@ -1,38 +1,36 @@
 <script lang="ts">
-    import Icon from './Icon.svelte';
-    export let ms: number;
-    export let minHeight = 0;
+	import Fa from 'svelte-fa';
+	import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 
-    export let update = false;
+	export let ms: number;
+	export let minHeight = 0;
 
-    let node: HTMLElement;
+	export let update = false;
 
-    async function wait(ms: number) {
-        await new Promise((resolve) => setTimeout(resolve, ms));
-    }
+	let node: HTMLElement;
+
+	async function wait(ms: number) {
+		await new Promise((resolve) => setTimeout(resolve, ms));
+	}
 </script>
 
 {#key update}
-    {#await wait(ms)}
-        <div
-            class="loading"
-            bind:this="{node}"
-            style="min-height:{minHeight}px;"
-        >
-            <Icon name="circle-notch" spin="{true}" size="2x" />
-        </div>
-    {:then resolved}
-        <slot />
-    {/await}
+	{#await wait(ms)}
+		<div class="loading" bind:this={node} style="min-height:{minHeight}px;">
+			<Fa icon={faCircleNotch} spin size="2x" />
+		</div>
+	{:then}
+		<slot />
+	{/await}
 {/key}
 
 <style>
-    .loading {
-        vertical-align: middle;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
+	.loading {
+		vertical-align: middle;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
 </style>
