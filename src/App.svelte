@@ -96,7 +96,7 @@
 							disabled={$onFirst || $onResults || $isEvaluated}
 							buttonAction={quiz.previous}
 						>
-							<Fa icon={faArrowLeft} />
+							<Fa icon={faArrowLeft} size="lg" />
 						</Button>
 
 						<Button
@@ -104,7 +104,7 @@
 							buttonAction={quiz.next}
 							title={$_('next')}
 						>
-							<Fa icon={faArrowRight} />
+							<Fa icon={faArrowRight} size="lg" />
 						</Button>
 
 						{#if $onLast || $allVisited}
@@ -114,7 +114,7 @@
 									title={$_('evaluate')}
 									buttonAction={() => quiz.jump(quiz.questions.length)}
 								>
-									<Fa icon={faCheckDouble} />
+									<Fa icon={faCheckDouble} size="lg" />
 								</Button>
 							</div>
 						{/if}
