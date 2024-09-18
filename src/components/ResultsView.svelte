@@ -35,7 +35,7 @@
 
 		<ol>
 			{#each quiz.questions as question, i}
-				<li class="top-list-item" on:click={() => quiz.jump(i)} on:keydown={() => quiz.jump(i)}>
+				<li class="top-list-item" on:click={() => quiz.jump(i)}>
 					<span class="list-question">
 						{emojis[+question.solved]}
 						{@html question.text}
