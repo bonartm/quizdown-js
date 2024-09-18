@@ -1,4 +1,4 @@
-/* Version: 0.7.0 - September 17, 2024 23:16:36 */
+/* Version: 0.7.0 - September 17, 2024 23:27:12 */
 
 (function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
 (function (global, factory) {
@@ -14737,7 +14737,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	const file = "src/App.svelte";
 
 	function add_css(target) {
-		append_styles(target, "svelte-1eu0jtw", ".hljs{display:block;overflow-x:auto;padding:0.5em;color:#333;background:#f8f8f8}.hljs-comment,.hljs-quote{color:#998;font-style:italic}.hljs-keyword,.hljs-selector-tag,.hljs-subst{color:#333;font-weight:bold}.hljs-number,.hljs-literal,.hljs-variable,.hljs-template-variable,.hljs-tag .hljs-attr{color:#008080}.hljs-string,.hljs-doctag{color:#d14}.hljs-title,.hljs-section,.hljs-selector-id{color:#900;font-weight:bold}.hljs-subst{font-weight:normal}.hljs-type,.hljs-class .hljs-title{color:#458;font-weight:bold}.hljs-tag,.hljs-name,.hljs-attribute{color:#000080;font-weight:normal}.hljs-regexp,.hljs-link{color:#009926}.hljs-symbol,.hljs-bullet{color:#990073}.hljs-built_in,.hljs-builtin-name{color:#0086b3}.hljs-meta{color:#999;font-weight:bold}.hljs-deletion{background:#fdd}.hljs-addition{background:#dfd}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}@font-face{font-family:\"KaTeX_AMS\";src:url(fonts/KaTeX_AMS-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_AMS-Regular.woff) format(\"woff\"), url(fonts/KaTeX_AMS-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Caligraphic\";src:url(fonts/KaTeX_Caligraphic-Bold.woff2) format(\"woff2\"), url(fonts/KaTeX_Caligraphic-Bold.woff) format(\"woff\"), url(fonts/KaTeX_Caligraphic-Bold.ttf) format(\"truetype\");font-weight:bold;font-style:normal}@font-face{font-family:\"KaTeX_Caligraphic\";src:url(fonts/KaTeX_Caligraphic-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Caligraphic-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Caligraphic-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Fraktur\";src:url(fonts/KaTeX_Fraktur-Bold.woff2) format(\"woff2\"), url(fonts/KaTeX_Fraktur-Bold.woff) format(\"woff\"), url(fonts/KaTeX_Fraktur-Bold.ttf) format(\"truetype\");font-weight:bold;font-style:normal}@font-face{font-family:\"KaTeX_Fraktur\";src:url(fonts/KaTeX_Fraktur-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Fraktur-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Fraktur-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Main\";src:url(fonts/KaTeX_Main-Bold.woff2) format(\"woff2\"), url(fonts/KaTeX_Main-Bold.woff) format(\"woff\"), url(fonts/KaTeX_Main-Bold.ttf) format(\"truetype\");font-weight:bold;font-style:normal}@font-face{font-family:\"KaTeX_Main\";src:url(fonts/KaTeX_Main-BoldItalic.woff2) format(\"woff2\"), url(fonts/KaTeX_Main-BoldItalic.woff) format(\"woff\"), url(fonts/KaTeX_Main-BoldItalic.ttf) format(\"truetype\");font-weight:bold;font-style:italic}@font-face{font-family:\"KaTeX_Main\";src:url(fonts/KaTeX_Main-Italic.woff2) format(\"woff2\"), url(fonts/KaTeX_Main-Italic.woff) format(\"woff\"), url(fonts/KaTeX_Main-Italic.ttf) format(\"truetype\");font-weight:normal;font-style:italic}@font-face{font-family:\"KaTeX_Main\";src:url(fonts/KaTeX_Main-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Main-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Main-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Math\";src:url(fonts/KaTeX_Math-BoldItalic.woff2) format(\"woff2\"), url(fonts/KaTeX_Math-BoldItalic.woff) format(\"woff\"), url(fonts/KaTeX_Math-BoldItalic.ttf) format(\"truetype\");font-weight:bold;font-style:italic}@font-face{font-family:\"KaTeX_Math\";src:url(fonts/KaTeX_Math-Italic.woff2) format(\"woff2\"), url(fonts/KaTeX_Math-Italic.woff) format(\"woff\"), url(fonts/KaTeX_Math-Italic.ttf) format(\"truetype\");font-weight:normal;font-style:italic}@font-face{font-family:\"KaTeX_SansSerif\";src:url(fonts/KaTeX_SansSerif-Bold.woff2) format(\"woff2\"), url(fonts/KaTeX_SansSerif-Bold.woff) format(\"woff\"), url(fonts/KaTeX_SansSerif-Bold.ttf) format(\"truetype\");font-weight:bold;font-style:normal}@font-face{font-family:\"KaTeX_SansSerif\";src:url(fonts/KaTeX_SansSerif-Italic.woff2) format(\"woff2\"), url(fonts/KaTeX_SansSerif-Italic.woff) format(\"woff\"), url(fonts/KaTeX_SansSerif-Italic.ttf) format(\"truetype\");font-weight:normal;font-style:italic}@font-face{font-family:\"KaTeX_SansSerif\";src:url(fonts/KaTeX_SansSerif-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_SansSerif-Regular.woff) format(\"woff\"), url(fonts/KaTeX_SansSerif-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Script\";src:url(fonts/KaTeX_Script-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Script-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Script-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Size1\";src:url(fonts/KaTeX_Size1-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Size1-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Size1-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Size2\";src:url(fonts/KaTeX_Size2-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Size2-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Size2-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Size3\";src:url(fonts/KaTeX_Size3-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Size3-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Size3-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Size4\";src:url(fonts/KaTeX_Size4-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Size4-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Size4-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Typewriter\";src:url(fonts/KaTeX_Typewriter-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Typewriter-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Typewriter-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}.katex{font:normal 1.21em KaTeX_Main, Times New Roman, serif;line-height:1.2;text-indent:0;text-rendering:auto}.katex *{-ms-high-contrast-adjust:none !important;border-color:currentColor}.katex .katex-version::after{content:\"0.13.11\"}.katex .katex-mathml{position:absolute;clip:rect(1px, 1px, 1px, 1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}.katex .katex-html{}.katex .katex-html>.newline{display:block}.katex .base{position:relative;display:inline-block;white-space:nowrap;width:-webkit-min-content;width:-moz-min-content;width:min-content}.katex .strut{display:inline-block}.katex .textbf{font-weight:bold}.katex .textit{font-style:italic}.katex .textrm{font-family:KaTeX_Main}.katex .textsf{font-family:KaTeX_SansSerif}.katex .texttt{font-family:KaTeX_Typewriter}.katex .mathnormal{font-family:KaTeX_Math;font-style:italic}.katex .mathit{font-family:KaTeX_Main;font-style:italic}.katex .mathrm{font-style:normal}.katex .mathbf{font-family:KaTeX_Main;font-weight:bold}.katex .boldsymbol{font-family:KaTeX_Math;font-weight:bold;font-style:italic}.katex .amsrm{font-family:KaTeX_AMS}.katex .mathbb,.katex .textbb{font-family:KaTeX_AMS}.katex .mathcal{font-family:KaTeX_Caligraphic}.katex .mathfrak,.katex .textfrak{font-family:KaTeX_Fraktur}.katex .mathtt{font-family:KaTeX_Typewriter}.katex .mathscr,.katex .textscr{font-family:KaTeX_Script}.katex .mathsf,.katex .textsf{font-family:KaTeX_SansSerif}.katex .mathboldsf,.katex .textboldsf{font-family:KaTeX_SansSerif;font-weight:bold}.katex .mathitsf,.katex .textitsf{font-family:KaTeX_SansSerif;font-style:italic}.katex .mainrm{font-family:KaTeX_Main;font-style:normal}.katex .vlist-t{display:inline-table;table-layout:fixed;border-collapse:collapse}.katex .vlist-r{display:table-row}.katex .vlist{display:table-cell;vertical-align:bottom;position:relative}.katex .vlist>span{display:block;height:0;position:relative}.katex .vlist>span>span{display:inline-block}.katex .vlist>span>.pstrut{overflow:hidden;width:0}.katex .vlist-t2{margin-right:-2px}.katex .vlist-s{display:table-cell;vertical-align:bottom;font-size:1px;width:2px;min-width:2px}.katex .vbox{display:-webkit-inline-box;display:inline-flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;-webkit-box-align:baseline;align-items:baseline}.katex .hbox{display:-webkit-inline-box;display:inline-flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row;width:100%}.katex .thinbox{display:-webkit-inline-box;display:inline-flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row;width:0;max-width:0}.katex .msupsub{text-align:left}.katex .mfrac>span>span{text-align:center}.katex .mfrac .frac-line{display:inline-block;width:100%;border-bottom-style:solid}.katex .mfrac .frac-line,.katex .overline .overline-line,.katex .underline .underline-line,.katex .hline,.katex .hdashline,.katex .rule{min-height:1px}.katex .mspace{display:inline-block}.katex .llap,.katex .rlap,.katex .clap{width:0;position:relative}.katex .llap>.inner,.katex .rlap>.inner,.katex .clap>.inner{position:absolute}.katex .llap>.fix,.katex .rlap>.fix,.katex .clap>.fix{display:inline-block}.katex .llap>.inner{right:0}.katex .rlap>.inner,.katex .clap>.inner{left:0}.katex .clap>.inner>span{margin-left:-50%;margin-right:50%}.katex .rule{display:inline-block;border:solid 0;position:relative}.katex .overline .overline-line,.katex .underline .underline-line,.katex .hline{display:inline-block;width:100%;border-bottom-style:solid}.katex .hdashline{display:inline-block;width:100%;border-bottom-style:dashed}.katex .sqrt>.root{margin-left:0.27777778em;margin-right:-0.55555556em}.katex .sizing.reset-size1.size1,.katex .fontsize-ensurer.reset-size1.size1{font-size:1em}.katex .sizing.reset-size1.size2,.katex .fontsize-ensurer.reset-size1.size2{font-size:1.2em}.katex .sizing.reset-size1.size3,.katex .fontsize-ensurer.reset-size1.size3{font-size:1.4em}.katex .sizing.reset-size1.size4,.katex .fontsize-ensurer.reset-size1.size4{font-size:1.6em}.katex .sizing.reset-size1.size5,.katex .fontsize-ensurer.reset-size1.size5{font-size:1.8em}.katex .sizing.reset-size1.size6,.katex .fontsize-ensurer.reset-size1.size6{font-size:2em}.katex .sizing.reset-size1.size7,.katex .fontsize-ensurer.reset-size1.size7{font-size:2.4em}.katex .sizing.reset-size1.size8,.katex .fontsize-ensurer.reset-size1.size8{font-size:2.88em}.katex .sizing.reset-size1.size9,.katex .fontsize-ensurer.reset-size1.size9{font-size:3.456em}.katex .sizing.reset-size1.size10,.katex .fontsize-ensurer.reset-size1.size10{font-size:4.148em}.katex .sizing.reset-size1.size11,.katex .fontsize-ensurer.reset-size1.size11{font-size:4.976em}.katex .sizing.reset-size2.size1,.katex .fontsize-ensurer.reset-size2.size1{font-size:0.83333333em}.katex .sizing.reset-size2.size2,.katex .fontsize-ensurer.reset-size2.size2{font-size:1em}.katex .sizing.reset-size2.size3,.katex .fontsize-ensurer.reset-size2.size3{font-size:1.16666667em}.katex .sizing.reset-size2.size4,.katex .fontsize-ensurer.reset-size2.size4{font-size:1.33333333em}.katex .sizing.reset-size2.size5,.katex .fontsize-ensurer.reset-size2.size5{font-size:1.5em}.katex .sizing.reset-size2.size6,.katex .fontsize-ensurer.reset-size2.size6{font-size:1.66666667em}.katex .sizing.reset-size2.size7,.katex .fontsize-ensurer.reset-size2.size7{font-size:2em}.katex .sizing.reset-size2.size8,.katex .fontsize-ensurer.reset-size2.size8{font-size:2.4em}.katex .sizing.reset-size2.size9,.katex .fontsize-ensurer.reset-size2.size9{font-size:2.88em}.katex .sizing.reset-size2.size10,.katex .fontsize-ensurer.reset-size2.size10{font-size:3.45666667em}.katex .sizing.reset-size2.size11,.katex .fontsize-ensurer.reset-size2.size11{font-size:4.14666667em}.katex .sizing.reset-size3.size1,.katex .fontsize-ensurer.reset-size3.size1{font-size:0.71428571em}.katex .sizing.reset-size3.size2,.katex .fontsize-ensurer.reset-size3.size2{font-size:0.85714286em}.katex .sizing.reset-size3.size3,.katex .fontsize-ensurer.reset-size3.size3{font-size:1em}.katex .sizing.reset-size3.size4,.katex .fontsize-ensurer.reset-size3.size4{font-size:1.14285714em}.katex .sizing.reset-size3.size5,.katex .fontsize-ensurer.reset-size3.size5{font-size:1.28571429em}.katex .sizing.reset-size3.size6,.katex .fontsize-ensurer.reset-size3.size6{font-size:1.42857143em}.katex .sizing.reset-size3.size7,.katex .fontsize-ensurer.reset-size3.size7{font-size:1.71428571em}.katex .sizing.reset-size3.size8,.katex .fontsize-ensurer.reset-size3.size8{font-size:2.05714286em}.katex .sizing.reset-size3.size9,.katex .fontsize-ensurer.reset-size3.size9{font-size:2.46857143em}.katex .sizing.reset-size3.size10,.katex .fontsize-ensurer.reset-size3.size10{font-size:2.96285714em}.katex .sizing.reset-size3.size11,.katex .fontsize-ensurer.reset-size3.size11{font-size:3.55428571em}.katex .sizing.reset-size4.size1,.katex .fontsize-ensurer.reset-size4.size1{font-size:0.625em}.katex .sizing.reset-size4.size2,.katex .fontsize-ensurer.reset-size4.size2{font-size:0.75em}.katex .sizing.reset-size4.size3,.katex .fontsize-ensurer.reset-size4.size3{font-size:0.875em}.katex .sizing.reset-size4.size4,.katex .fontsize-ensurer.reset-size4.size4{font-size:1em}.katex .sizing.reset-size4.size5,.katex .fontsize-ensurer.reset-size4.size5{font-size:1.125em}.katex .sizing.reset-size4.size6,.katex .fontsize-ensurer.reset-size4.size6{font-size:1.25em}.katex .sizing.reset-size4.size7,.katex .fontsize-ensurer.reset-size4.size7{font-size:1.5em}.katex .sizing.reset-size4.size8,.katex .fontsize-ensurer.reset-size4.size8{font-size:1.8em}.katex .sizing.reset-size4.size9,.katex .fontsize-ensurer.reset-size4.size9{font-size:2.16em}.katex .sizing.reset-size4.size10,.katex .fontsize-ensurer.reset-size4.size10{font-size:2.5925em}.katex .sizing.reset-size4.size11,.katex .fontsize-ensurer.reset-size4.size11{font-size:3.11em}.katex .sizing.reset-size5.size1,.katex .fontsize-ensurer.reset-size5.size1{font-size:0.55555556em}.katex .sizing.reset-size5.size2,.katex .fontsize-ensurer.reset-size5.size2{font-size:0.66666667em}.katex .sizing.reset-size5.size3,.katex .fontsize-ensurer.reset-size5.size3{font-size:0.77777778em}.katex .sizing.reset-size5.size4,.katex .fontsize-ensurer.reset-size5.size4{font-size:0.88888889em}.katex .sizing.reset-size5.size5,.katex .fontsize-ensurer.reset-size5.size5{font-size:1em}.katex .sizing.reset-size5.size6,.katex .fontsize-ensurer.reset-size5.size6{font-size:1.11111111em}.katex .sizing.reset-size5.size7,.katex .fontsize-ensurer.reset-size5.size7{font-size:1.33333333em}.katex .sizing.reset-size5.size8,.katex .fontsize-ensurer.reset-size5.size8{font-size:1.6em}.katex .sizing.reset-size5.size9,.katex .fontsize-ensurer.reset-size5.size9{font-size:1.92em}.katex .sizing.reset-size5.size10,.katex .fontsize-ensurer.reset-size5.size10{font-size:2.30444444em}.katex .sizing.reset-size5.size11,.katex .fontsize-ensurer.reset-size5.size11{font-size:2.76444444em}.katex .sizing.reset-size6.size1,.katex .fontsize-ensurer.reset-size6.size1{font-size:0.5em}.katex .sizing.reset-size6.size2,.katex .fontsize-ensurer.reset-size6.size2{font-size:0.6em}.katex .sizing.reset-size6.size3,.katex .fontsize-ensurer.reset-size6.size3{font-size:0.7em}.katex .sizing.reset-size6.size4,.katex .fontsize-ensurer.reset-size6.size4{font-size:0.8em}.katex .sizing.reset-size6.size5,.katex .fontsize-ensurer.reset-size6.size5{font-size:0.9em}.katex .sizing.reset-size6.size6,.katex .fontsize-ensurer.reset-size6.size6{font-size:1em}.katex .sizing.reset-size6.size7,.katex .fontsize-ensurer.reset-size6.size7{font-size:1.2em}.katex .sizing.reset-size6.size8,.katex .fontsize-ensurer.reset-size6.size8{font-size:1.44em}.katex .sizing.reset-size6.size9,.katex .fontsize-ensurer.reset-size6.size9{font-size:1.728em}.katex .sizing.reset-size6.size10,.katex .fontsize-ensurer.reset-size6.size10{font-size:2.074em}.katex .sizing.reset-size6.size11,.katex .fontsize-ensurer.reset-size6.size11{font-size:2.488em}.katex .sizing.reset-size7.size1,.katex .fontsize-ensurer.reset-size7.size1{font-size:0.41666667em}.katex .sizing.reset-size7.size2,.katex .fontsize-ensurer.reset-size7.size2{font-size:0.5em}.katex .sizing.reset-size7.size3,.katex .fontsize-ensurer.reset-size7.size3{font-size:0.58333333em}.katex .sizing.reset-size7.size4,.katex .fontsize-ensurer.reset-size7.size4{font-size:0.66666667em}.katex .sizing.reset-size7.size5,.katex .fontsize-ensurer.reset-size7.size5{font-size:0.75em}.katex .sizing.reset-size7.size6,.katex .fontsize-ensurer.reset-size7.size6{font-size:0.83333333em}.katex .sizing.reset-size7.size7,.katex .fontsize-ensurer.reset-size7.size7{font-size:1em}.katex .sizing.reset-size7.size8,.katex .fontsize-ensurer.reset-size7.size8{font-size:1.2em}.katex .sizing.reset-size7.size9,.katex .fontsize-ensurer.reset-size7.size9{font-size:1.44em}.katex .sizing.reset-size7.size10,.katex .fontsize-ensurer.reset-size7.size10{font-size:1.72833333em}.katex .sizing.reset-size7.size11,.katex .fontsize-ensurer.reset-size7.size11{font-size:2.07333333em}.katex .sizing.reset-size8.size1,.katex .fontsize-ensurer.reset-size8.size1{font-size:0.34722222em}.katex .sizing.reset-size8.size2,.katex .fontsize-ensurer.reset-size8.size2{font-size:0.41666667em}.katex .sizing.reset-size8.size3,.katex .fontsize-ensurer.reset-size8.size3{font-size:0.48611111em}.katex .sizing.reset-size8.size4,.katex .fontsize-ensurer.reset-size8.size4{font-size:0.55555556em}.katex .sizing.reset-size8.size5,.katex .fontsize-ensurer.reset-size8.size5{font-size:0.625em}.katex .sizing.reset-size8.size6,.katex .fontsize-ensurer.reset-size8.size6{font-size:0.69444444em}.katex .sizing.reset-size8.size7,.katex .fontsize-ensurer.reset-size8.size7{font-size:0.83333333em}.katex .sizing.reset-size8.size8,.katex .fontsize-ensurer.reset-size8.size8{font-size:1em}.katex .sizing.reset-size8.size9,.katex .fontsize-ensurer.reset-size8.size9{font-size:1.2em}.katex .sizing.reset-size8.size10,.katex .fontsize-ensurer.reset-size8.size10{font-size:1.44027778em}.katex .sizing.reset-size8.size11,.katex .fontsize-ensurer.reset-size8.size11{font-size:1.72777778em}.katex .sizing.reset-size9.size1,.katex .fontsize-ensurer.reset-size9.size1{font-size:0.28935185em}.katex .sizing.reset-size9.size2,.katex .fontsize-ensurer.reset-size9.size2{font-size:0.34722222em}.katex .sizing.reset-size9.size3,.katex .fontsize-ensurer.reset-size9.size3{font-size:0.40509259em}.katex .sizing.reset-size9.size4,.katex .fontsize-ensurer.reset-size9.size4{font-size:0.46296296em}.katex .sizing.reset-size9.size5,.katex .fontsize-ensurer.reset-size9.size5{font-size:0.52083333em}.katex .sizing.reset-size9.size6,.katex .fontsize-ensurer.reset-size9.size6{font-size:0.5787037em}.katex .sizing.reset-size9.size7,.katex .fontsize-ensurer.reset-size9.size7{font-size:0.69444444em}.katex .sizing.reset-size9.size8,.katex .fontsize-ensurer.reset-size9.size8{font-size:0.83333333em}.katex .sizing.reset-size9.size9,.katex .fontsize-ensurer.reset-size9.size9{font-size:1em}.katex .sizing.reset-size9.size10,.katex .fontsize-ensurer.reset-size9.size10{font-size:1.20023148em}.katex .sizing.reset-size9.size11,.katex .fontsize-ensurer.reset-size9.size11{font-size:1.43981481em}.katex .sizing.reset-size10.size1,.katex .fontsize-ensurer.reset-size10.size1{font-size:0.24108004em}.katex .sizing.reset-size10.size2,.katex .fontsize-ensurer.reset-size10.size2{font-size:0.28929605em}.katex .sizing.reset-size10.size3,.katex .fontsize-ensurer.reset-size10.size3{font-size:0.33751205em}.katex .sizing.reset-size10.size4,.katex .fontsize-ensurer.reset-size10.size4{font-size:0.38572806em}.katex .sizing.reset-size10.size5,.katex .fontsize-ensurer.reset-size10.size5{font-size:0.43394407em}.katex .sizing.reset-size10.size6,.katex .fontsize-ensurer.reset-size10.size6{font-size:0.48216008em}.katex .sizing.reset-size10.size7,.katex .fontsize-ensurer.reset-size10.size7{font-size:0.57859209em}.katex .sizing.reset-size10.size8,.katex .fontsize-ensurer.reset-size10.size8{font-size:0.69431051em}.katex .sizing.reset-size10.size9,.katex .fontsize-ensurer.reset-size10.size9{font-size:0.83317261em}.katex .sizing.reset-size10.size10,.katex .fontsize-ensurer.reset-size10.size10{font-size:1em}.katex .sizing.reset-size10.size11,.katex .fontsize-ensurer.reset-size10.size11{font-size:1.19961427em}.katex .sizing.reset-size11.size1,.katex .fontsize-ensurer.reset-size11.size1{font-size:0.20096463em}.katex .sizing.reset-size11.size2,.katex .fontsize-ensurer.reset-size11.size2{font-size:0.24115756em}.katex .sizing.reset-size11.size3,.katex .fontsize-ensurer.reset-size11.size3{font-size:0.28135048em}.katex .sizing.reset-size11.size4,.katex .fontsize-ensurer.reset-size11.size4{font-size:0.32154341em}.katex .sizing.reset-size11.size5,.katex .fontsize-ensurer.reset-size11.size5{font-size:0.36173633em}.katex .sizing.reset-size11.size6,.katex .fontsize-ensurer.reset-size11.size6{font-size:0.40192926em}.katex .sizing.reset-size11.size7,.katex .fontsize-ensurer.reset-size11.size7{font-size:0.48231511em}.katex .sizing.reset-size11.size8,.katex .fontsize-ensurer.reset-size11.size8{font-size:0.57877814em}.katex .sizing.reset-size11.size9,.katex .fontsize-ensurer.reset-size11.size9{font-size:0.69453376em}.katex .sizing.reset-size11.size10,.katex .fontsize-ensurer.reset-size11.size10{font-size:0.83360129em}.katex .sizing.reset-size11.size11,.katex .fontsize-ensurer.reset-size11.size11{font-size:1em}.katex .delimsizing.size1{font-family:KaTeX_Size1}.katex .delimsizing.size2{font-family:KaTeX_Size2}.katex .delimsizing.size3{font-family:KaTeX_Size3}.katex .delimsizing.size4{font-family:KaTeX_Size4}.katex .delimsizing.mult .delim-size1>span{font-family:KaTeX_Size1}.katex .delimsizing.mult .delim-size4>span{font-family:KaTeX_Size4}.katex .nulldelimiter{display:inline-block;width:0.12em}.katex .delimcenter{position:relative}.katex .op-symbol{position:relative}.katex .op-symbol.small-op{font-family:KaTeX_Size1}.katex .op-symbol.large-op{font-family:KaTeX_Size2}.katex .op-limits>.vlist-t{text-align:center}.katex .accent>.vlist-t{text-align:center}.katex .accent .accent-body{position:relative}.katex .accent .accent-body:not(.accent-full){width:0}.katex .overlay{display:block}.katex .mtable .vertical-separator{display:inline-block;min-width:1px}.katex .mtable .arraycolsep{display:inline-block}.katex .mtable .col-align-c>.vlist-t{text-align:center}.katex .mtable .col-align-l>.vlist-t{text-align:left}.katex .mtable .col-align-r>.vlist-t{text-align:right}.katex .svg-align{text-align:left}.katex svg{display:block;position:absolute;width:100%;height:inherit;fill:currentColor;stroke:currentColor;fill-rule:nonzero;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1}.katex svg path{stroke:none}.katex img{border-style:none;min-width:0;min-height:0;max-width:none;max-height:none}.katex .stretchy{width:100%;display:block;position:relative;overflow:hidden}.katex .stretchy::before,.katex .stretchy::after{content:\"\"}.katex .hide-tail{width:100%;position:relative;overflow:hidden}.katex .halfarrow-left{position:absolute;left:0;width:50.2%;overflow:hidden}.katex .halfarrow-right{position:absolute;right:0;width:50.2%;overflow:hidden}.katex .brace-left{position:absolute;left:0;width:25.1%;overflow:hidden}.katex .brace-center{position:absolute;left:25%;width:50%;overflow:hidden}.katex .brace-right{position:absolute;right:0;width:25.1%;overflow:hidden}.katex .x-arrow-pad{padding:0 0.5em}.katex .cd-arrow-pad{padding:0 0.55556em 0 0.27778em}.katex .x-arrow,.katex .mover,.katex .munder{text-align:center}.katex .boxpad{padding:0 0.3em 0 0.3em}.katex .fbox,.katex .fcolorbox{box-sizing:border-box;border:0.04em solid}.katex .cancel-pad{padding:0 0.2em 0 0.2em}.katex .cancel-lap{margin-left:-0.2em;margin-right:-0.2em}.katex .sout{border-bottom-style:solid;border-bottom-width:0.08em}.katex .angl{box-sizing:border-content;border-top:0.049em solid;border-right:0.049em solid;margin-right:0.03889em}.katex .anglpad{padding:0 0.03889em 0 0.03889em}.katex .eqn-num::before{counter-increment:katexEqnNo;content:\"(\" counter(katexEqnNo) \")\"}.katex .mml-eqn-num::before{counter-increment:mmlEqnNo;content:\"(\" counter(mmlEqnNo) \")\"}.katex .mtr-glue{width:50%}.katex .cd-vert-arrow{display:inline-block;position:relative}.katex .cd-label-left{display:inline-block;position:absolute;right:-webkit-calc(50% + 0.3em);right:calc(50% + 0.3em);text-align:left}.katex .cd-label-right{display:inline-block;position:absolute;left:-webkit-calc(50% + 0.3em);left:calc(50% + 0.3em);text-align:right}.katex-display{display:block;margin:1em 0;text-align:center}.katex-display>.katex{display:block;text-align:center;white-space:nowrap}.katex-display>.katex>.katex-html{display:block;position:relative}.katex-display>.katex>.katex-html>.tag{position:absolute;right:0}.katex-display.leqno>.katex>.katex-html>.tag{left:0;right:auto}.katex-display.fleqn>.katex{text-align:left;padding-left:2em}body{counter-reset:katexEqnNo mmlEqnNo}:root,:host{--fa-font-solid:normal 900 1em/1 \"Font Awesome 6 Free\";--fa-font-regular:normal 400 1em/1 \"Font Awesome 6 Free\";--fa-font-light:normal 300 1em/1 \"Font Awesome 6 Pro\";--fa-font-thin:normal 100 1em/1 \"Font Awesome 6 Pro\";--fa-font-duotone:normal 900 1em/1 \"Font Awesome 6 Duotone\";--fa-font-brands:normal 400 1em/1 \"Font Awesome 6 Brands\";--fa-font-sharp-solid:normal 900 1em/1 \"Font Awesome 6 Sharp\";--fa-font-sharp-regular:normal 400 1em/1 \"Font Awesome 6 Sharp\";--fa-font-sharp-light:normal 300 1em/1 \"Font Awesome 6 Sharp\";--fa-font-sharp-thin:normal 100 1em/1 \"Font Awesome 6 Sharp\";--fa-font-sharp-duotone-solid:normal 900 1em/1 \"Font Awesome 6 Sharp Duotone\"}svg:not(:root).svg-inline--fa,svg:not(:host).svg-inline--fa{overflow:visible;box-sizing:content-box}.svg-inline--fa{display:var(--fa-display, inline-block);height:1em;overflow:visible;vertical-align:-0.125em}.svg-inline--fa.fa-2xs{vertical-align:0.1em}.svg-inline--fa.fa-xs{vertical-align:0em}.svg-inline--fa.fa-sm{vertical-align:-0.07143em}.svg-inline--fa.fa-lg{vertical-align:-0.2em}.svg-inline--fa.fa-xl{vertical-align:-0.25em}.svg-inline--fa.fa-2xl{vertical-align:-0.3125em}.svg-inline--fa.fa-pull-left{margin-right:var(--fa-pull-margin, 0.3em);width:auto}.svg-inline--fa.fa-pull-right{margin-left:var(--fa-pull-margin, 0.3em);width:auto}.svg-inline--fa.fa-li{width:var(--fa-li-width, 2em);top:0.25em}.svg-inline--fa.fa-fw{width:var(--fa-fw-width, 1.25em)}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers-text,.fa-layers-counter{display:inline-block;position:absolute;text-align:center}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-0.125em;width:1em}.fa-layers svg.svg-inline--fa{transform-origin:center center}.fa-layers-text{left:50%;top:50%;transform:translate(-50%, -50%);transform-origin:center center}.fa-layers-counter{background-color:var(--fa-counter-background-color, #ff253a);border-radius:var(--fa-counter-border-radius, 1em);box-sizing:border-box;color:var(--fa-inverse, #fff);line-height:var(--fa-counter-line-height, 1);max-width:var(--fa-counter-max-width, 5em);min-width:var(--fa-counter-min-width, 1.5em);overflow:hidden;padding:var(--fa-counter-padding, 0.25em 0.5em);right:var(--fa-right, 0);text-overflow:ellipsis;top:var(--fa-top, 0);transform:scale(var(--fa-counter-scale, 0.25));transform-origin:top right}.fa-layers-bottom-right{bottom:var(--fa-bottom, 0);right:var(--fa-right, 0);top:auto;transform:scale(var(--fa-layers-scale, 0.25));transform-origin:bottom right}.fa-layers-bottom-left{bottom:var(--fa-bottom, 0);left:var(--fa-left, 0);right:auto;top:auto;transform:scale(var(--fa-layers-scale, 0.25));transform-origin:bottom left}.fa-layers-top-right{top:var(--fa-top, 0);right:var(--fa-right, 0);transform:scale(var(--fa-layers-scale, 0.25));transform-origin:top right}.fa-layers-top-left{left:var(--fa-left, 0);right:auto;top:var(--fa-top, 0);transform:scale(var(--fa-layers-scale, 0.25));transform-origin:top left}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-2xs{font-size:0.625em;line-height:0.1em;vertical-align:0.225em}.fa-xs{font-size:0.75em;line-height:0.08333em;vertical-align:0.125em}.fa-sm{font-size:0.875em;line-height:0.07143em;vertical-align:0.05357em}.fa-lg{font-size:1.25em;line-height:0.05em;vertical-align:-0.075em}.fa-xl{font-size:1.5em;line-height:0.04167em;vertical-align:-0.125em}.fa-2xl{font-size:2em;line-height:0.03125em;vertical-align:-0.1875em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:var(--fa-li-margin, 2.5em);padding-left:0}.fa-ul>li{position:relative}.fa-li{left:calc(-1 * var(--fa-li-width, 2em));position:absolute;text-align:center;width:var(--fa-li-width, 2em);line-height:inherit}.fa-border{border-color:var(--fa-border-color, #eee);border-radius:var(--fa-border-radius, 0.1em);border-style:var(--fa-border-style, solid);border-width:var(--fa-border-width, 0.08em);padding:var(--fa-border-padding, 0.2em 0.25em 0.15em)}.fa-pull-left{float:left;margin-right:var(--fa-pull-margin, 0.3em)}.fa-pull-right{float:right;margin-left:var(--fa-pull-margin, 0.3em)}.fa-beat{animation-name:fa-beat;animation-delay:var(--fa-animation-delay, 0s);animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 1s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, ease-in-out)}.fa-bounce{animation-name:fa-bounce;animation-delay:var(--fa-animation-delay, 0s);animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 1s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1))}.fa-fade{animation-name:fa-fade;animation-delay:var(--fa-animation-delay, 0s);animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 1s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1))}.fa-beat-fade{animation-name:fa-beat-fade;animation-delay:var(--fa-animation-delay, 0s);animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 1s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1))}.fa-flip{animation-name:fa-flip;animation-delay:var(--fa-animation-delay, 0s);animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 1s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, ease-in-out)}.fa-shake{animation-name:fa-shake;animation-delay:var(--fa-animation-delay, 0s);animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 1s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, linear)}.fa-spin{animation-name:fa-spin;animation-delay:var(--fa-animation-delay, 0s);animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 2s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, linear)}.fa-spin-reverse{--fa-animation-direction:reverse}.fa-pulse,.fa-spin-pulse{animation-name:fa-spin;animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 1s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, steps(8))}@media(prefers-reduced-motion: reduce){.fa-beat,.fa-bounce,.fa-fade,.fa-beat-fade,.fa-flip,.fa-pulse,.fa-shake,.fa-spin,.fa-spin-pulse{animation-delay:-1ms;animation-duration:1ms;animation-iteration-count:1;transition-delay:0s;transition-duration:0s}}@keyframes fa-beat{0%,90%{transform:scale(1)}45%{transform:scale(var(--fa-beat-scale, 1.25))}}@keyframes fa-bounce{0%{transform:scale(1, 1) translateY(0)}10%{transform:scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0)}30%{transform:scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em))}50%{transform:scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0)}57%{transform:scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em))}64%{transform:scale(1, 1) translateY(0)}100%{transform:scale(1, 1) translateY(0)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity, 0.4)}}@keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity, 0.4);transform:scale(1)}50%{opacity:1;transform:scale(var(--fa-beat-fade-scale, 1.125))}}@keyframes fa-flip{50%{transform:rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg))}}@keyframes fa-shake{0%{transform:rotate(-15deg)}4%{transform:rotate(15deg)}8%,24%{transform:rotate(-18deg)}12%,28%{transform:rotate(18deg)}16%{transform:rotate(-22deg)}20%{transform:rotate(22deg)}32%{transform:rotate(-12deg)}36%{transform:rotate(12deg)}40%,100%{transform:rotate(0deg)}}@keyframes fa-spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}.fa-rotate-90{transform:rotate(90deg)}.fa-rotate-180{transform:rotate(180deg)}.fa-rotate-270{transform:rotate(270deg)}.fa-flip-horizontal{transform:scale(-1, 1)}.fa-flip-vertical{transform:scale(1, -1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{transform:scale(-1, -1)}.fa-rotate-by{transform:rotate(var(--fa-rotate-angle, 0))}.fa-stack{display:inline-block;vertical-align:middle;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0;z-index:var(--fa-stack-z-index, auto)}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:var(--fa-inverse, #fff)}.sr-only,.fa-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0}.sr-only-focusable:not(:focus),.fa-sr-only-focusable:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color, currentColor);opacity:var(--fa-primary-opacity, 1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color, currentColor);opacity:var(--fa-secondary-opacity, 0.4)}.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:var(--fa-secondary-opacity, 0.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:var(--fa-primary-opacity, 1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:black}.fad.fa-inverse,.fa-duotone.fa-inverse{color:var(--fa-inverse, #fff)}img{max-height:400px;border-radius:4px;max-width:100%;height:auto}code{padding:0 0.4rem;font-size:85%;color:#333;white-space:pre-wrap;border-radius:4px;padding:0.2em 0.4em;background-color:#f8f8f8;font-family:Consolas, Monaco, monospace}a{color:var(--quizdown-color-primary)}.quizdown-content{padding:1rem;max-width:900px;margin:auto}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,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RixnRkFHRSxxQkFDQSxXQUNBLDBCQUVGLGtCQUNFLHFCQUNBLFdBQ0EsMkJBRUYsbUJBR0UseUJBQ0EsMkJBRUYsNEVBRUUsY0FFRiw0RUFFRSxnQkFFRiw0RUFFRSxnQkFFRiw0RUFFRSxnQkFFRiw0RUFFRSxnQkFFRiw0RUFFRSxjQUVGLDRFQUVFLGdCQUVGLDRFQUVFLGlCQUVGLDRFQUVFLGtCQUVGLDhFQUVFLGtCQUVGLDhFQUVFLGtCQUVGLDRFQUVFLHVCQUVGLDRFQUVFLGNBRUYsNEVBRUUsdUJBRUYsNEVBRUUsdUJBRUYsNEVBRUUsZ0JBRUYsNEVBRUUsdUJBRUYsNEVBRUUsY0FFRiw0RUFFRSxnQkFFRiw0RUFFRSxpQkFFRiw4RUFFRSx1QkFFRiw4RUFFRSx1QkFFRiw0RUFFRSx1QkFFRiw0RUFFRSx1QkFFRiw0RUFFRSxjQUVGLDRFQUVFLHVCQUVGLDRFQUVFLHVCQUVGLDRFQUVFLHVCQUVGLDRFQUVFLHVCQUVGLDRFQUVFLHVCQUVGLDRFQUVFLHVCQUVGLDhFQUVFLHVCQUVGLDhFQUVFLHVCQUVGLDRFQUVFLGtCQUVGLDRFQUVFLGlCQUVGLDRFQUVFLGtCQUVGLDRFQUVFLGNBRUYsNEVBRUUsa0JBRUYsNEVBRUUsaUJBRUYsNEVBRUUsZ0JBRUYsNEVBRUUsZ0JBRUYsNEVBRUUsaUJBRUYsOEVBRUUsbUJBRUYsOEVBRUUsaUJBRUYsNEVBRUUsdUJBRUYsNEVBRUUsdUJBRUYsNEVBRUUsdUJBRUYsNEVBRUUsdUJBRUYsNEVBRUUsY0FFRiw0RUFFRSx1QkFFRiw0RUFFRSx1QkFFRiw0RUFFRSxnQkFFRiw0RUFFRSxpQkFFRiw4RUFFRSx1QkFFRiw4RUFFRSx1QkFFRiw0RUFFRSxnQkFFRiw0RUFFRSxnQkFFRiw0RUFFRSxnQkFFRiw0RUFFRSxnQkFFRiw0RUFFRSxnQkFFRiw0RUFFRSxjQUVGLDRFQUVFLGdCQUVGLDRFQUVFLGlCQUVGLDRFQUVFLGtCQUVGLDhFQUVFLGtCQUVGLDhFQUVFLGtCQUVGLDRFQUVFLHVCQUVGLDRFQUVFLGdCQUVGLDRFQUVFLHVCQUVGLDRFQUVFLHVCQUVGLDRFQUVFLGlCQUVGLDRFQUVFLHVCQUVGLDRFQUVFLGNBRUYsNEVBRUUsZ0JBRUYsNEVBRUUsaUJBRUYsOEVBRUUsdUJBRUYsOEVBRUUsdUJBRUYsNEVBRUUsdUJBRUYsNEVBRUUsdUJBRUYsNEVBRUUsdUJBRUYsNEVBRUUsdUJBRUYsNEVBRUUsa0JBRUYsNEVBRUUsdUJBRUYsNEVBRUUsdUJBRUYsNEVBRUUsY0FFRiw0RUFFRSxnQkFFRiw4RUFFRSx1QkFFRiw4RUFFRSx1QkFFRiw0RUFFRSx1QkFFRiw0RUFFRSx1QkFFRiw0RUFFRSx1QkFFRiw0RUFFRSx1QkFFRiw0RUFFRSx1QkFFRiw0RUFFRSxzQkFFRiw0RUFFRSx1QkFFRiw0RUFFRSx1QkFFRiw0RUFFRSxjQUVGLDhFQUVFLHVCQUVGLDhFQUVFLHVCQUVGLDhFQUVFLHVCQUVGLDhFQUVFLHVCQUVGLDhFQUVFLHVCQUVGLDhFQUVFLHVCQUVGLDhFQUVFLHVCQUVGLDhFQUVFLHVCQUVGLDhFQUVFLHVCQUVGLDhFQUVFLHVCQUVGLDhFQUVFLHVCQUVGLGdGQUVFLGNBRUYsZ0ZBRUUsdUJBRUYsOEVBRUUsdUJBRUYsOEVBRUUsdUJBRUYsOEVBRUUsdUJBRUYsOEVBRUUsdUJBRUYsOEVBRUUsdUJBRUYsOEVBRUUsdUJBRUYsOEVBRUUsdUJBRUYsOEVBRUUsdUJBRUYsOEVBRUUsdUJBRUYsZ0ZBRUUsdUJBRUYsZ0ZBRUUsY0FFRiwwQkFDRSx3QkFFRiwwQkFDRSx3QkFFRiwwQkFDRSx3QkFFRiwwQkFDRSx3QkFFRiwyQ0FDRSx3QkFFRiwyQ0FDRSx3QkFFRixzQkFDRSxxQkFDQSxhQUVGLG9CQUNFLGtCQUVGLGtCQUNFLGtCQUVGLDJCQUNFLHdCQUVGLDJCQUNFLHdCQUVGLDJCQUNFLGtCQUVGLHdCQUNFLGtCQUVGLDRCQUNFLGtCQUVGLDhDQUNFLFFBRUYsZ0JBQ0UsY0FFRixtQ0FDRSxxQkFDQSxjQUVGLDRCQUNFLHFCQUVGLHFDQUNFLGtCQUVGLHFDQUNFLGdCQUVGLHFDQUNFLGlCQUVGLGtCQUNFLGdCQUVGLFdBQ0UsY0FDQSxrQkFDQSxXQUNBLGVB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Q0EsV0FDQSxVQUNBLFlBQ0EsZ0JBQ0Esc0JBQ0EsbUJBQ0EsZUFFRiw0QkFDRSwyQ0FDQSxxQ0FFRiw4QkFDRSw2Q0FDQSx5Q0FFRiw0Q0FDRSx5Q0FFRiw4Q0FDRSxxQ0FFRixvRUFFRSxXQUVGLHVDQUVFLDhCQ2hjRCxJQUNDLGlCQUNBLGtCQUNBLGVBQ0EsWUFHRCxLQUNDLGlCQUNBLGNBQ0EsV0FDQSxxQkFDQSxrQkFDQSxvQkFDQSx5QkFDQSx3Q0FHRCxFQUNDLG9DQUdELGtCQUNDLGFBQ0EsZ0JBQ0EiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiZmlsZTovLy9Vc2Vycy9jYW5kaWRvc2FsZXMvRG9jdW1lbnRzL1Byb2plY3RzL3F1aXpkb3duLWpzL25vZGVfbW9kdWxlcy9oaWdobGlnaHQuanMvc3R5bGVzL2dpdGh1Yi5jc3MiLCJBcHAuc3ZlbHRlIiwiZmlsZTovLy9Vc2Vycy9jYW5kaWRvc2FsZXMvRG9jdW1lbnRzL1Byb2plY3RzL3F1aXpkb3duLWpzL25vZGVfbW9kdWxlcy9rYXRleC9kaXN0L2thdGV4LmNzcyIsImZpbGU6Ly8vVXNlcnMvY2FuZGlkb3NhbGVzL0RvY3VtZW50cy9Qcm9qZWN0cy9xdWl6ZG93bi1qcy9ub2RlX21vZHVsZXMvQGZvcnRhd2Vzb21lL2ZvbnRhd2Vzb21lLXN2Zy1jb3JlL3N0eWxlcy5jc3MiLCJmaWxlOi8vL1VzZXJzL2NhbmRpZG9zYWxlcy9Eb2N1bWVudHMvUHJvamVjdHMvcXVpemRvd24tanMvc3JjL0FwcC5zdmVsdGUiXX0= */");
+		append_styles(target, "svelte-19oygj0", ".hljs{display:block;overflow-x:auto;padding:0.5em;color:#333;background:#f8f8f8}.hljs-comment,.hljs-quote{color:#998;font-style:italic}.hljs-keyword,.hljs-selector-tag,.hljs-subst{color:#333;font-weight:bold}.hljs-number,.hljs-literal,.hljs-variable,.hljs-template-variable,.hljs-tag .hljs-attr{color:#008080}.hljs-string,.hljs-doctag{color:#d14}.hljs-title,.hljs-section,.hljs-selector-id{color:#900;font-weight:bold}.hljs-subst{font-weight:normal}.hljs-type,.hljs-class .hljs-title{color:#458;font-weight:bold}.hljs-tag,.hljs-name,.hljs-attribute{color:#000080;font-weight:normal}.hljs-regexp,.hljs-link{color:#009926}.hljs-symbol,.hljs-bullet{color:#990073}.hljs-built_in,.hljs-builtin-name{color:#0086b3}.hljs-meta{color:#999;font-weight:bold}.hljs-deletion{background:#fdd}.hljs-addition{background:#dfd}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}@font-face{font-family:\"KaTeX_AMS\";src:url(fonts/KaTeX_AMS-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_AMS-Regular.woff) format(\"woff\"), url(fonts/KaTeX_AMS-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Caligraphic\";src:url(fonts/KaTeX_Caligraphic-Bold.woff2) format(\"woff2\"), url(fonts/KaTeX_Caligraphic-Bold.woff) format(\"woff\"), url(fonts/KaTeX_Caligraphic-Bold.ttf) format(\"truetype\");font-weight:bold;font-style:normal}@font-face{font-family:\"KaTeX_Caligraphic\";src:url(fonts/KaTeX_Caligraphic-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Caligraphic-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Caligraphic-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Fraktur\";src:url(fonts/KaTeX_Fraktur-Bold.woff2) format(\"woff2\"), url(fonts/KaTeX_Fraktur-Bold.woff) format(\"woff\"), url(fonts/KaTeX_Fraktur-Bold.ttf) format(\"truetype\");font-weight:bold;font-style:normal}@font-face{font-family:\"KaTeX_Fraktur\";src:url(fonts/KaTeX_Fraktur-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Fraktur-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Fraktur-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Main\";src:url(fonts/KaTeX_Main-Bold.woff2) format(\"woff2\"), url(fonts/KaTeX_Main-Bold.woff) format(\"woff\"), url(fonts/KaTeX_Main-Bold.ttf) format(\"truetype\");font-weight:bold;font-style:normal}@font-face{font-family:\"KaTeX_Main\";src:url(fonts/KaTeX_Main-BoldItalic.woff2) format(\"woff2\"), url(fonts/KaTeX_Main-BoldItalic.woff) format(\"woff\"), url(fonts/KaTeX_Main-BoldItalic.ttf) format(\"truetype\");font-weight:bold;font-style:italic}@font-face{font-family:\"KaTeX_Main\";src:url(fonts/KaTeX_Main-Italic.woff2) format(\"woff2\"), url(fonts/KaTeX_Main-Italic.woff) format(\"woff\"), url(fonts/KaTeX_Main-Italic.ttf) format(\"truetype\");font-weight:normal;font-style:italic}@font-face{font-family:\"KaTeX_Main\";src:url(fonts/KaTeX_Main-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Main-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Main-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Math\";src:url(fonts/KaTeX_Math-BoldItalic.woff2) format(\"woff2\"), url(fonts/KaTeX_Math-BoldItalic.woff) format(\"woff\"), url(fonts/KaTeX_Math-BoldItalic.ttf) format(\"truetype\");font-weight:bold;font-style:italic}@font-face{font-family:\"KaTeX_Math\";src:url(fonts/KaTeX_Math-Italic.woff2) format(\"woff2\"), url(fonts/KaTeX_Math-Italic.woff) format(\"woff\"), url(fonts/KaTeX_Math-Italic.ttf) format(\"truetype\");font-weight:normal;font-style:italic}@font-face{font-family:\"KaTeX_SansSerif\";src:url(fonts/KaTeX_SansSerif-Bold.woff2) format(\"woff2\"), url(fonts/KaTeX_SansSerif-Bold.woff) format(\"woff\"), url(fonts/KaTeX_SansSerif-Bold.ttf) format(\"truetype\");font-weight:bold;font-style:normal}@font-face{font-family:\"KaTeX_SansSerif\";src:url(fonts/KaTeX_SansSerif-Italic.woff2) format(\"woff2\"), url(fonts/KaTeX_SansSerif-Italic.woff) format(\"woff\"), url(fonts/KaTeX_SansSerif-Italic.ttf) format(\"truetype\");font-weight:normal;font-style:italic}@font-face{font-family:\"KaTeX_SansSerif\";src:url(fonts/KaTeX_SansSerif-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_SansSerif-Regular.woff) format(\"woff\"), url(fonts/KaTeX_SansSerif-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Script\";src:url(fonts/KaTeX_Script-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Script-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Script-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Size1\";src:url(fonts/KaTeX_Size1-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Size1-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Size1-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Size2\";src:url(fonts/KaTeX_Size2-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Size2-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Size2-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Size3\";src:url(fonts/KaTeX_Size3-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Size3-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Size3-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Size4\";src:url(fonts/KaTeX_Size4-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Size4-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Size4-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}@font-face{font-family:\"KaTeX_Typewriter\";src:url(fonts/KaTeX_Typewriter-Regular.woff2) format(\"woff2\"), url(fonts/KaTeX_Typewriter-Regular.woff) format(\"woff\"), url(fonts/KaTeX_Typewriter-Regular.ttf) format(\"truetype\");font-weight:normal;font-style:normal}.katex{font:normal 1.21em KaTeX_Main, Times New Roman, serif;line-height:1.2;text-indent:0;text-rendering:auto}.katex *{-ms-high-contrast-adjust:none !important}.katex *{border-color:currentColor}.katex .katex-version::after{content:\"0.16.11\"}.katex .katex-mathml{position:absolute;clip:rect(1px, 1px, 1px, 1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}.katex .katex-html{}.katex .katex-html>.newline{display:block}.katex .base{position:relative;display:inline-block;white-space:nowrap;width:-webkit-min-content;width:-moz-min-content;width:min-content}.katex .strut{display:inline-block}.katex .textbf{font-weight:bold}.katex .textit{font-style:italic}.katex .textrm{font-family:KaTeX_Main}.katex .textsf{font-family:KaTeX_SansSerif}.katex .texttt{font-family:KaTeX_Typewriter}.katex .mathnormal{font-family:KaTeX_Math;font-style:italic}.katex .mathit{font-family:KaTeX_Main;font-style:italic}.katex .mathrm{font-style:normal}.katex .mathbf{font-family:KaTeX_Main;font-weight:bold}.katex .boldsymbol{font-family:KaTeX_Math;font-weight:bold;font-style:italic}.katex .amsrm{font-family:KaTeX_AMS}.katex .mathbb,.katex .textbb{font-family:KaTeX_AMS}.katex .mathcal{font-family:KaTeX_Caligraphic}.katex .mathfrak,.katex .textfrak{font-family:KaTeX_Fraktur}.katex .mathboldfrak,.katex .textboldfrak{font-family:KaTeX_Fraktur;font-weight:bold}.katex .mathtt{font-family:KaTeX_Typewriter}.katex .mathscr,.katex .textscr{font-family:KaTeX_Script}.katex .mathsf,.katex .textsf{font-family:KaTeX_SansSerif}.katex .mathboldsf,.katex .textboldsf{font-family:KaTeX_SansSerif;font-weight:bold}.katex .mathitsf,.katex .textitsf{font-family:KaTeX_SansSerif;font-style:italic}.katex .mainrm{font-family:KaTeX_Main;font-style:normal}.katex .vlist-t{display:inline-table;table-layout:fixed;border-collapse:collapse}.katex .vlist-r{display:table-row}.katex .vlist{display:table-cell;vertical-align:bottom;position:relative}.katex .vlist>span{display:block;height:0;position:relative}.katex .vlist>span>span{display:inline-block}.katex .vlist>span>.pstrut{overflow:hidden;width:0}.katex .vlist-t2{margin-right:-2px}.katex .vlist-s{display:table-cell;vertical-align:bottom;font-size:1px;width:2px;min-width:2px}.katex .vbox{display:inline-flex;flex-direction:column;align-items:baseline}.katex .hbox{display:inline-flex;flex-direction:row;width:100%}.katex .thinbox{display:inline-flex;flex-direction:row;width:0;max-width:0}.katex .msupsub{text-align:left}.katex .mfrac>span>span{text-align:center}.katex .mfrac .frac-line{display:inline-block;width:100%;border-bottom-style:solid}.katex .mfrac .frac-line,.katex .overline .overline-line,.katex .underline .underline-line,.katex .hline,.katex .hdashline,.katex .rule{min-height:1px}.katex .mspace{display:inline-block}.katex .llap,.katex .rlap,.katex .clap{width:0;position:relative}.katex .llap>.inner,.katex .rlap>.inner,.katex .clap>.inner{position:absolute}.katex .llap>.fix,.katex .rlap>.fix,.katex .clap>.fix{display:inline-block}.katex .llap>.inner{right:0}.katex .rlap>.inner,.katex .clap>.inner{left:0}.katex .clap>.inner>span{margin-left:-50%;margin-right:50%}.katex .rule{display:inline-block;border:solid 0;position:relative}.katex .overline .overline-line,.katex .underline .underline-line,.katex .hline{display:inline-block;width:100%;border-bottom-style:solid}.katex .hdashline{display:inline-block;width:100%;border-bottom-style:dashed}.katex .sqrt>.root{margin-left:0.2777777778em;margin-right:-0.5555555556em}.katex .sizing.reset-size1.size1,.katex .fontsize-ensurer.reset-size1.size1{font-size:1em}.katex .sizing.reset-size1.size2,.katex .fontsize-ensurer.reset-size1.size2{font-size:1.2em}.katex .sizing.reset-size1.size3,.katex .fontsize-ensurer.reset-size1.size3{font-size:1.4em}.katex .sizing.reset-size1.size4,.katex .fontsize-ensurer.reset-size1.size4{font-size:1.6em}.katex .sizing.reset-size1.size5,.katex .fontsize-ensurer.reset-size1.size5{font-size:1.8em}.katex .sizing.reset-size1.size6,.katex .fontsize-ensurer.reset-size1.size6{font-size:2em}.katex .sizing.reset-size1.size7,.katex .fontsize-ensurer.reset-size1.size7{font-size:2.4em}.katex .sizing.reset-size1.size8,.katex .fontsize-ensurer.reset-size1.size8{font-size:2.88em}.katex .sizing.reset-size1.size9,.katex .fontsize-ensurer.reset-size1.size9{font-size:3.456em}.katex .sizing.reset-size1.size10,.katex .fontsize-ensurer.reset-size1.size10{font-size:4.148em}.katex .sizing.reset-size1.size11,.katex .fontsize-ensurer.reset-size1.size11{font-size:4.976em}.katex .sizing.reset-size2.size1,.katex .fontsize-ensurer.reset-size2.size1{font-size:0.8333333333em}.katex .sizing.reset-size2.size2,.katex .fontsize-ensurer.reset-size2.size2{font-size:1em}.katex .sizing.reset-size2.size3,.katex .fontsize-ensurer.reset-size2.size3{font-size:1.1666666667em}.katex .sizing.reset-size2.size4,.katex .fontsize-ensurer.reset-size2.size4{font-size:1.3333333333em}.katex .sizing.reset-size2.size5,.katex .fontsize-ensurer.reset-size2.size5{font-size:1.5em}.katex .sizing.reset-size2.size6,.katex .fontsize-ensurer.reset-size2.size6{font-size:1.6666666667em}.katex .sizing.reset-size2.size7,.katex .fontsize-ensurer.reset-size2.size7{font-size:2em}.katex .sizing.reset-size2.size8,.katex .fontsize-ensurer.reset-size2.size8{font-size:2.4em}.katex .sizing.reset-size2.size9,.katex .fontsize-ensurer.reset-size2.size9{font-size:2.88em}.katex .sizing.reset-size2.size10,.katex .fontsize-ensurer.reset-size2.size10{font-size:3.4566666667em}.katex .sizing.reset-size2.size11,.katex .fontsize-ensurer.reset-size2.size11{font-size:4.1466666667em}.katex .sizing.reset-size3.size1,.katex .fontsize-ensurer.reset-size3.size1{font-size:0.7142857143em}.katex .sizing.reset-size3.size2,.katex .fontsize-ensurer.reset-size3.size2{font-size:0.8571428571em}.katex .sizing.reset-size3.size3,.katex .fontsize-ensurer.reset-size3.size3{font-size:1em}.katex .sizing.reset-size3.size4,.katex .fontsize-ensurer.reset-size3.size4{font-size:1.1428571429em}.katex .sizing.reset-size3.size5,.katex .fontsize-ensurer.reset-size3.size5{font-size:1.2857142857em}.katex .sizing.reset-size3.size6,.katex .fontsize-ensurer.reset-size3.size6{font-size:1.4285714286em}.katex .sizing.reset-size3.size7,.katex .fontsize-ensurer.reset-size3.size7{font-size:1.7142857143em}.katex .sizing.reset-size3.size8,.katex .fontsize-ensurer.reset-size3.size8{font-size:2.0571428571em}.katex .sizing.reset-size3.size9,.katex .fontsize-ensurer.reset-size3.size9{font-size:2.4685714286em}.katex .sizing.reset-size3.size10,.katex .fontsize-ensurer.reset-size3.size10{font-size:2.9628571429em}.katex .sizing.reset-size3.size11,.katex .fontsize-ensurer.reset-size3.size11{font-size:3.5542857143em}.katex .sizing.reset-size4.size1,.katex .fontsize-ensurer.reset-size4.size1{font-size:0.625em}.katex .sizing.reset-size4.size2,.katex .fontsize-ensurer.reset-size4.size2{font-size:0.75em}.katex .sizing.reset-size4.size3,.katex .fontsize-ensurer.reset-size4.size3{font-size:0.875em}.katex .sizing.reset-size4.size4,.katex .fontsize-ensurer.reset-size4.size4{font-size:1em}.katex .sizing.reset-size4.size5,.katex .fontsize-ensurer.reset-size4.size5{font-size:1.125em}.katex .sizing.reset-size4.size6,.katex .fontsize-ensurer.reset-size4.size6{font-size:1.25em}.katex .sizing.reset-size4.size7,.katex .fontsize-ensurer.reset-size4.size7{font-size:1.5em}.katex .sizing.reset-size4.size8,.katex .fontsize-ensurer.reset-size4.size8{font-size:1.8em}.katex .sizing.reset-size4.size9,.katex .fontsize-ensurer.reset-size4.size9{font-size:2.16em}.katex .sizing.reset-size4.size10,.katex .fontsize-ensurer.reset-size4.size10{font-size:2.5925em}.katex .sizing.reset-size4.size11,.katex .fontsize-ensurer.reset-size4.size11{font-size:3.11em}.katex .sizing.reset-size5.size1,.katex .fontsize-ensurer.reset-size5.size1{font-size:0.5555555556em}.katex .sizing.reset-size5.size2,.katex .fontsize-ensurer.reset-size5.size2{font-size:0.6666666667em}.katex .sizing.reset-size5.size3,.katex .fontsize-ensurer.reset-size5.size3{font-size:0.7777777778em}.katex .sizing.reset-size5.size4,.katex .fontsize-ensurer.reset-size5.size4{font-size:0.8888888889em}.katex .sizing.reset-size5.size5,.katex .fontsize-ensurer.reset-size5.size5{font-size:1em}.katex .sizing.reset-size5.size6,.katex .fontsize-ensurer.reset-size5.size6{font-size:1.1111111111em}.katex .sizing.reset-size5.size7,.katex .fontsize-ensurer.reset-size5.size7{font-size:1.3333333333em}.katex .sizing.reset-size5.size8,.katex .fontsize-ensurer.reset-size5.size8{font-size:1.6em}.katex .sizing.reset-size5.size9,.katex .fontsize-ensurer.reset-size5.size9{font-size:1.92em}.katex .sizing.reset-size5.size10,.katex .fontsize-ensurer.reset-size5.size10{font-size:2.3044444444em}.katex .sizing.reset-size5.size11,.katex .fontsize-ensurer.reset-size5.size11{font-size:2.7644444444em}.katex .sizing.reset-size6.size1,.katex .fontsize-ensurer.reset-size6.size1{font-size:0.5em}.katex .sizing.reset-size6.size2,.katex .fontsize-ensurer.reset-size6.size2{font-size:0.6em}.katex .sizing.reset-size6.size3,.katex .fontsize-ensurer.reset-size6.size3{font-size:0.7em}.katex .sizing.reset-size6.size4,.katex .fontsize-ensurer.reset-size6.size4{font-size:0.8em}.katex .sizing.reset-size6.size5,.katex .fontsize-ensurer.reset-size6.size5{font-size:0.9em}.katex .sizing.reset-size6.size6,.katex .fontsize-ensurer.reset-size6.size6{font-size:1em}.katex .sizing.reset-size6.size7,.katex .fontsize-ensurer.reset-size6.size7{font-size:1.2em}.katex .sizing.reset-size6.size8,.katex .fontsize-ensurer.reset-size6.size8{font-size:1.44em}.katex .sizing.reset-size6.size9,.katex .fontsize-ensurer.reset-size6.size9{font-size:1.728em}.katex .sizing.reset-size6.size10,.katex .fontsize-ensurer.reset-size6.size10{font-size:2.074em}.katex .sizing.reset-size6.size11,.katex .fontsize-ensurer.reset-size6.size11{font-size:2.488em}.katex .sizing.reset-size7.size1,.katex .fontsize-ensurer.reset-size7.size1{font-size:0.4166666667em}.katex .sizing.reset-size7.size2,.katex .fontsize-ensurer.reset-size7.size2{font-size:0.5em}.katex .sizing.reset-size7.size3,.katex .fontsize-ensurer.reset-size7.size3{font-size:0.5833333333em}.katex .sizing.reset-size7.size4,.katex .fontsize-ensurer.reset-size7.size4{font-size:0.6666666667em}.katex .sizing.reset-size7.size5,.katex .fontsize-ensurer.reset-size7.size5{font-size:0.75em}.katex .sizing.reset-size7.size6,.katex .fontsize-ensurer.reset-size7.size6{font-size:0.8333333333em}.katex .sizing.reset-size7.size7,.katex .fontsize-ensurer.reset-size7.size7{font-size:1em}.katex .sizing.reset-size7.size8,.katex .fontsize-ensurer.reset-size7.size8{font-size:1.2em}.katex .sizing.reset-size7.size9,.katex .fontsize-ensurer.reset-size7.size9{font-size:1.44em}.katex .sizing.reset-size7.size10,.katex .fontsize-ensurer.reset-size7.size10{font-size:1.7283333333em}.katex .sizing.reset-size7.size11,.katex .fontsize-ensurer.reset-size7.size11{font-size:2.0733333333em}.katex .sizing.reset-size8.size1,.katex .fontsize-ensurer.reset-size8.size1{font-size:0.3472222222em}.katex .sizing.reset-size8.size2,.katex .fontsize-ensurer.reset-size8.size2{font-size:0.4166666667em}.katex .sizing.reset-size8.size3,.katex .fontsize-ensurer.reset-size8.size3{font-size:0.4861111111em}.katex .sizing.reset-size8.size4,.katex .fontsize-ensurer.reset-size8.size4{font-size:0.5555555556em}.katex .sizing.reset-size8.size5,.katex .fontsize-ensurer.reset-size8.size5{font-size:0.625em}.katex .sizing.reset-size8.size6,.katex .fontsize-ensurer.reset-size8.size6{font-size:0.6944444444em}.katex .sizing.reset-size8.size7,.katex .fontsize-ensurer.reset-size8.size7{font-size:0.8333333333em}.katex .sizing.reset-size8.size8,.katex .fontsize-ensurer.reset-size8.size8{font-size:1em}.katex .sizing.reset-size8.size9,.katex .fontsize-ensurer.reset-size8.size9{font-size:1.2em}.katex .sizing.reset-size8.size10,.katex .fontsize-ensurer.reset-size8.size10{font-size:1.4402777778em}.katex .sizing.reset-size8.size11,.katex .fontsize-ensurer.reset-size8.size11{font-size:1.7277777778em}.katex .sizing.reset-size9.size1,.katex .fontsize-ensurer.reset-size9.size1{font-size:0.2893518519em}.katex .sizing.reset-size9.size2,.katex .fontsize-ensurer.reset-size9.size2{font-size:0.3472222222em}.katex .sizing.reset-size9.size3,.katex .fontsize-ensurer.reset-size9.size3{font-size:0.4050925926em}.katex .sizing.reset-size9.size4,.katex .fontsize-ensurer.reset-size9.size4{font-size:0.462962963em}.katex .sizing.reset-size9.size5,.katex .fontsize-ensurer.reset-size9.size5{font-size:0.5208333333em}.katex .sizing.reset-size9.size6,.katex .fontsize-ensurer.reset-size9.size6{font-size:0.5787037037em}.katex .sizing.reset-size9.size7,.katex .fontsize-ensurer.reset-size9.size7{font-size:0.6944444444em}.katex .sizing.reset-size9.size8,.katex .fontsize-ensurer.reset-size9.size8{font-size:0.8333333333em}.katex .sizing.reset-size9.size9,.katex .fontsize-ensurer.reset-size9.size9{font-size:1em}.katex .sizing.reset-size9.size10,.katex .fontsize-ensurer.reset-size9.size10{font-size:1.2002314815em}.katex .sizing.reset-size9.size11,.katex .fontsize-ensurer.reset-size9.size11{font-size:1.4398148148em}.katex .sizing.reset-size10.size1,.katex .fontsize-ensurer.reset-size10.size1{font-size:0.2410800386em}.katex .sizing.reset-size10.size2,.katex .fontsize-ensurer.reset-size10.size2{font-size:0.2892960463em}.katex .sizing.reset-size10.size3,.katex .fontsize-ensurer.reset-size10.size3{font-size:0.337512054em}.katex .sizing.reset-size10.size4,.katex .fontsize-ensurer.reset-size10.size4{font-size:0.3857280617em}.katex .sizing.reset-size10.size5,.katex .fontsize-ensurer.reset-size10.size5{font-size:0.4339440694em}.katex .sizing.reset-size10.size6,.katex .fontsize-ensurer.reset-size10.size6{font-size:0.4821600771em}.katex .sizing.reset-size10.size7,.katex .fontsize-ensurer.reset-size10.size7{font-size:0.5785920926em}.katex .sizing.reset-size10.size8,.katex .fontsize-ensurer.reset-size10.size8{font-size:0.6943105111em}.katex .sizing.reset-size10.size9,.katex .fontsize-ensurer.reset-size10.size9{font-size:0.8331726133em}.katex .sizing.reset-size10.size10,.katex .fontsize-ensurer.reset-size10.size10{font-size:1em}.katex .sizing.reset-size10.size11,.katex .fontsize-ensurer.reset-size10.size11{font-size:1.1996142719em}.katex .sizing.reset-size11.size1,.katex .fontsize-ensurer.reset-size11.size1{font-size:0.2009646302em}.katex .sizing.reset-size11.size2,.katex .fontsize-ensurer.reset-size11.size2{font-size:0.2411575563em}.katex .sizing.reset-size11.size3,.katex .fontsize-ensurer.reset-size11.size3{font-size:0.2813504823em}.katex .sizing.reset-size11.size4,.katex .fontsize-ensurer.reset-size11.size4{font-size:0.3215434084em}.katex .sizing.reset-size11.size5,.katex .fontsize-ensurer.reset-size11.size5{font-size:0.3617363344em}.katex .sizing.reset-size11.size6,.katex .fontsize-ensurer.reset-size11.size6{font-size:0.4019292605em}.katex .sizing.reset-size11.size7,.katex .fontsize-ensurer.reset-size11.size7{font-size:0.4823151125em}.katex .sizing.reset-size11.size8,.katex .fontsize-ensurer.reset-size11.size8{font-size:0.578778135em}.katex .sizing.reset-size11.size9,.katex .fontsize-ensurer.reset-size11.size9{font-size:0.6945337621em}.katex .sizing.reset-size11.size10,.katex .fontsize-ensurer.reset-size11.size10{font-size:0.8336012862em}.katex .sizing.reset-size11.size11,.katex .fontsize-ensurer.reset-size11.size11{font-size:1em}.katex .delimsizing.size1{font-family:KaTeX_Size1}.katex .delimsizing.size2{font-family:KaTeX_Size2}.katex .delimsizing.size3{font-family:KaTeX_Size3}.katex .delimsizing.size4{font-family:KaTeX_Size4}.katex .delimsizing.mult .delim-size1>span{font-family:KaTeX_Size1}.katex .delimsizing.mult .delim-size4>span{font-family:KaTeX_Size4}.katex .nulldelimiter{display:inline-block;width:0.12em}.katex .delimcenter{position:relative}.katex .op-symbol{position:relative}.katex .op-symbol.small-op{font-family:KaTeX_Size1}.katex .op-symbol.large-op{font-family:KaTeX_Size2}.katex .op-limits>.vlist-t{text-align:center}.katex .accent>.vlist-t{text-align:center}.katex .accent .accent-body{position:relative}.katex .accent .accent-body:not(.accent-full){width:0}.katex .overlay{display:block}.katex .mtable .vertical-separator{display:inline-block;min-width:1px}.katex .mtable .arraycolsep{display:inline-block}.katex .mtable .col-align-c>.vlist-t{text-align:center}.katex .mtable .col-align-l>.vlist-t{text-align:left}.katex .mtable .col-align-r>.vlist-t{text-align:right}.katex .svg-align{text-align:left}.katex svg{display:block;position:absolute;width:100%;height:inherit;fill:currentColor;stroke:currentColor;fill-rule:nonzero;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1}.katex svg path{stroke:none}.katex img{border-style:none;min-width:0;min-height:0;max-width:none;max-height:none}.katex .stretchy{width:100%;display:block;position:relative;overflow:hidden}.katex .stretchy::before,.katex .stretchy::after{content:\"\"}.katex .hide-tail{width:100%;position:relative;overflow:hidden}.katex .halfarrow-left{position:absolute;left:0;width:50.2%;overflow:hidden}.katex .halfarrow-right{position:absolute;right:0;width:50.2%;overflow:hidden}.katex .brace-left{position:absolute;left:0;width:25.1%;overflow:hidden}.katex .brace-center{position:absolute;left:25%;width:50%;overflow:hidden}.katex .brace-right{position:absolute;right:0;width:25.1%;overflow:hidden}.katex .x-arrow-pad{padding:0 0.5em}.katex .cd-arrow-pad{padding:0 0.55556em 0 0.27778em}.katex .x-arrow,.katex .mover,.katex .munder{text-align:center}.katex .boxpad{padding:0 0.3em}.katex .fbox,.katex .fcolorbox{box-sizing:border-box;border:0.04em solid}.katex .cancel-pad{padding:0 0.2em}.katex .cancel-lap{margin-left:-0.2em;margin-right:-0.2em}.katex .sout{border-bottom-style:solid;border-bottom-width:0.08em}.katex .angl{box-sizing:border-box;border-top:0.049em solid;border-right:0.049em solid;margin-right:0.03889em}.katex .anglpad{padding:0 0.03889em}.katex .eqn-num::before{counter-increment:katexEqnNo;content:\"(\" counter(katexEqnNo) \")\"}.katex .mml-eqn-num::before{counter-increment:mmlEqnNo;content:\"(\" counter(mmlEqnNo) \")\"}.katex .mtr-glue{width:50%}.katex .cd-vert-arrow{display:inline-block;position:relative}.katex .cd-label-left{display:inline-block;position:absolute;right:calc(50% + 0.3em);text-align:left}.katex .cd-label-right{display:inline-block;position:absolute;left:calc(50% + 0.3em);text-align:right}.katex-display{display:block;margin:1em 0;text-align:center}.katex-display>.katex{display:block;text-align:center;white-space:nowrap}.katex-display>.katex>.katex-html{display:block;position:relative}.katex-display>.katex>.katex-html>.tag{position:absolute;right:0}.katex-display.leqno>.katex>.katex-html>.tag{left:0;right:auto}.katex-display.fleqn>.katex{text-align:left;padding-left:2em}body{counter-reset:katexEqnNo mmlEqnNo}:root,:host{--fa-font-solid:normal 900 1em/1 \"Font Awesome 6 Free\";--fa-font-regular:normal 400 1em/1 \"Font Awesome 6 Free\";--fa-font-light:normal 300 1em/1 \"Font Awesome 6 Pro\";--fa-font-thin:normal 100 1em/1 \"Font Awesome 6 Pro\";--fa-font-duotone:normal 900 1em/1 \"Font Awesome 6 Duotone\";--fa-font-brands:normal 400 1em/1 \"Font Awesome 6 Brands\";--fa-font-sharp-solid:normal 900 1em/1 \"Font Awesome 6 Sharp\";--fa-font-sharp-regular:normal 400 1em/1 \"Font Awesome 6 Sharp\";--fa-font-sharp-light:normal 300 1em/1 \"Font Awesome 6 Sharp\";--fa-font-sharp-thin:normal 100 1em/1 \"Font Awesome 6 Sharp\";--fa-font-sharp-duotone-solid:normal 900 1em/1 \"Font Awesome 6 Sharp Duotone\"}svg:not(:root).svg-inline--fa,svg:not(:host).svg-inline--fa{overflow:visible;box-sizing:content-box}.svg-inline--fa{display:var(--fa-display, inline-block);height:1em;overflow:visible;vertical-align:-0.125em}.svg-inline--fa.fa-2xs{vertical-align:0.1em}.svg-inline--fa.fa-xs{vertical-align:0em}.svg-inline--fa.fa-sm{vertical-align:-0.07143em}.svg-inline--fa.fa-lg{vertical-align:-0.2em}.svg-inline--fa.fa-xl{vertical-align:-0.25em}.svg-inline--fa.fa-2xl{vertical-align:-0.3125em}.svg-inline--fa.fa-pull-left{margin-right:var(--fa-pull-margin, 0.3em);width:auto}.svg-inline--fa.fa-pull-right{margin-left:var(--fa-pull-margin, 0.3em);width:auto}.svg-inline--fa.fa-li{width:var(--fa-li-width, 2em);top:0.25em}.svg-inline--fa.fa-fw{width:var(--fa-fw-width, 1.25em)}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers-text,.fa-layers-counter{display:inline-block;position:absolute;text-align:center}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-0.125em;width:1em}.fa-layers svg.svg-inline--fa{transform-origin:center center}.fa-layers-text{left:50%;top:50%;transform:translate(-50%, -50%);transform-origin:center center}.fa-layers-counter{background-color:var(--fa-counter-background-color, #ff253a);border-radius:var(--fa-counter-border-radius, 1em);box-sizing:border-box;color:var(--fa-inverse, #fff);line-height:var(--fa-counter-line-height, 1);max-width:var(--fa-counter-max-width, 5em);min-width:var(--fa-counter-min-width, 1.5em);overflow:hidden;padding:var(--fa-counter-padding, 0.25em 0.5em);right:var(--fa-right, 0);text-overflow:ellipsis;top:var(--fa-top, 0);transform:scale(var(--fa-counter-scale, 0.25));transform-origin:top right}.fa-layers-bottom-right{bottom:var(--fa-bottom, 0);right:var(--fa-right, 0);top:auto;transform:scale(var(--fa-layers-scale, 0.25));transform-origin:bottom right}.fa-layers-bottom-left{bottom:var(--fa-bottom, 0);left:var(--fa-left, 0);right:auto;top:auto;transform:scale(var(--fa-layers-scale, 0.25));transform-origin:bottom left}.fa-layers-top-right{top:var(--fa-top, 0);right:var(--fa-right, 0);transform:scale(var(--fa-layers-scale, 0.25));transform-origin:top right}.fa-layers-top-left{left:var(--fa-left, 0);right:auto;top:var(--fa-top, 0);transform:scale(var(--fa-layers-scale, 0.25));transform-origin:top left}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-2xs{font-size:0.625em;line-height:0.1em;vertical-align:0.225em}.fa-xs{font-size:0.75em;line-height:0.08333em;vertical-align:0.125em}.fa-sm{font-size:0.875em;line-height:0.07143em;vertical-align:0.05357em}.fa-lg{font-size:1.25em;line-height:0.05em;vertical-align:-0.075em}.fa-xl{font-size:1.5em;line-height:0.04167em;vertical-align:-0.125em}.fa-2xl{font-size:2em;line-height:0.03125em;vertical-align:-0.1875em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:var(--fa-li-margin, 2.5em);padding-left:0}.fa-ul>li{position:relative}.fa-li{left:calc(-1 * var(--fa-li-width, 2em));position:absolute;text-align:center;width:var(--fa-li-width, 2em);line-height:inherit}.fa-border{border-color:var(--fa-border-color, #eee);border-radius:var(--fa-border-radius, 0.1em);border-style:var(--fa-border-style, solid);border-width:var(--fa-border-width, 0.08em);padding:var(--fa-border-padding, 0.2em 0.25em 0.15em)}.fa-pull-left{float:left;margin-right:var(--fa-pull-margin, 0.3em)}.fa-pull-right{float:right;margin-left:var(--fa-pull-margin, 0.3em)}.fa-beat{animation-name:fa-beat;animation-delay:var(--fa-animation-delay, 0s);animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 1s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, ease-in-out)}.fa-bounce{animation-name:fa-bounce;animation-delay:var(--fa-animation-delay, 0s);animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 1s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1))}.fa-fade{animation-name:fa-fade;animation-delay:var(--fa-animation-delay, 0s);animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 1s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1))}.fa-beat-fade{animation-name:fa-beat-fade;animation-delay:var(--fa-animation-delay, 0s);animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 1s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1))}.fa-flip{animation-name:fa-flip;animation-delay:var(--fa-animation-delay, 0s);animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 1s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, ease-in-out)}.fa-shake{animation-name:fa-shake;animation-delay:var(--fa-animation-delay, 0s);animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 1s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, linear)}.fa-spin{animation-name:fa-spin;animation-delay:var(--fa-animation-delay, 0s);animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 2s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, linear)}.fa-spin-reverse{--fa-animation-direction:reverse}.fa-pulse,.fa-spin-pulse{animation-name:fa-spin;animation-direction:var(--fa-animation-direction, normal);animation-duration:var(--fa-animation-duration, 1s);animation-iteration-count:var(--fa-animation-iteration-count, infinite);animation-timing-function:var(--fa-animation-timing, steps(8))}@media(prefers-reduced-motion: reduce){.fa-beat,.fa-bounce,.fa-fade,.fa-beat-fade,.fa-flip,.fa-pulse,.fa-shake,.fa-spin,.fa-spin-pulse{animation-delay:-1ms;animation-duration:1ms;animation-iteration-count:1;transition-delay:0s;transition-duration:0s}}@keyframes fa-beat{0%,90%{transform:scale(1)}45%{transform:scale(var(--fa-beat-scale, 1.25))}}@keyframes fa-bounce{0%{transform:scale(1, 1) translateY(0)}10%{transform:scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0)}30%{transform:scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em))}50%{transform:scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0)}57%{transform:scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em))}64%{transform:scale(1, 1) translateY(0)}100%{transform:scale(1, 1) translateY(0)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity, 0.4)}}@keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity, 0.4);transform:scale(1)}50%{opacity:1;transform:scale(var(--fa-beat-fade-scale, 1.125))}}@keyframes fa-flip{50%{transform:rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg))}}@keyframes fa-shake{0%{transform:rotate(-15deg)}4%{transform:rotate(15deg)}8%,24%{transform:rotate(-18deg)}12%,28%{transform:rotate(18deg)}16%{transform:rotate(-22deg)}20%{transform:rotate(22deg)}32%{transform:rotate(-12deg)}36%{transform:rotate(12deg)}40%,100%{transform:rotate(0deg)}}@keyframes fa-spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}.fa-rotate-90{transform:rotate(90deg)}.fa-rotate-180{transform:rotate(180deg)}.fa-rotate-270{transform:rotate(270deg)}.fa-flip-horizontal{transform:scale(-1, 1)}.fa-flip-vertical{transform:scale(1, -1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{transform:scale(-1, -1)}.fa-rotate-by{transform:rotate(var(--fa-rotate-angle, 0))}.fa-stack{display:inline-block;vertical-align:middle;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0;z-index:var(--fa-stack-z-index, auto)}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:var(--fa-inverse, #fff)}.sr-only,.fa-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0}.sr-only-focusable:not(:focus),.fa-sr-only-focusable:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color, currentColor);opacity:var(--fa-primary-opacity, 1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color, currentColor);opacity:var(--fa-secondary-opacity, 0.4)}.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:var(--fa-secondary-opacity, 0.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:var(--fa-primary-opacity, 1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:black}.fad.fa-inverse,.fa-duotone.fa-inverse{color:var(--fa-inverse, #fff)}img{max-height:400px;border-radius:4px;max-width:100%;height:auto}code{padding:0 0.4rem;font-size:85%;color:#333;white-space:pre-wrap;border-radius:4px;padding:0.2em 0.4em;background-color:#f8f8f8;font-family:Consolas, Monaco, monospace}a{color:var(--quizdown-color-primary)}.quizdown-content{padding:1rem;max-width:900px;margin:auto}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,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V0FDQSwyQkFFRixtQkFHRSwyQkFDQSw2QkFFRiw0RUFHRSxjQUVGLDRFQUdFLGdCQUVGLDRFQUdFLGdCQUVGLDRFQUdFLGdCQUVGLDRFQUdFLGdCQUVGLDRFQUdFLGNBRUYsNEVBR0UsZ0JBRUYsNEVBR0UsaUJBRUYsNEVBR0Usa0JBRUYsOEVBR0Usa0JBRUYsOEVBR0Usa0JBRUYsNEVBR0UseUJBRUYsNEVBR0UsY0FFRiw0RUFHRSx5QkFFRiw0RUFHRSx5QkFFRiw0RUFHRSxnQkFFRiw0RUFHRSx5QkFFRiw0RUFHRSxjQUVGLDRFQUdFLGdCQUVGLDRFQUdFLGlCQUVGLDhFQUdFLHlCQUVGLDhFQUdFLHlCQUVGLDRFQUdFLHlCQUVGLDRFQUdFLHlCQUVGLDRFQUdFLGNBRUYsNEVBR0UseUJBRUYsNEVBR0UseUJBRUYsNEVBR0UseUJBRUYsNEVBR0UseUJBRUYsNEVBR0UseUJBRUYsNEVBR0UseUJBRUYsOEVBR0UseUJBRUYsOEVBR0UseUJBRUYsNEVBR0Usa0JBRUYsNEVBR0UsaUJBRUYsNEVBR0Usa0JBRUYsNEVBR0UsY0FFRiw0RUFHRSxrQkFFRiw0RUFHRSxpQkFFRiw0RUFHRSxnQkFFRiw0RUFHRSxnQkFFRiw0RUFHRSxpQkFFRiw4RUFHRSxtQkFFRiw4RUFHRSxpQkFFRiw0RUFHRSx5QkFFRiw0RUFHRSx5QkFFRiw0RUFHRSx5QkFFRiw0RUFHRSx5QkFFRiw0RUFHRSxjQUVGLDRFQUdFLHlCQUVGLDRFQUdFLHlCQUVGLDRFQUdFLGdCQUVGLDRFQUdFLGlCQUVGLDhFQUdFLHlCQUVGLDhFQUdFLHlCQUVGLDRFQUdFLGdCQUVGLDRFQUdFLGdCQUVGLDRFQUdFLGdCQUVGLDRFQUdFLGdCQUVGLDRFQUdFLGdCQUVGLDRFQUdFLGNBRUYsNEVBR0UsZ0JBRUYsNEVBR0UsaUJBRUYsNEVBR0Usa0JBRUYsOEVBR0Usa0JBRUYsOEVBR0Usa0JBRUYsNEVBR0UseUJBRUYsNEVBR0UsZ0JBRUYsNEVBR0UseUJBRUYsNEVBR0UseUJBRUYsNEVBR0UsaUJBRUYsNEVBR0UseUJBRUYsNEVBR0UsY0FFRiw0RUFH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QUNBLHFDQUVGLDhCQUNFLDZDQUNBLHlDQUVGLDRDQUNFLHlDQUVGLDhDQUNFLHFDQUVGLG9FQUVFLFdBRUYsdUNBRUUsOEJDaGNELElBQ0MsaUJBQ0Esa0JBQ0EsZUFDQSxZQUdELEtBQ0MsaUJBQ0EsY0FDQSxXQUNBLHFCQUNBLGtCQUNBLG9CQUNBLHlCQUNBLHdDQUdELEVBQ0Msb0NBR0Qsa0JBQ0MsYUFDQSxnQkFDQSIsIm5hbWVzIjpbXSwic291cmNlcyI6WyJmaWxlOi8vL1VzZXJzL2NhbmRpZG9zYWxlcy9Eb2N1bWVudHMvUHJvamVjdHMvcXVpemRvd24tanMvbm9kZV9tb2R1bGVzL2hpZ2hsaWdodC5qcy9zdHlsZXMvZ2l0aHViLmNzcyIsIkFwcC5zdmVsdGUiLCJmaWxlOi8vL1VzZXJzL2NhbmRpZG9zYWxlcy9Eb2N1bWVudHMvUHJvamVjdHMvcXVpemRvd24tanMvbm9kZV9tb2R1bGVzL2thdGV4L2Rpc3Qva2F0ZXguY3NzIiwiZmlsZTovLy9Vc2Vycy9jYW5kaWRvc2FsZXMvRG9jdW1lbnRzL1Byb2plY3RzL3F1aXpkb3duLWpzL25vZGVfbW9kdWxlcy9AZm9ydGF3ZXNvbWUvZm9udGF3ZXNvbWUtc3ZnLWNvcmUvc3R5bGVzLmNzcyIsImZpbGU6Ly8vVXNlcnMvY2FuZGlkb3NhbGVzL0RvY3VtZW50cy9Qcm9qZWN0cy9xdWl6ZG93bi1qcy9zcmMvQXBwLnN2ZWx0ZSJdfQ== */");
 	}
 
 	// (60:6) {:else}
@@ -17946,8 +17946,8 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	}
 
 	/**
-	 * marked - a markdown parser
-	 * Copyright (c) 2011-2021, Christopher Jeffrey. (MIT Licensed)
+	 * marked v5.0.0 - a markdown parser
+	 * Copyright (c) 2011-2023, Christopher Jeffrey. (MIT Licensed)
 	 * https://github.com/markedjs/marked
 	 */
 
@@ -17958,6 +17958,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	function getDefaults() {
 	  return {
+	    async: false,
 	    baseUrl: null,
 	    breaks: false,
 	    extensions: null,
@@ -17965,6 +17966,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    headerIds: true,
 	    headerPrefix: '',
 	    highlight: null,
+	    hooks: null,
 	    langPrefix: 'language-',
 	    mangle: true,
 	    pedantic: false,
@@ -17972,7 +17974,6 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    sanitize: false,
 	    sanitizer: null,
 	    silent: false,
-	    smartLists: false,
 	    smartypants: false,
 	    tokenizer: null,
 	    walkTokens: null,
@@ -17990,9 +17991,9 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	 * Helpers
 	 */
 	const escapeTest = /[&<>"']/;
-	const escapeReplace = /[&<>"']/g;
-	const escapeTestNoEncode = /[<>"']|&(?!#?\w+;)/;
-	const escapeReplaceNoEncode = /[<>"']|&(?!#?\w+;)/g;
+	const escapeReplace = new RegExp(escapeTest.source, 'g');
+	const escapeTestNoEncode = /[<>"']|&(?!(#\d{1,7}|#[Xx][a-fA-F0-9]{1,6}|\w+);)/;
+	const escapeReplaceNoEncode = new RegExp(escapeTestNoEncode.source, 'g');
 	const escapeReplacements = {
 	  '&': '&amp;',
 	  '<': '&lt;',
@@ -18017,6 +18018,9 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	const unescapeTest = /&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/ig;
 
+	/**
+	 * @param {string} html
+	 */
 	function unescape(html) {
 	  // explicitly match decimal, hex, and named HTML entities
 	  return html.replace(unescapeTest, (_, n) => {
@@ -18032,8 +18036,13 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	}
 
 	const caret = /(^|[^\[])\^/g;
+
+	/**
+	 * @param {string | RegExp} regex
+	 * @param {string} opt
+	 */
 	function edit(regex, opt) {
-	  regex = regex.source || regex;
+	  regex = typeof regex === 'string' ? regex : regex.source;
 	  opt = opt || '';
 	  const obj = {
 	    replace: (name, val) => {
@@ -18051,6 +18060,12 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	const nonWordAndColonTest = /[^\w:]/g;
 	const originIndependentUrl = /^$|^[a-z][a-z0-9+.-]*:|^[?#]/i;
+
+	/**
+	 * @param {boolean} sanitize
+	 * @param {string} base
+	 * @param {string} href
+	 */
 	function cleanUrl(sanitize, base, href) {
 	  if (sanitize) {
 	    let prot;
@@ -18081,6 +18096,10 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	const protocol = /^([^:]+:)[\s\S]*$/;
 	const domain = /^([^:]+:\/*[^/]*)[\s\S]*$/;
 
+	/**
+	 * @param {string} base
+	 * @param {string} href
+	 */
 	function resolveUrl(base, href) {
 	  if (!baseUrls[' ' + base]) {
 	    // we can ignore everything in base after the last slash of its path component,
@@ -18112,23 +18131,6 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	const noopTest = { exec: function noopTest() {} };
 
-	function merge(obj) {
-	  let i = 1,
-	    target,
-	    key;
-
-	  for (; i < arguments.length; i++) {
-	    target = arguments[i];
-	    for (key in target) {
-	      if (Object.prototype.hasOwnProperty.call(target, key)) {
-	        obj[key] = target[key];
-	      }
-	    }
-	  }
-
-	  return obj;
-	}
-
 	function splitCells(tableRow, count) {
 	  // ensure that every cell-delimiting pipe has a space
 	  // before it to distinguish it from an escaped pipe
@@ -18150,7 +18152,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	  // First/last cell in a row cannot be empty if it has no leading/trailing pipe
 	  if (!cells[0].trim()) { cells.shift(); }
-	  if (!cells[cells.length - 1].trim()) { cells.pop(); }
+	  if (cells.length > 0 && !cells[cells.length - 1].trim()) { cells.pop(); }
 
 	  if (cells.length > count) {
 	    cells.splice(count);
@@ -18165,9 +18167,14 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  return cells;
 	}
 
-	// Remove trailing 'c's. Equivalent to str.replace(/c*$/, '').
-	// /c*$/ is vulnerable to REDOS.
-	// invert: Remove suffix of non-c chars instead. Default falsey.
+	/**
+	 * Remove trailing 'c's. Equivalent to str.replace(/c*$/, '').
+	 * /c*$/ is vulnerable to REDOS.
+	 *
+	 * @param {string} str
+	 * @param {string} c
+	 * @param {boolean} invert Remove suffix of non-c chars instead. Default falsey.
+	 */
 	function rtrim(str, c, invert) {
 	  const l = str.length;
 	  if (l === 0) {
@@ -18189,7 +18196,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    }
 	  }
 
-	  return str.substr(0, l - suffLen);
+	  return str.slice(0, l - suffLen);
 	}
 
 	function findClosingBracket(str, b) {
@@ -18214,13 +18221,49 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  return -1;
 	}
 
-	function checkSanitizeDeprecation(opt) {
-	  if (opt && opt.sanitize && !opt.silent) {
+	function checkDeprecations(opt, callback) {
+	  if (!opt || opt.silent) {
+	    return;
+	  }
+
+	  if (callback) {
+	    console.warn('marked(): callback is deprecated since version 5.0.0, should not be used and will be removed in the future. Read more here: https://marked.js.org/using_pro#async');
+	  }
+
+	  if (opt.sanitize || opt.sanitizer) {
 	    console.warn('marked(): sanitize and sanitizer parameters are deprecated since version 0.7.0, should not be used and will be removed in the future. Read more here: https://marked.js.org/#/USING_ADVANCED.md#options');
+	  }
+
+	  if (opt.highlight || opt.langPrefix) {
+	    console.warn('marked(): highlight and langPrefix parameters are deprecated since version 5.0.0, should not be used and will be removed in the future. Instead use https://www.npmjs.com/package/marked-highlight.');
+	  }
+
+	  if (opt.mangle) {
+	    console.warn('marked(): mangle parameter is deprecated since version 5.0.0, should not be used and will be removed in the future. Instead use https://www.npmjs.com/package/marked-mangle.');
+	  }
+
+	  if (opt.baseUrl) {
+	    console.warn('marked(): baseUrl parameter is deprecated since version 5.0.0, should not be used and will be removed in the future. Instead use https://www.npmjs.com/package/marked-base-url.');
+	  }
+
+	  if (opt.smartypants) {
+	    console.warn('marked(): smartypants parameter is deprecated since version 5.0.0, should not be used and will be removed in the future. Instead use https://www.npmjs.com/package/marked-smartypants.');
+	  }
+
+	  if (opt.xhtml) {
+	    console.warn('marked(): xhtml parameter is deprecated since version 5.0.0, should not be used and will be removed in the future. Instead use https://www.npmjs.com/package/marked-xhtml.');
+	  }
+
+	  if (opt.headerIds || opt.headerPrefix) {
+	    console.warn('marked(): headerIds and headerPrefix parameters are deprecated since version 5.0.0, should not be used and will be removed in the future. Instead use https://www.npmjs.com/package/marked-gfm-heading-id.');
 	  }
 	}
 
 	// copied from https://stackoverflow.com/a/5450113/806777
+	/**
+	 * @param {string} pattern
+	 * @param {number} count
+	 */
 	function repeatString(pattern, count) {
 	  if (count < 1) {
 	    return '';
@@ -18249,19 +18292,18 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	      href,
 	      title,
 	      text,
-	      tokens: lexer.inlineTokens(text, [])
+	      tokens: lexer.inlineTokens(text)
 	    };
 	    lexer.state.inLink = false;
 	    return token;
-	  } else {
-	    return {
-	      type: 'image',
-	      raw,
-	      href,
-	      title,
-	      text: escape(text)
-	    };
 	  }
+	  return {
+	    type: 'image',
+	    raw,
+	    href,
+	    title,
+	    text: escape(text)
+	  };
 	}
 
 	function indentCodeCompensation(raw, text) {
@@ -18302,14 +18344,11 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	  space(src) {
 	    const cap = this.rules.block.newline.exec(src);
-	    if (cap) {
-	      if (cap[0].length > 1) {
-	        return {
-	          type: 'space',
-	          raw: cap[0]
-	        };
-	      }
-	      return { raw: '\n' };
+	    if (cap && cap[0].length > 0) {
+	      return {
+	        type: 'space',
+	        raw: cap[0]
+	      };
 	    }
 	  }
 
@@ -18337,7 +18376,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	      return {
 	        type: 'code',
 	        raw,
-	        lang: cap[2] ? cap[2].trim() : cap[2],
+	        lang: cap[2] ? cap[2].trim().replace(this.rules.inline._escapes, '$1') : cap[2],
 	        text
 	      };
 	    }
@@ -18359,15 +18398,13 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	        }
 	      }
 
-	      const token = {
+	      return {
 	        type: 'heading',
 	        raw: cap[0],
 	        depth: cap[1].length,
-	        text: text,
-	        tokens: []
+	        text,
+	        tokens: this.lexer.inline(text)
 	      };
-	      this.lexer.inline(token.text, token.tokens);
-	      return token;
 	    }
 	  }
 
@@ -18384,12 +18421,15 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  blockquote(src) {
 	    const cap = this.rules.block.blockquote.exec(src);
 	    if (cap) {
-	      const text = cap[0].replace(/^ *> ?/gm, '');
-
+	      const text = cap[0].replace(/^ *>[ \t]?/gm, '');
+	      const top = this.lexer.state.top;
+	      this.lexer.state.top = true;
+	      const tokens = this.lexer.blockTokens(text);
+	      this.lexer.state.top = top;
 	      return {
 	        type: 'blockquote',
 	        raw: cap[0],
-	        tokens: this.lexer.blockTokens(text, []),
+	        tokens,
 	        text
 	      };
 	    }
@@ -18399,7 +18439,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    let cap = this.rules.block.list.exec(src);
 	    if (cap) {
 	      let raw, istask, ischecked, indent, i, blankLine, endsWithBlankLine,
-	        line, lines, itemContents;
+	        line, nextLine, rawLine, itemContents, endEarly;
 
 	      let bull = cap[1].trim();
 	      const isordered = bull.length > 1;
@@ -18420,75 +18460,111 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	      }
 
 	      // Get next list item
-	      const itemRegex = new RegExp(`^( {0,3}${bull})((?: [^\\n]*| *)(?:\\n[^\\n]*)*(?:\\n|$))`);
+	      const itemRegex = new RegExp(`^( {0,3}${bull})((?:[\t ][^\\n]*)?(?:\\n|$))`);
 
-	      // Get each top-level item
+	      // Check if current bullet point can start a new List Item
 	      while (src) {
-	        if (this.rules.block.hr.test(src)) { // End list if we encounter an HR (possibly move into itemRegex?)
-	          break;
-	        }
-
+	        endEarly = false;
 	        if (!(cap = itemRegex.exec(src))) {
 	          break;
 	        }
 
-	        lines = cap[2].split('\n');
+	        if (this.rules.block.hr.test(src)) { // End list if bullet was actually HR (possibly move into itemRegex?)
+	          break;
+	        }
+
+	        raw = cap[0];
+	        src = src.substring(raw.length);
+
+	        line = cap[2].split('\n', 1)[0].replace(/^\t+/, (t) => ' '.repeat(3 * t.length));
+	        nextLine = src.split('\n', 1)[0];
 
 	        if (this.options.pedantic) {
 	          indent = 2;
-	          itemContents = lines[0].trimLeft();
+	          itemContents = line.trimLeft();
 	        } else {
 	          indent = cap[2].search(/[^ ]/); // Find first non-space char
-	          indent = cap[1].length + (indent > 4 ? 1 : indent); // intented code blocks after 4 spaces; indent is always 1
-	          itemContents = lines[0].slice(indent - cap[1].length);
+	          indent = indent > 4 ? 1 : indent; // Treat indented code blocks (> 4 spaces) as having only 1 indent
+	          itemContents = line.slice(indent);
+	          indent += cap[1].length;
 	        }
 
 	        blankLine = false;
-	        raw = cap[0];
 
-	        if (!lines[0] && /^ *$/.test(lines[1])) { // items begin with at most one blank line
-	          raw = cap[1] + lines.slice(0, 2).join('\n') + '\n';
-	          list.loose = true;
-	          lines = [];
+	        if (!line && /^ *$/.test(nextLine)) { // Items begin with at most one blank line
+	          raw += nextLine + '\n';
+	          src = src.substring(nextLine.length + 1);
+	          endEarly = true;
 	        }
 
-	        const nextBulletRegex = new RegExp(`^ {0,${Math.min(3, indent - 1)}}(?:[*+-]|\\d{1,9}[.)])`);
+	        if (!endEarly) {
+	          const nextBulletRegex = new RegExp(`^ {0,${Math.min(3, indent - 1)}}(?:[*+-]|\\d{1,9}[.)])((?:[ \t][^\\n]*)?(?:\\n|$))`);
+	          const hrRegex = new RegExp(`^ {0,${Math.min(3, indent - 1)}}((?:- *){3,}|(?:_ *){3,}|(?:\\* *){3,})(?:\\n+|$)`);
+	          const fencesBeginRegex = new RegExp(`^ {0,${Math.min(3, indent - 1)}}(?:\`\`\`|~~~)`);
+	          const headingBeginRegex = new RegExp(`^ {0,${Math.min(3, indent - 1)}}#`);
 
-	        for (i = 1; i < lines.length; i++) {
-	          line = lines[i];
+	          // Check if following lines should be included in List Item
+	          while (src) {
+	            rawLine = src.split('\n', 1)[0];
+	            nextLine = rawLine;
 
-	          if (this.options.pedantic) { // Re-align to follow commonmark nesting rules
-	            line = line.replace(/^ {1,4}(?=( {4})*[^ ])/g, '  ');
-	          }
+	            // Re-align to follow commonmark nesting rules
+	            if (this.options.pedantic) {
+	              nextLine = nextLine.replace(/^ {1,4}(?=( {4})*[^ ])/g, '  ');
+	            }
 
-	          // End list item if found start of new bullet
-	          if (nextBulletRegex.test(line)) {
-	            raw = cap[1] + lines.slice(0, i).join('\n') + '\n';
-	            break;
-	          }
+	            // End list item if found code fences
+	            if (fencesBeginRegex.test(nextLine)) {
+	              break;
+	            }
 
-	          // Until we encounter a blank line, item contents do not need indentation
-	          if (!blankLine) {
-	            if (!line.trim()) { // Check if current line is empty
+	            // End list item if found start of new heading
+	            if (headingBeginRegex.test(nextLine)) {
+	              break;
+	            }
+
+	            // End list item if found start of new bullet
+	            if (nextBulletRegex.test(nextLine)) {
+	              break;
+	            }
+
+	            // Horizontal rule found
+	            if (hrRegex.test(src)) {
+	              break;
+	            }
+
+	            if (nextLine.search(/[^ ]/) >= indent || !nextLine.trim()) { // Dedent if possible
+	              itemContents += '\n' + nextLine.slice(indent);
+	            } else {
+	              // not enough indentation
+	              if (blankLine) {
+	                break;
+	              }
+
+	              // paragraph continuation unless last line was a different block level element
+	              if (line.search(/[^ ]/) >= 4) { // indented code block
+	                break;
+	              }
+	              if (fencesBeginRegex.test(line)) {
+	                break;
+	              }
+	              if (headingBeginRegex.test(line)) {
+	                break;
+	              }
+	              if (hrRegex.test(line)) {
+	                break;
+	              }
+
+	              itemContents += '\n' + nextLine;
+	            }
+
+	            if (!blankLine && !nextLine.trim()) { // Check if current line is blank
 	              blankLine = true;
 	            }
 
-	            // Dedent if possible
-	            if (line.search(/[^ ]/) >= indent) {
-	              itemContents += '\n' + line.slice(indent);
-	            } else {
-	              itemContents += '\n' + line;
-	            }
-	            continue;
-	          }
-
-	          // Dedent this line
-	          if (line.search(/[^ ]/) >= indent || !line.trim()) {
-	            itemContents += '\n' + line.slice(indent);
-	            continue;
-	          } else { // Line was not properly indented; end of this item
-	            raw = cap[1] + lines.slice(0, i).join('\n') + '\n';
-	            break;
+	            raw += rawLine + '\n';
+	            src = src.substring(rawLine.length + 1);
+	            line = nextLine.slice(indent);
 	          }
 	        }
 
@@ -18512,7 +18588,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	        list.items.push({
 	          type: 'list_item',
-	          raw: raw,
+	          raw,
 	          task: !!istask,
 	          checked: ischecked,
 	          loose: false,
@@ -18520,7 +18596,6 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	        });
 
 	        list.raw += raw;
-	        src = src.slice(raw.length);
 	      }
 
 	      // Do not consume newlines at end of final item. Alternatively, make itemRegex *start* with any newlines to simplify/speed up endsWithBlankLine logic
@@ -18534,8 +18609,19 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	      for (i = 0; i < l; i++) {
 	        this.lexer.state.top = false;
 	        list.items[i].tokens = this.lexer.blockTokens(list.items[i].text, []);
-	        if (list.items[i].tokens.some(t => t.type === 'space')) {
-	          list.loose = true;
+
+	        if (!list.loose) {
+	          // Check if list should be loose
+	          const spacers = list.items[i].tokens.filter(t => t.type === 'space');
+	          const hasMultipleLineBreaks = spacers.length > 0 && spacers.some(t => /\n.*\n/.test(t.raw));
+
+	          list.loose = hasMultipleLineBreaks;
+	        }
+	      }
+
+	      // Set all items to loose if list is loose
+	      if (list.loose) {
+	        for (i = 0; i < l; i++) {
 	          list.items[i].loose = true;
 	        }
 	      }
@@ -18549,16 +18635,17 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    if (cap) {
 	      const token = {
 	        type: 'html',
+	        block: true,
 	        raw: cap[0],
 	        pre: !this.options.sanitizer
 	          && (cap[1] === 'pre' || cap[1] === 'script' || cap[1] === 'style'),
 	        text: cap[0]
 	      };
 	      if (this.options.sanitize) {
+	        const text = this.options.sanitizer ? this.options.sanitizer(cap[0]) : escape(cap[0]);
 	        token.type = 'paragraph';
-	        token.text = this.options.sanitizer ? this.options.sanitizer(cap[0]) : escape(cap[0]);
-	        token.tokens = [];
-	        this.lexer.inline(token.text, token.tokens);
+	        token.text = text;
+	        token.tokens = this.lexer.inline(text);
 	      }
 	      return token;
 	    }
@@ -18567,14 +18654,15 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  def(src) {
 	    const cap = this.rules.block.def.exec(src);
 	    if (cap) {
-	      if (cap[3]) cap[3] = cap[3].substring(1, cap[3].length - 1);
 	      const tag = cap[1].toLowerCase().replace(/\s+/g, ' ');
+	      const href = cap[2] ? cap[2].replace(/^<(.*)>$/, '$1').replace(this.rules.inline._escapes, '$1') : '';
+	      const title = cap[3] ? cap[3].substring(1, cap[3].length - 1).replace(this.rules.inline._escapes, '$1') : cap[3];
 	      return {
 	        type: 'def',
 	        tag,
 	        raw: cap[0],
-	        href: cap[2],
-	        title: cap[3]
+	        href,
+	        title
 	      };
 	    }
 	  }
@@ -18586,7 +18674,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	        type: 'table',
 	        header: splitCells(cap[1]).map(c => { return { text: c }; }),
 	        align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
-	        rows: cap[3] ? cap[3].replace(/\n$/, '').split('\n') : []
+	        rows: cap[3] && cap[3].trim() ? cap[3].replace(/\n[ \t]*$/, '').split('\n') : []
 	      };
 
 	      if (item.header.length === item.align.length) {
@@ -18616,8 +18704,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	        // header child tokens
 	        l = item.header.length;
 	        for (j = 0; j < l; j++) {
-	          item.header[j].tokens = [];
-	          this.lexer.inlineTokens(item.header[j].text, item.header[j].tokens);
+	          item.header[j].tokens = this.lexer.inline(item.header[j].text);
 	        }
 
 	        // cell child tokens
@@ -18625,8 +18712,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	        for (j = 0; j < l; j++) {
 	          row = item.rows[j];
 	          for (k = 0; k < row.length; k++) {
-	            row[k].tokens = [];
-	            this.lexer.inlineTokens(row[k].text, row[k].tokens);
+	            row[k].tokens = this.lexer.inline(row[k].text);
 	          }
 	        }
 
@@ -18638,45 +18724,40 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  lheading(src) {
 	    const cap = this.rules.block.lheading.exec(src);
 	    if (cap) {
-	      const token = {
+	      return {
 	        type: 'heading',
 	        raw: cap[0],
 	        depth: cap[2].charAt(0) === '=' ? 1 : 2,
 	        text: cap[1],
-	        tokens: []
+	        tokens: this.lexer.inline(cap[1])
 	      };
-	      this.lexer.inline(token.text, token.tokens);
-	      return token;
 	    }
 	  }
 
 	  paragraph(src) {
 	    const cap = this.rules.block.paragraph.exec(src);
 	    if (cap) {
-	      const token = {
+	      const text = cap[1].charAt(cap[1].length - 1) === '\n'
+	        ? cap[1].slice(0, -1)
+	        : cap[1];
+	      return {
 	        type: 'paragraph',
 	        raw: cap[0],
-	        text: cap[1].charAt(cap[1].length - 1) === '\n'
-	          ? cap[1].slice(0, -1)
-	          : cap[1],
-	        tokens: []
+	        text,
+	        tokens: this.lexer.inline(text)
 	      };
-	      this.lexer.inline(token.text, token.tokens);
-	      return token;
 	    }
 	  }
 
 	  text(src) {
 	    const cap = this.rules.block.text.exec(src);
 	    if (cap) {
-	      const token = {
+	      return {
 	        type: 'text',
 	        raw: cap[0],
 	        text: cap[0],
-	        tokens: []
+	        tokens: this.lexer.inline(cap[0])
 	      };
-	      this.lexer.inline(token.text, token.tokens);
-	      return token;
 	    }
 	  }
 
@@ -18712,6 +18793,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	        raw: cap[0],
 	        inLink: this.lexer.state.inLink,
 	        inRawBlock: this.lexer.state.inRawBlock,
+	        block: false,
 	        text: this.options.sanitize
 	          ? (this.options.sanitizer
 	            ? this.options.sanitizer(cap[0])
@@ -18783,7 +18865,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	        || (cap = this.rules.inline.nolink.exec(src))) {
 	      let link = (cap[2] || cap[1]).replace(/\s+/g, ' ');
 	      link = links[link.toLowerCase()];
-	      if (!link || !link.href) {
+	      if (!link) {
 	        const text = cap[0].charAt(0);
 	        return {
 	          type: 'text',
@@ -18838,24 +18920,26 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	        // Remove extra characters. *a*** -> *a*
 	        rLength = Math.min(rLength, rLength + delimTotal + midDelimTotal);
 
+	        const raw = src.slice(0, lLength + match.index + (match[0].length - rDelim.length) + rLength);
+
 	        // Create `em` if smallest delimiter has odd char count. *a***
 	        if (Math.min(lLength, rLength) % 2) {
-	          const text = src.slice(1, lLength + match.index + rLength);
+	          const text = raw.slice(1, -1);
 	          return {
 	            type: 'em',
-	            raw: src.slice(0, lLength + match.index + rLength + 1),
+	            raw,
 	            text,
-	            tokens: this.lexer.inlineTokens(text, [])
+	            tokens: this.lexer.inlineTokens(text)
 	          };
 	        }
 
 	        // Create 'strong' if smallest delimiter has even char count. **a***
-	        const text = src.slice(2, lLength + match.index + rLength - 1);
+	        const text = raw.slice(2, -2);
 	        return {
 	          type: 'strong',
-	          raw: src.slice(0, lLength + match.index + rLength + 1),
+	          raw,
 	          text,
-	          tokens: this.lexer.inlineTokens(text, [])
+	          tokens: this.lexer.inlineTokens(text)
 	        };
 	      }
 	    }
@@ -18896,7 +18980,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	        type: 'del',
 	        raw: cap[0],
 	        text: cap[2],
-	        tokens: this.lexer.inlineTokens(cap[2], [])
+	        tokens: this.lexer.inlineTokens(cap[2])
 	      };
 	    }
 	  }
@@ -18945,9 +19029,9 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	        } while (prevCapZero !== cap[0]);
 	        text = escape(cap[0]);
 	        if (cap[1] === 'www.') {
-	          href = 'http://' + text;
+	          href = 'http://' + cap[0];
 	        } else {
-	          href = text;
+	          href = cap[0];
 	        }
 	      }
 	      return {
@@ -18990,11 +19074,11 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	const block = {
 	  newline: /^(?: *(?:\n|$))+/,
 	  code: /^( {4}[^\n]+(?:\n(?: *(?:\n|$))*)?)+/,
-	  fences: /^ {0,3}(`{3,}(?=[^`\n]*\n)|~{3,})([^\n]*)\n(?:|([\s\S]*?)\n)(?: {0,3}\1[~`]* *(?=\n|$)|$)/,
-	  hr: /^ {0,3}((?:- *){3,}|(?:_ *){3,}|(?:\* *){3,})(?:\n+|$)/,
+	  fences: /^ {0,3}(`{3,}(?=[^`\n]*(?:\n|$))|~{3,})([^\n]*)(?:\n|$)(?:|([\s\S]*?)(?:\n|$))(?: {0,3}\1[~`]* *(?=\n|$)|$)/,
+	  hr: /^ {0,3}((?:-[\t ]*){3,}|(?:_[ \t]*){3,}|(?:\*[ \t]*){3,})(?:\n+|$)/,
 	  heading: /^ {0,3}(#{1,6})(?=\s|$)(.*)(?:\n+|$)/,
 	  blockquote: /^( {0,3}> ?(paragraph|[^\n]*)(?:\n|$))+/,
-	  list: /^( {0,3}bull)( [^\n]+?)?(?:\n|$)/,
+	  list: /^( {0,3}bull)([ \t][^\n]+?)?(?:\n|$)/,
 	  html: '^ {0,3}(?:' // optional indentation
 	    + '<(script|pre|style|textarea)[\\s>][\\s\\S]*?(?:</\\1>[^\\n]*\\n+|$)' // (1)
 	    + '|comment[^\\n]*(\\n+|$)' // (2)
@@ -19005,16 +19089,16 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    + '|<(?!script|pre|style|textarea)([a-z][\\w-]*)(?:attribute)*? */?>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n *)+\\n|$)' // (7) open tag
 	    + '|</(?!script|pre|style|textarea)[a-z][\\w-]*\\s*>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n *)+\\n|$)' // (7) closing tag
 	    + ')',
-	  def: /^ {0,3}\[(label)\]: *\n? *<?([^\s>]+)>?(?:(?: +\n? *| *\n *)(title))? *(?:\n+|$)/,
+	  def: /^ {0,3}\[(label)\]: *(?:\n *)?([^<\s][^\s]*|<.*?>)(?:(?: +(?:\n *)?| *\n *)(title))? *(?:\n+|$)/,
 	  table: noopTest,
-	  lheading: /^([^\n]+)\n {0,3}(=+|-+) *(?:\n+|$)/,
+	  lheading: /^((?:.|\n(?!\n))+?)\n {0,3}(=+|-+) *(?:\n+|$)/,
 	  // regex template, placeholders will be replaced according to different paragraph
 	  // interruption rules of commonmark and the original markdown spec:
-	  _paragraph: /^([^\n]+(?:\n(?!hr|heading|lheading|blockquote|fences|list|html| +\n)[^\n]+)*)/,
+	  _paragraph: /^([^\n]+(?:\n(?!hr|heading|lheading|blockquote|fences|list|html|table| +\n)[^\n]+)*)/,
 	  text: /^[^\n]+/
 	};
 
-	block._label = /(?!\s*\])(?:\\[\[\]]|[^\[\]])+/;
+	block._label = /(?!\s*\])(?:\\.|[^\[\]\\])+/;
 	block._title = /(?:"(?:\\"?|[^"\\])*"|'[^'\n]*(?:\n[^'\n]+)*\n?'|\([^()]*\))/;
 	block.def = edit(block.def)
 	  .replace('label', block._label)
@@ -19049,6 +19133,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  .replace('hr', block.hr)
 	  .replace('heading', ' {0,3}#{1,6} ')
 	  .replace('|lheading', '') // setex headings don't interrupt commonmark paragraphs
+	  .replace('|table', '')
 	  .replace('blockquote', ' {0,3}>')
 	  .replace('fences', ' {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n')
 	  .replace('list', ' {0,3}(?:[*+-]|1[.)]) ') // only lists starting from 1 can interrupt
@@ -19064,17 +19149,18 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	 * Normal Block Grammar
 	 */
 
-	block.normal = merge({}, block);
+	block.normal = { ...block };
 
 	/**
 	 * GFM Block Grammar
 	 */
 
-	block.gfm = merge({}, block.normal, {
+	block.gfm = {
+	  ...block.normal,
 	  table: '^ *([^\\n ].*\\|.*)\\n' // Header
 	    + ' {0,3}(?:\\| *)?(:?-+:? *(?:\\| *:?-+:? *)*)(?:\\| *)?' // Align
 	    + '(?:\\n((?:(?! *\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)' // Cells
-	});
+	};
 
 	block.gfm.table = edit(block.gfm.table)
 	  .replace('hr', block.hr)
@@ -19087,11 +19173,23 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  .replace('tag', block._tag) // tables can be interrupted by type (6) html blocks
 	  .getRegex();
 
+	block.gfm.paragraph = edit(block._paragraph)
+	  .replace('hr', block.hr)
+	  .replace('heading', ' {0,3}#{1,6} ')
+	  .replace('|lheading', '') // setex headings don't interrupt commonmark paragraphs
+	  .replace('table', block.gfm.table) // interrupt paragraphs with table
+	  .replace('blockquote', ' {0,3}>')
+	  .replace('fences', ' {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n')
+	  .replace('list', ' {0,3}(?:[*+-]|1[.)]) ') // only lists starting from 1 can interrupt
+	  .replace('html', '</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)')
+	  .replace('tag', block._tag) // pars can be interrupted by type (6) html blocks
+	  .getRegex();
 	/**
 	 * Pedantic grammar (original John Gruber's loose markdown specification)
 	 */
 
-	block.pedantic = merge({}, block.normal, {
+	block.pedantic = {
+	  ...block.normal,
 	  html: edit(
 	    '^ *(?:comment *(?:\\n|\\s*$)'
 	    + '|<(tag)[\\s\\S]+?</\\1> *(?:\\n{2,}|\\s*$)' // closed tag
@@ -19105,6 +19203,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  def: /^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +(["(][^\n]+[")]))? *(?:\n+|$)/,
 	  heading: /^(#{1,6})(.*)(?:\n+|$)/,
 	  fences: noopTest, // fences not supported
+	  lheading: /^(.+?)\n {0,3}(=+|-+) *(?:\n+|$)/,
 	  paragraph: edit(block.normal._paragraph)
 	    .replace('hr', block.hr)
 	    .replace('heading', ' *#{1,6} *[^\n]')
@@ -19114,7 +19213,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    .replace('|list', '')
 	    .replace('|html', '')
 	    .getRegex()
-	});
+	};
 
 	/**
 	 * Inline-Level Grammar
@@ -19130,15 +19229,15 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    + '|^<![a-zA-Z]+\\s[\\s\\S]*?>' // declaration, e.g. <!DOCTYPE html>
 	    + '|^<!\\[CDATA\\[[\\s\\S]*?\\]\\]>', // CDATA section
 	  link: /^!?\[(label)\]\(\s*(href)(?:\s+(title))?\s*\)/,
-	  reflink: /^!?\[(label)\]\[(?!\s*\])((?:\\[\[\]]?|[^\[\]\\])+)\]/,
-	  nolink: /^!?\[(?!\s*\])((?:\[[^\[\]]*\]|\\[\[\]]|[^\[\]])*)\](?:\[\])?/,
+	  reflink: /^!?\[(label)\]\[(ref)\]/,
+	  nolink: /^!?\[(ref)\](?:\[\])?/,
 	  reflinkSearch: 'reflink|nolink(?!\\()',
 	  emStrong: {
 	    lDelim: /^(?:\*+(?:([punct_])|[^\s*]))|^_+(?:([punct*])|([^\s_]))/,
 	    //        (1) and (2) can only be a Right Delimiter. (3) and (4) can only be Left.  (5) and (6) can be either Left or Right.
-	    //        () Skip orphan delim inside strong    (1) #***                (2) a***#, a***                   (3) #***a, ***a                 (4) ***#              (5) #***#                 (6) a***a
-	    rDelimAst: /^[^_*]*?\_\_[^_*]*?\*[^_*]*?(?=\_\_)|[punct_](\*+)(?=[\s]|$)|[^punct*_\s](\*+)(?=[punct_\s]|$)|[punct_\s](\*+)(?=[^punct*_\s])|[\s](\*+)(?=[punct_])|[punct_](\*+)(?=[punct_])|[^punct*_\s](\*+)(?=[^punct*_\s])/,
-	    rDelimUnd: /^[^_*]*?\*\*[^_*]*?\_[^_*]*?(?=\*\*)|[punct*](\_+)(?=[\s]|$)|[^punct*_\s](\_+)(?=[punct*\s]|$)|[punct*\s](\_+)(?=[^punct*_\s])|[\s](\_+)(?=[punct*])|[punct*](\_+)(?=[punct*])/ // ^- Not allowed for _
+	    //          () Skip orphan inside strong                                      () Consume to delim     (1) #***                (2) a***#, a***                             (3) #***a, ***a                 (4) ***#              (5) #***#                 (6) a***a
+	    rDelimAst: /^(?:[^_*\\]|\\.)*?\_\_(?:[^_*\\]|\\.)*?\*(?:[^_*\\]|\\.)*?(?=\_\_)|(?:[^*\\]|\\.)+(?=[^*])|[punct_](\*+)(?=[\s]|$)|(?:[^punct*_\s\\]|\\.)(\*+)(?=[punct_\s]|$)|[punct_\s](\*+)(?=[^punct*_\s])|[\s](\*+)(?=[punct_])|[punct_](\*+)(?=[punct_])|(?:[^punct*_\s\\]|\\.)(\*+)(?=[^punct*_\s])/,
+	    rDelimUnd: /^(?:[^_*\\]|\\.)*?\*\*(?:[^_*\\]|\\.)*?\_(?:[^_*\\]|\\.)*?(?=\*\*)|(?:[^_\\]|\\.)+(?=[^_])|[punct*](\_+)(?=[\s]|$)|(?:[^punct*_\s\\]|\\.)(\_+)(?=[punct*\s]|$)|[punct*\s](\_+)(?=[^punct*_\s])|[\s](\_+)(?=[punct*])|[punct*](\_+)(?=[punct*])/ // ^- Not allowed for _
 	  },
 	  code: /^(`+)([^`]|[^`][\s\S]*?[^`])\1(?!`)/,
 	  br: /^( {2,}|\\)\n(?!\s*$)/,
@@ -19154,7 +19253,9 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	// sequences em should skip over [title](link), `code`, <html>
 	inline.blockSkip = /\[[^\]]*?\]\([^\)]*?\)|`[^`]*?`|<[^>]*?>/g;
-	inline.escapedEmSt = /\\\*|\\_/g;
+	// lookbehind is not available on Safari as of version 16
+	// inline.escapedEmSt = /(?<=(?:^|[^\\)(?:\\[^])*)\\[*_]/g;
+	inline.escapedEmSt = /(?:^|[^\\])(?:\\\\)*\\[*_]/g;
 
 	inline._comment = edit(block._comment).replace('(?:-->|$)', '-->').getRegex();
 
@@ -19198,6 +19299,11 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	inline.reflink = edit(inline.reflink)
 	  .replace('label', inline._label)
+	  .replace('ref', block._label)
+	  .getRegex();
+
+	inline.nolink = edit(inline.nolink)
+	  .replace('ref', block._label)
 	  .getRegex();
 
 	inline.reflinkSearch = edit(inline.reflinkSearch, 'g')
@@ -19209,13 +19315,14 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	 * Normal Inline Grammar
 	 */
 
-	inline.normal = merge({}, inline);
+	inline.normal = { ...inline };
 
 	/**
 	 * Pedantic Inline Grammar
 	 */
 
-	inline.pedantic = merge({}, inline.normal, {
+	inline.pedantic = {
+	  ...inline.normal,
 	  strong: {
 	    start: /^__|\*\*/,
 	    middle: /^__(?=\S)([\s\S]*?\S)__(?!_)|^\*\*(?=\S)([\s\S]*?\S)\*\*(?!\*)/,
@@ -19234,20 +19341,21 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  reflink: edit(/^!?\[(label)\]\s*\[([^\]]*)\]/)
 	    .replace('label', inline._label)
 	    .getRegex()
-	});
+	};
 
 	/**
 	 * GFM Inline Grammar
 	 */
 
-	inline.gfm = merge({}, inline.normal, {
+	inline.gfm = {
+	  ...inline.normal,
 	  escape: edit(inline.escape).replace('])', '~|])').getRegex(),
 	  _extended_email: /[A-Za-z0-9._+-]+(@)[a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]*[a-zA-Z0-9])+(?![-_])/,
 	  url: /^((?:ftp|https?):\/\/|www\.)(?:[a-zA-Z0-9\-]+\.?)+[^\s<]*|^email/,
-	  _backpedal: /(?:[^?!.,:;*_~()&]+|\([^)]*\)|&(?![a-zA-Z0-9]+;$)|[?!.,:;*_~)]+(?!$))+/,
+	  _backpedal: /(?:[^?!.,:;*_'"~()&]+|\([^)]*\)|&(?![a-zA-Z0-9]+;$)|[?!.,:;*_'"~)]+(?!$))+/,
 	  del: /^(~~?)(?=[^\s~])([\s\S]*?[^\s~])\1(?=[^~]|$)/,
 	  text: /^([`~]+|[^`~])(?:(?= {2,}\n)|(?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)|[\s\S]*?(?:(?=[\\<!\[`*~_]|\b_|https?:\/\/|ftp:\/\/|www\.|$)|[^ ](?= {2,}\n)|[^a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-](?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)))/
-	});
+	};
 
 	inline.gfm.url = edit(inline.gfm.url, 'i')
 	  .replace('email', inline.gfm._extended_email)
@@ -19256,16 +19364,18 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	 * GFM + Line Breaks Inline Grammar
 	 */
 
-	inline.breaks = merge({}, inline.gfm, {
+	inline.breaks = {
+	  ...inline.gfm,
 	  br: edit(inline.br).replace('{2,}', '*').getRegex(),
 	  text: edit(inline.gfm.text)
 	    .replace('\\b_', '\\b_| {2,}\\n')
 	    .replace(/\{2,\}/g, '*')
 	    .getRegex()
-	});
+	};
 
 	/**
 	 * smartypants text replacement
+	 * @param {string} text
 	 */
 	function smartypants(text) {
 	  return text
@@ -19287,6 +19397,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	/**
 	 * mangle email addresses
+	 * @param {string} text
 	 */
 	function mangle(text) {
 	  let out = '',
@@ -19374,8 +19485,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	   */
 	  lex(src) {
 	    src = src
-	      .replace(/\r\n|\r/g, '\n')
-	      .replace(/\t/g, '    ');
+	      .replace(/\r\n|\r/g, '\n');
 
 	    this.blockTokens(src, this.tokens);
 
@@ -19392,8 +19502,13 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	   */
 	  blockTokens(src, tokens = []) {
 	    if (this.options.pedantic) {
-	      src = src.replace(/^ +$/gm, '');
+	      src = src.replace(/\t/g, '    ').replace(/^ +$/gm, '');
+	    } else {
+	      src = src.replace(/^( *)(\t+)/gm, (_, leading, tabs) => {
+	        return leading + '    '.repeat(tabs.length);
+	      });
 	    }
+
 	    let token, lastToken, cutSrc, lastParagraphClipped;
 
 	    while (src) {
@@ -19413,7 +19528,11 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	      // newline
 	      if (token = this.tokenizer.space(src)) {
 	        src = src.substring(token.raw.length);
-	        if (token.type) {
+	        if (token.raw.length === 1 && tokens.length > 0) {
+	          // if there's a single \n as a spacer, it's terminating the last line,
+	          // so move it there so that we don't get unecessary paragraph tags
+	          tokens[tokens.length - 1].raw += '\n';
+	        } else {
 	          tokens.push(token);
 	        }
 	        continue;
@@ -19567,8 +19686,9 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    return tokens;
 	  }
 
-	  inline(src, tokens) {
+	  inline(src, tokens = []) {
 	    this.inlineQueue.push({ src, tokens });
+	    return tokens;
 	  }
 
 	  /**
@@ -19600,7 +19720,8 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	    // Mask out escaped em & strong delimiters
 	    while ((match = this.tokenizer.rules.inline.escapedEmSt.exec(maskedSrc)) != null) {
-	      maskedSrc = maskedSrc.slice(0, match.index) + '++' + maskedSrc.slice(this.tokenizer.rules.inline.escapedEmSt.lastIndex);
+	      maskedSrc = maskedSrc.slice(0, match.index + match[0].length - 2) + '++' + maskedSrc.slice(this.tokenizer.rules.inline.escapedEmSt.lastIndex);
+	      this.tokenizer.rules.inline.escapedEmSt.lastIndex--;
 	    }
 
 	    while (src) {
@@ -19779,35 +19900,37 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	    return '<pre><code class="'
 	      + this.options.langPrefix
-	      + escape(lang, true)
+	      + escape(lang)
 	      + '">'
 	      + (escaped ? code : escape(code, true))
 	      + '</code></pre>\n';
 	  }
 
+	  /**
+	   * @param {string} quote
+	   */
 	  blockquote(quote) {
-	    return '<blockquote>\n' + quote + '</blockquote>\n';
+	    return `<blockquote>\n${quote}</blockquote>\n`;
 	  }
 
-	  html(html) {
+	  html(html, block) {
 	    return html;
 	  }
 
+	  /**
+	   * @param {string} text
+	   * @param {string} level
+	   * @param {string} raw
+	   * @param {any} slugger
+	   */
 	  heading(text, level, raw, slugger) {
 	    if (this.options.headerIds) {
-	      return '<h'
-	        + level
-	        + ' id="'
-	        + this.options.headerPrefix
-	        + slugger.slug(raw)
-	        + '">'
-	        + text
-	        + '</h'
-	        + level
-	        + '>\n';
+	      const id = this.options.headerPrefix + slugger.slug(raw);
+	      return `<h${level} id="${id}">${text}</h${level}>\n`;
 	    }
+
 	    // ignore IDs
-	    return '<h' + level + '>' + text + '</h' + level + '>\n';
+	    return `<h${level}>${text}</h${level}>\n`;
 	  }
 
 	  hr() {
@@ -19820,8 +19943,11 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    return '<' + type + startatt + '>\n' + body + '</' + type + '>\n';
 	  }
 
+	  /**
+	   * @param {string} text
+	   */
 	  listitem(text) {
-	    return '<li>' + text + '</li>\n';
+	    return `<li>${text}</li>\n`;
 	  }
 
 	  checkbox(checked) {
@@ -19832,12 +19958,19 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	      + '> ';
 	  }
 
+	  /**
+	   * @param {string} text
+	   */
 	  paragraph(text) {
-	    return '<p>' + text + '</p>\n';
+	    return `<p>${text}</p>\n`;
 	  }
 
+	  /**
+	   * @param {string} header
+	   * @param {string} body
+	   */
 	  table(header, body) {
-	    if (body) body = '<tbody>' + body + '</tbody>';
+	    if (body) body = `<tbody>${body}</tbody>`;
 
 	    return '<table>\n'
 	      + '<thead>\n'
@@ -19847,45 +19980,65 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	      + '</table>\n';
 	  }
 
+	  /**
+	   * @param {string} content
+	   */
 	  tablerow(content) {
-	    return '<tr>\n' + content + '</tr>\n';
+	    return `<tr>\n${content}</tr>\n`;
 	  }
 
 	  tablecell(content, flags) {
 	    const type = flags.header ? 'th' : 'td';
 	    const tag = flags.align
-	      ? '<' + type + ' align="' + flags.align + '">'
-	      : '<' + type + '>';
-	    return tag + content + '</' + type + '>\n';
+	      ? `<${type} align="${flags.align}">`
+	      : `<${type}>`;
+	    return tag + content + `</${type}>\n`;
 	  }
 
-	  // span level renderer
+	  /**
+	   * span level renderer
+	   * @param {string} text
+	   */
 	  strong(text) {
-	    return '<strong>' + text + '</strong>';
+	    return `<strong>${text}</strong>`;
 	  }
 
+	  /**
+	   * @param {string} text
+	   */
 	  em(text) {
-	    return '<em>' + text + '</em>';
+	    return `<em>${text}</em>`;
 	  }
 
+	  /**
+	   * @param {string} text
+	   */
 	  codespan(text) {
-	    return '<code>' + text + '</code>';
+	    return `<code>${text}</code>`;
 	  }
 
 	  br() {
 	    return this.options.xhtml ? '<br/>' : '<br>';
 	  }
 
+	  /**
+	   * @param {string} text
+	   */
 	  del(text) {
-	    return '<del>' + text + '</del>';
+	    return `<del>${text}</del>`;
 	  }
 
+	  /**
+	   * @param {string} href
+	   * @param {string} title
+	   * @param {string} text
+	   */
 	  link(href, title, text) {
 	    href = cleanUrl(this.options.sanitize, this.options.baseUrl, href);
 	    if (href === null) {
 	      return text;
 	    }
-	    let out = '<a href="' + escape(href) + '"';
+	    let out = '<a href="' + href + '"';
 	    if (title) {
 	      out += ' title="' + title + '"';
 	    }
@@ -19893,15 +20046,20 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    return out;
 	  }
 
+	  /**
+	   * @param {string} href
+	   * @param {string} title
+	   * @param {string} text
+	   */
 	  image(href, title, text) {
 	    href = cleanUrl(this.options.sanitize, this.options.baseUrl, href);
 	    if (href === null) {
 	      return text;
 	    }
 
-	    let out = '<img src="' + href + '" alt="' + text + '"';
+	    let out = `<img src="${href}" alt="${text}"`;
 	    if (title) {
-	      out += ' title="' + title + '"';
+	      out += ` title="${title}"`;
 	    }
 	    out += this.options.xhtml ? '/>' : '>';
 	    return out;
@@ -19963,6 +20121,9 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    this.seen = {};
 	  }
 
+	  /**
+	   * @param {string} value
+	   */
 	  serialize(value) {
 	    return value
 	      .toLowerCase()
@@ -19976,6 +20137,8 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	  /**
 	   * Finds the next safe (unique) slug to use
+	   * @param {string} originalSlug
+	   * @param {boolean} isDryRun
 	   */
 	  getNextSafeSlug(originalSlug, isDryRun) {
 	    let slug = originalSlug;
@@ -19996,8 +20159,9 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	  /**
 	   * Convert string to unique id
-	   * @param {object} options
-	   * @param {boolean} options.dryrun Generates the next unique slug without updating the internal accumulator.
+	   * @param {object} [options]
+	   * @param {boolean} [options.dryrun] Generates the next unique slug without
+	   * updating the internal accumulator.
 	   */
 	  slug(value, options = {}) {
 	    const slug = this.serialize(value);
@@ -20172,8 +20336,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	          continue;
 	        }
 	        case 'html': {
-	          // TODO parse inline content if parameter markdown=1
-	          out += this.renderer.html(token.text);
+	          out += this.renderer.html(token.text, token.block);
 	          continue;
 	        }
 	        case 'paragraph': {
@@ -20284,111 +20447,194 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  }
 	};
 
+	class Hooks {
+	  constructor(options) {
+	    this.options = options || defaults;
+	  }
+
+	  static passThroughHooks = new Set([
+	    'preprocess',
+	    'postprocess'
+	  ]);
+
+	  /**
+	   * Process markdown before marked
+	   */
+	  preprocess(markdown) {
+	    return markdown;
+	  }
+
+	  /**
+	   * Process HTML after marked is finished
+	   */
+	  postprocess(html) {
+	    return html;
+	  }
+	}
+
+	function onError(silent, async, callback) {
+	  return (e) => {
+	    e.message += '\nPlease report this to https://github.com/markedjs/marked.';
+
+	    if (silent) {
+	      const msg = '<p>An error occurred:</p><pre>'
+	        + escape(e.message + '', true)
+	        + '</pre>';
+	      if (async) {
+	        return Promise.resolve(msg);
+	      }
+	      if (callback) {
+	        callback(null, msg);
+	        return;
+	      }
+	      return msg;
+	    }
+
+	    if (async) {
+	      return Promise.reject(e);
+	    }
+	    if (callback) {
+	      callback(e);
+	      return;
+	    }
+	    throw e;
+	  };
+	}
+
+	function parseMarkdown(lexer, parser) {
+	  return (src, opt, callback) => {
+	    if (typeof opt === 'function') {
+	      callback = opt;
+	      opt = null;
+	    }
+
+	    const origOpt = { ...opt };
+	    opt = { ...marked.defaults, ...origOpt };
+	    const throwError = onError(opt.silent, opt.async, callback);
+
+	    // throw error in case of non string input
+	    if (typeof src === 'undefined' || src === null) {
+	      return throwError(new Error('marked(): input parameter is undefined or null'));
+	    }
+	    if (typeof src !== 'string') {
+	      return throwError(new Error('marked(): input parameter is of type '
+	        + Object.prototype.toString.call(src) + ', string expected'));
+	    }
+
+	    checkDeprecations(opt, callback);
+
+	    if (opt.hooks) {
+	      opt.hooks.options = opt;
+	    }
+
+	    if (callback) {
+	      const highlight = opt.highlight;
+	      let tokens;
+
+	      try {
+	        if (opt.hooks) {
+	          src = opt.hooks.preprocess(src);
+	        }
+	        tokens = lexer(src, opt);
+	      } catch (e) {
+	        return throwError(e);
+	      }
+
+	      const done = function(err) {
+	        let out;
+
+	        if (!err) {
+	          try {
+	            if (opt.walkTokens) {
+	              marked.walkTokens(tokens, opt.walkTokens);
+	            }
+	            out = parser(tokens, opt);
+	            if (opt.hooks) {
+	              out = opt.hooks.postprocess(out);
+	            }
+	          } catch (e) {
+	            err = e;
+	          }
+	        }
+
+	        opt.highlight = highlight;
+
+	        return err
+	          ? throwError(err)
+	          : callback(null, out);
+	      };
+
+	      if (!highlight || highlight.length < 3) {
+	        return done();
+	      }
+
+	      delete opt.highlight;
+
+	      if (!tokens.length) return done();
+
+	      let pending = 0;
+	      marked.walkTokens(tokens, function(token) {
+	        if (token.type === 'code') {
+	          pending++;
+	          setTimeout(() => {
+	            highlight(token.text, token.lang, function(err, code) {
+	              if (err) {
+	                return done(err);
+	              }
+	              if (code != null && code !== token.text) {
+	                token.text = code;
+	                token.escaped = true;
+	              }
+
+	              pending--;
+	              if (pending === 0) {
+	                done();
+	              }
+	            });
+	          }, 0);
+	        }
+	      });
+
+	      if (pending === 0) {
+	        done();
+	      }
+
+	      return;
+	    }
+
+	    if (opt.async) {
+	      return Promise.resolve(opt.hooks ? opt.hooks.preprocess(src) : src)
+	        .then(src => lexer(src, opt))
+	        .then(tokens => opt.walkTokens ? Promise.all(marked.walkTokens(tokens, opt.walkTokens)).then(() => tokens) : tokens)
+	        .then(tokens => parser(tokens, opt))
+	        .then(html => opt.hooks ? opt.hooks.postprocess(html) : html)
+	        .catch(throwError);
+	    }
+
+	    try {
+	      if (opt.hooks) {
+	        src = opt.hooks.preprocess(src);
+	      }
+	      const tokens = lexer(src, opt);
+	      if (opt.walkTokens) {
+	        marked.walkTokens(tokens, opt.walkTokens);
+	      }
+	      let html = parser(tokens, opt);
+	      if (opt.hooks) {
+	        html = opt.hooks.postprocess(html);
+	      }
+	      return html;
+	    } catch (e) {
+	      return throwError(e);
+	    }
+	  };
+	}
+
 	/**
 	 * Marked
 	 */
 	function marked(src, opt, callback) {
-	  // throw error in case of non string input
-	  if (typeof src === 'undefined' || src === null) {
-	    throw new Error('marked(): input parameter is undefined or null');
-	  }
-	  if (typeof src !== 'string') {
-	    throw new Error('marked(): input parameter is of type '
-	      + Object.prototype.toString.call(src) + ', string expected');
-	  }
-
-	  if (typeof opt === 'function') {
-	    callback = opt;
-	    opt = null;
-	  }
-
-	  opt = merge({}, marked.defaults, opt || {});
-	  checkSanitizeDeprecation(opt);
-
-	  if (callback) {
-	    const highlight = opt.highlight;
-	    let tokens;
-
-	    try {
-	      tokens = Lexer$1.lex(src, opt);
-	    } catch (e) {
-	      return callback(e);
-	    }
-
-	    const done = function(err) {
-	      let out;
-
-	      if (!err) {
-	        try {
-	          if (opt.walkTokens) {
-	            marked.walkTokens(tokens, opt.walkTokens);
-	          }
-	          out = Parser$1.parse(tokens, opt);
-	        } catch (e) {
-	          err = e;
-	        }
-	      }
-
-	      opt.highlight = highlight;
-
-	      return err
-	        ? callback(err)
-	        : callback(null, out);
-	    };
-
-	    if (!highlight || highlight.length < 3) {
-	      return done();
-	    }
-
-	    delete opt.highlight;
-
-	    if (!tokens.length) return done();
-
-	    let pending = 0;
-	    marked.walkTokens(tokens, function(token) {
-	      if (token.type === 'code') {
-	        pending++;
-	        setTimeout(() => {
-	          highlight(token.text, token.lang, function(err, code) {
-	            if (err) {
-	              return done(err);
-	            }
-	            if (code != null && code !== token.text) {
-	              token.text = code;
-	              token.escaped = true;
-	            }
-
-	            pending--;
-	            if (pending === 0) {
-	              done();
-	            }
-	          });
-	        }, 0);
-	      }
-	    });
-
-	    if (pending === 0) {
-	      done();
-	    }
-
-	    return;
-	  }
-
-	  try {
-	    const tokens = Lexer$1.lex(src, opt);
-	    if (opt.walkTokens) {
-	      marked.walkTokens(tokens, opt.walkTokens);
-	    }
-	    return Parser$1.parse(tokens, opt);
-	  } catch (e) {
-	    e.message += '\nPlease report this to https://github.com/markedjs/marked.';
-	    if (opt.silent) {
-	      return '<p>An error occurred:</p><pre>'
-	        + escape(e.message + '', true)
-	        + '</pre>';
-	    }
-	    throw e;
-	  }
+	  return parseMarkdown(Lexer$1.lex, Parser$1.parse)(src, opt, callback);
 	}
 
 	/**
@@ -20397,7 +20643,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	marked.options =
 	marked.setOptions = function(opt) {
-	  merge(marked.defaults, opt);
+	  marked.defaults = { ...marked.defaults, ...opt };
 	  changeDefaults(marked.defaults);
 	  return marked;
 	};
@@ -20411,20 +20657,23 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	 */
 
 	marked.use = function(...args) {
-	  const opts = merge({}, ...args);
 	  const extensions = marked.defaults.extensions || { renderers: {}, childTokens: {} };
-	  let hasExtensions;
 
 	  args.forEach((pack) => {
+	    // copy options to new object
+	    const opts = { ...pack };
+
+	    // set async to true if it was set to true before
+	    opts.async = marked.defaults.async || opts.async || false;
+
 	    // ==-- Parse "addon" extensions --== //
 	    if (pack.extensions) {
-	      hasExtensions = true;
 	      pack.extensions.forEach((ext) => {
 	        if (!ext.name) {
 	          throw new Error('extension name required');
 	        }
 	        if (ext.renderer) { // Renderer extensions
-	          const prevRenderer = extensions.renderers ? extensions.renderers[ext.name] : null;
+	          const prevRenderer = extensions.renderers[ext.name];
 	          if (prevRenderer) {
 	            // Replace extension with func to run new extension but fall back if false
 	            extensions.renderers[ext.name] = function(...args) {
@@ -20467,6 +20716,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	          extensions.childTokens[ext.name] = ext.childTokens;
 	        }
 	      });
+	      opts.extensions = extensions;
 	    }
 
 	    // ==-- Parse "overwrite" extensions --== //
@@ -20501,19 +20751,46 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	      opts.tokenizer = tokenizer;
 	    }
 
+	    // ==-- Parse Hooks extensions --== //
+	    if (pack.hooks) {
+	      const hooks = marked.defaults.hooks || new Hooks();
+	      for (const prop in pack.hooks) {
+	        const prevHook = hooks[prop];
+	        if (Hooks.passThroughHooks.has(prop)) {
+	          hooks[prop] = (arg) => {
+	            if (marked.defaults.async) {
+	              return Promise.resolve(pack.hooks[prop].call(hooks, arg)).then(ret => {
+	                return prevHook.call(hooks, ret);
+	              });
+	            }
+
+	            const ret = pack.hooks[prop].call(hooks, arg);
+	            return prevHook.call(hooks, ret);
+	          };
+	        } else {
+	          hooks[prop] = (...args) => {
+	            let ret = pack.hooks[prop].apply(hooks, args);
+	            if (ret === false) {
+	              ret = prevHook.apply(hooks, args);
+	            }
+	            return ret;
+	          };
+	        }
+	      }
+	      opts.hooks = hooks;
+	    }
+
 	    // ==-- Parse WalkTokens extensions --== //
 	    if (pack.walkTokens) {
 	      const walkTokens = marked.defaults.walkTokens;
 	      opts.walkTokens = function(token) {
-	        pack.walkTokens.call(this, token);
+	        let values = [];
+	        values.push(pack.walkTokens.call(this, token));
 	        if (walkTokens) {
-	          walkTokens.call(this, token);
+	          values = values.concat(walkTokens.call(this, token));
 	        }
+	        return values;
 	      };
-	    }
-
-	    if (hasExtensions) {
-	      opts.extensions = extensions;
 	    }
 
 	    marked.setOptions(opts);
@@ -20525,69 +20802,44 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	 */
 
 	marked.walkTokens = function(tokens, callback) {
+	  let values = [];
 	  for (const token of tokens) {
-	    callback.call(marked, token);
+	    values = values.concat(callback.call(marked, token));
 	    switch (token.type) {
 	      case 'table': {
 	        for (const cell of token.header) {
-	          marked.walkTokens(cell.tokens, callback);
+	          values = values.concat(marked.walkTokens(cell.tokens, callback));
 	        }
 	        for (const row of token.rows) {
 	          for (const cell of row) {
-	            marked.walkTokens(cell.tokens, callback);
+	            values = values.concat(marked.walkTokens(cell.tokens, callback));
 	          }
 	        }
 	        break;
 	      }
 	      case 'list': {
-	        marked.walkTokens(token.items, callback);
+	        values = values.concat(marked.walkTokens(token.items, callback));
 	        break;
 	      }
 	      default: {
 	        if (marked.defaults.extensions && marked.defaults.extensions.childTokens && marked.defaults.extensions.childTokens[token.type]) { // Walk any extensions
 	          marked.defaults.extensions.childTokens[token.type].forEach(function(childTokens) {
-	            marked.walkTokens(token[childTokens], callback);
+	            values = values.concat(marked.walkTokens(token[childTokens], callback));
 	          });
 	        } else if (token.tokens) {
-	          marked.walkTokens(token.tokens, callback);
+	          values = values.concat(marked.walkTokens(token.tokens, callback));
 	        }
 	      }
 	    }
 	  }
+	  return values;
 	};
 
 	/**
 	 * Parse Inline
+	 * @param {string} src
 	 */
-	marked.parseInline = function(src, opt) {
-	  // throw error in case of non string input
-	  if (typeof src === 'undefined' || src === null) {
-	    throw new Error('marked.parseInline(): input parameter is undefined or null');
-	  }
-	  if (typeof src !== 'string') {
-	    throw new Error('marked.parseInline(): input parameter is of type '
-	      + Object.prototype.toString.call(src) + ', string expected');
-	  }
-
-	  opt = merge({}, marked.defaults, opt || {});
-	  checkSanitizeDeprecation(opt);
-
-	  try {
-	    const tokens = Lexer$1.lexInline(src, opt);
-	    if (opt.walkTokens) {
-	      marked.walkTokens(tokens, opt.walkTokens);
-	    }
-	    return Parser$1.parseInline(tokens, opt);
-	  } catch (e) {
-	    e.message += '\nPlease report this to https://github.com/markedjs/marked.';
-	    if (opt.silent) {
-	      return '<p>An error occurred:</p><pre>'
-	        + escape(e.message + '', true)
-	        + '</pre>';
-	    }
-	    throw e;
-	  }
-	};
+	marked.parseInline = parseMarkdown(Lexer$1.lexInline, Parser$1.parseInline);
 
 	/**
 	 * Expose
@@ -20600,6 +20852,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	marked.lexer = Lexer$1.lex;
 	marked.Tokenizer = Tokenizer;
 	marked.Slugger = Slugger;
+	marked.Hooks = Hooks;
 	marked.parse = marked;
 
 	marked.options;
