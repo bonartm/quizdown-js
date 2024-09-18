@@ -1,4 +1,4 @@
-import marked from 'marked';
+import { marked } from 'marked';
 import { parse as parseYaml } from 'yaml';
 
 // customize tokenizer to include yaml like header blocks

@@ -1,4 +1,4 @@
-/* Version: 0.7.0 - September 17, 2024 23:11:10 */
+/* Version: 0.7.0 - September 17, 2024 23:16:36 */
 
 (function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
 (function (global, factory) {
@@ -17956,9 +17956,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	 * The code in this file is generated from files in ./src/
 	 */
 
-	var defaults$5 = {exports: {}};
-
-	function getDefaults$1() {
+	function getDefaults() {
 	  return {
 	    baseUrl: null,
 	    breaks: false,
@@ -17982,20 +17980,15 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  };
 	}
 
-	function changeDefaults$1(newDefaults) {
-	  defaults$5.exports.defaults = newDefaults;
-	}
+	let defaults = getDefaults();
 
-	defaults$5.exports = {
-	  defaults: getDefaults$1(),
-	  getDefaults: getDefaults$1,
-	  changeDefaults: changeDefaults$1
-	};
+	function changeDefaults(newDefaults) {
+	  defaults = newDefaults;
+	}
 
 	/**
 	 * Helpers
 	 */
-
 	const escapeTest = /[&<>"']/;
 	const escapeReplace = /[&<>"']/g;
 	const escapeTestNoEncode = /[<>"']|&(?!#?\w+;)/;
@@ -18008,7 +18001,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  "'": '&#39;'
 	};
 	const getEscapeReplacement = (ch) => escapeReplacements[ch];
-	function escape$3(html, encode) {
+	function escape(html, encode) {
 	  if (encode) {
 	    if (escapeTest.test(html)) {
 	      return html.replace(escapeReplace, getEscapeReplacement);
@@ -18024,7 +18017,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	const unescapeTest = /&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/ig;
 
-	function unescape$1(html) {
+	function unescape(html) {
 	  // explicitly match decimal, hex, and named HTML entities
 	  return html.replace(unescapeTest, (_, n) => {
 	    n = n.toLowerCase();
@@ -18039,7 +18032,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	}
 
 	const caret = /(^|[^\[])\^/g;
-	function edit$1(regex, opt) {
+	function edit(regex, opt) {
 	  regex = regex.source || regex;
 	  opt = opt || '';
 	  const obj = {
@@ -18058,11 +18051,11 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	const nonWordAndColonTest = /[^\w:]/g;
 	const originIndependentUrl = /^$|^[a-z][a-z0-9+.-]*:|^[?#]/i;
-	function cleanUrl$1(sanitize, base, href) {
+	function cleanUrl(sanitize, base, href) {
 	  if (sanitize) {
 	    let prot;
 	    try {
-	      prot = decodeURIComponent(unescape$1(href))
+	      prot = decodeURIComponent(unescape(href))
 	        .replace(nonWordAndColonTest, '')
 	        .toLowerCase();
 	    } catch (e) {
@@ -18096,7 +18089,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    if (justDomain.test(base)) {
 	      baseUrls[' ' + base] = base + '/';
 	    } else {
-	      baseUrls[' ' + base] = rtrim$1(base, '/', true);
+	      baseUrls[' ' + base] = rtrim(base, '/', true);
 	    }
 	  }
 	  base = baseUrls[' ' + base];
@@ -18117,9 +18110,9 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  }
 	}
 
-	const noopTest$1 = { exec: function noopTest() {} };
+	const noopTest = { exec: function noopTest() {} };
 
-	function merge$2(obj) {
+	function merge(obj) {
 	  let i = 1,
 	    target,
 	    key;
@@ -18136,7 +18129,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  return obj;
 	}
 
-	function splitCells$1(tableRow, count) {
+	function splitCells(tableRow, count) {
 	  // ensure that every cell-delimiting pipe has a space
 	  // before it to distinguish it from an escaped pipe
 	  const row = tableRow.replace(/\|/g, (match, offset, str) => {
@@ -18175,7 +18168,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	// Remove trailing 'c's. Equivalent to str.replace(/c*$/, '').
 	// /c*$/ is vulnerable to REDOS.
 	// invert: Remove suffix of non-c chars instead. Default falsey.
-	function rtrim$1(str, c, invert) {
+	function rtrim(str, c, invert) {
 	  const l = str.length;
 	  if (l === 0) {
 	    return '';
@@ -18199,7 +18192,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  return str.substr(0, l - suffLen);
 	}
 
-	function findClosingBracket$1(str, b) {
+	function findClosingBracket(str, b) {
 	  if (str.indexOf(b[1]) === -1) {
 	    return -1;
 	  }
@@ -18221,14 +18214,14 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  return -1;
 	}
 
-	function checkSanitizeDeprecation$1(opt) {
+	function checkSanitizeDeprecation(opt) {
 	  if (opt && opt.sanitize && !opt.silent) {
 	    console.warn('marked(): sanitize and sanitizer parameters are deprecated since version 0.7.0, should not be used and will be removed in the future. Read more here: https://marked.js.org/#/USING_ADVANCED.md#options');
 	  }
 	}
 
 	// copied from https://stackoverflow.com/a/5450113/806777
-	function repeatString$1(pattern, count) {
+	function repeatString(pattern, count) {
 	  if (count < 1) {
 	    return '';
 	  }
@@ -18243,37 +18236,14 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  return result + pattern;
 	}
 
-	var helpers = {
-	  escape: escape$3,
-	  unescape: unescape$1,
-	  edit: edit$1,
-	  cleanUrl: cleanUrl$1,
-	  resolveUrl,
-	  noopTest: noopTest$1,
-	  merge: merge$2,
-	  splitCells: splitCells$1,
-	  rtrim: rtrim$1,
-	  findClosingBracket: findClosingBracket$1,
-	  checkSanitizeDeprecation: checkSanitizeDeprecation$1,
-	  repeatString: repeatString$1
-	};
-
-	const { defaults: defaults$4 } = defaults$5.exports;
-	const {
-	  rtrim,
-	  splitCells,
-	  escape: escape$2,
-	  findClosingBracket
-	} = helpers;
-
 	function outputLink(cap, link, raw, lexer) {
 	  const href = link.href;
-	  const title = link.title ? escape$2(link.title) : null;
+	  const title = link.title ? escape(link.title) : null;
 	  const text = cap[1].replace(/\\([\[\]])/g, '$1');
 
 	  if (cap[0].charAt(0) !== '!') {
 	    lexer.state.inLink = true;
-	    return {
+	    const token = {
 	      type: 'link',
 	      raw,
 	      href,
@@ -18281,13 +18251,15 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	      text,
 	      tokens: lexer.inlineTokens(text, [])
 	    };
+	    lexer.state.inLink = false;
+	    return token;
 	  } else {
 	    return {
 	      type: 'image',
 	      raw,
 	      href,
 	      title,
-	      text: escape$2(text)
+	      text: escape(text)
 	    };
 	  }
 	}
@@ -18323,9 +18295,9 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	/**
 	 * Tokenizer
 	 */
-	var Tokenizer_1 = class Tokenizer {
+	class Tokenizer {
 	  constructor(options) {
-	    this.options = options || defaults$4;
+	    this.options = options || defaults;
 	  }
 
 	  space(src) {
@@ -18584,7 +18556,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	      };
 	      if (this.options.sanitize) {
 	        token.type = 'paragraph';
-	        token.text = this.options.sanitizer ? this.options.sanitizer(cap[0]) : escape$2(cap[0]);
+	        token.text = this.options.sanitizer ? this.options.sanitizer(cap[0]) : escape(cap[0]);
 	        token.tokens = [];
 	        this.lexer.inline(token.text, token.tokens);
 	      }
@@ -18714,7 +18686,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	      return {
 	        type: 'escape',
 	        raw: cap[0],
-	        text: escape$2(cap[1])
+	        text: escape(cap[1])
 	      };
 	    }
 	  }
@@ -18743,7 +18715,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	        text: this.options.sanitize
 	          ? (this.options.sanitizer
 	            ? this.options.sanitizer(cap[0])
-	            : escape$2(cap[0]))
+	            : escape(cap[0]))
 	          : cap[0]
 	      };
 	    }
@@ -18898,7 +18870,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	      if (hasNonSpaceChars && hasSpaceCharsOnBothEnds) {
 	        text = text.substring(1, text.length - 1);
 	      }
-	      text = escape$2(text, true);
+	      text = escape(text, true);
 	      return {
 	        type: 'codespan',
 	        raw: cap[0],
@@ -18934,10 +18906,10 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    if (cap) {
 	      let text, href;
 	      if (cap[2] === '@') {
-	        text = escape$2(this.options.mangle ? mangle(cap[1]) : cap[1]);
+	        text = escape(this.options.mangle ? mangle(cap[1]) : cap[1]);
 	        href = 'mailto:' + text;
 	      } else {
-	        text = escape$2(cap[1]);
+	        text = escape(cap[1]);
 	        href = text;
 	      }
 
@@ -18962,7 +18934,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    if (cap = this.rules.inline.url.exec(src)) {
 	      let text, href;
 	      if (cap[2] === '@') {
-	        text = escape$2(this.options.mangle ? mangle(cap[0]) : cap[0]);
+	        text = escape(this.options.mangle ? mangle(cap[0]) : cap[0]);
 	        href = 'mailto:' + text;
 	      } else {
 	        // do extended autolink path validation
@@ -18971,7 +18943,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	          prevCapZero = cap[0];
 	          cap[0] = this.rules.inline._backpedal.exec(cap[0])[0];
 	        } while (prevCapZero !== cap[0]);
-	        text = escape$2(cap[0]);
+	        text = escape(cap[0]);
 	        if (cap[1] === 'www.') {
 	          href = 'http://' + text;
 	        } else {
@@ -18999,9 +18971,9 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    if (cap) {
 	      let text;
 	      if (this.lexer.state.inRawBlock) {
-	        text = this.options.sanitize ? (this.options.sanitizer ? this.options.sanitizer(cap[0]) : escape$2(cap[0])) : cap[0];
+	        text = this.options.sanitize ? (this.options.sanitizer ? this.options.sanitizer(cap[0]) : escape(cap[0])) : cap[0];
 	      } else {
-	        text = escape$2(this.options.smartypants ? smartypants(cap[0]) : cap[0]);
+	        text = escape(this.options.smartypants ? smartypants(cap[0]) : cap[0]);
 	      }
 	      return {
 	        type: 'text',
@@ -19010,18 +18982,12 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	      };
 	    }
 	  }
-	};
-
-	const {
-	  noopTest,
-	  edit,
-	  merge: merge$1
-	} = helpers;
+	}
 
 	/**
 	 * Block-Level Grammar
 	 */
-	const block$1 = {
+	const block = {
 	  newline: /^(?: *(?:\n|$))+/,
 	  code: /^( {4}[^\n]+(?:\n(?: *(?:\n|$))*)?)+/,
 	  fences: /^ {0,3}(`{3,}(?=[^`\n]*\n)|~{3,})([^\n]*)\n(?:|([\s\S]*?)\n)(?: {0,3}\1[~`]* *(?=\n|$)|$)/,
@@ -19048,89 +19014,89 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  text: /^[^\n]+/
 	};
 
-	block$1._label = /(?!\s*\])(?:\\[\[\]]|[^\[\]])+/;
-	block$1._title = /(?:"(?:\\"?|[^"\\])*"|'[^'\n]*(?:\n[^'\n]+)*\n?'|\([^()]*\))/;
-	block$1.def = edit(block$1.def)
-	  .replace('label', block$1._label)
-	  .replace('title', block$1._title)
+	block._label = /(?!\s*\])(?:\\[\[\]]|[^\[\]])+/;
+	block._title = /(?:"(?:\\"?|[^"\\])*"|'[^'\n]*(?:\n[^'\n]+)*\n?'|\([^()]*\))/;
+	block.def = edit(block.def)
+	  .replace('label', block._label)
+	  .replace('title', block._title)
 	  .getRegex();
 
-	block$1.bullet = /(?:[*+-]|\d{1,9}[.)])/;
-	block$1.listItemStart = edit(/^( *)(bull) */)
-	  .replace('bull', block$1.bullet)
+	block.bullet = /(?:[*+-]|\d{1,9}[.)])/;
+	block.listItemStart = edit(/^( *)(bull) */)
+	  .replace('bull', block.bullet)
 	  .getRegex();
 
-	block$1.list = edit(block$1.list)
-	  .replace(/bull/g, block$1.bullet)
+	block.list = edit(block.list)
+	  .replace(/bull/g, block.bullet)
 	  .replace('hr', '\\n+(?=\\1?(?:(?:- *){3,}|(?:_ *){3,}|(?:\\* *){3,})(?:\\n+|$))')
-	  .replace('def', '\\n+(?=' + block$1.def.source + ')')
+	  .replace('def', '\\n+(?=' + block.def.source + ')')
 	  .getRegex();
 
-	block$1._tag = 'address|article|aside|base|basefont|blockquote|body|caption'
+	block._tag = 'address|article|aside|base|basefont|blockquote|body|caption'
 	  + '|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption'
 	  + '|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe'
 	  + '|legend|li|link|main|menu|menuitem|meta|nav|noframes|ol|optgroup|option'
 	  + '|p|param|section|source|summary|table|tbody|td|tfoot|th|thead|title|tr'
 	  + '|track|ul';
-	block$1._comment = /<!--(?!-?>)[\s\S]*?(?:-->|$)/;
-	block$1.html = edit(block$1.html, 'i')
-	  .replace('comment', block$1._comment)
-	  .replace('tag', block$1._tag)
+	block._comment = /<!--(?!-?>)[\s\S]*?(?:-->|$)/;
+	block.html = edit(block.html, 'i')
+	  .replace('comment', block._comment)
+	  .replace('tag', block._tag)
 	  .replace('attribute', / +[a-zA-Z:_][\w.:-]*(?: *= *"[^"\n]*"| *= *'[^'\n]*'| *= *[^\s"'=<>`]+)?/)
 	  .getRegex();
 
-	block$1.paragraph = edit(block$1._paragraph)
-	  .replace('hr', block$1.hr)
+	block.paragraph = edit(block._paragraph)
+	  .replace('hr', block.hr)
 	  .replace('heading', ' {0,3}#{1,6} ')
 	  .replace('|lheading', '') // setex headings don't interrupt commonmark paragraphs
 	  .replace('blockquote', ' {0,3}>')
 	  .replace('fences', ' {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n')
 	  .replace('list', ' {0,3}(?:[*+-]|1[.)]) ') // only lists starting from 1 can interrupt
 	  .replace('html', '</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)')
-	  .replace('tag', block$1._tag) // pars can be interrupted by type (6) html blocks
+	  .replace('tag', block._tag) // pars can be interrupted by type (6) html blocks
 	  .getRegex();
 
-	block$1.blockquote = edit(block$1.blockquote)
-	  .replace('paragraph', block$1.paragraph)
+	block.blockquote = edit(block.blockquote)
+	  .replace('paragraph', block.paragraph)
 	  .getRegex();
 
 	/**
 	 * Normal Block Grammar
 	 */
 
-	block$1.normal = merge$1({}, block$1);
+	block.normal = merge({}, block);
 
 	/**
 	 * GFM Block Grammar
 	 */
 
-	block$1.gfm = merge$1({}, block$1.normal, {
+	block.gfm = merge({}, block.normal, {
 	  table: '^ *([^\\n ].*\\|.*)\\n' // Header
-	    + ' {0,3}(?:\\| *)?(:?-+:? *(?:\\| *:?-+:? *)*)\\|?' // Align
-	    + '(?:\\n *((?:(?!\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)' // Cells
+	    + ' {0,3}(?:\\| *)?(:?-+:? *(?:\\| *:?-+:? *)*)(?:\\| *)?' // Align
+	    + '(?:\\n((?:(?! *\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)' // Cells
 	});
 
-	block$1.gfm.table = edit(block$1.gfm.table)
-	  .replace('hr', block$1.hr)
+	block.gfm.table = edit(block.gfm.table)
+	  .replace('hr', block.hr)
 	  .replace('heading', ' {0,3}#{1,6} ')
 	  .replace('blockquote', ' {0,3}>')
 	  .replace('code', ' {4}[^\\n]')
 	  .replace('fences', ' {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n')
 	  .replace('list', ' {0,3}(?:[*+-]|1[.)]) ') // only lists starting from 1 can interrupt
 	  .replace('html', '</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)')
-	  .replace('tag', block$1._tag) // tables can be interrupted by type (6) html blocks
+	  .replace('tag', block._tag) // tables can be interrupted by type (6) html blocks
 	  .getRegex();
 
 	/**
 	 * Pedantic grammar (original John Gruber's loose markdown specification)
 	 */
 
-	block$1.pedantic = merge$1({}, block$1.normal, {
+	block.pedantic = merge({}, block.normal, {
 	  html: edit(
 	    '^ *(?:comment *(?:\\n|\\s*$)'
 	    + '|<(tag)[\\s\\S]+?</\\1> *(?:\\n{2,}|\\s*$)' // closed tag
 	    + '|<tag(?:"[^"]*"|\'[^\']*\'|\\s[^\'"/>\\s]*)*?/?> *(?:\\n{2,}|\\s*$))')
-	    .replace('comment', block$1._comment)
+	    .replace('comment', block._comment)
 	    .replace(/tag/g, '(?!(?:'
 	      + 'a|em|strong|small|s|cite|q|dfn|abbr|data|time|code|var|samp|kbd|sub'
 	      + '|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo|span|br|wbr|ins|del|img)'
@@ -19139,10 +19105,10 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  def: /^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +(["(][^\n]+[")]))? *(?:\n+|$)/,
 	  heading: /^(#{1,6})(.*)(?:\n+|$)/,
 	  fences: noopTest, // fences not supported
-	  paragraph: edit(block$1.normal._paragraph)
-	    .replace('hr', block$1.hr)
+	  paragraph: edit(block.normal._paragraph)
+	    .replace('hr', block.hr)
 	    .replace('heading', ' *#{1,6} *[^\n]')
-	    .replace('lheading', block$1.lheading)
+	    .replace('lheading', block.lheading)
 	    .replace('blockquote', ' {0,3}>')
 	    .replace('|fences', '')
 	    .replace('|list', '')
@@ -19153,7 +19119,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	/**
 	 * Inline-Level Grammar
 	 */
-	const inline$1 = {
+	const inline = {
 	  escape: /^\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/,
 	  autolink: /^<(scheme:[^\s\x00-\x1f<>]*|email)>/,
 	  url: noopTest,
@@ -19170,9 +19136,9 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  emStrong: {
 	    lDelim: /^(?:\*+(?:([punct_])|[^\s*]))|^_+(?:([punct*])|([^\s_]))/,
 	    //        (1) and (2) can only be a Right Delimiter. (3) and (4) can only be Left.  (5) and (6) can be either Left or Right.
-	    //        () Skip other delimiter (1) #***                   (2) a***#, a***                   (3) #***a, ***a                 (4) ***#              (5) #***#                 (6) a***a
-	    rDelimAst: /\_\_[^_*]*?\*[^_*]*?\_\_|[punct_](\*+)(?=[\s]|$)|[^punct*_\s](\*+)(?=[punct_\s]|$)|[punct_\s](\*+)(?=[^punct*_\s])|[\s](\*+)(?=[punct_])|[punct_](\*+)(?=[punct_])|[^punct*_\s](\*+)(?=[^punct*_\s])/,
-	    rDelimUnd: /\*\*[^_*]*?\_[^_*]*?\*\*|[punct*](\_+)(?=[\s]|$)|[^punct*_\s](\_+)(?=[punct*\s]|$)|[punct*\s](\_+)(?=[^punct*_\s])|[\s](\_+)(?=[punct*])|[punct*](\_+)(?=[punct*])/ // ^- Not allowed for _
+	    //        () Skip orphan delim inside strong    (1) #***                (2) a***#, a***                   (3) #***a, ***a                 (4) ***#              (5) #***#                 (6) a***a
+	    rDelimAst: /^[^_*]*?\_\_[^_*]*?\*[^_*]*?(?=\_\_)|[punct_](\*+)(?=[\s]|$)|[^punct*_\s](\*+)(?=[punct_\s]|$)|[punct_\s](\*+)(?=[^punct*_\s])|[\s](\*+)(?=[punct_])|[punct_](\*+)(?=[punct_])|[^punct*_\s](\*+)(?=[^punct*_\s])/,
+	    rDelimUnd: /^[^_*]*?\*\*[^_*]*?\_[^_*]*?(?=\*\*)|[punct*](\_+)(?=[\s]|$)|[^punct*_\s](\_+)(?=[punct*\s]|$)|[punct*\s](\_+)(?=[^punct*_\s])|[\s](\_+)(?=[punct*])|[punct*](\_+)(?=[punct*])/ // ^- Not allowed for _
 	  },
 	  code: /^(`+)([^`]|[^`][\s\S]*?[^`])\1(?!`)/,
 	  br: /^( {2,}|\\)\n(?!\s*$)/,
@@ -19183,73 +19149,73 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	// list of punctuation marks from CommonMark spec
 	// without * and _ to handle the different emphasis markers * and _
-	inline$1._punctuation = '!"#$%&\'()+\\-.,/:;<=>?@\\[\\]`^{|}~';
-	inline$1.punctuation = edit(inline$1.punctuation).replace(/punctuation/g, inline$1._punctuation).getRegex();
+	inline._punctuation = '!"#$%&\'()+\\-.,/:;<=>?@\\[\\]`^{|}~';
+	inline.punctuation = edit(inline.punctuation).replace(/punctuation/g, inline._punctuation).getRegex();
 
 	// sequences em should skip over [title](link), `code`, <html>
-	inline$1.blockSkip = /\[[^\]]*?\]\([^\)]*?\)|`[^`]*?`|<[^>]*?>/g;
-	inline$1.escapedEmSt = /\\\*|\\_/g;
+	inline.blockSkip = /\[[^\]]*?\]\([^\)]*?\)|`[^`]*?`|<[^>]*?>/g;
+	inline.escapedEmSt = /\\\*|\\_/g;
 
-	inline$1._comment = edit(block$1._comment).replace('(?:-->|$)', '-->').getRegex();
+	inline._comment = edit(block._comment).replace('(?:-->|$)', '-->').getRegex();
 
-	inline$1.emStrong.lDelim = edit(inline$1.emStrong.lDelim)
-	  .replace(/punct/g, inline$1._punctuation)
+	inline.emStrong.lDelim = edit(inline.emStrong.lDelim)
+	  .replace(/punct/g, inline._punctuation)
 	  .getRegex();
 
-	inline$1.emStrong.rDelimAst = edit(inline$1.emStrong.rDelimAst, 'g')
-	  .replace(/punct/g, inline$1._punctuation)
+	inline.emStrong.rDelimAst = edit(inline.emStrong.rDelimAst, 'g')
+	  .replace(/punct/g, inline._punctuation)
 	  .getRegex();
 
-	inline$1.emStrong.rDelimUnd = edit(inline$1.emStrong.rDelimUnd, 'g')
-	  .replace(/punct/g, inline$1._punctuation)
+	inline.emStrong.rDelimUnd = edit(inline.emStrong.rDelimUnd, 'g')
+	  .replace(/punct/g, inline._punctuation)
 	  .getRegex();
 
-	inline$1._escapes = /\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/g;
+	inline._escapes = /\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/g;
 
-	inline$1._scheme = /[a-zA-Z][a-zA-Z0-9+.-]{1,31}/;
-	inline$1._email = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(@)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?![-_])/;
-	inline$1.autolink = edit(inline$1.autolink)
-	  .replace('scheme', inline$1._scheme)
-	  .replace('email', inline$1._email)
+	inline._scheme = /[a-zA-Z][a-zA-Z0-9+.-]{1,31}/;
+	inline._email = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(@)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?![-_])/;
+	inline.autolink = edit(inline.autolink)
+	  .replace('scheme', inline._scheme)
+	  .replace('email', inline._email)
 	  .getRegex();
 
-	inline$1._attribute = /\s+[a-zA-Z:_][\w.:-]*(?:\s*=\s*"[^"]*"|\s*=\s*'[^']*'|\s*=\s*[^\s"'=<>`]+)?/;
+	inline._attribute = /\s+[a-zA-Z:_][\w.:-]*(?:\s*=\s*"[^"]*"|\s*=\s*'[^']*'|\s*=\s*[^\s"'=<>`]+)?/;
 
-	inline$1.tag = edit(inline$1.tag)
-	  .replace('comment', inline$1._comment)
-	  .replace('attribute', inline$1._attribute)
+	inline.tag = edit(inline.tag)
+	  .replace('comment', inline._comment)
+	  .replace('attribute', inline._attribute)
 	  .getRegex();
 
-	inline$1._label = /(?:\[(?:\\.|[^\[\]\\])*\]|\\.|`[^`]*`|[^\[\]\\`])*?/;
-	inline$1._href = /<(?:\\.|[^\n<>\\])+>|[^\s\x00-\x1f]*/;
-	inline$1._title = /"(?:\\"?|[^"\\])*"|'(?:\\'?|[^'\\])*'|\((?:\\\)?|[^)\\])*\)/;
+	inline._label = /(?:\[(?:\\.|[^\[\]\\])*\]|\\.|`[^`]*`|[^\[\]\\`])*?/;
+	inline._href = /<(?:\\.|[^\n<>\\])+>|[^\s\x00-\x1f]*/;
+	inline._title = /"(?:\\"?|[^"\\])*"|'(?:\\'?|[^'\\])*'|\((?:\\\)?|[^)\\])*\)/;
 
-	inline$1.link = edit(inline$1.link)
-	  .replace('label', inline$1._label)
-	  .replace('href', inline$1._href)
-	  .replace('title', inline$1._title)
+	inline.link = edit(inline.link)
+	  .replace('label', inline._label)
+	  .replace('href', inline._href)
+	  .replace('title', inline._title)
 	  .getRegex();
 
-	inline$1.reflink = edit(inline$1.reflink)
-	  .replace('label', inline$1._label)
+	inline.reflink = edit(inline.reflink)
+	  .replace('label', inline._label)
 	  .getRegex();
 
-	inline$1.reflinkSearch = edit(inline$1.reflinkSearch, 'g')
-	  .replace('reflink', inline$1.reflink)
-	  .replace('nolink', inline$1.nolink)
+	inline.reflinkSearch = edit(inline.reflinkSearch, 'g')
+	  .replace('reflink', inline.reflink)
+	  .replace('nolink', inline.nolink)
 	  .getRegex();
 
 	/**
 	 * Normal Inline Grammar
 	 */
 
-	inline$1.normal = merge$1({}, inline$1);
+	inline.normal = merge({}, inline);
 
 	/**
 	 * Pedantic Inline Grammar
 	 */
 
-	inline$1.pedantic = merge$1({}, inline$1.normal, {
+	inline.pedantic = merge({}, inline.normal, {
 	  strong: {
 	    start: /^__|\*\*/,
 	    middle: /^__(?=\S)([\s\S]*?\S)__(?!_)|^\*\*(?=\S)([\s\S]*?\S)\*\*(?!\*)/,
@@ -19263,10 +19229,10 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    endUnd: /_(?!_)/g
 	  },
 	  link: edit(/^!?\[(label)\]\((.*?)\)/)
-	    .replace('label', inline$1._label)
+	    .replace('label', inline._label)
 	    .getRegex(),
 	  reflink: edit(/^!?\[(label)\]\s*\[([^\]]*)\]/)
-	    .replace('label', inline$1._label)
+	    .replace('label', inline._label)
 	    .getRegex()
 	});
 
@@ -19274,8 +19240,8 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	 * GFM Inline Grammar
 	 */
 
-	inline$1.gfm = merge$1({}, inline$1.normal, {
-	  escape: edit(inline$1.escape).replace('])', '~|])').getRegex(),
+	inline.gfm = merge({}, inline.normal, {
+	  escape: edit(inline.escape).replace('])', '~|])').getRegex(),
 	  _extended_email: /[A-Za-z0-9._+-]+(@)[a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]*[a-zA-Z0-9])+(?![-_])/,
 	  url: /^((?:ftp|https?):\/\/|www\.)(?:[a-zA-Z0-9\-]+\.?)+[^\s<]*|^email/,
 	  _backpedal: /(?:[^?!.,:;*_~()&]+|\([^)]*\)|&(?![a-zA-Z0-9]+;$)|[?!.,:;*_~)]+(?!$))+/,
@@ -19283,30 +19249,20 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  text: /^([`~]+|[^`~])(?:(?= {2,}\n)|(?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)|[\s\S]*?(?:(?=[\\<!\[`*~_]|\b_|https?:\/\/|ftp:\/\/|www\.|$)|[^ ](?= {2,}\n)|[^a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-](?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)))/
 	});
 
-	inline$1.gfm.url = edit(inline$1.gfm.url, 'i')
-	  .replace('email', inline$1.gfm._extended_email)
+	inline.gfm.url = edit(inline.gfm.url, 'i')
+	  .replace('email', inline.gfm._extended_email)
 	  .getRegex();
 	/**
 	 * GFM + Line Breaks Inline Grammar
 	 */
 
-	inline$1.breaks = merge$1({}, inline$1.gfm, {
-	  br: edit(inline$1.br).replace('{2,}', '*').getRegex(),
-	  text: edit(inline$1.gfm.text)
+	inline.breaks = merge({}, inline.gfm, {
+	  br: edit(inline.br).replace('{2,}', '*').getRegex(),
+	  text: edit(inline.gfm.text)
 	    .replace('\\b_', '\\b_| {2,}\\n')
 	    .replace(/\{2,\}/g, '*')
 	    .getRegex()
 	});
-
-	var rules = {
-	  block: block$1,
-	  inline: inline$1
-	};
-
-	const Tokenizer$1 = Tokenizer_1;
-	const { defaults: defaults$3 } = defaults$5.exports;
-	const { block, inline } = rules;
-	const { repeatString } = helpers;
 
 	/**
 	 * smartypants text replacement
@@ -19352,12 +19308,12 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	/**
 	 * Block Lexer
 	 */
-	var Lexer_1 = class Lexer {
+	let Lexer$1 = class Lexer {
 	  constructor(options) {
 	    this.tokens = [];
 	    this.tokens.links = Object.create(null);
-	    this.options = options || defaults$3;
-	    this.options.tokenizer = this.options.tokenizer || new Tokenizer$1();
+	    this.options = options || defaults;
+	    this.options.tokenizer = this.options.tokenizer || new Tokenizer();
 	    this.tokenizer = this.options.tokenizer;
 	    this.tokenizer.options = this.options;
 	    this.tokenizer.lexer = this;
@@ -19795,18 +19751,12 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  }
 	};
 
-	const { defaults: defaults$2 } = defaults$5.exports;
-	const {
-	  cleanUrl,
-	  escape: escape$1
-	} = helpers;
-
 	/**
 	 * Renderer
 	 */
-	var Renderer_1 = class Renderer {
+	class Renderer {
 	  constructor(options) {
-	    this.options = options || defaults$2;
+	    this.options = options || defaults;
 	  }
 
 	  code(code, infostring, escaped) {
@@ -19823,15 +19773,15 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	    if (!lang) {
 	      return '<pre><code>'
-	        + (escaped ? code : escape$1(code, true))
+	        + (escaped ? code : escape(code, true))
 	        + '</code></pre>\n';
 	    }
 
 	    return '<pre><code class="'
 	      + this.options.langPrefix
-	      + escape$1(lang, true)
+	      + escape(lang, true)
 	      + '">'
-	      + (escaped ? code : escape$1(code, true))
+	      + (escaped ? code : escape(code, true))
 	      + '</code></pre>\n';
 	  }
 
@@ -19935,7 +19885,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    if (href === null) {
 	      return text;
 	    }
-	    let out = '<a href="' + escape$1(href) + '"';
+	    let out = '<a href="' + escape(href) + '"';
 	    if (title) {
 	      out += ' title="' + title + '"';
 	    }
@@ -19960,14 +19910,13 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  text(text) {
 	    return text;
 	  }
-	};
+	}
 
 	/**
 	 * TextRenderer
 	 * returns only the textual part of the token
 	 */
-
-	var TextRenderer_1 = class TextRenderer {
+	class TextRenderer {
 	  // no need for block level renderers
 	  strong(text) {
 	    return text;
@@ -20004,13 +19953,12 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  br() {
 	    return '';
 	  }
-	};
+	}
 
 	/**
 	 * Slugger generates header id
 	 */
-
-	var Slugger_1 = class Slugger {
+	class Slugger {
 	  constructor() {
 	    this.seen = {};
 	  }
@@ -20055,27 +20003,19 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    const slug = this.serialize(value);
 	    return this.getNextSafeSlug(slug, options.dryrun);
 	  }
-	};
-
-	const Renderer$1 = Renderer_1;
-	const TextRenderer$1 = TextRenderer_1;
-	const Slugger$1 = Slugger_1;
-	const { defaults: defaults$1 } = defaults$5.exports;
-	const {
-	  unescape
-	} = helpers;
+	}
 
 	/**
 	 * Parsing & Compiling
 	 */
-	var Parser_1 = class Parser {
+	let Parser$1 = class Parser {
 	  constructor(options) {
-	    this.options = options || defaults$1;
-	    this.options.renderer = this.options.renderer || new Renderer$1();
+	    this.options = options || defaults;
+	    this.options.renderer = this.options.renderer || new Renderer();
 	    this.renderer = this.options.renderer;
 	    this.renderer.options = this.options;
-	    this.textRenderer = new TextRenderer$1();
-	    this.slugger = new Slugger$1();
+	    this.textRenderer = new TextRenderer();
+	    this.slugger = new Slugger();
 	  }
 
 	  /**
@@ -20344,23 +20284,6 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	  }
 	};
 
-	const Lexer$1 = Lexer_1;
-	const Parser$1 = Parser_1;
-	const Tokenizer = Tokenizer_1;
-	const Renderer = Renderer_1;
-	const TextRenderer = TextRenderer_1;
-	const Slugger = Slugger_1;
-	const {
-	  merge,
-	  checkSanitizeDeprecation,
-	  escape
-	} = helpers;
-	const {
-	  getDefaults,
-	  changeDefaults,
-	  defaults
-	} = defaults$5.exports;
-
 	/**
 	 * Marked
 	 */
@@ -20581,10 +20504,10 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    // ==-- Parse WalkTokens extensions --== //
 	    if (pack.walkTokens) {
 	      const walkTokens = marked.defaults.walkTokens;
-	      opts.walkTokens = (token) => {
+	      opts.walkTokens = function(token) {
 	        pack.walkTokens.call(this, token);
 	        if (walkTokens) {
-	          walkTokens(token);
+	          walkTokens.call(this, token);
 	        }
 	      };
 	    }
@@ -20603,7 +20526,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 
 	marked.walkTokens = function(tokens, callback) {
 	  for (const token of tokens) {
-	    callback(token);
+	    callback.call(marked, token);
 	    switch (token.type) {
 	      case 'table': {
 	        for (const cell of token.header) {
@@ -20669,23 +20592,23 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	/**
 	 * Expose
 	 */
-
 	marked.Parser = Parser$1;
 	marked.parser = Parser$1.parse;
-
 	marked.Renderer = Renderer;
 	marked.TextRenderer = TextRenderer;
-
 	marked.Lexer = Lexer$1;
 	marked.lexer = Lexer$1.lex;
-
 	marked.Tokenizer = Tokenizer;
-
 	marked.Slugger = Slugger;
-
 	marked.parse = marked;
 
-	var marked_1 = marked;
+	marked.options;
+	marked.setOptions;
+	marked.use;
+	marked.walkTokens;
+	marked.parseInline;
+	Parser$1.parse;
+	Lexer$1.lex;
 
 	const ALIAS = Symbol.for('yaml.alias');
 	const DOC = Symbol.for('yaml.document');
@@ -26861,7 +26784,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	        return text;
 	    },
 	};
-	marked_1.use({
+	marked.use({
 	    renderer: renderer,
 	    // type definition does not allow custom token type
 	    // @ts-ignore
@@ -26880,7 +26803,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    return new Quiz(questions, quizConfig);
 	}
 	function tokenize(rawQuizdown) {
-	    return marked_1.lexer(htmlDecode(stripIndent(rawQuizdown)));
+	    return marked.lexer(htmlDecode(stripIndent(rawQuizdown)));
 	}
 	function hasQuizOptions(tokens) {
 	    // type definition does not allow custom token types
@@ -26971,7 +26894,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    }
 	}
 	function parseTokens(tokens) {
-	    return purify.sanitize(marked_1.parser(tokens));
+	    return purify.sanitize(marked.parser(tokens));
 	}
 	function htmlDecode(text) {
 	    return text
@@ -27025,7 +26948,7 @@ Note: there are at least one loader still registered to this locale that wasn't 
 	    }
 	}
 	function getMarkedParser() {
-	    return marked_1;
+	    return marked;
 	}
 	let quizdown = {
 	    init,
