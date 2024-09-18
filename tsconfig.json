@@ -1,11 +1,20 @@
 {
-    "extends": "@tsconfig/svelte/tsconfig.json",
-    "allowSyntheticDefaultImports": true,
-    "compilerOptions": {
-        "resolveJsonModule": true,
-        "types": ["marked", "svelte"]
-    },
-
-    "include": ["src/**/*"],
-    "exclude": ["node_modules/*", "__sapper__/*", "public/*", "docs/*"]
+	"extends": "@tsconfig/svelte/tsconfig.json",
+	"allowSyntheticDefaultImports": true,
+	"compilerOptions": {
+		"resolveJsonModule": true,
+		"types": [
+			"marked",
+			"svelte"
+		]
+	},
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		"node_modules/*",
+		"__sapper__/*",
+		"public/*",
+		"docs/*"
+	]
 }

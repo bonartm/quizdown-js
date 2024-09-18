@@ -17,3 +17,5 @@
 .eslintcache
 dist/*.map
 .env
+
+/public/build

@@ -11,7 +11,7 @@
     export let n: number;
 
     // a mapping from quiz types to svelte components
-    let componentMap: Record<QuestionType, typeof SvelteComponent> = {
+    let componentMap: Record<QuestionType, typeof SvelteComponent<any>> = {
         Sequence: SequenceView,
         MultipleChoice: ChoiceView,
         SingleChoice: ChoiceView,
