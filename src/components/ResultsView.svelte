@@ -27,7 +27,7 @@
 
 <h3>{$_('resultsTitle')}</h3>
 <Loading ms="{waitTime}" minHeight="{150}">
-    <div in:fade="{{ duration: 1000 }}">
+    <div in:fade|global="{{ duration: 1000 }}">
         <h1>
             <Icon name="check-double" />
             {format(points)}/{format(quiz.questions.length)}

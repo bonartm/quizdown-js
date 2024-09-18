@@ -100,7 +100,7 @@
                         >
 
                         {#if $onLast || $allVisited}
-                            <div in:fly="{{ x: 200, duration: 500 }}">
+                            <div in:fly|global="{{ x: 200, duration: 500 }}">
                                 <Button
                                     disabled="{!($onLast || $allVisited) ||
                                         $onResults}"
