@@ -8,6 +8,7 @@ import typescript from '@rollup/plugin-typescript';
 import analyze from 'rollup-plugin-analyzer';
 import versionInjector from 'rollup-plugin-version-injector';
 import json from '@rollup/plugin-json';
+import * as child from 'child_process';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -21,7 +22,7 @@ function serve() {
     return {
         writeBundle() {
             if (server) return;
-            server = require('child_process').spawn(
+            server = child.spawn(
                 'npm',
                 ['run', 'start', '--', '--dev'],
                 {

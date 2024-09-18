@@ -1,4 +1,4 @@
-import { writable, get, Writable } from 'svelte/store';
+import { writable, get, type Writable } from 'svelte/store';
 import autoBind from 'auto-bind';
 import type { Config } from './config.js';
 
