@@ -23,6 +23,16 @@
             minimumIntegerDigits: 2,
         });
     }
+
+    let gradedPoints = quiz.evaluate();
+    let passed = false;
+    if (quiz.config.passingGrade != undefined) {
+      if( (Number(gradedPoints)/Number(quiz.questions.length) * 100) 
+           >= Number(quiz.config.passingGrade) ) {
+           passed = true;
+      }
+    }
+ 
 </script>
 
 <h3>{$_('resultsTitle')}</h3>
@@ -61,6 +71,14 @@
                     </ol>
                 </li>
             {/each}
+           <h2>
+             {#if passed == true}
+               {quiz.config.customPassMsg}
+             {/if}
+             {#if passed == false && quiz.config.passingGrade != undefined}
+               {quiz.config.customFailMsg} 
+             {/if}
+           </h2> 
         </ol>
     </div>
 </Loading>

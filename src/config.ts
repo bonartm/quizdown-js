@@ -26,6 +26,9 @@ export class Config {
     primaryColor: string;
     secondaryColor: string;
     textColor: string;
+    passingGrade: number | undefined;
+    customPassMsg: string;
+    customFailMsg: string;
     locale: 'de' | 'en' | 'es' | 'fr' | null;
     enableRetry: boolean;
 
@@ -41,6 +44,9 @@ export class Config {
         this.primaryColor = get(options['primaryColor'], 'steelblue');
         this.secondaryColor = get(options['secondaryColor'], '#f2f2f2');
         this.textColor = get(options['textColor'], 'black');
+        this.passingGrade = get(options['passingGrade'], undefined);
+        this.customPassMsg = get(options['customPassMsg'], 'You have passed!');
+        this.customFailMsg = get(options['customFailMsg'], 'You have not passed');
         this.locale = get(options['locale'], null);
         this.enableRetry = get(options['enableRetry'],true);
     }
