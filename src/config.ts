@@ -31,6 +31,7 @@ export class Config {
     customFailMsg: string;
     locale: 'de' | 'en' | 'es' | 'fr' | null;
     enableRetry: boolean;
+    customStyleSheet: string;
 
     constructor(options: Config | object) {
         // handle <=v0.3.0 snake_case options for backwards compatibility
@@ -49,6 +50,7 @@ export class Config {
         this.customFailMsg = get(options['customFailMsg'], 'You have not passed');
         this.locale = get(options['locale'], null);
         this.enableRetry = get(options['enableRetry'],true);
+        this.customStyleSheet = get(options['customStyleSheet'], 'customQuizdown.css');
     }
 }
 

@@ -42,6 +42,7 @@
     let node: HTMLElement;
     let minHeight = 150;
     let reloaded = false;
+    let customCssFile = ""
     // let showModal = false;
 
     // set global options
@@ -49,6 +50,7 @@
         let primaryColor: string = quiz.config.primaryColor;
         let secondaryColor: string = quiz.config.secondaryColor;
         let textColor: string = quiz.config.textColor;
+        customCssFile = quiz.config.customStyleSheet;
 
         node.style.setProperty('--quizdown-color-primary', primaryColor);
         node.style.setProperty('--quizdown-color-secondary', secondaryColor);
@@ -56,7 +58,7 @@
         node.style.minHeight = `${minHeight}px`;
     });
 </script>
-
+<link rel="stylesheet" href={customCssFile}>
 <div class="quizdown-content" bind:this="{node}">
     <Card>
         <ProgressBar value="{$index}" max="{quiz.questions.length - 1}" />

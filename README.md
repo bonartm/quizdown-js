@@ -20,8 +20,6 @@ quizdown is easy to setup and best used in combination with existing static site
 
 ### 📚 [Documentation](./docs/)
 
-
-
 ## Stand-alone Example
 
 Add the library to your website and initialize with default options:
@@ -81,7 +79,23 @@ Write questions within a `quizdown` class (edit in the [🚀quizdown editor](htt
 ...
 ```
 
+## Additional Options
 
+| Option | Type | Description | Default Value |
+| ------ | ---- | ----------- | --- |
+| startOnLoad | boolean | Parse the Quiz at loading | `True` | 
+| shuffleAnswers | boolean | Shuffle the answers | `True` |
+| shuffleQuestions | boolean | Shuffle the questions | `False` |
+| nQuestions | number | Number of questions | undefined |
+| primaryColor | string | Color of the progress bar | 'steelblue' |
+| secondaryColor | string | Background color of the selections  | '#f2f2f2' |
+| textColor | string | Color of the text | 'black' |
+| passingGrade | number | Number of points to success. | undefined |
+| customPassMsg | string | Success message. Only displayed if passingGrade is set and reached | 'You have passed' |
+| customFailMsg | string | Failure message. Only displayed if passingGrade is set and not passed | 'You have not passed' |
+| locale | string | Used language. Possible are 'de', 'en', 'es', 'fr' | null |
+| enableRetry | boolean | Enable Retry button | `True` | 
+| customStyleSheet | string | Add an own css file for style updating | 'customQuizdown.css' |
 
 ## Contributing
 
