@@ -81,7 +81,12 @@ Write questions within a `quizdown` class (edit in the [🚀quizdown editor](htt
 ...
 ```
 
-
+## Register a new language
+You can register a new language that is supported by highlight.js with 
+``` javascript
+// Parameters: name of the language, hljsDefineRobot-method
+quizdownHighlight.registerHljsLanguage("robot", hljsDefineRobot);
+```
 
 ## Contributing
 
