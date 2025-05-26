@@ -1,6 +1,6 @@
 {
     "name": "quizdown",
-    "version": "0.6.0",
+    "version": "0.7.0",
     "description": "Markdown for generating interactive quiz apps in the browser.",
     "private": false,
     "type": "module",
@@ -28,7 +28,7 @@
         "svelte",
         "markdown"
     ],
-    "author": "Malte Bonart",
+    "author": "cz-lucas",
     "license": "MIT",
     "devDependencies": {
         "@fortawesome/free-regular-svg-icons": "^5.15.3",
@@ -57,7 +57,7 @@
         "tslib": "^2.0.0",
         "typescript": "^3.9.3"
     },
-    "repository": "https://github.com/bonartm/quizdown-js",
+    "repository": "https://github.com/cz-lucas/quizdown-js/tree/main",
     "main": "public/build/quizdown.js",
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.35",
