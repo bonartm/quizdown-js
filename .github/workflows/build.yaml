@@ -6,18 +6,12 @@ name: Build
 
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
+  release:
+    types: [released]
 
 jobs:
   build:
-
-    on:
-      workflow_dispatch:
-      release:
-        types: [released]
 
 
     runs-on: ubuntu-latest
