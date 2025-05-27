@@ -1,5 +1,5 @@
 {
-    "name": "quizdown",
+    "name": "quizdown-custom-language",
     "version": "0.7.0",
     "description": "Markdown for generating interactive quiz apps in the browser.",
     "private": false,
