@@ -4,6 +4,7 @@
 
 name: Build
 
+
 on:
   push:
     branches: [ "main" ]
@@ -17,6 +18,7 @@ jobs:
       workflow_dispatch:
       release:
         types: [released]
+
 
     runs-on: ubuntu-latest
 
