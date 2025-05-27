@@ -21,6 +21,7 @@ jobs:
       contents: read
       id-token: write
 
+
     strategy:
       matrix:
         node-version: [24.x]
@@ -47,7 +48,9 @@ jobs:
         name: build-result
         path: public
         retention-days: 1
+
     - name: "Publish to npmjs"
       run: npm publish --provenance --access public
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
